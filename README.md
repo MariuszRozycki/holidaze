@@ -1,50 +1,96 @@
-# React + TypeScript + Vite
+# Holidaze - Accommodation Booking Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## **Overview**
 
-Currently, two official plugins are available:
+Holidaze is a modern front-end application for an accommodation booking platform. The project was developed as part of **Project Exam 2** for Noroff Front-end Development, aiming to showcase both visual and technical development skills. The application consists of two main sections:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Customer-facing website**: Users can browse, search, and book venues for their holidays.
+- **Admin-facing dashboard**: Venue managers can register, manage venues, and oversee bookings.
 
-## Expanding the ESLint configuration
+This project integrates with the existing Holidaze API for all backend functionality, focusing solely on the development of the front end.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## **Features**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### **Customer-Facing Features**
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- View a list of venues.
+- Search for venues by keyword.
+- View detailed information about a venue, including available dates via a calendar.
+- Register as a customer (requires `stud.noroff.no` email).
+- Create a booking at a venue (for registered customers).
+- View upcoming bookings.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### **Admin-Facing Features**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Register as a venue manager (requires `stud.noroff.no` email).
+- Create, update, and delete venues as a venue manager.
+- View bookings for a managed venue.
+
+### **Global Features**
+
+- User authentication:
+  - Login and logout functionality.
+  - Update user avatar.
+- Responsiveness and modern design for a seamless user experience.
+
+---
+
+## **Technical Specifications**
+
+### **Requirements**
+
+- **API**: Integration with the Holidaze API provided in the Noroff API documentation.
+- **Frameworks**: React (16+) for front-end development.
+- **CSS**: Bootstrap (5+) for styling and responsive design.
+- **Hosting**: Hosted on Netlify for live demos.
+- **Design Tools**: Adobe XD and Figma for prototyping and style guide creation.
+- **Planning Tools**: GitHub Projects for Kanban board and Trello for task management.
+
+---
+
+## **User Stories**
+
+1. Users can view a list of venues.
+2. Users can search for venues.
+3. Users can view venue details via a specific venue page.
+4. Users can view available dates for venues in a calendar.
+5. Users can register as customers (using `stud.noroff.no` email).
+6. Registered customers can:
+   - Create bookings at venues.
+   - View their upcoming bookings.
+7. Users can register as venue managers (using `stud.noroff.no` email).
+8. Registered venue managers can:
+   - Create, update, and delete their venues.
+   - View bookings for their venues.
+9. Users can log in, update their avatar, and log out.
+
+---
+
+## **Technical Restrictions**
+
+- **JavaScript Framework**: React (>16).
+- **CSS Framework**: Bootstrap (>5).
+- **Hosting**: Netlify or GitHub Pages.
+- **Design Tool**: Adobe XD or Figma.
+- **Planning Tool**: Trello or GitHub Projects.
+
+---
+
+## **Setup and Installation**
+
+To set up and run this project locally, follow these steps:
+
+### **Prerequisites**
+
+- Node.js (version 16 or higher).
+- npm (Node Package Manager).
+
+### **Steps**
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/MariuszRozycki/holidaze.git
+   cd holidaze
+   ```
