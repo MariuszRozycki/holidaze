@@ -216,9 +216,96 @@ describe("Example Test Suite", () => {
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "types": ["jest", "@testing-library/jest-dom"]
+    "types": ["jest", "@testing-library/jest-dom"],
+    "allowImportingTsExtensions": true
   },
   "include": ["src", "jest.setup.js"],
   "exclude": ["node_modules"]
 }
+```
+
+# create .github/workflow/ci-cd-pipeline.yaml
+
+```yaml
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # fetch code from repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # install Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      # install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # run tests
+      - name: Run tests
+        run: npm test
+
+      # build app
+      - name: Build project
+        run: npm run build
+```
+
+# create deploy.yaml (deploy to GitHub Pages)
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "dist"
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+```
+
+# Install react-router-dom
+
+```bash
+npm i react-router-dom
 ```

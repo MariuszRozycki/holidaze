@@ -6,4 +6,4 @@ type ButtonProps = {
   onClick: () => void;
 };
 
-export const Button: React.FC<ButtonProps> = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;
+export const ButtonToTest: React.FC<ButtonProps> = ({ label, onClick }) => <button onClick={onClick}>{label}</button>;
