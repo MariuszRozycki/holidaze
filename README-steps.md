@@ -303,3 +303,9 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
 ```
+
+# Install react-router-dom
+
+```bash
+npm i react-router-dom
+```
