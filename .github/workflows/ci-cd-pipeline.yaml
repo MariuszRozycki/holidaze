@@ -1,0 +1,53 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # fetch code from repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # install Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      # install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # run tests
+      - name: Run tests
+        run: npm test
+
+      # build app
+      - name: Build project
+        run: npm run build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      # fetch code from repo
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Deploy na GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
