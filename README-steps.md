@@ -216,7 +216,8 @@ describe("Example Test Suite", () => {
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "types": ["jest", "@testing-library/jest-dom"]
+    "types": ["jest", "@testing-library/jest-dom"],
+    "allowImportingTsExtensions": true
   },
   "include": ["src", "jest.setup.js"],
   "exclude": ["node_modules"]
@@ -262,21 +263,43 @@ jobs:
       # build app
       - name: Build project
         run: npm run build
+```
 
+# create deploy.yaml (deploy to GitHub Pages)
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
   deploy:
     runs-on: ubuntu-latest
-    needs: build-and-test
-    if: github.ref == 'refs/heads/master'
 
     steps:
-      # fetch code from repo
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Deploy na GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          path: "dist"
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
 ```
