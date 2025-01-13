@@ -1,10 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"; // upewnij się, że jest zaimportowany
-import { Button } from "../components/Button";
+import { ButtonToTest } from "../components/ButtonToTest";
 
 describe("Button Component", () => {
   test("renders the button with the correct label", () => {
-    render(<Button label='Click Me' onClick={() => {}} />);
+    render(<ButtonToTest label='Click Me' onClick={() => {}} />);
 
     // Sprawdź, czy przycisk wyświetla tekst "Click Me"
     const buttonElement = screen.getByText(/Click Me/i);
@@ -13,7 +13,7 @@ describe("Button Component", () => {
 
   test("calls onClick handler when clicked", () => {
     const handleClick = jest.fn();
-    render(<Button label='Click Me' onClick={handleClick} />);
+    render(<ButtonToTest label='Click Me' onClick={handleClick} />);
 
     // Kliknij przycisk
     const buttonElement = screen.getByText(/Click Me/i);
