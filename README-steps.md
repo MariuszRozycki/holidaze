@@ -1,46 +1,46 @@
-1. # Create new project by Vite
+# Create new project by Vite
 
 ```bash
 npm create vite@latest holidaze-noroff --template react-ts
 ```
 
-2. # Go to holidaze directory
+# Go to holidaze directory
 
 ```bash
 cd holidaze-noroff
 ```
 
-3. # Install dependencies
+# Install dependencies
 
 ```bash
 npm install
 ```
 
-4. # Install SASS
+# Install SASS
 
 ```bash
 npm install sass
 ```
 
-5. # Add Bootstrap & React Bootstrap
+# Add Bootstrap & React Bootstrap
 
 ```bash
 npm install bootstrap react-bootstrap
 ```
 
-6. # Add Bootstrap CSS to main.tsx
+# Add Bootstrap CSS to main.tsx
 
 ```javascript
 import "bootstrap/dist/css/bootstrap.min.css";
 ```
 
-7. # Install plugin ESLint for TSDoc support
+# Install plugin ESLint for TSDoc support
 
 ```bash
 npm install eslint-plugin-tsdoc --save-dev
 ```
 
-8. # Update eslint.config.js
+# Update eslint.config.js
 
 ```javascript
 import js from "@eslint/js";
@@ -73,14 +73,14 @@ export default tseslint.config(
 );
 ```
 
-9. # Install TypeDoc
+# Install TypeDoc
 
 ```bash
 npm install typedoc --save-dev
 
 ```
 
-10. # Add scripts to package.json
+# Add scripts to package.json
 
 ```json
 "scripts": {
@@ -88,19 +88,19 @@ npm install typedoc --save-dev
   },
 ```
 
-11. # Install http-server
+# Install http-server
 
 ```bash
 npm install http-server --save-dev
 ```
 
-12. # Run TSDoc
+# Run TSDoc
 
 ```bash
 npm run docs
 ```
 
-13. # Add scripts to package.json
+# Add scripts to package.json
 
 ```json
 "scripts": {
@@ -108,8 +108,117 @@ npm run docs
 }
 ```
 
-14. # Run http-server
+# Run http-server
 
 ```bash
 npm run serve-docs
+```
+
+# Install Jest in project
+
+```bash
+npm install --save-dev jest @types/jest ts-jest babel-jest @babel/preset-env @babel/preset-react @babel/preset-typescript
+
+```
+
+# Create file (if not exists) babel.config.cjs
+
+```javascript
+module.exports = {
+  presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
+};
+```
+
+# Add scripts to package.json
+
+```json
+  "scripts": {
+    "test": "jest"
+  },
+```
+
+# Create jest.config.cjs
+
+```javascript
+module.exports = {
+  preset: "ts-jest",
+  testEnvironment: "jest-environment-jsdom",
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  moduleNameMapper: {
+    "\\.(css|scss)$": "identity-obj-proxy",
+  },
+  transform: {
+    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(js|jsx)$": "babel-jest",
+  },
+};
+```
+
+# Install React Testing Library
+
+```bash
+npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
+```
+
+# Create jest.setup.js
+
+```javascript
+import "@testing-library/jest-dom";
+```
+
+# Install jest-environment-jsdom
+
+```bash
+npm install --save-dev jest-environment-jsdom
+
+```
+
+# Install Testing Library
+
+```bash
+npm install --save-dev @testing-library/jest-dom
+```
+
+# Install types for Testing Library
+
+```bash
+npm install --save-dev @types/testing-library__jest-dom
+npm install --save-dev @types/jest @testing-library/jest-dom
+npm install --save-dev @testing-library/jest-dom @types/jest
+
+```
+
+# Create directory and file src/**tests**/example.test.ts
+
+```javascript
+describe("Example Test Suite", () => {
+  test("Example Test Case", () => {
+    expect(1 + 1).toBe(2);
+  });
+});
+```
+
+# file tsconfig.json must contain code:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "types": ["jest", "@testing-library/jest-dom"]
+  },
+  "include": ["src", "jest.setup.js"],
+  "exclude": ["node_modules"]
+}
 ```
