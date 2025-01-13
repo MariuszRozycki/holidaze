@@ -1,12 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Run this workflow when code is pushed to the master branch
-  push:
-    branches: [master]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["CI/CD Pipeline"]
+    types:
+      - completed
 
 # Sets permissions needed for GitHub Pages
 permissions:
