@@ -1,6 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
-import { MainLayout } from "../layouts";
-import { UnauthenticatedHomePage, LoginAs, SignUp, About, Contact } from "../pages";
+import { MainLayout, UserLayout } from "../layouts";
+import {
+  UnauthenticatedHomePage,
+  LoginAs,
+  LoginAsUser,
+  SignUp,
+  SignUpAsCustomer,
+  SignUpCustomerRegConfirm,
+  SignUpAsManager,
+  SignUpManagerRegConfirm,
+  About,
+  Contact,
+  // Logged user
+  LoggedUserHomePage,
+} from "../pages";
 
 const router = createBrowserRouter([
   {
@@ -8,7 +21,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: "/holidaze/",
+        path: "",
         element: <UnauthenticatedHomePage />,
       },
       {
@@ -16,8 +29,28 @@ const router = createBrowserRouter([
         element: <LoginAs />,
       },
       {
+        path: "login-as-user",
+        element: <LoginAsUser />,
+      },
+      {
         path: "sign-up-as",
         element: <SignUp />,
+      },
+      {
+        path: "sign-up-as-customer",
+        element: <SignUpAsCustomer />,
+      },
+      {
+        path: "sign-up-customer-reg-conf",
+        element: <SignUpCustomerRegConfirm />,
+      },
+      {
+        path: "sign-up-as-manager",
+        element: <SignUpAsManager />,
+      },
+      {
+        path: "sign-up-manager-reg-conf",
+        element: <SignUpManagerRegConfirm />,
       },
       {
         path: "about",
@@ -26,6 +59,16 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+    ],
+  },
+  {
+    path: "/holidaze/user/",
+    element: <UserLayout />,
+    children: [
+      {
+        path: "logged-user-home-page",
+        element: <LoggedUserHomePage />,
       },
     ],
   },
