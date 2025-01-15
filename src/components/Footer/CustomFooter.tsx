@@ -2,10 +2,10 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const CustomFooter: React.FC = () => {
   return (
-    <footer className='text-center text-lg-start text-muted mt-5'>
+    <footer className='text-center text-muted mt-5'>
       {/* Main footer content */}
       <section className='pt-1' style={{ backgroundColor: "rgba(0, 0, 0, 0.1)" }}>
-        <Container className='text-center text-md-start pt-1'>
+        <Container className='text-center pt-1'>
           <Row className='mt-3'>
             {/* Contact */}
             <Col md={4} className='mx-auto mb-md-0 mb-4'>
