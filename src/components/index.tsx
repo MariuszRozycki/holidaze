@@ -1,4 +1,21 @@
-import CustomHeader from "./Header/CustomHeader";
+import HeaderMainLayout from "./Header/HeaderMainLayout";
+import HeaderUserLayout from "./Header/HeaderUserLayout";
+import HeaderVenueManagerLayout from "./Header/HeaderVenueManagerLayout";
 import CustomFooter from "./Footer/CustomFooter";
+import SearchBar from "./SearchBar/SearchBar";
+import { HeadingH1 } from "./Headings";
+import { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton } from "./Buttons";
 
-export { CustomHeader, CustomFooter };
+export {
+  HeaderMainLayout,
+  HeaderUserLayout,
+  HeaderVenueManagerLayout,
+  CustomFooter,
+  SearchBar,
+  CustomButton,
+  GoBackButton,
+  SignUpButton,
+  LogInButton,
+  GoToMainPageButton,
+  HeadingH1,
+};
