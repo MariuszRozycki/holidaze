@@ -5,6 +5,6 @@ const HeaderMainLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
   return <NavMainLayout ref={headerRef} />;
 });
 
-HeaderMainLayout.displayName = "CustomHeader";
+HeaderMainLayout.displayName = "HeaderMainLayout";
 
 export default HeaderMainLayout;

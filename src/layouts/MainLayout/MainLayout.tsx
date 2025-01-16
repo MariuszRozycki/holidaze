@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { CustomHeader, CustomFooter } from "../../components";
+import { HeaderMainLayout, CustomFooter } from "../../components";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
@@ -7,7 +7,7 @@ const MainLayout = () => {
 
   return (
     <>
-      <CustomHeader ref={headerRef} />
+      <HeaderMainLayout ref={headerRef} />
       <Outlet />
       <CustomFooter />
     </>
