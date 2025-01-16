@@ -13,15 +13,21 @@ import {
   About,
   Contact,
   PageNotExists,
-  VenueManagerHomePage,
-  // Logged user
+  VenueManagerAdminPanel,
+
+  /* Logged user */
   LoggedUserHomePage,
+
+  /* Register new venue */
+  RegisterNewVenue,
+  MyVenues,
+  MyVenuesBookings,
 } from "../pages";
 
 const router = createBrowserRouter([
   {
     path: "/holidaze/",
-    element: <MainLayout />,
+    element: <MainLayout />, // Main Layout
     children: [
       {
         path: "",
@@ -75,7 +81,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/holidaze/user/",
-    element: <UserLayout />,
+    element: <UserLayout />, // User Layout
     children: [
       {
         path: "logged-user-home-page",
@@ -97,11 +103,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/holidaze/venue-manager/",
-    element: <VenueManagerLayout />,
+    element: <VenueManagerLayout />, // Venue Manager Layout
     children: [
       {
         path: "venue-manager-home-page",
-        element: <VenueManagerHomePage />,
+        element: <VenueManagerAdminPanel />,
+      },
+      {
+        path: "register-new-venue",
+        element: <RegisterNewVenue />,
+      },
+      {
+        path: "my-venues",
+        element: <MyVenues />,
+      },
+      {
+        path: "my-venues-bookings",
+        element: <MyVenuesBookings />,
       },
       {
         path: "*",

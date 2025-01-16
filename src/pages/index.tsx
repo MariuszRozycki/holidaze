@@ -13,7 +13,12 @@ import PageNotExists from "./PageNotExists/PageNotExists";
 
 /* Logged User */
 import LoggedUserHomePage from "./LoggedUser/LoggedUserHomePage";
-import VenueManagerHomePage from "./VenueManager/VenueManagerHomePage";
+
+/* Venue manager */
+import VenueManagerAdminPanel from "./VenueManager/VenueManagerAdminPanel";
+import RegisterNewVenue from "./VenueManager/RegisterNewVenue";
+import MyVenues from "./VenueManager/MyVenues";
+import MyVenuesBookings from "./VenueManager/MyVenuesBookings";
 
 export {
   UnauthenticatedHomePage,
@@ -31,5 +36,10 @@ export {
 
   /* Logged User */
   LoggedUserHomePage,
-  VenueManagerHomePage,
+
+  /* Venue manager */
+  VenueManagerAdminPanel,
+  RegisterNewVenue,
+  MyVenues,
+  MyVenuesBookings,
 };
