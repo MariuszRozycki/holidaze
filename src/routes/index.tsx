@@ -95,6 +95,10 @@ const router = createBrowserRouter([
         path: "venue-manager-home-page",
         element: <VenueManagerHomePage />,
       },
+      {
+        path: "*",
+        element: <PageNotExists />,
+      },
     ],
   },
 ]);

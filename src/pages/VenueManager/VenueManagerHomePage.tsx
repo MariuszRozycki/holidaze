@@ -1,11 +1,11 @@
-import { Component } from "react";
+import { Container } from "react-bootstrap";
 import { HeadingH1 } from "../../components";
 
 const VenueManagerHomePage = () => {
   return (
-    <Component>
-      <HeadingH1>Venue Manager Home Page</HeadingH1>
-    </Component>
+    <Container>
+      <HeadingH1>You are at: Venue Manager Home Page</HeadingH1>
+    </Container>
   );
 };
 

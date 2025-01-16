@@ -37,7 +37,7 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
                   Home
                 </Nav.Link>
                 <Nav.Link as={NavLink} to='login-as' onClick={handleNavLinkClick}>
-                  Login out
+                  Log out
                 </Nav.Link>
                 <Nav.Link as={NavLink} to='about' onClick={handleNavLinkClick}>
                   About
