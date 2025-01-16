@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
-import { MainLayout, UserLayout } from "../layouts";
+import { MainLayout, UserLayout, VenueManagerLayout } from "../layouts";
 import {
   UnauthenticatedHomePage,
   LoginAs,
   LoginAsUser,
+  LoginAsManager,
   SignUp,
   SignUpAsCustomer,
   SignUpCustomerRegConfirm,
@@ -11,6 +12,8 @@ import {
   SignUpManagerRegConfirm,
   About,
   Contact,
+  PageNotExists,
+  VenueManagerHomePage,
   // Logged user
   LoggedUserHomePage,
 } from "../pages";
@@ -31,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "login-as-user",
         element: <LoginAsUser />,
+      },
+      {
+        path: "login-as-manager",
+        element: <LoginAsManager />,
       },
       {
         path: "sign-up-as",
@@ -60,6 +67,10 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
+      {
+        path: "*",
+        element: <PageNotExists />,
+      },
     ],
   },
   {
@@ -69,6 +80,24 @@ const router = createBrowserRouter([
       {
         path: "logged-user-home-page",
         element: <LoggedUserHomePage />,
+      },
+      {
+        path: "*",
+        element: <PageNotExists />,
+      },
+    ],
+  },
+  {
+    path: "/holidaze/venue-manager/",
+    element: <VenueManagerLayout />,
+    children: [
+      {
+        path: "venue-manager-home-page",
+        element: <VenueManagerHomePage />,
+      },
+      {
+        path: "*",
+        element: <PageNotExists />,
       },
     ],
   },

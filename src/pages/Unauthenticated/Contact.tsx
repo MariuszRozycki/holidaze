@@ -1,9 +1,10 @@
 import { Container } from "react-bootstrap";
+import { HeadingH1 } from "../../components";
 
 const Contact = () => {
   return (
     <Container>
-      <h1>Contact</h1>
+      <HeadingH1>Contact</HeadingH1>
     </Container>
   );
 };

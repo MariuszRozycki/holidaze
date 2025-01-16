@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { GoBackButton, LogInButton } from "../../components";
+import { GoBackButton, LogInButton, HeadingH1 } from "../../components";
 import { useNavigateToElement } from "../../hooks";
 
 const SignUpManagerRegConfirm = () => {
@@ -9,7 +9,7 @@ const SignUpManagerRegConfirm = () => {
   return (
     <Container>
       <GoBackButton />
-      <h1>Great!</h1>
+      <HeadingH1>Great!</HeadingH1>
       <p>You are register as a new manager!</p>
       <LogInButton btnText='Log in!' onClick={handleUseNavigate} />
     </Container>
