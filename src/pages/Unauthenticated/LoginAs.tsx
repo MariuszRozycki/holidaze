@@ -6,7 +6,7 @@ const LoginAs = () => {
   return (
     <Container>
       <HeadingH1>Login as...</HeadingH1>
-      <Link to='/holidaze/login-as-customer'>...as a customer</Link> <br />
+      <Link to='/holidaze/login-as-user'>...as a customer</Link> <br />
       <Link to='/holidaze/login-as-manager'>...as a venue manager</Link>
     </Container>
   );

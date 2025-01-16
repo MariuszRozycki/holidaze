@@ -3,7 +3,7 @@ import { useNavigateToElement } from "../../hooks";
 import { HeadingH1, LogInButton } from "../../components";
 
 const LoginAsManager = () => {
-  const locationPath = "/holidaze/user/logged-manager-home-page";
+  const locationPath = "/holidaze/venue-manager/venue-manager-home-page";
   const handleNavigate = useNavigateToElement({ locationPath });
 
   return (
