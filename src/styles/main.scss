@@ -1,3 +1,4 @@
+@use "sass:meta";
 $primary-color: #007bff;
 
 body {
@@ -6,4 +7,4 @@ body {
   color: $primary-color;
 }
 
-@import "responsive-widths";
+@include meta.load-css("responsive-widths");

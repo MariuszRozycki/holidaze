@@ -1,5 +1,5 @@
 import { Container, Form } from "react-bootstrap";
-import { LogInButton } from "../../components";
+import { LogInButton, HeadingH1 } from "../../components";
 import { useNavigateToElement } from "../../hooks";
 
 const LoginAsUser = () => {
@@ -8,8 +8,7 @@ const LoginAsUser = () => {
 
   return (
     <Container>
-      <h1>Login as a User</h1>
-
+      <HeadingH1>Login as a User</HeadingH1>
       <Form>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
           <Form.Control type='email' placeholder='Enter email' />

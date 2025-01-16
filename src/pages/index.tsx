@@ -8,6 +8,7 @@ import SignUpAsManager from "./Unauthenticated/SignUpAsManager";
 import SignUpManagerRegConfirm from "./Unauthenticated/SignUpManagerRegConfirm";
 import About from "./Unauthenticated/About";
 import Contact from "./Unauthenticated/Contact";
+import PageNotExists from "./PageNotExists/PageNotExists";
 
 /* Logged User */
 import LoggedUserHomePage from "./LoggedUser/LoggedUserHomePage";
@@ -23,6 +24,7 @@ export {
   SignUpCustomerRegConfirm,
   SignUpAsManager,
   SignUpManagerRegConfirm,
+  PageNotExists,
   // Logged User
   LoggedUserHomePage,
 };

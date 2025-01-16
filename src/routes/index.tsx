@@ -11,6 +11,7 @@ import {
   SignUpManagerRegConfirm,
   About,
   Contact,
+  PageNotExists,
   // Logged user
   LoggedUserHomePage,
 } from "../pages";
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
+      {
+        path: "*",
+        element: <PageNotExists />,
+      },
     ],
   },
   {
@@ -69,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "logged-user-home-page",
         element: <LoggedUserHomePage />,
+      },
+      {
+        path: "*",
+        element: <PageNotExists />,
       },
     ],
   },
