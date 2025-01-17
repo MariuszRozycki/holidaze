@@ -4,7 +4,7 @@ import HeaderVenueManagerLayout from "./Header/HeaderVenueManagerLayout";
 import CustomFooter from "./Footer/CustomFooter";
 import SearchBar from "./SearchBar/SearchBar";
 import { HeadingH1 } from "./Headings";
-import { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton } from "./Buttons";
+import { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton, ReactToggleButtons } from "./Buttons";
 
 export {
   HeaderMainLayout,
@@ -14,6 +14,7 @@ export {
   SearchBar,
   CustomButton,
   GoBackButton,
+  ReactToggleButtons,
   SignUpButton,
   LogInButton,
   GoToMainPageButton,
