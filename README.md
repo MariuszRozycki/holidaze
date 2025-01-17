@@ -39,7 +39,7 @@ This project integrates with the Holidaze API for backend functionality, focusin
 
 ### Completed Technologies:
 
-- **Frontend**: HTML, SCSS, CSS, React, and TypeScript.
+- **Frontend**: React, React-Router-Dom, TypeScript, HTML, SCSS, CSS, SASS, Bootstrap and React-Bootstrap.
 - **Backend API**: Integration with Holidaze API (Noroff).
 - **Hosting**: GitHub Pages.
 - **Testing**: Jest (for unit testing).
