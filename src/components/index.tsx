@@ -3,6 +3,7 @@ import HeaderUserLayout from "./Header/HeaderUserLayout";
 import HeaderVenueManagerLayout from "./Header/HeaderVenueManagerLayout";
 import CustomFooter from "./Footer/CustomFooter";
 import SearchBar from "./SearchBar/SearchBar";
+import CustomCard from "./Card/CustomCard";
 import { HeadingH1 } from "./Headings";
 import { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton, ReactToggleButtons } from "./Buttons";
 
@@ -19,4 +20,5 @@ export {
   LogInButton,
   GoToMainPageButton,
   HeadingH1,
+  CustomCard,
 };
