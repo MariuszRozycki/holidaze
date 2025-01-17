@@ -17,6 +17,7 @@ import LoggedUserHomePage from "./LoggedUser/LoggedUserHomePage";
 /* Venue manager */
 import VenueManagerAdminPanel from "./VenueManager/VenueManagerAdminPanel";
 import RegisterNewVenue from "./VenueManager/RegisterNewVenue";
+import NewVenueRegistered from "./VenueManager/NewVenueRegistered";
 import MyVenues from "./VenueManager/MyVenues";
 import MyVenuesBookings from "./VenueManager/MyVenuesBookings";
 
@@ -40,6 +41,7 @@ export {
   /* Venue manager */
   VenueManagerAdminPanel,
   RegisterNewVenue,
+  NewVenueRegistered,
   MyVenues,
   MyVenuesBookings,
 };

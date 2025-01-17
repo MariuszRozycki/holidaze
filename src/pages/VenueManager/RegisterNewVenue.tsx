@@ -3,7 +3,7 @@ import { HeadingH1, SignUpButton, ReactToggleButtons } from "../../components";
 import { useNavigateToElement, useReactToggleButtons } from "../../hooks";
 
 const RegisterNewVenue = () => {
-  const locationPath = "#";
+  const locationPath = "/holidaze/venue-manager/new-venue-registered";
   const handleNavigate = useNavigateToElement({ locationPath });
 
   const { formValues, handleToggleChange } = useReactToggleButtons();
