@@ -12,6 +12,7 @@ import {
   Contact,
   PageNotExists,
   UserSearchResults,
+  VenueByIdPage,
 } from "../pages";
 
 const mainRoutes = [
@@ -62,6 +63,10 @@ const mainRoutes = [
   {
     path: "search",
     element: <UserSearchResults />,
+  },
+  {
+    path: "venue-by-id/:id",
+    element: <VenueByIdPage />,
   },
   {
     path: "*",

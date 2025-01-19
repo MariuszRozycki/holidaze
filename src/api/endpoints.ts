@@ -12,4 +12,5 @@ export const ENDPOINTS = {
     return url;
   },
   searchVenues: (query: string) => `${API_BASE_URL}/holidaze/venues/search?q=${encodeURIComponent(query)}`,
+  venuesById: (id: string) => `${API_BASE_URL}/holidaze/venues/${id}`,
 };
