@@ -6,6 +6,7 @@ import CustomCard from "./Card/CustomCard";
 import Pagination from "./Pagination/Pagination";
 import SortOptions from "./SortOptions/SortOptions";
 import SearchBar from "./SearchBar/SearchBar";
+import RenderVenueList from "./Render/RenderVenueList";
 import { HeadingH1 } from "./Headings";
 import { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton, ReactToggleButtons } from "./Buttons";
 
@@ -25,4 +26,5 @@ export {
   Pagination,
   SortOptions,
   SearchBar,
+  RenderVenueList,
 };

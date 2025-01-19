@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useKeyPress } from "../useKeyPress/useKeyPress";
 
 export const useGoBack = () => {
   const navigate = useNavigate();
@@ -7,6 +8,8 @@ export const useGoBack = () => {
     e.preventDefault();
     navigate(-1);
   };
+
+  useKeyPress("Backspace", () => navigate(-1));
 
   return handleGoBack;
 };
