@@ -7,6 +7,7 @@ import Pagination from "./Pagination/Pagination";
 import SortOptions from "./SortOptions/SortOptions";
 import SearchBar from "./SearchBar/SearchBar";
 import RenderVenueList from "./Render/RenderVenueList";
+import RenderVenueById from "./Render/RenderVenueById";
 import { HeadingH1 } from "./Headings";
 import { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton, ReactToggleButtons } from "./Buttons";
 
@@ -27,4 +28,5 @@ export {
   SortOptions,
   SearchBar,
   RenderVenueList,
+  RenderVenueById,
 };

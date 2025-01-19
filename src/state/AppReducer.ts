@@ -10,10 +10,12 @@ export type Action =
   | { type: "SET_SEARCH_QUERY"; payload: string }
   | { type: "SEARCH_VENUES_START" }
   | { type: "SEARCH_VENUES_SUCCESS"; payload: Venue[] }
-  | { type: "SEARCH_VENUES_ERROR"; payload: string };
+  | { type: "SEARCH_VENUES_ERROR"; payload: string }
+  | { type: "FETCH_VENUE_DETAILS_SUCCESS"; payload: Venue };
 
 export interface AppState {
   venues: Venue[];
+  selectedVenue: Venue | null;
   meta: Meta | null;
   isLoading: boolean;
   error: string | null;
@@ -26,6 +28,7 @@ export interface AppState {
 
 export const initialState: AppState = {
   venues: [],
+  selectedVenue: null,
   meta: null,
   isLoading: false,
   error: null,
@@ -63,6 +66,9 @@ export function appReducer(state: AppState, action: Action): AppState {
       return { ...state, isSearching: false, venues: action.payload };
     case "SEARCH_VENUES_ERROR":
       return { ...state, isSearching: false, error: action.payload };
+    case "FETCH_VENUE_DETAILS_SUCCESS":
+      return { ...state, isLoading: false, selectedVenue: action.payload };
+
     default:
       throw new Error(`Unhandled action type: ${(action as Action).type}`);
   }
