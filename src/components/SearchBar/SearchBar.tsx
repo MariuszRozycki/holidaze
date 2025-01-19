@@ -1,24 +1,35 @@
-import { Container, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useState } from "react";
+import { useAppContext } from "../../context/app/useAppContext";
 
-interface SearchBarProps {
-  handleClose: () => void;
-}
+const SearchBar: React.FC = () => {
+  const { dispatch } = useAppContext();
+  const [inputValue, setInputValue] = useState("");
 
-const SearchBar = ({ handleClose }: SearchBarProps) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSearch = () => {
+    if (inputValue.trim() !== "") {
+      dispatch({ type: "SET_SEARCH_QUERY", payload: inputValue.trim() });
+    } else {
+      console.warn("Search query is empty");
+    }
+  };
+
   return (
-    <Container>
-      <OverlayTrigger placement='bottom' overlay={<Tooltip id='tooltip-search'>Wpisz miejsce wycieczki</Tooltip>}>
-        <Form
-          className='d-flex w-md-25'
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleClose();
-          }}
-        >
-          <Form.Control type='search' placeholder='Search for...' className='me-2' aria-label='Search' />
-        </Form>
-      </OverlayTrigger>
-    </Container>
+    <div className='search-bar bg-secondary mb-3 d-flex py-2 px-3 rounded-3'>
+      <input
+        type='text'
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder='Search for venues...'
+        className='form-control me-2'
+      />
+      <button onClick={handleSearch} className='btn btn-primary ms-2'>
+        Search
+      </button>
+    </div>
   );
 };
 
