@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import {
   handleImageError,
@@ -23,9 +24,15 @@ type CustomCardProps = {
 const CustomCard = ({ venue }: CustomCardProps) => {
   const elementRef = useRef(null);
   const containerWidth = useElementWidth(elementRef);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    console.log(venue.id);
+    navigate(`/holidaze/venue-by-id/${venue.id}`);
+  };
 
   return (
-    <Card className='w-100 rounded-4 position-relative'>
+    <Card className='w-100 rounded-4 position-relative' onClick={handleClick}>
       <Card.Img
         className='card-by-offers-type object-fit-cover rounded-4 rounded-bottom-0 swiper-lazy'
         variant='top'
