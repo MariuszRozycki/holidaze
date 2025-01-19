@@ -30,7 +30,7 @@ export const initialState: AppState = {
   isLoading: false,
   error: null,
   currentPage: 1,
-  sort: "",
+  sort: "created",
   sortOrder: "",
   isSearching: false,
   searchQuery: "",

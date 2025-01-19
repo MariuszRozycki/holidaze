@@ -5,15 +5,9 @@ import { Row, Col, InputGroup } from "react-bootstrap";
 import "./SortOptions.scss";
 
 const sortOptions = [
-  { value: "created", label: "Newest" },
+  { value: "created", label: "Venues list" },
   { value: "price", label: "Price" },
   { value: "rating", label: "Rating" },
-];
-
-const orderOptions = [
-  { value: "", label: "Default" },
-  { value: "asc", label: "Ascending" },
-  { value: "desc", label: "Descending" },
 ];
 
 const SortOptions: React.FC = () => {
@@ -21,6 +15,33 @@ const SortOptions: React.FC = () => {
   const { sort, sortOrder } = state;
 
   const currentSortOption = sortOptions.find((option) => option.value === sort);
+
+  const getOrderOptions = () => {
+    switch (sort) {
+      case "created":
+        return [
+          { value: "", label: "Default" },
+          { value: "asc", label: "Oldest" },
+          { value: "desc", label: "Newest" },
+        ];
+      case "price":
+        return [
+          { value: "", label: "Default" },
+          { value: "asc", label: "Lowest Price" },
+          { value: "desc", label: "Highest Price" },
+        ];
+      case "rating":
+        return [
+          { value: "", label: "Default" },
+          { value: "asc", label: "Lowest Rating" },
+          { value: "desc", label: "Highest Rating" },
+        ];
+      default:
+        return [{ value: "", label: "Default" }];
+    }
+  };
+
+  const orderOptions = getOrderOptions();
 
   const currentOrderOption = orderOptions.find((option) => option.value === sortOrder);
 
