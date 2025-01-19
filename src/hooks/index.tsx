@@ -4,5 +4,6 @@ import { useReactToggleButtons } from "./useReactToggleButtons/useReactToggleBut
 import { useFetchData } from "./useFetchData/useFetchData";
 import { useElementWidth } from "./useElementWidth/useElementWidth";
 import { useSearchVenues } from "./useSearchVenues/useSearchVenues";
+import { useKeyPress } from "./useKeyPress/useKeyPress";
 
-export { useNavigateToElement, useGoBack, useReactToggleButtons, useFetchData, useElementWidth, useSearchVenues };
+export { useNavigateToElement, useGoBack, useReactToggleButtons, useFetchData, useElementWidth, useSearchVenues, useKeyPress };

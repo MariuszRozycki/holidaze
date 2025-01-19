@@ -11,6 +11,7 @@ import {
   About,
   Contact,
   PageNotExists,
+  UserSearchResults,
 } from "../pages";
 
 const mainRoutes = [
@@ -57,6 +58,10 @@ const mainRoutes = [
   {
     path: "contact",
     element: <Contact />,
+  },
+  {
+    path: "search",
+    element: <UserSearchResults />,
   },
   {
     path: "*",

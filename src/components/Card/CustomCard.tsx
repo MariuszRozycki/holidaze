@@ -21,8 +21,6 @@ type CustomCardProps = {
 };
 
 const CustomCard = ({ venue }: CustomCardProps) => {
-  console.log(venue);
-
   const elementRef = useRef(null);
   const containerWidth = useElementWidth(elementRef);
 

@@ -1,15 +1,10 @@
-import { useNavigateToElement } from "../../../hooks";
 import CustomButton from "../CustomButton/CustomButton";
+import { useGoBack } from "../../../hooks";
 
 const GoToMainPageButton = () => {
-  const locationPath = "/holidaze/";
-  const handleNavigateTo = useNavigateToElement({ locationPath });
+  const handleGoToMainPage = useGoBack();
 
-  return (
-    <>
-      <CustomButton btnText='<< Go to Main Page!' onClick={handleNavigateTo} />
-    </>
-  );
+  return <CustomButton btnText='<< Go to Main Page!' onClick={handleGoToMainPage} />;
 };
 
 export default GoToMainPageButton;
