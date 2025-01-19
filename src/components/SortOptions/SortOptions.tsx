@@ -1,41 +1,63 @@
 import React from "react";
+import Select from "react-select";
 import { useAppContext } from "../../context/app/useAppContext";
+import { Row, Col, InputGroup } from "react-bootstrap";
+import "./SortOptions.scss";
+
+const sortOptions = [
+  { value: "created", label: "Newest" },
+  { value: "price", label: "Price" },
+  { value: "rating", label: "Rating" },
+];
+
+const orderOptions = [
+  { value: "", label: "Default" },
+  { value: "asc", label: "Ascending" },
+  { value: "desc", label: "Descending" },
+];
 
 const SortOptions: React.FC = () => {
   const { state, dispatch } = useAppContext();
   const { sort, sortOrder } = state;
 
-  const handleSortFieldChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedSort = e.target.value;
-    console.log("Sort Field:", selectedSort);
-    dispatch({ type: "SET_SORT", payload: selectedSort });
+  const currentSortOption = sortOptions.find((option) => option.value === sort);
+
+  const currentOrderOption = orderOptions.find((option) => option.value === sortOrder);
+
+  const handleSortChange = (selectedOption: { value: string; label: string } | null) => {
+    if (selectedOption) {
+      dispatch({ type: "SET_SORT", payload: selectedOption.value });
+    }
   };
 
-  const handleSortOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedOrder = e.target.value;
-    console.log("Sort Order:", selectedOrder);
-    dispatch({ type: "SET_SORT_ORDER", payload: selectedOrder });
+  const handleOrderChange = (selectedOption: { value: string; label: string } | null) => {
+    if (selectedOption) {
+      dispatch({ type: "SET_SORT_ORDER", payload: selectedOption.value });
+    }
   };
 
   return (
-    <div className='sort-options mb-3 d-flex align-items-center'>
-      <label htmlFor='sortField' className='me-2'>
-        Sort by:
-      </label>
-      <select id='sortField' value={sort} onChange={handleSortFieldChange} className='form-select me-3'>
-        <option value='created'>Newest</option>
-        <option value='price'>Price</option>
-        <option value='rating'>Rating</option>
-      </select>
+    <div className='sort-options my-4'>
+      <Row className='align-items-center'>
+        <Col md={6}>
+          <InputGroup className='custom-select-wrapper'>
+            <InputGroup.Text className='sort-input-label'>Sort by</InputGroup.Text>
+            <Select value={currentSortOption} onChange={handleSortChange} options={sortOptions} classNamePrefix='my-react-select' />
+          </InputGroup>
+        </Col>
 
-      <label htmlFor='sortOrder' className='me-2'>
-        Order:
-      </label>
-      <select id='sortOrder' value={sortOrder} onChange={handleSortOrderChange} className='form-select'>
-        <option value=''>Default</option>
-        <option value='asc'>Ascending</option>
-        <option value='desc'>Descending</option>
-      </select>
+        <Col md={6} className='mt-3 mt-md-0'>
+          <InputGroup>
+            <InputGroup.Text className='order-input-label'>Order</InputGroup.Text>
+            <Select
+              value={currentOrderOption}
+              onChange={handleOrderChange}
+              options={orderOptions}
+              classNamePrefix='my-react-select'
+            />
+          </InputGroup>
+        </Col>
+      </Row>
     </div>
   );
 };

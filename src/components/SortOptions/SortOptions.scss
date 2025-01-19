@@ -1,0 +1,26 @@
+@use "../../styles/breakpoints";
+
+.input-group.custom-select-wrapper {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-group-text {
+  width: 30%;
+}
+
+.css-b62m3t-container,
+.css-b62m3t-container {
+  width: 70%;
+}
+
+@media (min-width: breakpoints.get(md)) {
+  .input-group-text {
+    width: 25%;
+  }
+
+  .css-b62m3t-container {
+    width: 60%;
+  }
+}
