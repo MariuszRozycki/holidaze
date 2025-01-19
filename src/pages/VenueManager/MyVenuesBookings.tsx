@@ -1,12 +1,12 @@
 import { Container } from "react-bootstrap";
 import { HeadingH1 } from "../../components";
 
-const VenueManagerHomePage = () => {
+const MyVenuesBookings = () => {
   return (
     <Container>
-      <HeadingH1>You are at: Venue Manager Home Page</HeadingH1>
+      <HeadingH1>My venues bookings</HeadingH1>
     </Container>
   );
 };
 
-export default VenueManagerHomePage;
+export default MyVenuesBookings;

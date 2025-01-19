@@ -1,0 +1,69 @@
+import { Venue, Meta } from "../types/api";
+
+export type Action =
+  | { type: "FETCH_VENUES_START" }
+  | { type: "FETCH_VENUES_SUCCESS"; payload: { data: Venue[]; meta: Meta } }
+  | { type: "FETCH_VENUES_ERROR"; payload: string }
+  | { type: "SET_PAGE"; payload: number }
+  | { type: "SET_SORT"; payload: string }
+  | { type: "SET_SORT_ORDER"; payload: string }
+  | { type: "SET_SEARCH_QUERY"; payload: string }
+  | { type: "SEARCH_VENUES_START" }
+  | { type: "SEARCH_VENUES_SUCCESS"; payload: Venue[] }
+  | { type: "SEARCH_VENUES_ERROR"; payload: string };
+
+export interface AppState {
+  venues: Venue[];
+  meta: Meta | null;
+  isLoading: boolean;
+  error: string | null;
+  currentPage: number;
+  sort: string;
+  sortOrder: string;
+  isSearching: boolean;
+  searchQuery: string;
+}
+
+export const initialState: AppState = {
+  venues: [],
+  meta: null,
+  isLoading: false,
+  error: null,
+  currentPage: 1,
+  sort: "",
+  sortOrder: "",
+  isSearching: false,
+  searchQuery: "",
+};
+
+export function appReducer(state: AppState, action: Action): AppState {
+  switch (action.type) {
+    case "FETCH_VENUES_START":
+      return { ...state, isLoading: true, error: null };
+    case "FETCH_VENUES_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        venues: action.payload.data,
+        meta: action.payload.meta,
+      };
+    case "FETCH_VENUES_ERROR":
+      return { ...state, isLoading: false, error: action.payload };
+    case "SET_PAGE":
+      return { ...state, currentPage: action.payload };
+    case "SET_SORT":
+      return { ...state, sort: action.payload };
+    case "SET_SORT_ORDER":
+      return { ...state, sortOrder: action.payload };
+    case "SET_SEARCH_QUERY":
+      return { ...state, searchQuery: action.payload };
+    case "SEARCH_VENUES_START":
+      return { ...state, isSearching: true, error: null };
+    case "SEARCH_VENUES_SUCCESS":
+      return { ...state, isSearching: false, venues: action.payload };
+    case "SEARCH_VENUES_ERROR":
+      return { ...state, isSearching: false, error: action.payload };
+    default:
+      throw new Error(`Unhandled action type: ${(action as Action).type}`);
+  }
+}

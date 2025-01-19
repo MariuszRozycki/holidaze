@@ -1,12 +1,7 @@
-import { Container } from "react-bootstrap";
-import { HeadingH1 } from "../../components";
+import { RenderVenueList } from "../../components";
 
-const Unauthenticated = () => {
-  return (
-    <Container>
-      <HeadingH1>Unauthenticated Home Page</HeadingH1>
-    </Container>
-  );
+const UnauthenticatedHomePage = () => {
+  return <RenderVenueList title='All venues' />;
 };
 
-export default Unauthenticated;
+export default UnauthenticatedHomePage;

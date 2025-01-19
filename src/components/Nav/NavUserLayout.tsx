@@ -1,7 +1,6 @@
 import { forwardRef, useState } from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
-import { SearchBar } from "..";
 
 const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
   const [show, setShow] = useState<boolean>(false);
@@ -16,7 +15,11 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
     <>
       <Navbar expand='md' className='bg-body-tertiary mb-3 position-sticky top-0 z-2' ref={headerRef}>
         <Container>
-          <Navbar.Brand className='d-flex justify-content-start align-items-center' as={Link} to='/holidaze/'>
+          <Navbar.Brand
+            className='d-flex justify-content-start align-items-center'
+            as={Link}
+            to='/holidaze/user/logged-user-home-page/'
+          >
             <span className='hidden-below-300 fw-semibold'>Holidaze</span>
           </Navbar.Brand>
 
@@ -33,16 +36,16 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className='justify-content-end flex-grow-1 pe-3'>
-                <Nav.Link as={NavLink} to='/holidaze/user' end onClick={handleNavLinkClick}>
+                <Nav.Link as={NavLink} to='/holidaze/user/logged-user-home-page/' end onClick={handleNavLinkClick}>
                   Home
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='login-as' onClick={handleNavLinkClick}>
+                <Nav.Link as={NavLink} to='/holidaze/' onClick={handleNavLinkClick}>
                   Log out
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='about' onClick={handleNavLinkClick}>
+                <Nav.Link as={NavLink} to='/holidaze/user/about' onClick={handleNavLinkClick}>
                   About
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='contact' onClick={handleNavLinkClick}>
+                <Nav.Link as={NavLink} to='/holidaze/user/contact' onClick={handleNavLinkClick}>
                   Contact
                 </Nav.Link>
               </Nav>
@@ -50,7 +53,6 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      <SearchBar handleClose={handleClose} />
     </>
   );
 });

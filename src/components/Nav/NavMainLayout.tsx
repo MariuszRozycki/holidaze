@@ -1,7 +1,6 @@
 import { forwardRef, useState } from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
-import { SearchBar } from "..";
 
 const NavMainLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
   const [show, setShow] = useState<boolean>(false);
@@ -53,7 +52,6 @@ const NavMainLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-      <SearchBar handleClose={handleClose} />
     </>
   );
 });

@@ -1,24 +1,43 @@
-import { Container, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../../context/app/useAppContext";
+import { Form, Button, InputGroup } from "react-bootstrap";
 
-interface SearchBarProps {
-  handleClose: () => void;
-}
+const SearchBar: React.FC = () => {
+  const { dispatch } = useAppContext();
+  const navigate = useNavigate();
 
-const SearchBar = ({ handleClose }: SearchBarProps) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (inputValue.trim() !== "") {
+      dispatch({ type: "SET_SEARCH_QUERY", payload: inputValue.trim() });
+      navigate("/holidaze/search");
+    } else {
+      console.warn("Search query is empty");
+    }
+  };
+
   return (
-    <Container>
-      <OverlayTrigger placement='bottom' overlay={<Tooltip id='tooltip-search'>Wpisz miejsce wycieczki</Tooltip>}>
-        <Form
-          className='d-flex w-md-25'
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleClose();
-          }}
-        >
-          <Form.Control type='search' placeholder='Search for...' className='me-2' aria-label='Search' />
-        </Form>
-      </OverlayTrigger>
-    </Container>
+    <Form onSubmit={handleSearch} className='search-bar mb-3'>
+      <InputGroup>
+        <Form.Control
+          type='text'
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder='Search for venues...'
+          className='me-2'
+        />
+        <Button type='submit' variant='primary'>
+          Search
+        </Button>
+      </InputGroup>
+    </Form>
   );
 };
 
