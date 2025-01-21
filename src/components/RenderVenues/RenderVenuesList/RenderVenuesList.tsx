@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { HeadingH1, CustomCard, Pagination, SortOptions, SearchBar, GoToMainPageButton } from "../../components";
-import { useFetchData } from "../../hooks";
-import { useAppContext } from "../../context/app/useAppContext";
+import { HeadingH1, CustomCard, Pagination, SortOptions, SearchBar, GoToMainPageButton } from "../..";
+import { useFetchData } from "../../../hooks";
+import { useAppContext } from "../../../context/app/useAppContext";
 
 interface RenderVenueListProps {
   title: string;

@@ -4,5 +4,6 @@ import SignUpButton from "./SignUpButton/SignUpButton";
 import LogInButton from "./LogInButton/LogInButton";
 import GoToMainPageButton from "./GoToMainPageButton/GoToMainPageButton";
 import ReactToggleButtons from "./ReactToggleButtons/ReactToggleButtons";
+import DatePickerButton from "./DatePickerButton/DatePickerButton";
 
-export { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton, ReactToggleButtons };
+export { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton, ReactToggleButtons, DatePickerButton };

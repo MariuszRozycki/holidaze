@@ -6,10 +6,20 @@ import CustomCard from "./Card/CustomCard";
 import Pagination from "./Pagination/Pagination";
 import SortOptions from "./SortOptions/SortOptions";
 import SearchBar from "./SearchBar/SearchBar";
-import RenderVenueList from "./Render/RenderVenueList";
-import RenderVenueById from "./Render/RenderVenueById";
+import RenderVenueList from "./RenderVenues/RenderVenuesList/RenderVenuesList";
+import RenderVenueById from "./RenderVenues/RenderVenueById/RenderVenueById";
 import { HeadingH1 } from "./Headings";
-import { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton, ReactToggleButtons } from "./Buttons";
+import DatePicker from "./DatePicker/DatePicker";
+import CustomSwiper from "./Swiper/CustomSwiper";
+import {
+  CustomButton,
+  GoBackButton,
+  SignUpButton,
+  LogInButton,
+  GoToMainPageButton,
+  ReactToggleButtons,
+  DatePickerButton,
+} from "./Buttons";
 
 export {
   HeaderMainLayout,
@@ -29,4 +39,7 @@ export {
   SearchBar,
   RenderVenueList,
   RenderVenueById,
+  DatePicker,
+  DatePickerButton,
+  CustomSwiper,
 };
