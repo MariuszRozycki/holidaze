@@ -12,6 +12,8 @@ import { HeadingH1 } from "./Headings";
 import DatePicker from "./DatePicker/DatePicker";
 import CustomSwiper from "./Swiper/CustomSwiper";
 import CustomModal from "./CustomModal/CustomModal";
+import StarRating from "./StarRating/StarRating";
+import Separator from "./Separator/Separator";
 import {
   CustomButton,
   GoBackButton,
@@ -44,4 +46,6 @@ export {
   DatePickerButton,
   CustomSwiper,
   CustomModal,
+  StarRating,
+  Separator,
 };

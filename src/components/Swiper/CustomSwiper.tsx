@@ -18,6 +18,7 @@ type CustomSwiperProps = {
 const CustomSwiper = ({ isLoading, isError, selectedVenue }: CustomSwiperProps) => {
   const [show, setShow] = useState(false);
   const [currentImage, setCurrentImage] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const arrayOfImages = selectedVenue?.media || [];
 
@@ -60,11 +61,12 @@ const CustomSwiper = ({ isLoading, isError, selectedVenue }: CustomSwiperProps) 
             speed={1500}
             threshold={1}
             cssMode={false}
+            onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
             breakpoints={{
-              [breakpoints.sm]: { slidesPerView: 2.2 },
-              [breakpoints.md]: { slidesPerView: 2.2 },
-              [breakpoints.lg]: { slidesPerView: 3.2 },
-              [breakpoints.xl]: { slidesPerView: 4.2 },
+              [breakpoints.sm]: { slidesPerView: 2 },
+              [breakpoints.md]: { slidesPerView: 2 },
+              [breakpoints.lg]: { slidesPerView: 3 },
+              [breakpoints.xl]: { slidesPerView: 4 },
             }}
             grabCursor
           >
@@ -86,7 +88,9 @@ const CustomSwiper = ({ isLoading, isError, selectedVenue }: CustomSwiperProps) 
 
             <div className='swiper-button-prev'></div>
             <div className='swiper-button-next'></div>
-            <div className='swiper-pagination'></div>
+            <div className='swiper-pagination fw-bold'>
+              Slide {currentIndex + 1} of {arrayOfImages.length || 1}
+            </div>
           </Swiper>
         </Col>
       </Row>
