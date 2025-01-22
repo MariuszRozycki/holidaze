@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { HeadingH1, GoBackButton, DatePickerButton, CustomSwiper } from "../../";
 import { useFetchData } from "../../../hooks";
-import { handleImageError, getTrimCityName, getTrimCountryName } from "../../../utils";
+import { getImageUrl, getTrimCityName, getTrimCountryName } from "../../../utils";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { Container, Row, Col, Image, Card, Form, Button } from "react-bootstrap";
-import "react-date-range/dist/styles.css";
-import "react-date-range/dist/theme/default.css";
+// import "react-date-range/dist/styles.css";
+// import "react-date-range/dist/theme/default.css";
 import "./RenderVenueById.scss";
 
 const VenueDetails = () => {
@@ -13,6 +13,8 @@ const VenueDetails = () => {
   const { state, dispatch } = useAppContext();
   const { isLoading, error, selectedVenue } = state;
   useFetchData(undefined, undefined, 10, "", "", dispatch, id);
+
+  console.log(selectedVenue);
 
   if (isLoading) {
     return (
@@ -42,8 +44,11 @@ const VenueDetails = () => {
     <Container>
       <Row>
         <Col>
+          {/* {selectedVenue.media.length === 0 ? (
+            <Image src={getImageUrl(selectedVenue)} alt={selectedVenue.name} />
+          ) : ( */}
           <CustomSwiper isLoading={isLoading} isError={error} selectedVenue={selectedVenue} />
-          <Image src={selectedVenue.media[0].url} alt={selectedVenue.name} className='w-100 rounded-4 shadow-4' />
+          {/* )} */}
         </Col>
       </Row>
       <Row>

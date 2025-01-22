@@ -11,6 +11,7 @@ import RenderVenueById from "./RenderVenues/RenderVenueById/RenderVenueById";
 import { HeadingH1 } from "./Headings";
 import DatePicker from "./DatePicker/DatePicker";
 import CustomSwiper from "./Swiper/CustomSwiper";
+import CustomModal from "./CustomModal/CustomModal";
 import {
   CustomButton,
   GoBackButton,
@@ -42,4 +43,5 @@ export {
   DatePicker,
   DatePickerButton,
   CustomSwiper,
+  CustomModal,
 };
