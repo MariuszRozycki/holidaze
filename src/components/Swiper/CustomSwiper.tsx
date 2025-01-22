@@ -5,7 +5,7 @@ import CustomModal from "../CustomModal/CustomModal.js";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import noImage from "../../assets/images/no-image.webp";
-import breakpoints from "../../styles/breakpoints.js";
+import breakpoints from "../../scss/global/breakpoints.js";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import "./CustomSwiper.scss";
 
