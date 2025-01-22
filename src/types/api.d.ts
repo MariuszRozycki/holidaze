@@ -25,10 +25,10 @@ export type Venue = {
   description: string;
   created: string;
   updated: string;
-  location: Location; // Obiekt typu Location
+  location: Location;
   maxGuests: number;
-  media: Media[]; // Tablica obiektów Media
-  meta: MetaDetails; // Obiekt typu MetaDetails
+  media: Media[];
+  meta: MetaDetails;
   price: number;
   rating: number;
   _count: {
@@ -37,13 +37,13 @@ export type Venue = {
 };
 
 export type Meta = {
-  isFirstPage: boolean; // Czy to pierwsza strona
-  isLastPage: boolean; // Czy to ostatnia strona
-  currentPage: number; // Numer bieżącej strony
-  previousPage: number | null; // Numer poprzedniej strony lub null
-  nextPage: number | null; // Numer następnej strony lub null
-  pageCount: number; // Liczba wszystkich stron
-  totalCount: number; // Całkowita liczba elementów
+  isFirstPage: boolean;
+  isLastPage: boolean;
+  currentPage: number;
+  previousPage: number | null;
+  nextPage: number | null;
+  pageCount: number;
+  totalCount: number;
 };
 
 export type VenueResponse = {

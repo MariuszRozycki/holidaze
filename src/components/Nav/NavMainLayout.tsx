@@ -13,9 +13,9 @@ const NavMainLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
 
   return (
     <>
-      <Navbar expand='md' className='bg-body-tertiary mb-3 position-sticky top-0 z-2' ref={headerRef}>
+      <Navbar expand='md' className='mb-3' ref={headerRef}>
         <Container>
-          <Navbar.Brand className='d-flex justify-content-start align-items-center' as={Link} to='/holidaze/'>
+          <Navbar.Brand className='d-flex justify-content-start align-items-center text-light' as={Link} to='/holidaze/'>
             <span className='hidden-below-300 fw-semibold'>Holidaze</span>
           </Navbar.Brand>
 

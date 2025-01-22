@@ -1,3 +1,5 @@
+@use "../../styles/breakpoints";
+
 .swiper {
   height: 100%;
   touch-action: pan-y;
@@ -34,4 +36,10 @@
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   will-change: transform;
+}
+
+@media (min-width: breakpoints.get(md)) {
+  .swiper-zoom-container {
+    height: 300px;
+  }
 }
