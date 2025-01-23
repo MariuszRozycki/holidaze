@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Venue } from "../../types/api.js";
 import CustomModal from "../CustomModal/CustomModal.js";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { getFullVenueName } from "../../utils/index.js";
 import noImage from "../../assets/images/no-image.webp";
-import breakpoints from "../../styles/breakpoints.js";
+import breakpoints from "../../scss/global/breakpoints.js";
 import "../../../node_modules/swiper/swiper-bundle.min.css";
 import "./CustomSwiper.scss";
 
@@ -41,7 +42,7 @@ const CustomSwiper = ({ isLoading, isError, selectedVenue }: CustomSwiperProps) 
     );
 
   return (
-    <section className='swiper mt-5'>
+    <section className='swiper overflow overflow-x-hidden mt-5'>
       <Row>
         <Col>
           <Swiper
@@ -56,15 +57,15 @@ const CustomSwiper = ({ isLoading, isError, selectedVenue }: CustomSwiperProps) 
             }}
             spaceBetween={10}
             slidesPerView={1}
-            loop={false}
+            loop={true}
             touchReleaseOnEdges={true}
             speed={1500}
             threshold={1}
             cssMode={false}
             onSlideChange={(swiper) => setCurrentIndex(swiper.activeIndex)}
             breakpoints={{
-              [breakpoints.sm]: { slidesPerView: 2 },
-              [breakpoints.md]: { slidesPerView: 2 },
+              [breakpoints.sm]: { slidesPerView: 1 },
+              [breakpoints.md]: { slidesPerView: 1 },
               [breakpoints.lg]: { slidesPerView: 3 },
               [breakpoints.xl]: { slidesPerView: 4 },
             }}
@@ -86,16 +87,21 @@ const CustomSwiper = ({ isLoading, isError, selectedVenue }: CustomSwiperProps) 
               ))
             )}
 
-            <div className='swiper-button-prev'></div>
-            <div className='swiper-button-next'></div>
-            <div className='swiper-pagination fw-bold'>
-              Slide {currentIndex + 1} of {arrayOfImages.length || 1}
+            <div className='swiper-button-prev fw-bold'></div>
+            <div className='swiper-button-next fw-bold'></div>
+            <div className='swiper-pagination fw-bold'></div>
+            <div className='swiper-number-of-slides rounded-3 text-primary fw-semibold'>
+              <p className='m-0'>
+                Slide {currentIndex + 1} of {arrayOfImages.length || 1}
+              </p>
             </div>
           </Swiper>
         </Col>
       </Row>
 
-      {currentImage && <CustomModal show={show} onHide={() => setShow(false)} img={currentImage} />}
+      {currentImage && (
+        <CustomModal show={show} venueName={getFullVenueName(selectedVenue)} onHide={() => setShow(false)} img={currentImage} />
+      )}
     </section>
   );
 };

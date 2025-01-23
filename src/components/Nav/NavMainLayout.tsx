@@ -16,7 +16,7 @@ const NavMainLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
       <Navbar expand='md' className='mb-3' ref={headerRef}>
         <Container>
           <Navbar.Brand className='d-flex justify-content-start align-items-center text-light' as={Link} to='/holidaze/'>
-            <span className='hidden-below-300 fw-semibold'>Holidaze</span>
+            <span className='hidden-below-300 fw-semibold fs-3'>Holidaze</span>
           </Navbar.Brand>
 
           <Navbar.Toggle onClick={handleShow} aria-controls='offcanvasNavbar-expand-md' />
@@ -31,7 +31,7 @@ const NavMainLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
               <Offcanvas.Title id='offcanvasNavbarLabel-expand-md'>Menu</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className='justify-content-end flex-grow-1 pe-3'>
+              <Nav className='justify-content-end flex-grow-1 pe-3 fs-4'>
                 <Nav.Link as={NavLink} to='/holidaze/' end onClick={handleNavLinkClick}>
                   Home
                 </Nav.Link>

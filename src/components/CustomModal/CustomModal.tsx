@@ -5,9 +5,10 @@ type CustomModalProps = {
   show: boolean;
   onHide: () => void;
   img: string;
+  venueName: string | undefined;
 };
 
-const CustomModal = ({ show, onHide, img }: CustomModalProps) => {
+const CustomModal = ({ show, onHide, img, venueName }: CustomModalProps) => {
   console.log("hi from ImageModal", img);
 
   return (
@@ -18,7 +19,7 @@ const CustomModal = ({ show, onHide, img }: CustomModalProps) => {
       onHide={onHide}
       aria-labelledby='example-custom-modal-styling-title'
     >
-      <Modal.Header closeButton></Modal.Header>
+      <Modal.Header closeButton>{venueName}</Modal.Header>
       <Modal.Body>
         <Image className='rounded-4' src={img} alt='Selected Venue Image' fluid />
       </Modal.Body>
