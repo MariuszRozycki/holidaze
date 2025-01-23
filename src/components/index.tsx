@@ -11,9 +11,9 @@ import RenderVenueById from "./RenderVenues/RenderVenueById/RenderVenueById";
 import { HeadingH1 } from "./Headings";
 import DatePicker from "./DatePicker/DatePicker";
 import CustomSwiper from "./Swiper/CustomSwiper";
-import CustomModal from "./CustomModal/CustomModal";
 import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
+import { CustomImageModal, CustomDatePickerModal } from "./Modals";
 import {
   CustomButton,
   GoBackButton,
@@ -45,7 +45,8 @@ export {
   DatePicker,
   DatePickerButton,
   CustomSwiper,
-  CustomModal,
   StarRating,
   Separator,
+  CustomImageModal,
+  CustomDatePickerModal,
 };

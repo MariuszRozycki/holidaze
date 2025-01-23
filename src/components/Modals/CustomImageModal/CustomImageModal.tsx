@@ -1,14 +1,14 @@
 import { Modal, Image } from "react-bootstrap";
-import "./CustomModal.scss";
+import "./CustomImageModal.scss";
 
-type CustomModalProps = {
+type CustomImageModalProps = {
   show: boolean;
   onHide: () => void;
   img: string;
   venueName: string | undefined;
 };
 
-const CustomModal = ({ show, onHide, img, venueName }: CustomModalProps) => {
+const CustomImageModal = ({ show, onHide, img, venueName }: CustomImageModalProps) => {
   console.log("hi from ImageModal", img);
 
   return (
@@ -27,4 +27,4 @@ const CustomModal = ({ show, onHide, img, venueName }: CustomModalProps) => {
   );
 };
 
-export default CustomModal;
+export default CustomImageModal;

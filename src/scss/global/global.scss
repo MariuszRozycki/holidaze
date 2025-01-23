@@ -1,6 +1,12 @@
 @use "bootstrap" as *;
 @use "../abstracts/variables";
 
+body {
+  font-family: "Arial", sans-serif;
+  background-color: variables.$secondary-color;
+  box-sizing: border-box;
+}
+
 .header {
   background-color: variables.$main-color;
 }

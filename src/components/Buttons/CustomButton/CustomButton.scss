@@ -1,0 +1,5 @@
+@use "../../../scss/abstracts/variables";
+
+button.my-custom-button {
+  background-color: variables.$main-color;
+}
