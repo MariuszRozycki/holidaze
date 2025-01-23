@@ -1,5 +1,6 @@
 import { Venue } from "../../types/api";
 import { trimText } from "../trimText";
+import { capitalizeFirstLetter } from "../capitalizeFirstLetter";
 
 export const getTrimCountryName = (venue: Venue | null, maxLength = 20): string => {
   if (!venue || typeof venue.location.country !== "string" || venue.location.country.length === 0) {
@@ -7,7 +8,7 @@ export const getTrimCountryName = (venue: Venue | null, maxLength = 20): string 
   }
 
   const country = venue.location.country;
-  const formattedCountry = country.charAt(0).toUpperCase() + country.slice(1);
+  const formattedCountry = capitalizeFirstLetter({ text: country });
 
   return trimText({ text: formattedCountry, maxLength });
 };
@@ -18,7 +19,7 @@ export const getTrimCityName = (venue: Venue | null, maxLength = 20): string => 
   }
 
   const city = venue.location.city;
-  const formattedCity = city.charAt(0).toUpperCase() + city.slice(1);
+  const formattedCity = capitalizeFirstLetter({ text: city });
 
   return trimText({ text: formattedCity, maxLength });
 };
@@ -29,7 +30,7 @@ export const getFullCountryName = (venue: Venue | null): string => {
   }
 
   const country = venue.location.country;
-  const formattedCountry = country.charAt(0).toUpperCase() + country.slice(1);
+  const formattedCountry = capitalizeFirstLetter({ text: country });
 
   return formattedCountry;
 };
@@ -40,7 +41,7 @@ export const getFullCityName = (venue: Venue | null): string => {
   }
 
   const city = venue.location.city;
-  const formattedCity = city.charAt(1).toUpperCase() + city.slice(1);
+  const formattedCity = capitalizeFirstLetter({ text: city });
 
   return formattedCity;
 };

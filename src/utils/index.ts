@@ -1,8 +1,9 @@
 import { trimText } from "./trimText";
 import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
 import { handleImageError } from "./handleImageError";
-import { getImageUrl } from "./venueDataViewers/getImgUrl";
+
 import {
+  getImageUrl,
   getTrimCountryName,
   getFullCountryName,
   getFullCityName,
@@ -11,6 +12,7 @@ import {
   getFullVenueName,
   getPricePerNight,
   getMaxGuests,
+  getVenueOwnerName,
 } from "./venueDataViewers";
 
 export {
@@ -26,4 +28,5 @@ export {
   getFullVenueName,
   getPricePerNight,
   getMaxGuests,
+  getVenueOwnerName,
 };

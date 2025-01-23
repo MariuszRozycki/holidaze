@@ -3,6 +3,8 @@ import { getTrimVenueName } from "./getTrimVenueName";
 import { getFullVenueName } from "./getFullVenueName";
 import { getPricePerNight } from "./getPricePerNight";
 import { getMaxGuests } from "./getMaxGuests";
+import { getVenueOwnerName } from "./getVenueOwnerName";
+import { getImageUrl } from "./getImageUrl";
 
 export {
   getTrimCountryName,
@@ -13,4 +15,6 @@ export {
   getFullVenueName,
   getPricePerNight,
   getMaxGuests,
+  getVenueOwnerName,
+  getImageUrl,
 };

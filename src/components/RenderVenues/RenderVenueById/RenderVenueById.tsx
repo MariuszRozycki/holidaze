@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { HeadingH1, GoBackButton, DatePickerButton, CustomSwiper, StarRating } from "../../";
 import { useFetchData } from "../../../hooks";
-import { getTrimVenueName, getTrimCityName, getTrimCountryName } from "../../../utils";
+import { getTrimVenueName, getFullCityName, getFullCountryName, getMaxGuests, getVenueOwnerName } from "../../../utils";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 // import "react-date-range/dist/styles.css";
@@ -14,7 +14,7 @@ const VenueDetails = () => {
   const { isLoading, error, selectedVenue } = state;
   useFetchData(undefined, undefined, 10, "", "", dispatch, id);
 
-  console.log("Bookings from VenueDetails", selectedVenue?.bookings);
+  console.log("Bookings from VenueDetails", selectedVenue?.owner.name);
 
   if (isLoading) {
     return (
@@ -61,8 +61,9 @@ const VenueDetails = () => {
               <h1 className='h4 mb-2'>{getTrimVenueName(selectedVenue)}</h1>
               <h2 className='h3 mb-2'>
                 <i className='bi bi-geo me-2'></i>
-                {getTrimCountryName(selectedVenue)}, {getTrimCityName(selectedVenue)}
+                {getFullCountryName(selectedVenue)}, {getFullCityName(selectedVenue)}
               </h2>
+              <h3 className='h3'>{getVenueOwnerName(selectedVenue.owner.name)}</h3>
               <h3 className='h3'>
                 <StarRating rating={selectedVenue.rating} />
               </h3>
@@ -77,7 +78,7 @@ const VenueDetails = () => {
               <h3 className='h3'>Description:</h3>
               <p className='fs-4'>{selectedVenue.description}</p>
               <h3 className='h3'>Services:</h3>
-              <ul className='list-unstyled'>
+              <ul className='list-unstyled fs-4'>
                 {Object.entries(selectedVenue.meta).map(([key, value]) => {
                   const typedKey = key as keyof typeof iconClass;
 
@@ -101,7 +102,7 @@ const VenueDetails = () => {
               </h2>
               <p className='h3'>
                 <i className='bi bi-people-fill me-2'></i>
-                <span>max: {selectedVenue.maxGuests} guests</span>
+                <span>max: {getMaxGuests(selectedVenue)} guests</span>
               </p>
             </Card.Body>
           </Card>
