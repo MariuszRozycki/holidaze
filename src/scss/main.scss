@@ -1,12 +1,11 @@
 @use "bootstrap" as *;
-@use "sass:meta";
+@use "./abstracts/variables";
+@use "./abstracts/breakpoints";
+@use "./abstracts/responsive-widths";
+@use "./global/global";
 
 body {
   font-family: "Arial", sans-serif;
   background-color: #f8f9fa;
   box-sizing: border-box;
 }
-
-@include meta.load-css("./abstracts/breakpoints");
-@include meta.load-css("./abstracts/responsive-widths");
-@include meta.load-css("./global/global.scss");

@@ -14,7 +14,7 @@ const VenueDetails = () => {
   const { isLoading, error, selectedVenue } = state;
   useFetchData(undefined, undefined, 10, "", "", dispatch, id);
 
-  console.log("Hello from VenueDatails", selectedVenue);
+  console.log("Bookings from VenueDetails", selectedVenue?.bookings);
 
   if (isLoading) {
     return (

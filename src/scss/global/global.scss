@@ -1,7 +1,8 @@
 @use "bootstrap" as *;
+@use "../abstracts/variables";
 
 .header {
-  background-color: #1689b9;
+  background-color: variables.$main-color;
 }
 
 .navbar-nav a {

@@ -1,15 +1,16 @@
 export type Location = {
   address: string;
   city: string;
-  continent: string | null;
+  continent: string;
   country: string;
-  lat: number | null;
-  lng: number | null;
-  zip: string | null;
+  lat: number;
+  lng: number;
+  zip: string;
 };
 
 export type Media = {
   url: string;
+  alt: string;
 };
 
 export type MetaDetails = {
@@ -17,6 +18,30 @@ export type MetaDetails = {
   parking: boolean;
   breakfast: boolean;
   pets: boolean;
+};
+
+export type VenueBookingsDetails = {
+  id: string;
+  dateFrom: string;
+  dateTo: string;
+  guests: number;
+  created: string;
+  updated: string;
+  customer: {
+    name: string;
+    email: string;
+    bio: string;
+    avatar: Media;
+    banner: Media;
+  };
+};
+
+export type OwnerDetails = {
+  name: string;
+  email: string;
+  bio: string;
+  avatar: Media;
+  banner: Media;
 };
 
 export type Venue = {
@@ -31,6 +56,8 @@ export type Venue = {
   meta: MetaDetails;
   price: number;
   rating: number;
+  bookings: VenueBookingsDetails[];
+  owner: OwnerDetails;
   _count: {
     bookings: number;
   };
