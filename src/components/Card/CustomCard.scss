@@ -3,6 +3,7 @@
 div.card {
   cursor: pointer;
   border: none;
+  background-color: variables.$secondary-color;
 
   .card-by-offers-type {
     height: 300px;

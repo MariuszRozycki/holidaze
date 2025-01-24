@@ -1,0 +1,14 @@
+@use "bootstrap" as *;
+@use "../../scss/abstracts/variables";
+
+input.search-input {
+  border: 2px solid variables.$main-color;
+  border-radius: 30px;
+  color: $light;
+}
+
+button.search-button {
+  border-top-right-radius: variables.$border-radius-main;
+  border-bottom-right-radius: variables.$border-radius-main;
+  background-color: variables.$main-color;
+}

@@ -1,7 +1,7 @@
 import { Venue } from "../../types/api";
 import { trimText } from "../trimText";
 
-export const getTrimVenueName = (venue: Venue | null, maxLength = 15): string => {
+export const getTrimVenueName = (venue: Venue | null, maxLength = 20): string => {
   if (!venue || typeof venue.name !== "string" || venue.name.length === 0) {
     return "Venue name N/A";
   }

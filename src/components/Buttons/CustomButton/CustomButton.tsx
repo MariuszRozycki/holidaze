@@ -6,12 +6,13 @@ export interface CustomButtonProps {
   variant?: string;
   type?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
+  className?: string;
 }
 
-const CustomButton = ({ btnText, onClick }: CustomButtonProps) => {
+const CustomButton = ({ btnText, onClick, className }: CustomButtonProps) => {
   return (
     <>
-      <Button className='my-custom-button fs-3 py-2 px-3 my-4' onClick={onClick}>
+      <Button className={`my-custom-button ${className} fs-6 py-2 px-3`} onClick={onClick}>
         {btnText}
       </Button>
     </>
