@@ -1,20 +1,17 @@
 import { useParams } from "react-router-dom";
 import { HeadingH1, GoBackButton, DatePickerButton, CustomSwiper, StarRating } from "../../";
 import { useFetchData } from "../../../hooks";
-import { getTrimVenueName, getFullCityName, getFullCountryName, getMaxGuests, getVenueOwnerName } from "../../../utils";
+import { getFullVenueName, getFullCityName, getFullCountryName, getMaxGuests, getVenueOwnerName } from "../../../utils";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
-// import "react-date-range/dist/styles.css";
-// import "react-date-range/dist/theme/default.css";
 import "./RenderVenueById.scss";
 
 const VenueDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
   const { isLoading, error, selectedVenue } = state;
-  useFetchData(undefined, undefined, 10, "", "", dispatch, id);
 
-  console.log("Bookings from VenueDetails", selectedVenue?.owner.name);
+  useFetchData(undefined, undefined, 10, "", "", dispatch, id);
 
   if (isLoading) {
     return (
@@ -58,7 +55,7 @@ const VenueDetails = () => {
         <Col col={12}>
           <Card className='border-0 px-0'>
             <Card.Body className='px-0'>
-              <h1 className='h4 mb-2'>{getTrimVenueName(selectedVenue)}</h1>
+              <h1 className='h3 mb-2 fw-semibold'>{getFullVenueName(selectedVenue)}</h1>
               <h2 className='h3 mb-2'>
                 <i className='bi bi-geo me-2'></i>
                 {getFullCountryName(selectedVenue)}, {getFullCityName(selectedVenue)}
@@ -72,11 +69,11 @@ const VenueDetails = () => {
         </Col>
       </Row>
       <Row>
-        <Col md={7}>
+        <Col col={12} md={7}>
           <Card className='border-0 px-0'>
             <Card.Body className='px-0'>
-              <h3 className='h3'>Description:</h3>
-              <p className='fs-4'>{selectedVenue.description}</p>
+              <h3 className='h3 fw-semibold'>Description:</h3>
+              <p className='fs-4 single-venue-description'>{selectedVenue.description}</p>
               <h3 className='h3'>Services:</h3>
               <ul className='list-unstyled fs-4'>
                 {Object.entries(selectedVenue.meta).map(([key, value]) => {
@@ -93,17 +90,18 @@ const VenueDetails = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={5} className='text-end'>
+        <Col col={12} md={5} className='md-text-end'>
           <Card className='border-0 px-0'>
             <Card.Body className='px-0'>
-              <h2 className='h4'>
-                <i className='bi bi-currency-euro me-1'></i>
-                {selectedVenue.price}/ night
+              <h3 className='h3 fw-semibold'>Availability:</h3>
+              <h2 className='fs-3'>
+                <span className='me-2'>euro {selectedVenue.price}/</span>night
               </h2>
               <p className='h3'>
                 <i className='bi bi-people-fill me-2'></i>
                 <span>max: {getMaxGuests(selectedVenue)} guests</span>
               </p>
+              <DatePickerButton />
             </Card.Body>
           </Card>
         </Col>

@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import {
@@ -22,21 +21,17 @@ type CustomCardProps = {
 };
 
 const CustomCard = ({ venue }: CustomCardProps) => {
-  const elementRef = useRef(null);
-  const containerWidth = useElementWidth(elementRef);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    console.log(venue.id);
     navigate(`/holidaze/venue-by-id/${venue.id}`);
   };
 
   return (
     <Card className='w-100 rounded-4 position-relative' onClick={handleClick}>
       <Card.Img
-        className='card-by-offers-type object-fit-cover rounded-4 rounded-bottom-0 swiper-lazy'
+        className='card-by-offers-type object-fit-cover rounded-4 swiper-lazy'
         variant='top'
-        style={{ height: "180px" }}
         src={getImageUrl(venue)}
         alt={venue.name}
         onError={handleImageError}
@@ -45,8 +40,8 @@ const CustomCard = ({ venue }: CustomCardProps) => {
       <OverlayTrigger
         placement='top'
         overlay={
-          <Tooltip id={`tooltip-${venue.id}`} style={{ zIndex: 9999 }}>
-            {getFullVenueName(venue)}, {getFullCountryName(venue)}, {getFullCityName(venue)}
+          <Tooltip className='fs-4' id={`tooltip-${venue.id}`} style={{ zIndex: 9999 }}>
+            {getFullVenueName(venue)},
           </Tooltip>
         }
         trigger={["hover", "focus"]}
@@ -61,20 +56,26 @@ const CustomCard = ({ venue }: CustomCardProps) => {
           ],
         }}
       >
-        <Card.Body className='d-flex flex-column justify-content-between'>
-          <div className='text-wrapper'>
-            <Card.Title className='h6'>{containerWidth < 315 ? getTrimVenueName(venue) : getFullVenueName(venue)}</Card.Title>
+        <Card.Body className='d-flex flex-column justify-content-between px-0'>
+          <div className='text-wrapper mb-0'>
+            <Card.Title className='fs-4 fw-light'>
+              <p className='d-flex justify-content-between mb-0'>
+                {getTrimVenueName(venue)}
+                <span>
+                  <i className='bi bi-star-fill text-warning fs-5 me-1'></i>
+                  {venue.rating}
+                </span>
+              </p>
+            </Card.Title>
             <div>
-              <div className='slider-item-details mt-2'>
+              <div className='slider-item-details mt-0'>
                 <div className='slider-item-location-details'>
-                  <p className='fw-semibold mb-1'>
-                    {getTrimCountryName(venue)}, {getTrimCityName(venue)}
+                  <p className='fs-4 mb-1'>
+                    {getTrimCountryName(venue)}, {getTrimCityName(venue)},
                   </p>
-                  <p className='fw-semibold mb-1'>
-                    <i className='bi bi-people-fill'></i>: max {getMaxGuests(venue)}
-                  </p>
-                  <p className='fw-semibold'>
-                    <i className='bi bi-currency-euro'></i> {getPricePerNight(venue)} /night
+                  <p className='fs-4'>
+                    <span className='me-2'>{getPricePerNight(venue)} euro/</span>
+                    night
                   </p>
                 </div>
               </div>

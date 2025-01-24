@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Venue } from "../../types/api.js";
-import CustomModal from "../CustomModal/CustomModal.js";
+import CustomModal from "../Modals/CustomImageModal/CustomImageModal.js";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { getFullVenueName } from "../../utils/index.js";

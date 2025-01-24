@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import "./CustomButton.scss";
 
 export interface CustomButtonProps {
   btnText: string;
@@ -10,7 +11,7 @@ export interface CustomButtonProps {
 const CustomButton = ({ btnText, onClick }: CustomButtonProps) => {
   return (
     <>
-      <Button className='my-3' onClick={onClick}>
+      <Button className='my-custom-button fs-3 py-2 px-3 my-4' onClick={onClick}>
         {btnText}
       </Button>
     </>
