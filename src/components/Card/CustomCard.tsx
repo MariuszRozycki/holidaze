@@ -5,15 +5,12 @@ import {
   getImageUrl,
   getTrimCountryName,
   getTrimCityName,
-  getFullCountryName,
-  getFullCityName,
   getTrimVenueName,
   getFullVenueName,
   getPricePerNight,
-  getMaxGuests,
 } from "../../utils/index";
-import { useElementWidth } from "../../hooks";
 import { Venue } from "../../types/api";
+
 import "./CustomCard.scss";
 
 type CustomCardProps = {
@@ -58,8 +55,8 @@ const CustomCard = ({ venue }: CustomCardProps) => {
       >
         <Card.Body className='d-flex flex-column justify-content-between px-0'>
           <div className='text-wrapper mb-0'>
-            <Card.Title className='fs-4 fw-light'>
-              <p className='d-flex justify-content-between mb-0'>
+            <Card.Title className='h1'>
+              <p className='fs-5 fs-md-1 d-flex justify-content-between mb-0'>
                 {getTrimVenueName(venue)}
                 <span>
                   <i className='bi bi-star-fill text-warning fs-5 me-1'></i>

@@ -1,5 +1,7 @@
-@use "bootstrap" as *;
+// @use "bootstrap" as *;
+@use "./global/global";
 @use "./abstracts/variables";
 @use "./abstracts/breakpoints";
 @use "./abstracts/responsive-widths";
-@use "./global/global";
+@use "./abstracts/font-sizes-bootstrap";
+@use "./abstracts/font-size-responsive";
