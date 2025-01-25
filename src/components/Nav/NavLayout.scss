@@ -1,0 +1,67 @@
+@use "bootstrap" as *;
+@use "../../scss/abstracts/variables";
+@use "../../scss/abstracts/breakpoints";
+
+button.navbar-toggler {
+  border: 0;
+}
+
+span.custom-toggler-icon {
+  color: $light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+div.offcanvas {
+  background-color: variables.$main-color;
+  color: $light;
+
+  .offcanvas-header {
+    justify-content: space-between;
+
+    .custom-btn-close {
+      border: 0;
+      color: $light;
+      background-color: transparent;
+      font-size: 25px;
+    }
+  }
+}
+
+a.nav-link {
+  border: 2px solid white;
+  border-radius: 30px;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto 30px;
+  color: $light;
+}
+
+.navbar-nav a.nav-link.active {
+  background-color: variables.$secondary-color;
+  color: variables.$main-color;
+}
+
+@media (min-width: breakpoints.get(md)) {
+  nav .nav-custom-container {
+    flex-direction: column;
+  }
+
+  .custom-offcanvas-body .navbar-nav {
+    width: 100vw;
+    gap: 10px;
+  }
+
+  a.nav-link {
+    margin: 0 auto;
+    transition: variables.$transition-main;
+  }
+
+  .navbar-nav a.nav-link:hover {
+    background-color: variables.$primary-color;
+    color: variables.$main-color;
+    border-color: variables.$primary-color;
+  }
+}

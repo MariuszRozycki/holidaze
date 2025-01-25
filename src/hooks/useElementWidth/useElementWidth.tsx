@@ -6,6 +6,8 @@ export const useElementWidth = (ref: React.RefObject<HTMLElement>): number => {
   useEffect(() => {
     const updateWidth = () => {
       if (ref.current) {
+        console.log(ref.current.offsetWidth);
+
         setWidth(ref.current.offsetWidth);
       }
     };

@@ -47,7 +47,7 @@ const RenderVenueList = ({ title, searchQuery = "", showGoMainPage = false }: Re
       {!searchQuery && <SortOptions />}
       <Row className='g-4'>
         {venues.map((venue) => (
-          <Col key={venue.id} sm={12} md={6} lg={4} xl={3}>
+          <Col key={venue.id} col={12} sm={6} md={6} lg={4} xl={3}>
             <CustomCard venue={venue} />
           </Col>
         ))}

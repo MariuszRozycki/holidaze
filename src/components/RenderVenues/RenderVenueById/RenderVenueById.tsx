@@ -1,9 +1,16 @@
 import { useParams } from "react-router-dom";
 import { HeadingH1, GoBackButton, DatePickerButton, CustomSwiper, StarRating } from "../../";
 import { useFetchData } from "../../../hooks";
-import { getFullVenueName, getFullCityName, getFullCountryName, getMaxGuests, getVenueOwnerName } from "../../../utils";
+import {
+  getFullVenueName,
+  getFullCityName,
+  getFullCountryName,
+  getMaxGuests,
+  getVenueOwnerInfo,
+  getVenueDescription,
+} from "../../../utils";
 import { useAppContext } from "../../../context/app/useAppContext";
-import { Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Image, Form, Button } from "react-bootstrap";
 import "./RenderVenueById.scss";
 
 const VenueDetails = () => {
@@ -12,6 +19,9 @@ const VenueDetails = () => {
   const { isLoading, error, selectedVenue } = state;
 
   useFetchData(undefined, undefined, 10, "", "", dispatch, id);
+  console.log("Hi from VenueDetails, selectedVenue: ", selectedVenue);
+
+  const { name, avatar } = getVenueOwnerInfo(selectedVenue);
 
   if (isLoading) {
     return (
@@ -55,13 +65,20 @@ const VenueDetails = () => {
         <Col col={12}>
           <Card className='border-0 px-0'>
             <Card.Body className='px-0'>
-              <h1 className='h3 mb-2 fw-semibold'>{getFullVenueName(selectedVenue)}</h1>
-              <h2 className='h3 mb-2'>
-                <i className='bi bi-geo me-2'></i>
+              <h1 className='h5 mb-2 fw-semibold'>{getFullVenueName(selectedVenue)}</h1>
+              <h2 className='h5 mb-2'>
+                {/* <i className='bi bi-geo me-2'></i> */}
                 {getFullCountryName(selectedVenue)}, {getFullCityName(selectedVenue)}
               </h2>
-              <h3 className='h3'>{getVenueOwnerName(selectedVenue.owner.name)}</h3>
-              <h3 className='h3'>
+              <h3 className='h5'>
+                <div className='owner-info'>
+                  <span>
+                    <img src={avatar.url} alt={name} className='owner-avatar img' />
+                  </span>
+                  Host: {name}
+                </div>
+              </h3>
+              <h3 className='h4'>
                 <StarRating rating={selectedVenue.rating} />
               </h3>
             </Card.Body>
@@ -72,10 +89,10 @@ const VenueDetails = () => {
         <Col col={12} md={7}>
           <Card className='border-0 px-0'>
             <Card.Body className='px-0'>
-              <h3 className='h3 fw-semibold'>Description:</h3>
-              <p className='fs-4 single-venue-description'>{selectedVenue.description}</p>
-              <h3 className='h3'>Services:</h3>
-              <ul className='list-unstyled fs-4'>
+              <h3 className='h5 fw-semibold'>Description:</h3>
+              <p className='fs-5 single-venue-description'>{getVenueDescription(selectedVenue)}</p>
+              <h3 className='h5 fw-semibold'>Services:</h3>
+              <ul className='list-unstyled fs-5'>
                 {Object.entries(selectedVenue.meta).map(([key, value]) => {
                   const typedKey = key as keyof typeof iconClass;
 
@@ -93,15 +110,17 @@ const VenueDetails = () => {
         <Col col={12} md={5} className='md-text-end'>
           <Card className='border-0 px-0'>
             <Card.Body className='px-0'>
-              <h3 className='h3 fw-semibold'>Availability:</h3>
-              <h2 className='fs-3'>
+              <h3 className='h5 fw-semibold'>Availability:</h3>
+              <h2 className='fs-5'>
                 <span className='me-2'>euro {selectedVenue.price}/</span>night
               </h2>
-              <p className='h3'>
+              <p className='fs-5'>
                 <i className='bi bi-people-fill me-2'></i>
-                <span>max: {getMaxGuests(selectedVenue)} guests</span>
+                <span>{getMaxGuests(selectedVenue)} guests</span>
               </p>
-              <DatePickerButton />
+              <div className='data-picker-button-wrapper'>
+                <DatePickerButton className='data-picker-button' />
+              </div>
             </Card.Body>
           </Card>
         </Col>

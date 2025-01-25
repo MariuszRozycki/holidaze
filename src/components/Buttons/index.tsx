@@ -5,5 +5,15 @@ import LogInButton from "./LogInButton/LogInButton";
 import GoToMainPageButton from "./GoToMainPageButton/GoToMainPageButton";
 import ReactToggleButtons from "./ReactToggleButtons/ReactToggleButtons";
 import DatePickerButton from "./DatePickerButton/DatePickerButton";
+import SearchButton from "./SearchButton/SearchButton";
 
-export { CustomButton, GoBackButton, SignUpButton, LogInButton, GoToMainPageButton, ReactToggleButtons, DatePickerButton };
+export {
+  CustomButton,
+  GoBackButton,
+  SignUpButton,
+  LogInButton,
+  GoToMainPageButton,
+  ReactToggleButtons,
+  DatePickerButton,
+  SearchButton,
+};

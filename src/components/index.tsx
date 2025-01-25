@@ -22,6 +22,7 @@ import {
   GoToMainPageButton,
   ReactToggleButtons,
   DatePickerButton,
+  SearchButton,
 } from "./Buttons";
 
 export {
@@ -49,4 +50,5 @@ export {
   Separator,
   CustomImageModal,
   CustomDatePickerModal,
+  SearchButton,
 };
