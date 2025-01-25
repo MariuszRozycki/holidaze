@@ -1,7 +1,8 @@
-.custom-modal-width .modal-dialog {
+.custom-image-modal-width .modal-content {
   max-width: 800px;
-  width: 100%;
-  border-radius: var(--bs-border-radius-lg) !important;
+  width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
 
   img {
     width: 100%;

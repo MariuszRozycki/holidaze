@@ -1,46 +1,71 @@
-import { useState, useEffect } from "react";
-import { DateRange, Range } from "react-date-range";
-import { addDays } from "date-fns";
+import { useState } from "react";
+import { Container } from "react-bootstrap";
+import { useAppContext } from "../../context/app/useAppContext";
+import { useDatePickerDirection } from "../../hooks";
+import { useDisabledDates } from "../../hooks";
+import { DateRange, Range, RangeKeyDict } from "react-date-range";
+import { startOfDay, endOfDay } from "date-fns";
+import { DatePickerFunctionalButton } from "../../components";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import breakpoints from "../../scss/global/breakpoints";
 import "./DatePicker.scss";
 
-const DatePicker = () => {
-  const [state, setState] = useState<Range[]>([
+type DatePickerProps = {
+  onHide: () => void;
+};
+
+const DatePicker = ({ onHide }: DatePickerProps) => {
+  const { state, dispatch } = useAppContext();
+  const { selectedVenue } = state;
+  const direction = useDatePickerDirection();
+  const disabledDates = useDisabledDates(selectedVenue);
+  const [range, setRange] = useState<Range[]>([
     {
       startDate: new Date(),
-      endDate: addDays(new Date(), 7),
+      endDate: new Date(),
       key: "selection",
     },
   ]);
 
-  const [direction, setDirection] = useState<"horizontal" | "vertical">("vertical");
+  const handleDateChange = (ranges: RangeKeyDict) => {
+    const selection = ranges.selection;
+    setRange([selection]);
 
-  /* !important !If you change breakpoints.md to another breakpoint change breakpoint in @media query in .scss file */
-  const updateDirection = () => {
-    if (window.matchMedia(`(max-width: ${breakpoints.md + "px"})`).matches) {
-      setDirection("vertical");
-    } else {
-      setDirection("horizontal");
-    }
+    dispatch({
+      type: "SET_SELECTED_DATES",
+      payload: {
+        startDate: startOfDay(selection.startDate!),
+        endDate: endOfDay(selection.endDate!),
+      },
+    });
   };
 
-  useEffect(() => {
-    updateDirection();
-    window.addEventListener("resize", updateDirection);
-    return () => window.removeEventListener("resize", updateDirection);
-  }, []);
+  const handleBookClick = () => {
+    console.log("Booking with date range:", range);
+  };
+
+  const handleCancelClick = () => {
+    onHide();
+  };
 
   return (
-    <DateRange
-      editableDateInputs={true}
-      onChange={(item) => setState([item.selection])}
-      moveRangeOnFirstSelection={false}
-      ranges={state}
-      months={2}
-      direction={direction}
-    />
+    <>
+      <DateRange
+        editableDateInputs={true}
+        onChange={handleDateChange}
+        moveRangeOnFirstSelection={false}
+        ranges={range}
+        months={2}
+        direction={direction}
+        disabledDates={disabledDates}
+        minDate={startOfDay(new Date())}
+      />
+
+      <div className='buttons-wrapper'>
+        <DatePickerFunctionalButton btnText='Cancel' onClick={handleCancelClick} />
+        <DatePickerFunctionalButton btnText='Book' onClick={handleBookClick} />
+      </div>
+    </>
   );
 };
 
