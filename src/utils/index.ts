@@ -14,6 +14,8 @@ import {
   getMaxGuests,
   getVenueOwnerInfo,
   getVenueDescription,
+  getDatesInRange,
+  getSelectedDates,
 } from "./venueDataViewers";
 
 export {
@@ -31,4 +33,6 @@ export {
   getMaxGuests,
   getVenueOwnerInfo,
   getVenueDescription,
+  getDatesInRange,
+  getSelectedDates,
 };

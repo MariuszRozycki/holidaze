@@ -6,6 +6,8 @@ import { getMaxGuests } from "./getMaxGuests";
 import { getVenueOwnerInfo } from "./getVenueOwnerInfo";
 import { getImageUrl } from "./getImageUrl";
 import { getVenueDescription } from "./getVenueDescription";
+import { getDatesInRange } from "./getDatesInRange";
+import { getSelectedDates } from "./getSelectedDates";
 
 export {
   getTrimCountryName,
@@ -19,4 +21,6 @@ export {
   getVenueOwnerInfo,
   getImageUrl,
   getVenueDescription,
+  getDatesInRange,
+  getSelectedDates,
 };

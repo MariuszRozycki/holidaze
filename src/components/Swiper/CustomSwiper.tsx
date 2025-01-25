@@ -42,7 +42,7 @@ const CustomSwiper = ({ isLoading, isError, selectedVenue }: CustomSwiperProps) 
     );
 
   return (
-    <section className='swiper overflow overflow-x-hidden mt-5'>
+    <section className='swiper mt-5'>
       <Row>
         <Col>
           <Swiper

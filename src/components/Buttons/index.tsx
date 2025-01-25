@@ -6,6 +6,7 @@ import GoToMainPageButton from "./GoToMainPageButton/GoToMainPageButton";
 import ReactToggleButtons from "./ReactToggleButtons/ReactToggleButtons";
 import DatePickerButton from "./DatePickerButton/DatePickerButton";
 import SearchButton from "./SearchButton/SearchButton";
+import DatePickerFunctionalButton from "./DatePickerFunctionalButton/DatePickerFunctionalButton";
 
 export {
   CustomButton,
@@ -16,4 +17,5 @@ export {
   ReactToggleButtons,
   DatePickerButton,
   SearchButton,
+  DatePickerFunctionalButton,
 };

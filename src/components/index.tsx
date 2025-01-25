@@ -23,6 +23,7 @@ import {
   ReactToggleButtons,
   DatePickerButton,
   SearchButton,
+  DatePickerFunctionalButton,
 } from "./Buttons";
 
 export {
@@ -51,4 +52,5 @@ export {
   CustomImageModal,
   CustomDatePickerModal,
   SearchButton,
+  DatePickerFunctionalButton,
 };

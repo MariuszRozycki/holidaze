@@ -13,7 +13,7 @@ const CustomImageModal = ({ show, onHide, img, venueName }: CustomImageModalProp
 
   return (
     <Modal
-      className='custom-modal-width'
+      className='custom-image-modal-width'
       dialogClassName='rounded-modal-dialog'
       show={show}
       onHide={onHide}

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import { CustomDatePickerModal } from "../../Modals";
+import "./DatePickerButton.scss";
+import { Container } from "react-bootstrap";
 
 type DataPickerButtonProps = {
   className?: string;
@@ -19,11 +21,12 @@ const DatePickerButton = ({ className }: DataPickerButtonProps) => {
   };
 
   return (
-    <>
-      <CustomButton className={className} btnText='Select dates' onClick={handleOpenDatePicker} />
-
-      {isModalOpen && <CustomDatePickerModal show={isModalOpen} onHide={handleCloseDatePicker} fullscreen='md-down' />}
-    </>
+    <div className='data-picker-button-wrapper'>
+      <Container>
+        <CustomButton className={className} btnText='Select dates' onClick={handleOpenDatePicker} />
+      </Container>
+      {isModalOpen && <CustomDatePickerModal show={isModalOpen} onHide={handleCloseDatePicker} fullscreen='sm-down' />}
+    </div>
   );
 };
 

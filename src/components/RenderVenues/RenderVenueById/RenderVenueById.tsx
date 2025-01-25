@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { HeadingH1, GoBackButton, DatePickerButton, CustomSwiper, StarRating } from "../../";
+import { HeadingH1, GoBackButton, CustomSwiper, StarRating, DatePickerButton } from "../../";
 import { useFetchData } from "../../../hooks";
 import {
   getFullVenueName,
@@ -19,7 +19,6 @@ const VenueDetails = () => {
   const { isLoading, error, selectedVenue } = state;
 
   useFetchData(undefined, undefined, 10, "", "", dispatch, id);
-  console.log("Hi from VenueDetails, selectedVenue: ", selectedVenue);
 
   const { name, avatar } = getVenueOwnerInfo(selectedVenue);
 
@@ -55,77 +54,70 @@ const VenueDetails = () => {
   };
 
   return (
-    <>
+    <Card>
       <Row>
         <Col>
           <CustomSwiper isLoading={isLoading} isError={error} selectedVenue={selectedVenue} />
         </Col>
       </Row>
+      {/* <section className='section-details mt-2'> */}
       <Row>
         <Col col={12}>
-          <Card className='border-0 px-0'>
-            <Card.Body className='px-0'>
-              <h1 className='h5 mb-2 fw-semibold'>{getFullVenueName(selectedVenue)}</h1>
-              <h2 className='h5 mb-2'>
-                {/* <i className='bi bi-geo me-2'></i> */}
-                {getFullCountryName(selectedVenue)}, {getFullCityName(selectedVenue)}
-              </h2>
-              <h3 className='h5'>
-                <div className='owner-info'>
-                  <span>
-                    <img src={avatar.url} alt={name} className='owner-avatar img' />
-                  </span>
-                  Host: {name}
-                </div>
-              </h3>
-              <h3 className='h4'>
-                <StarRating rating={selectedVenue.rating} />
-              </h3>
-            </Card.Body>
-          </Card>
+          <Card.Body>
+            <h1 className='h5 mb-2 fw-semibold'>{getFullVenueName(selectedVenue)}</h1>
+            <h2 className='h5 mb-2'>
+              {getFullCountryName(selectedVenue)}, {getFullCityName(selectedVenue)}
+            </h2>
+            <h3 className='h5'>
+              <div className='owner-info mt-0'>
+                <span>
+                  <img src={avatar.url} alt={name} className='owner-avatar img' />
+                </span>
+                Host: {name}
+              </div>
+            </h3>
+            <h3 className='h4'>
+              <StarRating rating={selectedVenue.rating} />
+            </h3>
+          </Card.Body>
         </Col>
       </Row>
       <Row>
         <Col col={12} md={7}>
-          <Card className='border-0 px-0'>
-            <Card.Body className='px-0'>
-              <h3 className='h5 fw-semibold'>Description:</h3>
-              <p className='fs-5 single-venue-description'>{getVenueDescription(selectedVenue)}</p>
-              <h3 className='h5 fw-semibold'>Services:</h3>
-              <ul className='list-unstyled fs-5'>
-                {Object.entries(selectedVenue.meta).map(([key, value]) => {
-                  const typedKey = key as keyof typeof iconClass;
+          <Card.Body>
+            <h3 className='h5 fw-semibold mt-3'>Description:</h3>
+            <p className='fs-5 single-venue-description'>{getVenueDescription(selectedVenue)}</p>
+            <h3 className='h5 fw-semibold'>Services:</h3>
+            <ul className='list-unstyled fs-5'>
+              {Object.entries(selectedVenue.meta).map(([key, value]) => {
+                const typedKey = key as keyof typeof iconClass;
 
-                  return (
-                    <li key={key} className={`d-flex align-items-center ${value ? "yes" : "no"}`}>
-                      <i className={`${iconClass[typedKey]} me-2`}></i>
-                      {key.charAt(0).toUpperCase() + key.slice(1)}: {value ? "Yes" : "No"}
-                    </li>
-                  );
-                })}
-              </ul>
-            </Card.Body>
-          </Card>
+                return (
+                  <li key={key} className={`d-flex align-items-center ${value ? "yes" : "no"}`}>
+                    <i className={`${iconClass[typedKey]} me-2`}></i>
+                    {key.charAt(0).toUpperCase() + key.slice(1)}: {value ? "Yes" : "No"}
+                  </li>
+                );
+              })}
+            </ul>
+          </Card.Body>
         </Col>
         <Col col={12} md={5} className='md-text-end'>
-          <Card className='border-0 px-0'>
-            <Card.Body className='px-0'>
-              <h3 className='h5 fw-semibold'>Availability:</h3>
-              <h2 className='fs-5'>
-                <span className='me-2'>euro {selectedVenue.price}/</span>night
-              </h2>
-              <p className='fs-5'>
-                <i className='bi bi-people-fill me-2'></i>
-                <span>{getMaxGuests(selectedVenue)} guests</span>
-              </p>
-              <div className='data-picker-button-wrapper'>
-                <DatePickerButton className='data-picker-button' />
-              </div>
-            </Card.Body>
-          </Card>
+          <Card.Body>
+            <h3 className='h5 fw-semibold mt-3'>Availability:</h3>
+            <h2 className='fs-5'>
+              <span className='me-2'>euro {selectedVenue.price}/</span>night
+            </h2>
+            <p className='fs-5'>
+              <i className='bi bi-people-fill me-2'></i>
+              <span>{getMaxGuests(selectedVenue)} guests</span>
+            </p>
+            <DatePickerButton className='data-picker-button' />
+          </Card.Body>
         </Col>
       </Row>
-    </>
+      {/* </section> */}
+    </Card>
   );
 };
 
