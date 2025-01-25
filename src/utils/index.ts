@@ -12,7 +12,8 @@ import {
   getFullVenueName,
   getPricePerNight,
   getMaxGuests,
-  getVenueOwnerName,
+  getVenueOwnerInfo,
+  getVenueDescription,
 } from "./venueDataViewers";
 
 export {
@@ -28,5 +29,6 @@ export {
   getFullVenueName,
   getPricePerNight,
   getMaxGuests,
-  getVenueOwnerName,
+  getVenueOwnerInfo,
+  getVenueDescription,
 };
