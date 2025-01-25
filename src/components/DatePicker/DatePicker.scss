@@ -1,0 +1,14 @@
+@use "../../scss/abstracts/breakpoints";
+
+@media (min-width: breakpoints.get(md)) {
+  .rdrCalendarWrapper,
+  .rdrDateDisplayWrapper,
+  .rdrMonthAndYearWrapper,
+  .rdrMonths {
+    width: 100%;
+  }
+
+  .rdrMonth {
+    width: 50%;
+  }
+}

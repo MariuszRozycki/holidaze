@@ -4,6 +4,7 @@ import { addDays } from "date-fns";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import breakpoints from "../../scss/global/breakpoints";
+import "./DatePicker.scss";
 
 const DatePicker = () => {
   const [state, setState] = useState<Range[]>([
@@ -16,6 +17,7 @@ const DatePicker = () => {
 
   const [direction, setDirection] = useState<"horizontal" | "vertical">("vertical");
 
+  /* !important !If you change breakpoints.md to another breakpoint change breakpoint in @media query in .scss file */
   const updateDirection = () => {
     if (window.matchMedia(`(max-width: ${breakpoints.md + "px"})`).matches) {
       setDirection("vertical");
