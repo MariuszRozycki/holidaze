@@ -3,8 +3,8 @@ import {
   LoginAs,
   LoginAsUser,
   LoginAsManager,
-  SignUp,
-  SignUpAsCustomer,
+  SignUpPage,
+  SignUpAsCustomerPage,
   SignUpCustomerRegConfirm,
   SignUpAsManager,
   SignUpManagerRegConfirm,
@@ -33,12 +33,12 @@ const mainRoutes = [
     element: <LoginAsManager />,
   },
   {
-    path: "sign-up-as",
-    element: <SignUp />,
+    path: "sign-up-page",
+    element: <SignUpPage />,
   },
   {
-    path: "sign-up-as-customer",
-    element: <SignUpAsCustomer />,
+    path: "sign-up-as-customer-page",
+    element: <SignUpAsCustomerPage />,
   },
   {
     path: "sign-up-customer-reg-conf",

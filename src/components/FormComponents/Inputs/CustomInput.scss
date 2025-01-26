@@ -1,0 +1,18 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/variables";
+
+input.custom-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  max-width: 80%;
+}
+
+input.custom-input:focus {
+  border: 2px solid $dark;
+}
+
+input.custom-input::placeholder {
+  color: $light;
+}

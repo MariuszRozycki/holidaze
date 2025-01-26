@@ -1,0 +1,5 @@
+@use "../../../scss/abstracts/spacers";
+
+button.go-back-button {
+  margin-bottom: spacers.spacer(4);
+}

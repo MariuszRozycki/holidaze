@@ -1,0 +1,22 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/breakpoints";
+@use "../../../scss/abstracts/variables";
+
+button.sign-up-button {
+  border: none;
+  background-color: variables.$secondary-color;
+  color: $dark;
+  border-radius: variables.$border-radius-main;
+  box-shadow: variables.$box-shadow-light;
+  font-weight: 600;
+}
+
+@media (min-width: breakpoints.get(md)) {
+  button.sign-up-button {
+    &:hover {
+      background-color: variables.$primary-color;
+      box-shadow: variables.$box-shadow-null;
+      color: $dark;
+    }
+  }
+}

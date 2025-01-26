@@ -1,6 +1,7 @@
 @use "bootstrap" as *;
 @use "../../scss/abstracts/variables";
 @use "../../scss/abstracts/breakpoints";
+@use "../../scss/abstracts/spacers" as spacer;
 
 button.navbar-toggler {
   border: 0;
@@ -31,17 +32,17 @@ div.offcanvas {
 }
 
 a.nav-link {
-  border: 2px solid white;
-  border-radius: 30px;
+  border: 2px solid $light;
+  border-radius: variables.$border-radius-main;
   text-align: center;
   width: 80%;
-  margin: 0 auto 30px;
+  margin: 0 auto variables.$border-radius-main;
   color: $light;
 }
 
 .navbar-nav a.nav-link.active {
   background-color: variables.$secondary-color;
-  color: variables.$main-color;
+  color: $dark;
 }
 
 @media (min-width: breakpoints.get(md)) {
@@ -51,17 +52,17 @@ a.nav-link {
 
   .custom-offcanvas-body .navbar-nav {
     width: 100vw;
-    gap: 10px;
+    gap: spacer.spacer(3);
   }
 
   a.nav-link {
-    margin: 0 auto;
+    margin: spacer.spacer(2) auto;
     transition: variables.$transition-main;
   }
 
   .navbar-nav a.nav-link:hover {
-    background-color: variables.$primary-color;
-    color: variables.$main-color;
+    background-color: variables.$secondary-color;
+    color: $dark;
     border-color: variables.$primary-color;
   }
 }

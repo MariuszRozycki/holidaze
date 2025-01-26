@@ -8,12 +8,14 @@ import SortOptions from "./SortOptions/SortOptions";
 import SearchBar from "./SearchBar/SearchBar";
 import RenderVenueList from "./RenderVenues/RenderVenuesList/RenderVenuesList";
 import RenderVenueById from "./RenderVenues/RenderVenueById/RenderVenueById";
-import { HeadingH1 } from "./Headings";
+import { HeadingH1, HeadingH2, HeadingH3 } from "./Headings";
 import DatePicker from "./DatePicker/DatePicker";
 import CustomSwiper from "./Swiper/CustomSwiper";
 import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
 import { CustomImageModal, CustomDatePickerModal } from "./Modals";
+import { RenderSignUpAs, RenderSignUpCustomer } from "./RenderAuthentication";
+import { CustomInput } from "./FormComponents";
 import {
   CustomButton,
   GoBackButton,
@@ -24,6 +26,7 @@ import {
   DatePickerButton,
   SearchButton,
   DatePickerFunctionalButton,
+  LinkButton,
 } from "./Buttons";
 
 export {
@@ -38,6 +41,8 @@ export {
   LogInButton,
   GoToMainPageButton,
   HeadingH1,
+  HeadingH2,
+  HeadingH3,
   CustomCard,
   Pagination,
   SortOptions,
@@ -53,4 +58,8 @@ export {
   CustomDatePickerModal,
   SearchButton,
   DatePickerFunctionalButton,
+  LinkButton,
+  RenderSignUpAs,
+  RenderSignUpCustomer,
+  CustomInput,
 };
