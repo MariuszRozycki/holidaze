@@ -1,0 +1,13 @@
+@use "bootstrap" as *;
+
+@function spacer($size) {
+  @return map-get($spacers, $size);
+}
+
+// .my-class {
+//   padding: spacer(2);
+// }
+
+// @include media-breakpoint-up(md) {
+//   padding: spacers.spacer(3); // Dla breakpointu `md` (np. 768px)
+// }

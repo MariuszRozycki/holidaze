@@ -47,7 +47,7 @@ const NavMainLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
                 <Nav.Link as={NavLink} to='login-as' onClick={handleNavLinkClick}>
                   Login as...
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='sign-up-as' onClick={handleNavLinkClick}>
+                <Nav.Link as={NavLink} to='sign-up-page' onClick={handleNavLinkClick}>
                   Sign up
                 </Nav.Link>
                 <Nav.Link as={NavLink} to='about' onClick={handleNavLinkClick}>

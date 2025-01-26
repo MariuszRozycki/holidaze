@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import { useKeyPress } from "../useKeyPress/useKeyPress";
+import { useNavigate } from "react-router-dom";
 
 export const useGoBack = () => {
   const navigate = useNavigate();
@@ -9,7 +9,20 @@ export const useGoBack = () => {
     navigate(-1);
   };
 
-  useKeyPress("Backspace", () => navigate(-1));
+  useKeyPress("Backspace", (e: KeyboardEvent) => {
+    const activeElement = document.activeElement;
+
+    if (
+      activeElement &&
+      (activeElement.tagName === "INPUT" || activeElement.tagName === "TEXTAREA") &&
+      !(activeElement as HTMLInputElement).readOnly
+    ) {
+      return;
+    }
+
+    e.preventDefault();
+    navigate(-1);
+  });
 
   return handleGoBack;
 };

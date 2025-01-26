@@ -1,0 +1,10 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/variables";
+@use "../../../scss/abstracts/spacers" as spacer;
+
+.link-button {
+  &:hover {
+    background-color: variables.$secondary-color;
+    color: $dark;
+  }
+}

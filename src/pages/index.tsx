@@ -2,8 +2,8 @@ import UnauthenticatedHomePage from "./Unauthenticated/UnauthenticatedHomePage";
 import LoginAs from "./Unauthenticated/LoginAs";
 import LoginAsUser from "./Unauthenticated/LoginAsUser";
 import LoginAsManager from "./Unauthenticated/LoginAsManager";
-import SignUp from "./Unauthenticated/SignUp";
-import SignUpAsCustomer from "./Unauthenticated/SignUpAsCustomer";
+import SignUpPage from "./Unauthenticated/SignUpPage";
+import SignUpAsCustomerPage from "./Unauthenticated/SignUpAsCustomerPage";
 import SignUpCustomerRegConfirm from "./Unauthenticated/SignUpCustomerRegConfirm";
 import SignUpAsManager from "./Unauthenticated/SignUpAsManager";
 import SignUpManagerRegConfirm from "./Unauthenticated/SignUpManagerRegConfirm";
@@ -28,10 +28,10 @@ export {
   LoginAs,
   LoginAsUser,
   LoginAsManager,
-  SignUp,
+  SignUpPage,
   About,
   Contact,
-  SignUpAsCustomer,
+  SignUpAsCustomerPage,
   SignUpCustomerRegConfirm,
   SignUpAsManager,
   SignUpManagerRegConfirm,
