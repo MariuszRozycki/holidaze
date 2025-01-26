@@ -5,7 +5,7 @@ import LoginAsManager from "./Unauthenticated/LoginAsManager";
 import SignUpPage from "./Unauthenticated/SignUpPage";
 import SignUpAsCustomerPage from "./Unauthenticated/SignUpAsCustomerPage";
 import SignUpCustomerRegConfirm from "./Unauthenticated/SignUpCustomerRegConfirm";
-import SignUpAsManager from "./Unauthenticated/SignUpAsManager";
+import SignUpAsManagerPage from "./Unauthenticated/SignUpAsManagerPage";
 import SignUpManagerRegConfirm from "./Unauthenticated/SignUpManagerRegConfirm";
 import About from "./Unauthenticated/About";
 import Contact from "./Unauthenticated/Contact";
@@ -33,7 +33,7 @@ export {
   Contact,
   SignUpAsCustomerPage,
   SignUpCustomerRegConfirm,
-  SignUpAsManager,
+  SignUpAsManagerPage,
   SignUpManagerRegConfirm,
   PageNotExists,
   UserSearchResults,

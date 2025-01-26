@@ -7,8 +7,8 @@ type CustomInputProps = {
   className?: string;
 };
 
-const CustomInput = ({ type, placeholder, className }: CustomInputProps) => {
-  return <Form.Control type={type} placeholder={placeholder} className={className} />;
+const CustomInput = ({ type, placeholder }: CustomInputProps) => {
+  return <Form.Control type={type} placeholder={placeholder} className='custom-input' />;
 };
 
 export default CustomInput;

@@ -14,7 +14,7 @@ import CustomSwiper from "./Swiper/CustomSwiper";
 import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
 import { CustomImageModal, CustomDatePickerModal } from "./Modals";
-import { RenderSignUpAs, RenderSignUpCustomer } from "./RenderAuthentication";
+import { RenderSignUpAs, RenderSignUpCustomer, RenderSignUpManager, RenderConfirmationCustomer } from "./RenderAuthentication";
 import { CustomInput } from "./FormComponents";
 import {
   CustomButton,
@@ -62,4 +62,6 @@ export {
   RenderSignUpAs,
   RenderSignUpCustomer,
   CustomInput,
+  RenderSignUpManager,
+  RenderConfirmationCustomer,
 };

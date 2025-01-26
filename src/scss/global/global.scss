@@ -1,6 +1,6 @@
 @use "bootstrap" as *;
 @use "../abstracts/variables" as variables;
-@use "../abstracts/spacers" as spacer;
+@use "../abstracts/spacers";
 @use "../abstracts/breakpoints" as breakpoint;
 
 body {
@@ -15,16 +15,25 @@ body {
 
 .page-element-wrapper {
   color: $light;
-  padding: spacer.spacer(3);
+  padding: spacers.spacer(3);
   text-align: center;
   background-color: variables.$main-color;
-  // max-width: 800px;
-  min-height: 400px;
+  height: 600px;
   border-radius: variables.$border-radius-normal;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto;
+  margin: spacers.spacer(3) auto;
+}
+
+form,
+.content-page-wrapper {
+  margin: spacers.spacer(3) auto;
+  width: 100%;
+  max-width: 600px;
+  flex-grow: 1;
+  border-radius: variables.$border-radius-normal;
+  padding: spacers.spacer(3) spacers.spacer(2);
 }
 
 .link-buttons-wrapper {
@@ -49,7 +58,7 @@ body {
   color: $light;
   background-color: variables.$main-color;
   height: 40px;
-  padding: spacer.spacer(4) spacer.spacer(4);
+  padding: spacers.spacer(4) spacers.spacer(4);
   margin: 0 auto;
   text-decoration: none;
   transition: variables.$transition-main;

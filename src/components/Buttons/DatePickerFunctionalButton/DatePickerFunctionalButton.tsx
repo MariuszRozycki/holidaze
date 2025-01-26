@@ -1,4 +1,5 @@
 import CustomButton from "../CustomButton/CustomButton";
+import "./DatePickerFunctionalButton.scss";
 
 type DatePickerFunctionalButtonProps = {
   btnText: string;
@@ -6,7 +7,7 @@ type DatePickerFunctionalButtonProps = {
 };
 
 const DatePickerFunctionalButton = ({ btnText, onClick }: DatePickerFunctionalButtonProps) => {
-  return <CustomButton btnText={btnText} onClick={onClick} />;
+  return <CustomButton btnText={btnText} className='data-picker-functional-button' onClick={onClick} />;
 };
 
 export default DatePickerFunctionalButton;
