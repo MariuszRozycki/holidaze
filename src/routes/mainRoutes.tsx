@@ -6,7 +6,7 @@ import {
   SignUpPage,
   SignUpAsCustomerPage,
   SignUpCustomerRegConfirm,
-  SignUpAsManager,
+  SignUpAsManagerPage,
   SignUpManagerRegConfirm,
   About,
   Contact,
@@ -37,7 +37,7 @@ const mainRoutes = [
     element: <SignUpPage />,
   },
   {
-    path: "sign-up-as-customer-page",
+    path: "sign-up-page/sign-up-as-customer-page",
     element: <SignUpAsCustomerPage />,
   },
   {
@@ -45,8 +45,8 @@ const mainRoutes = [
     element: <SignUpCustomerRegConfirm />,
   },
   {
-    path: "sign-up-as-manager",
-    element: <SignUpAsManager />,
+    path: "sign-up-page/sign-up-as-manager-page", // zmienic sciezke
+    element: <SignUpAsManagerPage />,
   },
   {
     path: "sign-up-manager-reg-conf",

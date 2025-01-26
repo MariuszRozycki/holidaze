@@ -1,4 +1,5 @@
 @use "bootstrap" as *;
+@use "../../../scss/abstracts/breakpoints";
 @use "../../../scss/abstracts/variables";
 
 input.custom-input {
@@ -7,12 +8,30 @@ input.custom-input {
   align-items: center;
   text-align: left;
   max-width: 80%;
+  cursor: pointer;
 }
 
 input.custom-input:focus {
-  border: 2px solid $dark;
+  border: 2px solid $light;
+  box-shadow: variables.$box-shadow-deeper-inset;
+  transform: translateY(1px);
 }
 
 input.custom-input::placeholder {
   color: $light;
+}
+
+@media (min-width: breakpoints.get(md)) {
+  input.custom-input {
+    &:hover {
+      background-color: variables.$primary-color;
+      box-shadow: variables.$box-shadow-deeper-inset;
+      transform: translateY(1px);
+      color: $dark;
+
+      &::placeholder {
+        color: $dark;
+      }
+    }
+  }
 }
