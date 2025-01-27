@@ -1,13 +1,13 @@
 import {
   UnauthenticatedHomePage,
-  LoginAs,
-  LoginAsUser,
-  LoginAsManager,
+  LoginAsPage,
+  LoginAsCustomerPage,
+  LoginAsManagerPage,
   SignUpPage,
   SignUpAsCustomerPage,
-  SignUpCustomerRegConfirm,
+  SignUpCustomerRegConfirmPage,
+  SignUpManagerRegConfirmPage,
   SignUpAsManagerPage,
-  SignUpManagerRegConfirm,
   About,
   Contact,
   PageNotExists,
@@ -21,16 +21,16 @@ const mainRoutes = [
     element: <UnauthenticatedHomePage />,
   },
   {
-    path: "login-as",
-    element: <LoginAs />,
+    path: "login-as-page",
+    element: <LoginAsPage />,
   },
   {
-    path: "login-as-user",
-    element: <LoginAsUser />,
+    path: "login-as-page/login-as-customer-page",
+    element: <LoginAsCustomerPage />,
   },
   {
-    path: "login-as-manager",
-    element: <LoginAsManager />,
+    path: "login-as-page/login-as-manager-page",
+    element: <LoginAsManagerPage />,
   },
   {
     path: "sign-up-page",
@@ -41,16 +41,16 @@ const mainRoutes = [
     element: <SignUpAsCustomerPage />,
   },
   {
-    path: "sign-up-customer-reg-conf",
-    element: <SignUpCustomerRegConfirm />,
+    path: "sign-up-customer-reg-conf-page",
+    element: <SignUpCustomerRegConfirmPage />,
   },
   {
-    path: "sign-up-page/sign-up-as-manager-page", // zmienic sciezke
+    path: "sign-up-page/sign-up-as-manager-page",
     element: <SignUpAsManagerPage />,
   },
   {
     path: "sign-up-manager-reg-conf",
-    element: <SignUpManagerRegConfirm />,
+    element: <SignUpManagerRegConfirmPage />,
   },
   {
     path: "about",

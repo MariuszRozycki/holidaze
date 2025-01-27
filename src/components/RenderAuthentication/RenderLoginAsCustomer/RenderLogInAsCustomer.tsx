@@ -1,16 +1,16 @@
 import { useNavigateToElement } from "../../../hooks";
 import { Form } from "react-bootstrap";
-import { CustomInput, SignUpButton, GoBackButton, HeadingH1 } from "../../index";
-import "./RenderSignUpCustomer.scss";
+import { GoBackButton, HeadingH1, CustomInput, LogInButton } from "../../";
 
-const RenderSignUpCustomer = () => {
-  const locationPath = "/holidaze/sign-up-customer-reg-conf-page";
+const RenderLoginAsCustomer = () => {
+  const locationPath = "/holidaze/user/logged-user-home-page";
   const handleNavigate = useNavigateToElement({ locationPath });
+
   return (
     <div className='page-element-wrapper'>
       <GoBackButton />
-      <HeadingH1>Sign As a Customer</HeadingH1>
-      <Form className='content-page-wrapper'>
+      <HeadingH1>Login as a Customer</HeadingH1>
+      <Form>
         <Form.Group className='mb-3' controlId='formBasicName'>
           <CustomInput type='text' placeholder='Enter name' />
         </Form.Group>
@@ -20,10 +20,10 @@ const RenderSignUpCustomer = () => {
         <Form.Group className='mb-3' controlId='formBasicPassword'>
           <CustomInput type='password' placeholder='Password' />
         </Form.Group>
-        <SignUpButton className='mt-5' type='submit' onClick={handleNavigate} />
+        <LogInButton type='submit' onClick={handleNavigate} />
       </Form>
     </div>
   );
 };
 
-export default RenderSignUpCustomer;
+export default RenderLoginAsCustomer;

@@ -1,12 +1,12 @@
 import UnauthenticatedHomePage from "./Unauthenticated/UnauthenticatedHomePage";
-import LoginAs from "./Unauthenticated/LoginAs";
-import LoginAsUser from "./Unauthenticated/LoginAsUser";
-import LoginAsManager from "./Unauthenticated/LoginAsManager";
+import LoginAsPage from "./Unauthenticated/LoginAsPage";
+import LoginAsCustomerPage from "./Unauthenticated/LoginAsCustomerPage";
+import LoginAsManagerPage from "./Unauthenticated/LoginAsManagerPage";
 import SignUpPage from "./Unauthenticated/SignUpPage";
 import SignUpAsCustomerPage from "./Unauthenticated/SignUpAsCustomerPage";
-import SignUpCustomerRegConfirm from "./Unauthenticated/SignUpCustomerRegConfirm";
+import SignUpCustomerRegConfirmPage from "./Unauthenticated/SignUpCustomerRegConfirmPage";
 import SignUpAsManagerPage from "./Unauthenticated/SignUpAsManagerPage";
-import SignUpManagerRegConfirm from "./Unauthenticated/SignUpManagerRegConfirm";
+import SignUpManagerRegConfirmPage from "./Unauthenticated/SignUpManagerRegConfirmPage";
 import About from "./Unauthenticated/About";
 import Contact from "./Unauthenticated/Contact";
 import PageNotExists from "./PageNotExists/PageNotExists";
@@ -25,16 +25,16 @@ import MyVenuesBookings from "./VenueManager/MyVenuesBookings";
 
 export {
   UnauthenticatedHomePage,
-  LoginAs,
-  LoginAsUser,
-  LoginAsManager,
+  LoginAsPage,
+  LoginAsCustomerPage,
+  LoginAsManagerPage,
   SignUpPage,
   About,
   Contact,
   SignUpAsCustomerPage,
-  SignUpCustomerRegConfirm,
+  SignUpCustomerRegConfirmPage,
   SignUpAsManagerPage,
-  SignUpManagerRegConfirm,
+  SignUpManagerRegConfirmPage,
   PageNotExists,
   UserSearchResults,
   VenueByIdPage,

@@ -13,17 +13,20 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
 
   return (
     <>
-      <Navbar expand='md' className='bg-body-tertiary mb-3 position-sticky top-0 z-2' ref={headerRef}>
-        <Container>
+      <Navbar expand='md' className='mb-3' ref={headerRef}>
+        <Container className='nav-custom-container'>
           <Navbar.Brand
             className='d-flex justify-content-start align-items-center'
             as={Link}
             to='/holidaze/user/logged-user-home-page/'
           >
-            <span className='hidden-below-300 fw-semibold'>Holidaze</span>
+            <span className='hidden-below-300 fs-3 text-light'>HOLIDAZE</span>
           </Navbar.Brand>
-
-          <Navbar.Toggle onClick={handleShow} aria-controls='offcanvasNavbar-expand-md' />
+          <Navbar.Toggle onClick={handleShow} aria-controls='offcanvasNavbar-expand-md'>
+            <span className='custom-toggler-icon'>
+              <i className='bi bi-list'></i>
+            </span>
+          </Navbar.Toggle>
           <Navbar.Offcanvas
             show={show}
             onHide={handleClose}
@@ -31,15 +34,18 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
             aria-labelledby='offcanvasNavbarLabel-expand-md'
             placement='end'
           >
-            <Offcanvas.Header closeButton>
-              <Offcanvas.Title id='offcanvasNavbarLabel-expand-md'>Menu</Offcanvas.Title>
+            <Offcanvas.Header>
+              <Offcanvas.Title id='offcanvasNavbarLabel-expand-md'>HOLIDAZE</Offcanvas.Title>
+              <button onClick={handleClose} type='button' className='custom-btn-close' aria-label='Close'>
+                <i className='bi bi-x-lg'></i>
+              </button>
             </Offcanvas.Header>
-            <Offcanvas.Body>
-              <Nav className='justify-content-end flex-grow-1 pe-3'>
-                <Nav.Link as={NavLink} to='/holidaze/user/logged-user-home-page/' end onClick={handleNavLinkClick}>
+            <Offcanvas.Body className='custom-offcanvas-body'>
+              <Nav className='justify-content-end flex-grow-1 pe-3 fs-5'>
+                <Nav.Link as={NavLink} to='/holidaze/user/logged-user-home-page' end onClick={handleNavLinkClick}>
                   Home
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='/holidaze/' onClick={handleNavLinkClick}>
+                <Nav.Link as={NavLink} to='/holidaze/' end onClick={handleNavLinkClick}>
                   Log out
                 </Nav.Link>
                 <Nav.Link as={NavLink} to='/holidaze/user/about' onClick={handleNavLinkClick}>

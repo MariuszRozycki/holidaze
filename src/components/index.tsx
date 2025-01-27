@@ -14,7 +14,17 @@ import CustomSwiper from "./Swiper/CustomSwiper";
 import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
 import { CustomImageModal, CustomDatePickerModal } from "./Modals";
-import { RenderSignUpAs, RenderSignUpCustomer, RenderSignUpManager, RenderConfirmationCustomer } from "./RenderAuthentication";
+import {
+  RenderSignUpAs,
+  RenderSignUpCustomer,
+  RenderSignUpManager,
+  RenderSignUpConfirmationCustomer,
+  RenderSignUpConfirmationManager,
+  RenderLoginAs,
+  RenderLogInAsManager,
+  RenderLoginAsCustomer,
+} from "./RenderAuthentication";
+import { RenderLoggedCustomerHomePage } from "./RenderLoggedCustomer";
 import { CustomInput } from "./FormComponents";
 import {
   CustomButton,
@@ -63,5 +73,11 @@ export {
   RenderSignUpCustomer,
   CustomInput,
   RenderSignUpManager,
-  RenderConfirmationCustomer,
+  RenderSignUpConfirmationCustomer,
+  RenderSignUpConfirmationManager,
+  RenderLoginAs,
+  RenderLogInAsManager,
+  RenderLoginAsCustomer,
+  /* Logged User */
+  RenderLoggedCustomerHomePage,
 };
