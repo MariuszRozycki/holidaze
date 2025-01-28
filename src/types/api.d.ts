@@ -77,3 +77,13 @@ export type VenueResponse = {
   data: Venue[];
   meta: Meta;
 };
+
+export type Profile = {
+  name: string;
+  email: string;
+  bio: string | null;
+  avatar: Media;
+  banner: Media;
+  bookings: Booking[];
+  venues: Venue[];
+};

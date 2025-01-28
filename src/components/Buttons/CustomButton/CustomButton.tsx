@@ -6,6 +6,7 @@ export interface CustomButtonProps {
   type?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
   className?: string;
+  disabled?: boolean;
 }
 
 const CustomButton = ({ btnText, onClick, className }: CustomButtonProps) => {

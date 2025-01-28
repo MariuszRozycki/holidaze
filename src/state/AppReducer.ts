@@ -1,9 +1,10 @@
-import { Venue, Meta } from "../types/api";
+import { Venue, Meta, Profile } from "../types/api";
 
 export type Action =
   | { type: "FETCH_VENUES_START" }
   | { type: "FETCH_VENUES_SUCCESS"; payload: { data: Venue[]; meta: Meta } }
   | { type: "FETCH_VENUES_ERROR"; payload: string }
+  | { type: "REMOVE_VENUES" }
   | { type: "SET_PAGE"; payload: number }
   | { type: "SET_SORT"; payload: string }
   | { type: "SET_SORT_ORDER"; payload: string }
@@ -14,7 +15,15 @@ export type Action =
   | { type: "FETCH_VENUE_DETAILS_START" }
   | { type: "FETCH_VENUE_DETAILS_SUCCESS"; payload: Venue }
   | { type: "FETCH_VENUE_DETAILS_ERROR"; payload: string }
-  | { type: "SET_SELECTED_DATES"; payload: { startDate: Date; endDate: Date } };
+  | { type: "SET_SELECTED_DATES"; payload: { startDate: Date; endDate: Date } }
+  | { type: "SET_ACCESS_TOKEN"; payload: string }
+  | { type: "REMOVE_ACCESS_TOKEN" }
+  | { type: "SET_USER_DATA"; payload: { name: string; email: string } }
+  | { type: "REMOVE_USER_DATA" }
+  | { type: "FETCH_USER_PROFILE_START" }
+  | { type: "SET_USER_PROFILE_SUCCESS"; payload: Profile }
+  | { type: "FETCH_USER_PROFILE_ERROR"; payload: string }
+  | { type: "REMOVE_USER_PROFILE" };
 
 export interface AppState {
   venues: Venue[];
@@ -28,6 +37,9 @@ export interface AppState {
   isSearching: boolean;
   searchQuery: string;
   selectedDates: { startDate: Date | null; endDate: Date | null };
+  accessToken: null | string;
+  userData: { name: string; email: string } | null;
+  userProfile: Profile | null;
 }
 
 export const initialState: AppState = {
@@ -45,12 +57,16 @@ export const initialState: AppState = {
     startDate: null,
     endDate: null,
   },
+  accessToken: null,
+  userData: null,
+  userProfile: null,
 };
 
 export function appReducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case "FETCH_VENUES_START":
       return { ...state, isLoading: true, error: null };
+
     case "FETCH_VENUES_SUCCESS":
       return {
         ...state,
@@ -58,28 +74,43 @@ export function appReducer(state: AppState, action: Action): AppState {
         venues: action.payload.data,
         meta: action.payload.meta,
       };
+
     case "FETCH_VENUES_ERROR":
       return { ...state, isLoading: false, error: action.payload };
+
     case "FETCH_VENUE_DETAILS_START":
       return { ...state, isLoading: true, error: null };
+
     case "FETCH_VENUE_DETAILS_SUCCESS":
       return { ...state, isLoading: false, selectedVenue: action.payload };
+
     case "FETCH_VENUE_DETAILS_ERROR":
       return { ...state, isLoading: false, error: action.payload };
+
+    case "REMOVE_VENUES":
+      return { ...state, userData: null };
+
     case "SET_PAGE":
       return { ...state, currentPage: action.payload };
+
     case "SET_SORT":
       return { ...state, sort: action.payload };
+
     case "SET_SORT_ORDER":
       return { ...state, sortOrder: action.payload };
+
     case "SET_SEARCH_QUERY":
       return { ...state, searchQuery: action.payload };
+
     case "SEARCH_VENUES_START":
       return { ...state, isSearching: true, error: null };
+
     case "SEARCH_VENUES_SUCCESS":
       return { ...state, isSearching: false, venues: action.payload };
+
     case "SEARCH_VENUES_ERROR":
       return { ...state, isSearching: false, error: action.payload };
+
     case "SET_SELECTED_DATES":
       return {
         ...state,
@@ -88,6 +119,30 @@ export function appReducer(state: AppState, action: Action): AppState {
           endDate: action.payload.endDate,
         },
       };
+
+    case "SET_ACCESS_TOKEN":
+      return { ...state, accessToken: action.payload };
+
+    case "REMOVE_ACCESS_TOKEN":
+      return { ...state, accessToken: null };
+
+    case "SET_USER_DATA":
+      return { ...state, userData: action.payload };
+
+    case "REMOVE_USER_DATA":
+      return { ...state, userData: null };
+
+    case "FETCH_USER_PROFILE_START":
+      return { ...state, isLoading: true, error: null };
+
+    case "SET_USER_PROFILE_SUCCESS":
+      return { ...state, isLoading: false, userProfile: action.payload, error: null };
+
+    case "FETCH_USER_PROFILE_ERROR":
+      return { ...state, isLoading: false, error: action.payload };
+
+    case "REMOVE_USER_PROFILE":
+      return { ...state, userProfile: null };
 
     default:
       throw new Error(`Unhandled action type: ${(action as Action).type}`);

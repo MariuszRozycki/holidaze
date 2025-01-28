@@ -1,9 +1,13 @@
-import { LoggedUserHomePage, About, Contact, PageNotExists } from "../pages";
+import { LoggedUserHomePage, About, Contact, PageNotExists, LoggedUserProfilePage } from "../pages";
 
 const userRoutes = [
   {
     path: "logged-user-home-page",
     element: <LoggedUserHomePage />,
+  },
+  {
+    path: "logged-user-by-name/:name",
+    element: <LoggedUserProfilePage />,
   },
   {
     path: "about",

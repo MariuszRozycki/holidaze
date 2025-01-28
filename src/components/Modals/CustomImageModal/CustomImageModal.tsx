@@ -9,8 +9,6 @@ type CustomImageModalProps = {
 };
 
 const CustomImageModal = ({ show, onHide, img, venueName }: CustomImageModalProps) => {
-  console.log("hi from ImageModal", img);
-
   return (
     <Modal
       className='custom-image-modal-width'

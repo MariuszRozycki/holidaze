@@ -10,7 +10,6 @@ const RegisterNewVenue = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Values:", formValues);
   };
 
   return (

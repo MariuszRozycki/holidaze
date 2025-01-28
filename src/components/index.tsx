@@ -24,7 +24,7 @@ import {
   RenderLogInAsManager,
   RenderLoginAsCustomer,
 } from "./RenderAuthentication";
-import { RenderLoggedCustomerHomePage } from "./RenderLoggedCustomer";
+import { RenderLoggedUserHome, RenderLoggedUserProfile } from "./RenderLoggedUser";
 import { CustomInput } from "./FormComponents";
 import {
   CustomButton,
@@ -79,5 +79,6 @@ export {
   RenderLogInAsManager,
   RenderLoginAsCustomer,
   /* Logged User */
-  RenderLoggedCustomerHomePage,
+  RenderLoggedUserHome,
+  RenderLoggedUserProfile,
 };

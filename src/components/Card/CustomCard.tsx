@@ -24,7 +24,6 @@ const CustomCard = ({ venue }: CustomCardProps) => {
   const containerWidth = useElementWidth(elementRef);
 
   const navigate = useNavigate();
-  console.log(venue);
 
   const handleClick = () => {
     navigate(`/holidaze/venue-by-id/${venue.id}`);

@@ -13,7 +13,6 @@ const DatePickerButton = ({ className }: DataPickerButtonProps) => {
 
   const handleOpenDatePicker = () => {
     setIsModalOpen(true);
-    console.log("Date picker activated!");
   };
 
   const handleCloseDatePicker = () => {
