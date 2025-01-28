@@ -14,8 +14,6 @@ const CustomDatePickerModal = ({ show, onHide, fullscreen }: CustomDatePickerMod
   const { state } = useAppContext();
   const { selectedVenue, selectedDates } = state;
 
-  console.log("state from CustomDatePickerModalProps", state);
-
   return (
     <Modal
       className='custom-date-picker-modal-width m-0'

@@ -1,9 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { AUTH_ENDPOINTS } from "../../api/authEndpoints";
 import { useAppContext } from "../../context/app/useAppContext";
 import { handleError } from "../../utils";
-import { useNavigateToElement } from "../index";
 
 export const useLoginUser = () => {
   const { dispatch } = useAppContext();
@@ -29,12 +27,24 @@ export const useLoginUser = () => {
       }
 
       const result = await response.json();
+      console.log(result);
+      const loggedUserData = {
+        name: result.data.name,
+        email: result.data.email,
+      };
 
       if (result.data && result.data.accessToken) {
         localStorage.setItem("ACCESS_TOKEN", result.data.accessToken);
-        localStorage.setItem("USER_DATA", JSON.stringify({ name: result.data.name, email: result.data.email }));
+        localStorage.setItem("USER_DATA", JSON.stringify(loggedUserData));
         dispatch({ type: "SET_ACCESS_TOKEN", payload: result.data.accessToken });
-        dispatch({ type: "SET_USER_DATA", payload: { name: result.data.name, email: result.data.email } });
+        dispatch({
+          type: "SET_USER_DATA",
+          payload: {
+            name: result.data.name.toLowerCase(),
+            email: result.data.email.toLowerCase(),
+          },
+        });
+        dispatch({ type: "SET_USER_PROFILE_SUCCESS", payload: result.data });
 
         setIsSuccess(true);
       }

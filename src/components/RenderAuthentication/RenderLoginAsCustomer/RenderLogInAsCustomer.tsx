@@ -1,19 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../../context/app/useAppContext";
-import { useLoginUser, useNavigateToElement, useCreateApiKey } from "../../../hooks";
+import { useLoginUser, useCreateApiKey } from "../../../hooks";
 import { Form } from "react-bootstrap";
 import { GoBackButton, HeadingH1, CustomInput, LogInButton } from "../../";
 
 const RenderLoginAsCustomer = () => {
+  const { loginUser, isLoading, error, isSuccess } = useLoginUser();
   const { state } = useAppContext();
-  const name = state.userData?.name;
-  const locationPath = `/holidaze/user/logged-user-by-name/${name}`;
-  const handleNavigate = useNavigateToElement({ locationPath });
-  const { loginUser } = useLoginUser();
   const { createApiKey } = useCreateApiKey();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -29,10 +27,23 @@ const RenderLoginAsCustomer = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await loginUser(formData);
-    console.log("Form Data:", formData);
-    handleNavigate();
-    createApiKey();
+    if (isLoading) return <p>Loading data...</p>;
+
+    if (error) {
+      console.error("Login failed");
+      return <>{error && <p>Login failed: {error}</p>}</>;
+    }
+    await createApiKey();
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      const userName = state.userData?.name ?? "";
+      if (userName) {
+        navigate(`/holidaze/user/logged-user-by-name/${userName}`);
+      }
+    }
+  }, [isSuccess, state.userData, navigate]);
 
   return (
     <div className='page-element-wrapper'>

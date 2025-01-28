@@ -6,7 +6,6 @@ interface LocationPathProps {
 
 export const useNavigateToElement = ({ locationPath }: LocationPathProps) => {
   const navigate = useNavigate();
-
   const handleNavigate = () => {
     navigate(locationPath);
   };

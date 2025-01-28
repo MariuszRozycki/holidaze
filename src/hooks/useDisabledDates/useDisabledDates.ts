@@ -23,9 +23,6 @@ export const useDisabledDates = (selectedVenue: Venue | null): Date[] => {
       });
 
       setDisabledDates(allBlockedDays);
-
-      console.log("Wybrane venue:", selectedVenue.name);
-      console.log("Wszystkie zarezerwowane dni:", allBlockedDays);
     } else {
       setDisabledDates([]);
     }

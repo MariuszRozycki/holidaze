@@ -36,12 +36,10 @@ export const useCreateApiKey = () => {
       }
 
       const result = await response.json();
-      console.log("Result from useCreateApiKey", result);
 
       localStorage.setItem("API_KEY", result.data.key);
 
       setIsSuccess(true);
-      console.log("API Key created successfully and saved to localStorage!");
     } catch (error) {
       handleError(error, setError);
     } finally {

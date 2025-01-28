@@ -2,6 +2,7 @@ import { trimText } from "./trimText";
 import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
 import { handleImageError } from "./handleImageError";
 import { handleError } from "./handleError/handleError";
+import { clearLocalStorageOnLogout } from "./clearLocalStorageOnLogout";
 
 import {
   getImageUrl,
@@ -37,4 +38,5 @@ export {
   getDatesInRange,
   getSelectedDates,
   handleError,
+  clearLocalStorageOnLogout,
 };

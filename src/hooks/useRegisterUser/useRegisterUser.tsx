@@ -6,7 +6,12 @@ export const useRegisterUser = () => {
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const registerUser = async (userData: { name: string; email: string; password: string }) => {
+  const registerUser = async (userData: {
+    name: string;
+    email: string;
+    // textarea: string;
+    password: string;
+  }) => {
     setIsLoading(true);
     setError(null);
     try {
@@ -26,7 +31,6 @@ export const useRegisterUser = () => {
       console.log("result from useRegisterUser", result);
 
       setIsSuccess(true);
-      console.log("User registered successfully:", result);
     } catch (error) {
       setError(error instanceof Error ? error.message : "Unknown error");
     } finally {

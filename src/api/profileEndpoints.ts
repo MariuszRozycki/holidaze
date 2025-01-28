@@ -1,7 +1,8 @@
 import { API_BASE_URL } from "./config";
 
 export const PROFILE_ENDPOINTS = {
-  profilesByName: (name: string) => `${API_BASE_URL}/holidaze/profiles/${encodeURIComponent(name)}?_bookings=true&_venues=true`,
+  profilesByName: (name: string) =>
+    `${API_BASE_URL}/holidaze/profiles/${encodeURIComponent(name).toLocaleLowerCase()}?_bookings=true&_venues=true`,
   // profiles: (limit: number = 10, page: number = 1, sort: string = "", sortOrder: string = "") => {
   //   let url = `${API_BASE_URL}/holidaze/profiles?limit=${limit}&page=${page}`;
   //   if (sort) {

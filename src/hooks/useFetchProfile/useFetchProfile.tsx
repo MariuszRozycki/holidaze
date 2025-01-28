@@ -1,27 +1,17 @@
-import { useEffect, useState } from "react";
-import { PROFILE_ENDPOINTS } from "../../api/profileEndpoints";
-import { handleError } from "../../utils";
 import { Profile } from "../../types/api";
+import { useEffect } from "react";
+import { PROFILE_ENDPOINTS } from "../../api/profileEndpoints";
+import { useAppContext } from "../../context/app/useAppContext";
 
-interface UseFetchProfileReturn {
-  profile: Profile | null;
-  isLoading: boolean;
-  error: string | null;
-}
-
-export const useFetchProfile = (name: string): UseFetchProfileReturn => {
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+export const useFetchProfile = (name: string) => {
+  const { state, dispatch } = useAppContext();
 
   useEffect(() => {
     const fetchProfile = async () => {
-      setIsLoading(true);
-      setError(null);
-
       try {
+        dispatch({ type: "FETCH_USER_PROFILE_START" });
+
         const url = PROFILE_ENDPOINTS.profilesByName(name);
-        console.log("Generated URL: ", url);
 
         const response = await fetch(url, {
           headers: {
@@ -36,18 +26,23 @@ export const useFetchProfile = (name: string): UseFetchProfileReturn => {
         }
 
         const result: { data: Profile } = await response.json();
-        setProfile(result.data);
+        dispatch({ type: "SET_USER_PROFILE_SUCCESS", payload: result.data });
       } catch (error) {
-        handleError(error, setError);
-      } finally {
-        setIsLoading(false);
+        dispatch({
+          type: "FETCH_USER_PROFILE_ERROR",
+          payload: error instanceof Error ? error.message : "Unknown error",
+        });
       }
     };
 
     if (name) {
       fetchProfile();
     }
-  }, [name]);
+  }, [name, dispatch]);
 
-  return { profile, isLoading, error };
+  return {
+    profile: state.userProfile,
+    isLoading: state.isLoading,
+    error: state.error,
+  };
 };
