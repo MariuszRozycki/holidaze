@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ENDPOINTS } from "../../api/endpoints";
+import { VENUE_ENDPOINTS } from "../../api/venueEndpoints";
 import { Action } from "../../state/AppReducer";
 import { Venue } from "../../types/api";
 
@@ -10,7 +10,7 @@ export const useSearchVenues = (query: string, dispatch: React.Dispatch<Action>)
     const searchVenues = async () => {
       dispatch({ type: "SEARCH_VENUES_START" });
       try {
-        const response = await fetch(ENDPOINTS.searchVenues(query));
+        const response = await fetch(VENUE_ENDPOINTS.searchVenues(query));
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

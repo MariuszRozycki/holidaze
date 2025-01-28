@@ -12,6 +12,7 @@ import Contact from "./Unauthenticated/Contact";
 import PageNotExists from "./PageNotExists/PageNotExists";
 import UserSearchResults from "./Unauthenticated/UserSearchResults";
 import VenueByIdPage from "./Unauthenticated/VenueByIdPage";
+import LoggedUserProfilePage from "./LoggedUser/LoggedUserProfilePage";
 
 /* Logged User */
 import LoggedUserHomePage from "./LoggedUser/LoggedUserHomePage";
@@ -40,6 +41,7 @@ export {
   VenueByIdPage,
 
   /* Logged User */
+  LoggedUserProfilePage,
   LoggedUserHomePage,
 
   /* Venue manager */

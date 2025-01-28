@@ -1,6 +1,7 @@
 import { trimText } from "./trimText";
 import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
 import { handleImageError } from "./handleImageError";
+import { handleError } from "./handleError/handleError";
 
 import {
   getImageUrl,
@@ -35,4 +36,5 @@ export {
   getVenueDescription,
   getDatesInRange,
   getSelectedDates,
+  handleError,
 };

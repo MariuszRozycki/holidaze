@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ENDPOINTS } from "../../api/endpoints";
+import { VENUE_ENDPOINTS } from "../../api/venueEndpoints";
 import { Action } from "../../state/AppReducer";
 
 export const useFetchData = (
@@ -17,10 +17,10 @@ export const useFetchData = (
 
       try {
         const url = venueId
-          ? ENDPOINTS.venuesById(venueId)
+          ? VENUE_ENDPOINTS.venuesById(venueId)
           : searchQuery
-          ? ENDPOINTS.searchVenues(searchQuery)
-          : ENDPOINTS.venues(limit, currentPage, sort, sortOrder);
+          ? VENUE_ENDPOINTS.searchVenues(searchQuery)
+          : VENUE_ENDPOINTS.venues(limit, currentPage, sort, sortOrder);
 
         const response = await fetch(url);
         if (!response.ok) {

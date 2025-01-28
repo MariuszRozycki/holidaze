@@ -3,7 +3,7 @@ import "./LogInButton.scss";
 
 type LogInButtonProps = {
   type?: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
 };
 
 const LogInButton = ({ onClick, type }: LogInButtonProps) => {

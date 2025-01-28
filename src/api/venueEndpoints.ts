@@ -1,6 +1,6 @@
 import { API_BASE_URL } from "./config";
 
-export const ENDPOINTS = {
+export const VENUE_ENDPOINTS = {
   venues: (limit: number, page: number, sort: string = "", sortOrder: string = "") => {
     let url = `${API_BASE_URL}/holidaze/venues?limit=${limit}&page=${page}`;
     if (sort) {

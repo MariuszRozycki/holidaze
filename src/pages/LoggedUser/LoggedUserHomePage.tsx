@@ -1,10 +1,10 @@
 import { Container } from "react-bootstrap";
-import { RenderLoggedCustomerHomePage } from "../../components";
+import { RenderLoggedUserHome } from "../../components";
 
 const LoggedUserHomePage = () => {
   return (
     <Container>
-      <RenderLoggedCustomerHomePage />
+      <RenderLoggedUserHome />
     </Container>
   );
 };
