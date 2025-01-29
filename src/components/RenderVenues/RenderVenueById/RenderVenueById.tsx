@@ -16,7 +16,6 @@ import "./RenderVenueById.scss";
 const VenueDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
-  console.log("state", state);
 
   const { isLoading, error, selectedVenue } = state;
 
