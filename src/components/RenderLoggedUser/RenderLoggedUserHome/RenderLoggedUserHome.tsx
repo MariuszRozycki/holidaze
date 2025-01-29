@@ -1,9 +1,9 @@
-import { HeadingH1 } from "../..";
+import { RenderVenueList } from "../..";
 
 const RenderLoggedUserHome = () => {
   return (
     <>
-      <HeadingH1>Logged User Home Page</HeadingH1>;
+      <RenderVenueList title='All venues' />
     </>
   );
 };
