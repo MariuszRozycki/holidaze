@@ -38,12 +38,14 @@ a.nav-link {
   width: 80%;
   margin: 0 auto variables.$border-radius-main;
   color: $light;
+  box-shadow: variables.$box-shadow-light;
 }
 
 .navbar-nav a.nav-link.active {
   background-color: variables.$secondary-color;
   color: $dark;
-  box-shadow: variables.$box-shadow-deeper-inset;
+  // box-shadow: variables.$box-shadow-deeper-inset;
+  box-shadow: variables.$box-shadow-null;
   transform: translateY(1px);
 }
 
@@ -59,14 +61,17 @@ a.nav-link {
 
   a.nav-link {
     margin: spacer.spacer(2) auto;
-    transition: variables.$transition-main;
+    transition: 0.2s;
   }
 
   .navbar-nav a.nav-link:hover {
     background-color: variables.$secondary-color;
     color: $dark;
     border-color: variables.$primary-color;
-    box-shadow: variables.$box-shadow-deeper-inset;
-    transform: translateY(1px);
+    box-shadow: variables.$box-shadow-null;
+    /* box-shadow-inset */
+    // border-color: variables.$primary-color;
+    // box-shadow: variables.$box-shadow-deeper-inset;
+    // transform: translateY(1px);
   }
 }
