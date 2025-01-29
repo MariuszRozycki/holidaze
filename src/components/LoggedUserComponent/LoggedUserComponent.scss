@@ -1,0 +1,34 @@
+@use "bootstrap" as *;
+@use "../../scss/abstracts/variables";
+@use "../../scss/abstracts/breakpoints";
+
+.user-component-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  border-bottom: 1px solid variables.$main-color;
+  padding: 10px 15px;
+  margin: 15px 0 15px auto;
+  background-color: variables.$alfa-color;
+  border-radius: variables.$border-radius-normal;
+}
+
+.user-component-name {
+  margin: 0;
+}
+
+.logged-user-avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 2px solid variables.$main-color;
+  border-radius: variables.$border-radius-circle;
+}
+
+@media (min-width: breakpoints.get(sm)) {
+  .user-component-wrapper {
+    width: 300px;
+  }
+}
