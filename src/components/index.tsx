@@ -13,7 +13,7 @@ import DatePicker from "./DatePicker/DatePicker";
 import CustomSwiper from "./Swiper/CustomSwiper";
 import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
-import { CustomImageModal, CustomDatePickerModal } from "./Modals";
+import { CustomImageModal, CustomDatePickerModal, CustomUpdateProfileModal } from "./Modals";
 import {
   RenderSignUpAs,
   RenderSignUpCustomer,
@@ -81,4 +81,5 @@ export {
   /* Logged User */
   RenderLoggedUserHome,
   RenderLoggedUserProfile,
+  CustomUpdateProfileModal,
 };

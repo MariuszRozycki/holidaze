@@ -11,6 +11,7 @@ import { useRegisterUser } from "./useRegisterUser/useRegisterUser";
 import { useLoginUser } from "./useLoginUser/useLoginUser";
 import { useCreateApiKey } from "./useCreateApiKey/useCreateApiKey";
 import { useFetchProfile } from "./useFetchProfile/useFetchProfile";
+import { useUpdateProfile } from "./useUpdateProfile/useUpdateProfile";
 
 export {
   useNavigateToElement,
@@ -26,4 +27,5 @@ export {
   useLoginUser,
   useCreateApiKey,
   useFetchProfile,
+  useUpdateProfile,
 };

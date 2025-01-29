@@ -1,8 +1,7 @@
-import { Container, Card, Button } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import { HeadingH1 } from "../../Headings";
-import { useFetchProfile } from "../../../hooks";
-import { useParams } from "react-router-dom";
 import { useAppContext } from "../../../context/app/useAppContext";
+import { CustomUpdateProfileModal } from "../../";
 import "./RenderLoggedUserProfile.scss";
 
 const RenderLoggedUserProfile = () => {
@@ -31,9 +30,10 @@ const RenderLoggedUserProfile = () => {
           <h2 className='h4 fw-semibold'>{userProfile.name}</h2>
           <Card.Text className='fs-4 mb-1'>{userProfile.email}</Card.Text>
           {/* <Card.Text className='fs-4'>{userProfile.bio || "No bio available"}</Card.Text> */}
-          <Button variant='primary'>Update profile</Button>
         </Card.Body>
       </Card>
+
+      <CustomUpdateProfileModal />
     </Container>
   );
 };
