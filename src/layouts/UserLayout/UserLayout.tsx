@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { HeaderUserLayout, CustomFooter } from "../../components";
+import { HeaderUserLayout, CustomFooter, LoggedUserComponent } from "../../components";
 import { Outlet } from "react-router-dom";
 
 const UserLayout = () => {
@@ -8,6 +8,7 @@ const UserLayout = () => {
   return (
     <>
       <HeaderUserLayout ref={headerRef} />
+      <LoggedUserComponent />
       <Outlet />
       <CustomFooter />
     </>

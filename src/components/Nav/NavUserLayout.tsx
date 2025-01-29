@@ -26,7 +26,7 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
 
   return (
     <>
-      <Navbar expand='md' className='mb-3' ref={headerRef}>
+      <Navbar expand='md' ref={headerRef}>
         <Container className='nav-custom-container'>
           <Navbar.Brand
             className='d-flex justify-content-start align-items-center'
