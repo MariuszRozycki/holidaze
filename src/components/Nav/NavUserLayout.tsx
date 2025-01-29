@@ -58,7 +58,7 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
                 <Nav.Link as={NavLink} to='/holidaze/user/logged-user-home-page' end onClick={handleNavLinkClick}>
                   Home
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='/holidaze/' onClick={handleLogout}>
+                <Nav.Link as={NavLink} to='/holidaze/' end onClick={handleLogout}>
                   Log out
                 </Nav.Link>
                 <Nav.Link as={NavLink} to='/holidaze/user/about' onClick={handleNavLinkClick}>
