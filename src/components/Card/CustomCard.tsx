@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useAppContext } from "../../context/app/useAppContext";
 import { useElementWidth } from "../../hooks";
 import {
   handleImageError,
@@ -20,13 +21,18 @@ type CustomCardProps = {
 };
 
 const CustomCard = ({ venue }: CustomCardProps) => {
+  const { state } = useAppContext();
+  const userName = state.userProfile?.name;
+  console.log(userName); // usunac console.log()
+
   const elementRef = useRef<HTMLDivElement>(null);
   const containerWidth = useElementWidth(elementRef);
 
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/holidaze/venue-by-id/${venue.id}`);
+    const path = userName ? `/holidaze/user/venue-by-id/${venue.id}` : `/holidaze/venue-by-id/${venue.id}`;
+    navigate(path);
   };
 
   return (

@@ -82,7 +82,7 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
       await updateProfile(updatedData);
       setShow(false);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     } finally {
       setIsSubmitting(false);
     }
