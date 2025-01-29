@@ -16,6 +16,8 @@ import "./RenderVenueById.scss";
 const VenueDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
+  console.log("state", state);
+
   const { isLoading, error, selectedVenue } = state;
 
   useFetchData(undefined, undefined, 10, "", "", dispatch, id);
@@ -112,6 +114,7 @@ const VenueDetails = () => {
               <i className='bi bi-people-fill me-2'></i>
               <span>{getMaxGuests(selectedVenue)} guests</span>
             </p>
+
             <DatePickerButton className='data-picker-button' />
           </Card.Body>
         </Col>
