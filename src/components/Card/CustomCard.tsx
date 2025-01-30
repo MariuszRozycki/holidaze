@@ -23,8 +23,6 @@ type CustomCardProps = {
 const CustomCard = ({ venue }: CustomCardProps) => {
   const { state } = useAppContext();
   const userName = state.userProfile?.name;
-  console.log(userName); // usunac console.log()
-
   const elementRef = useRef<HTMLDivElement>(null);
   const containerWidth = useElementWidth(elementRef);
 
