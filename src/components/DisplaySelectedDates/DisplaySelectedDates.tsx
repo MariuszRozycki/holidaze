@@ -50,6 +50,8 @@ type DisplaySelectedDatesProps = {
 
 const DisplaySelectedDates = ({ onClick }: DisplaySelectedDatesProps) => {
   const { state } = useAppContext();
+  console.log(state);
+
   const { selectedDates } = state;
   console.log(selectedDates);
   const startDateString: Date | null = selectedDates?.startDate;

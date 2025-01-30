@@ -34,7 +34,9 @@ export type Action =
   /* UPDATE_USER_PROFILE */
   | { type: "UPDATE_USER_PROFILE_START" }
   | { type: "UPDATE_USER_PROFILE_SUCCESS"; payload: Profile }
-  | { type: "UPDATE_USER_PROFILE_ERROR"; payload: string };
+  | { type: "UPDATE_USER_PROFILE_ERROR"; payload: string }
+  /* CLEAR_STATE */
+  | { type: "CLEAR_STATE" };
 
 export interface AppState {
   venues: Venue[];
@@ -171,6 +173,9 @@ export function appReducer(state: AppState, action: Action): AppState {
 
     case "UPDATE_USER_PROFILE_ERROR":
       return { ...state, isLoading: false, error: action.payload };
+
+    case "CLEAR_STATE":
+      return { ...initialState };
 
     default:
       throw new Error(`Unhandled action type: ${(action as Action).type}`);
