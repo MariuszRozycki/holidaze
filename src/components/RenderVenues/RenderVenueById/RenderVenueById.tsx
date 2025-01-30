@@ -119,7 +119,7 @@ const VenueDetails = () => {
               <span>{getMaxGuests(selectedVenue)} guests</span>
             </p>
             <DisplaySelectedDates onClick={handleDisplayClick} />
-            <DatePickerButton ref={datePickerButtonRef} className='data-picker-button' />
+            <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
           </Card.Body>
         </Col>
       </Row>
