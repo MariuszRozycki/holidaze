@@ -1,5 +1,6 @@
+import { useRef } from "react";
 import { useParams } from "react-router-dom";
-import { HeadingH1, GoBackButton, CustomSwiper, StarRating, DatePickerButton } from "../../";
+import { HeadingH1, GoBackButton, CustomSwiper, StarRating, DatePickerButton, DisplaySelectedDates } from "../../";
 import { useFetchData } from "../../../hooks";
 import {
   getFullVenueName,
@@ -16,8 +17,12 @@ import "./RenderVenueById.scss";
 const VenueDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
-
   const { isLoading, error, selectedVenue } = state;
+  const datePickerButtonRef = useRef<HTMLButtonElement>(null);
+
+  const handleDisplayClick = () => {
+    datePickerButtonRef.current?.click();
+  };
 
   useFetchData(undefined, undefined, 10, "", "", dispatch, id);
 
@@ -113,8 +118,8 @@ const VenueDetails = () => {
               <i className='bi bi-people-fill me-2'></i>
               <span>{getMaxGuests(selectedVenue)} guests</span>
             </p>
-
-            <DatePickerButton className='data-picker-button' />
+            <DisplaySelectedDates onClick={handleDisplayClick} />
+            <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
           </Card.Body>
         </Col>
       </Row>

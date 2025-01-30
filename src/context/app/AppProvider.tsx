@@ -22,7 +22,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Synchronizuj zmiany stanu z localStorage
   useEffect(() => {
-    localStorage.setItem("VENUE_STATE", JSON.stringify(state));
+    // localStorage.setItem("VENUE_STATE", JSON.stringify(state));
+    if (state.accessToken) {
+      localStorage.setItem("VENUE_STATE", JSON.stringify(state));
+    } else {
+      localStorage.removeItem("VENUE_STATE");
+    }
     if (state.accessToken) {
       localStorage.setItem("ACCESS_TOKEN", state.accessToken);
     } else {

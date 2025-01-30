@@ -18,9 +18,7 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
 
   const handleLogout = () => {
     clearLocalStorageOnLogout();
-    dispatch({ type: "REMOVE_ACCESS_TOKEN" });
-    dispatch({ type: "REMOVE_USER_DATA" });
-    dispatch({ type: "REMOVE_USER_PROFILE" });
+    dispatch({ type: "CLEAR_STATE" });
     navigate("/holidaze/");
   };
 

@@ -14,6 +14,7 @@ import DatePicker from "./DatePicker/DatePicker";
 import CustomSwiper from "./Swiper/CustomSwiper";
 import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
+import DisplaySelectedDates from "./DisplaySelectedDates/DisplaySelectedDates";
 import { CustomImageModal, CustomDatePickerModal, CustomUpdateProfileModal } from "./Modals";
 
 import {
@@ -85,4 +86,5 @@ export {
   RenderLoggedUserProfile,
   CustomUpdateProfileModal,
   LoggedUserComponent,
+  DisplaySelectedDates,
 };

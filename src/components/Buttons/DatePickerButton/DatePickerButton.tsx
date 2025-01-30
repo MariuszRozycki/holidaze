@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, forwardRef } from "react";
 import CustomButton from "../CustomButton/CustomButton";
 import { CustomDatePickerModal } from "../../Modals";
 import "./DatePickerButton.scss";
@@ -8,7 +8,7 @@ type DataPickerButtonProps = {
   className?: string;
 };
 
-const DatePickerButton = ({ className }: DataPickerButtonProps) => {
+const DatePickerButton = forwardRef<HTMLButtonElement, DataPickerButtonProps>(({ className }: DataPickerButtonProps, ref) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleOpenDatePicker = () => {
@@ -22,11 +22,11 @@ const DatePickerButton = ({ className }: DataPickerButtonProps) => {
   return (
     <div className='data-picker-button-wrapper'>
       <Container>
-        <CustomButton className={className} btnText='Select dates' onClick={handleOpenDatePicker} />
+        <CustomButton ref={ref} className={className} btnText='Select dates' onClick={handleOpenDatePicker} />
       </Container>
       {isModalOpen && <CustomDatePickerModal show={isModalOpen} onHide={handleCloseDatePicker} fullscreen='sm-down' />}
     </div>
   );
-};
+});
 
 export default DatePickerButton;
