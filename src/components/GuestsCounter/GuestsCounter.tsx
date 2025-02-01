@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppContext } from "../../context/app/useAppContext";
-import { BookVenueNotLoggedButton } from "../../components";
+import { CustomButton, BookVenueNotLoggedButton } from "../../components";
 import "./GuestsCounter.scss";
 
 type GuestCounterProps = {
@@ -82,7 +82,6 @@ const GuestsCounter = ({ className }: GuestCounterProps) => {
           Total guests: {totalGuests} / {maxGuests}
         </p>
       </div>
-
       <BookVenueNotLoggedButton />
     </fieldset>
   );

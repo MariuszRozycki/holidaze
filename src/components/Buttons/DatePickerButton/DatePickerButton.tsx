@@ -20,7 +20,7 @@ const DatePickerButton = forwardRef<HTMLButtonElement, DataPickerButtonProps>(({
   };
 
   return (
-    <div className='data-picker-button-wrapper'>
+    <div className='data-picker-button-wrapper d-sm-none'>
       <Container>
         <CustomButton ref={ref} className={className} btnText='Select dates' onClick={handleOpenDatePicker} />
       </Container>

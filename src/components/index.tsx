@@ -16,7 +16,14 @@ import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
 import DisplaySelectedDates from "./DisplaySelectedDates/DisplaySelectedDates";
 import GuestsCounter from "./GuestsCounter/GuestsCounter";
-import { CustomImageModal, CustomDatePickerModal, CustomUpdateProfileModal, CustomLoginRequiredModal } from "./Modals";
+import SelectGuestsNumber from "./SelectGuestsNumber/SelectGuestsNumber";
+import {
+  CustomImageModal,
+  CustomDatePickerModal,
+  CustomUpdateProfileModal,
+  CustomLoginRequiredModal,
+  CustomGuestCounterModal,
+} from "./Modals";
 
 import {
   RenderSignUpAs,
@@ -86,6 +93,8 @@ export {
   BookVenueNotLoggedButton,
   CustomLoginRequiredModal,
   GuestsCounter,
+  CustomGuestCounterModal,
+  SelectGuestsNumber,
   /* Logged User */
   RenderLoggedUserHome,
   RenderLoggedUserProfile,

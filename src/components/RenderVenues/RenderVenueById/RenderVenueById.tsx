@@ -1,6 +1,14 @@
 import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { HeadingH1, GoBackButton, CustomSwiper, StarRating, DatePickerButton, DisplaySelectedDates, GuestsCounter } from "../../";
+import {
+  HeadingH1,
+  GoBackButton,
+  CustomSwiper,
+  StarRating,
+  DatePickerButton,
+  DisplaySelectedDates,
+  SelectGuestsNumber,
+} from "../../";
 import { useFetchData } from "../../../hooks";
 import {
   getFullVenueName,
@@ -11,7 +19,7 @@ import {
   getVenueDescription,
 } from "../../../utils";
 import { useAppContext } from "../../../context/app/useAppContext";
-import { Container, Row, Col, Card, Image, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import "./RenderVenueById.scss";
 
 const VenueDetails = () => {
@@ -20,7 +28,7 @@ const VenueDetails = () => {
   console.log("state userProfile: ", state.userProfile);
 
   const { isLoading, error, selectedVenue } = state;
-  const { bookBtn, setBookBtn } = useState<boolean>(false);
+  // const { bookBtn, setBookBtn } = useState<boolean>(false);
   const datePickerButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleDisplayClick = () => {
@@ -124,7 +132,7 @@ const VenueDetails = () => {
             </p>
             <DisplaySelectedDates onClick={handleDisplayClick} />
             <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
-            <GuestsCounter className='mt-3 mt-md-0 mb-5' />
+            <SelectGuestsNumber />
           </Card.Body>
         </Col>
       </Row>

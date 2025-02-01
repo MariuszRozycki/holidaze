@@ -64,6 +64,7 @@ const DisplaySelectedDates = ({ onClick }: DisplaySelectedDatesProps) => {
 
   return (
     <div onClick={onClick} className='display-selected-dates-wrapper'>
+      <h3 className='h5 fw-semibold mb-1'>Choose dates:</h3>
       <div className='display-selected-dates'>
         <p>
           <i className='bi bi-calendar-range me-2'></i>From: {formattedStartDate}
