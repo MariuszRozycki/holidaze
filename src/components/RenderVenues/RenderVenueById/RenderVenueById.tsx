@@ -8,6 +8,7 @@ import {
   DatePickerButton,
   DisplaySelectedDates,
   BookVenueNotLoggedButton,
+  GuestsCounter,
 } from "../../";
 import { useFetchData } from "../../../hooks";
 import {
@@ -131,6 +132,7 @@ const VenueDetails = () => {
             </p>
             <DisplaySelectedDates onClick={handleDisplayClick} />
             <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
+            <GuestsCounter className='mt-3 mt-md-0 mb-5' />
             <BookVenueNotLoggedButton />
           </Card.Body>
         </Col>
