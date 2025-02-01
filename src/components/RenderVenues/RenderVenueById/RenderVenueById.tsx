@@ -1,15 +1,6 @@
 import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import {
-  HeadingH1,
-  GoBackButton,
-  CustomSwiper,
-  StarRating,
-  DatePickerButton,
-  DisplaySelectedDates,
-  BookVenueNotLoggedButton,
-  GuestsCounter,
-} from "../../";
+import { HeadingH1, GoBackButton, CustomSwiper, StarRating, DatePickerButton, DisplaySelectedDates, GuestsCounter } from "../../";
 import { useFetchData } from "../../../hooks";
 import {
   getFullVenueName,
@@ -121,19 +112,19 @@ const VenueDetails = () => {
           </Card.Body>
         </Col>
         <Col col={12} md={5} className='md-text-end'>
-          <Card.Body>
+          <Card.Body className='d-flex flex-column'>
             <h3 className='h5 fw-semibold mt-3'>Availability:</h3>
             <h2 className='fs-5'>
-              <span className='me-2'>euro {selectedVenue.price}/</span>night
+              <span className='me-2'>Euro {selectedVenue.price}/</span>night
             </h2>
             <p className='fs-5'>
-              <i className='bi bi-people-fill me-2'></i>
-              <span>{getMaxGuests(selectedVenue)} guests</span>
+              <span>
+                Max <i className='bi bi-people-fill me-2'></i> {getMaxGuests(selectedVenue)}{" "}
+              </span>
             </p>
             <DisplaySelectedDates onClick={handleDisplayClick} />
             <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
             <GuestsCounter className='mt-3 mt-md-0 mb-5' />
-            <BookVenueNotLoggedButton />
           </Card.Body>
         </Col>
       </Row>

@@ -1,4 +1,5 @@
 @use "bootstrap" as *;
+@use "../../scss/abstracts/breakpoints";
 @use "../../scss/abstracts/variables";
 
 .guests-counter {
@@ -7,47 +8,73 @@
   flex-direction: column;
   gap: 8px;
   box-sizing: border-box;
-}
 
-.guest-type {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border: 2px solid variables.$main-color;
-  border-radius: variables.$border-radius-normal;
-  padding: 10px 15px;
-  background-color: variables.$alfa-color;
-
-  label {
-    width: 55%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 20px;
-  }
-
-  .counter {
+  .guest-type {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 45%;
+    border: 2px solid variables.$main-color;
+    border-radius: variables.$border-radius-normal;
+    padding: 10px 15px;
+    background-color: variables.$alfa-color;
 
-    output {
-      font-size: 20px;
+    label {
+      width: 55%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
     }
 
-    button {
+    .counter {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      width: 50px;
-      height: 50px;
-      background-color: variables.$main-color;
-      color: $light;
-      border: none;
-      border-radius: variables.$border-radius-circle;
-      padding: 10px;
-      font-size: 35px;
+      width: 45%;
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background-color: variables.$main-color;
+        color: $light;
+        border: none;
+        border-radius: variables.$border-radius-circle;
+        padding: 10px;
+      }
+    }
+  }
+
+  .total-guests {
+    text-align: right;
+  }
+}
+
+@media (min-width: 300px) {
+  .guests-counter {
+    .guest-type {
+      label {
+        width: 60%;
+      }
+
+      .counter {
+        width: 40%;
+      }
+    }
+  }
+}
+
+@media (min-width: breakpoints.get(md)) {
+  .guests-counter {
+    .guest-type {
+      label {
+        // width: 60%;
+      }
+
+      .counter {
+        // width: 60%;
+      }
     }
   }
 }

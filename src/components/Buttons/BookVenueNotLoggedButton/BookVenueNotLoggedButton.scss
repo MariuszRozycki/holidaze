@@ -1,5 +1,10 @@
 @use "../CustomButton/CustomButton.scss" as *;
+@use "../../../scss/abstracts/breakpoints";
 
 .book-venue-not-logged-button {
   @include button;
+
+  @media (min-width: breakpoints.get(sm)) {
+    align-self: flex-end;
+  }
 }

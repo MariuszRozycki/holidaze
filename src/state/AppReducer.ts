@@ -35,6 +35,7 @@ export type Action =
   | { type: "UPDATE_USER_PROFILE_START" }
   | { type: "UPDATE_USER_PROFILE_SUCCESS"; payload: Profile }
   | { type: "UPDATE_USER_PROFILE_ERROR"; payload: string }
+  | { type: "ADD_GUESTS_QUANTITY"; payload: number } // rozpoczety nowy type
   /* CLEAR_STATE */
   | { type: "CLEAR_STATE" };
 
