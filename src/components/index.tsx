@@ -15,7 +15,7 @@ import CustomSwiper from "./Swiper/CustomSwiper";
 import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
 import DisplaySelectedDates from "./DisplaySelectedDates/DisplaySelectedDates";
-import { CustomImageModal, CustomDatePickerModal, CustomUpdateProfileModal } from "./Modals";
+import { CustomImageModal, CustomDatePickerModal, CustomUpdateProfileModal, CustomLoginRequiredModal } from "./Modals";
 
 import {
   RenderSignUpAs,
@@ -40,6 +40,7 @@ import {
   SearchButton,
   DatePickerFunctionalButton,
   LinkButton,
+  BookVenueNotLoggedButton,
 } from "./Buttons";
 
 export {
@@ -81,6 +82,8 @@ export {
   RenderLoginAs,
   RenderLogInAsManager,
   RenderLoginAsCustomer,
+  BookVenueNotLoggedButton,
+  CustomLoginRequiredModal,
   /* Logged User */
   RenderLoggedUserHome,
   RenderLoggedUserProfile,

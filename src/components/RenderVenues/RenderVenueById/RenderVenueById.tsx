@@ -1,6 +1,14 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import { HeadingH1, GoBackButton, CustomSwiper, StarRating, DatePickerButton, DisplaySelectedDates } from "../../";
+import {
+  HeadingH1,
+  GoBackButton,
+  CustomSwiper,
+  StarRating,
+  DatePickerButton,
+  DisplaySelectedDates,
+  BookVenueNotLoggedButton,
+} from "../../";
 import { useFetchData } from "../../../hooks";
 import {
   getFullVenueName,
@@ -17,7 +25,10 @@ import "./RenderVenueById.scss";
 const VenueDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
+  console.log("state userProfile: ", state.userProfile);
+
   const { isLoading, error, selectedVenue } = state;
+  const { bookBtn, setBookBtn } = useState<boolean>(false);
   const datePickerButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleDisplayClick = () => {
@@ -120,6 +131,7 @@ const VenueDetails = () => {
             </p>
             <DisplaySelectedDates onClick={handleDisplayClick} />
             <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
+            <BookVenueNotLoggedButton />
           </Card.Body>
         </Col>
       </Row>
