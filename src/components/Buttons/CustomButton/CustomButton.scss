@@ -20,8 +20,8 @@
   @media (min-width: breakpoints.get(md)) {
     &:hover {
       background-color: $light;
-      box-shadow: variables.$box-shadow-deeper-inset;
-      transform: translateY(1px);
+      border: 2px solid variables.$main-color;
+      box-shadow: variables.$box-shadow-null;
       color: $dark;
     }
   }

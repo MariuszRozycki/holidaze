@@ -1,0 +1,23 @@
+@use "../../../scss/abstracts/breakpoints";
+
+.custom-login-required-modal-width .modal-content {
+  max-width: 800px;
+  width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
+  .log-in-button,
+  .sign-up-button {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 250px;
+  }
+}
+
+@media (min-width: breakpoints.get(sm)) {
+  .custom-login-required-modal-width {
+    .log-in-button,
+    .sign-up-button {
+      display: inline-block;
+    }
+  }
+}

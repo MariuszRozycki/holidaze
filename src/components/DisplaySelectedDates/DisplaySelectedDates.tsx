@@ -1,3 +1,5 @@
+/* Sprawdzic przed usunieciem!!!! */
+
 // import { format } from "date-fns";
 // import { useAppContext } from "../../context/app/useAppContext";
 // import "./DisplaySelectedDates.scss";
@@ -50,10 +52,7 @@ type DisplaySelectedDatesProps = {
 
 const DisplaySelectedDates = ({ onClick }: DisplaySelectedDatesProps) => {
   const { state } = useAppContext();
-  console.log(state);
-
   const { selectedDates } = state;
-  console.log(selectedDates);
   const startDateString: Date | null = selectedDates?.startDate;
   const endDateString: Date | null = selectedDates?.endDate;
 
@@ -62,7 +61,6 @@ const DisplaySelectedDates = ({ onClick }: DisplaySelectedDatesProps) => {
 
   const formattedStartDate = startDate ? format(startDate, "dd MMM yyyy") : "date not selected";
   const formattedEndDate = endDate ? format(endDate, "dd MM yyyy") : "date not selected";
-  console.log(formattedStartDate);
 
   return (
     <div onClick={onClick} className='display-selected-dates-wrapper'>

@@ -8,6 +8,7 @@ import DatePickerButton from "./DatePickerButton/DatePickerButton";
 import SearchButton from "./SearchButton/SearchButton";
 import DatePickerFunctionalButton from "./DatePickerFunctionalButton/DatePickerFunctionalButton";
 import LinkButton from "./LinkButton/LinkButton";
+import BookVenueNotLoggedButton from "./BookVenueNotLoggedButton/BookVenueNotLoggedButton";
 
 export {
   CustomButton,
@@ -20,4 +21,5 @@ export {
   SearchButton,
   DatePickerFunctionalButton,
   LinkButton,
+  BookVenueNotLoggedButton,
 };
