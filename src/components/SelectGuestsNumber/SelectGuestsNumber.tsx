@@ -3,7 +3,7 @@ import { CustomGuestCounterModal } from "../../components";
 import "./SelectGuestsNumber.scss";
 
 type SelectGuestsNumberProps = {
-  totalGuestNumber: number;
+  totalGuestNumber: number | undefined;
 };
 
 const SelectGuestsNumber = ({ totalGuestNumber }: SelectGuestsNumberProps) => {
@@ -21,7 +21,18 @@ const SelectGuestsNumber = ({ totalGuestNumber }: SelectGuestsNumberProps) => {
     <>
       <div className='select-guests-wrapper' onClick={handleShow}>
         <h3 className='h5 fw-semibold mb-1'>Select guests:</h3>
-        <p className='select-guests'>{totalGuestNumber ? `Number og guests: ${totalGuestNumber}` : "Select guests nr"}</p>
+        <p className='select-guests'>
+          {totalGuestNumber ? (
+            <>
+              <i className='bi bi-people-fill me-2' /> Number of guests: {totalGuestNumber}
+            </>
+          ) : (
+            <>
+              <i className='bi bi-people-fill me-2' />
+              Select guests nr
+            </>
+          )}
+        </p>
       </div>
       <CustomGuestCounterModal show={show} onHide={handleClose} />
     </>

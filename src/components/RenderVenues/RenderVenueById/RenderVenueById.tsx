@@ -8,7 +8,8 @@ import {
   DatePickerButton,
   DisplaySelectedDates,
   SelectGuestsNumber,
-  BookVenueNotLoggedButton,
+  BookVenueButton,
+  DisplayPriceCalc,
 } from "../../";
 import { useFetchData } from "../../../hooks";
 import {
@@ -26,7 +27,6 @@ import "./RenderVenueById.scss";
 const VenueDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
-  console.log("state from VenueById: ", state);
 
   const { isLoading, error, selectedVenue } = state;
   // const { bookBtn, setBookBtn } = useState<boolean>(false);
@@ -124,7 +124,7 @@ const VenueDetails = () => {
           <Card.Body className='d-flex flex-column'>
             <h3 className='h5 fw-semibold mt-3'>Availability:</h3>
             <h2 className='fs-5'>
-              <span className='me-2'>Euro {selectedVenue.price}/</span>night
+              <span className='me-2'>€ {selectedVenue.price}/</span>night
             </h2>
             <p className='fs-5'>
               <span>
@@ -134,7 +134,8 @@ const VenueDetails = () => {
             <DisplaySelectedDates onClick={handleDisplayClick} />
             <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
             <SelectGuestsNumber totalGuestNumber={state.chosenTotalGuestsNumber} />
-            <BookVenueNotLoggedButton />
+            <DisplayPriceCalc />
+            <BookVenueButton />
           </Card.Body>
         </Col>
       </Row>
