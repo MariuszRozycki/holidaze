@@ -13,6 +13,7 @@ import { useCreateApiKey } from "./useCreateApiKey/useCreateApiKey";
 import { useFetchProfile } from "./useFetchProfile/useFetchProfile";
 import { useUpdateProfile } from "./useUpdateProfile/useUpdateProfile";
 import { useCreateBooking } from "./useCreateBooking/useCreateBooking";
+import { useFetchBookingsByName } from "./useFetchBookingsByName/useFetchBookingsByName";
 
 export {
   useNavigateToElement,
@@ -30,4 +31,5 @@ export {
   useFetchProfile,
   useUpdateProfile,
   useCreateBooking,
+  useFetchBookingsByName,
 };

@@ -6,15 +6,12 @@ export type CreateBookingRequest = {
 };
 
 export type BookingResponse = {
-  data: {
-    id: string;
-    dateFrom: string;
-    dateTo: string;
-    guests: number;
-    created: string;
-    updated: string;
-  };
-  meta?: Record<string, unknown>;
+  id: string;
+  dateFrom: string;
+  dateTo: string;
+  guests: number;
+  created: string;
+  updated: string;
 };
 
 export type Location = {

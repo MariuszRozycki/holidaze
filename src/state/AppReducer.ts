@@ -41,6 +41,11 @@ export type Action =
   | { type: "CREATE_NEW_BOOKING_START" } // CREATE_NEW_BOOKING
   | { type: "CREATE_NEW_BOOKING_SUCCESS"; payload: BookingResponse }
   | { type: "CREATE_NEW_BOOKING_ERROR"; payload: string }
+  /* FETCH_BOOKINGS_BY_NAME */
+  | { type: "FETCH_BOOKINGS_BY_NAME_START" }
+  | { type: "FETCH_BOOKINGS_BY_NAME_SUCCESS"; payload: { data: BookingResponse[]; meta: Meta } }
+  | { type: "FETCH_BOOKINGS_BY_NAME_ERROR"; payload: string }
+
   /* CLEAR_STATE */
   | { type: "CLEAR_STATE" };
 
@@ -61,6 +66,7 @@ export interface AppState {
   userProfile: Profile | null;
   chosenTotalGuestsNumber?: number;
   createNewBooking?: BookingResponse | null;
+  userBookings?: BookingResponse[] | null;
 }
 
 export const initialState: AppState = {
@@ -83,6 +89,7 @@ export const initialState: AppState = {
   userProfile: null,
   chosenTotalGuestsNumber: 0,
   createNewBooking: null,
+  userBookings: null,
 };
 
 export function appReducer(state: AppState, action: Action): AppState {
@@ -208,6 +215,21 @@ export function appReducer(state: AppState, action: Action): AppState {
         isLoading: false,
         error: action.payload,
       };
+
+    /* FETCH_BOOKINGS_BY_NAME */
+    case "FETCH_BOOKINGS_BY_NAME_START":
+      return { ...state, isLoading: true, error: null };
+
+    case "FETCH_BOOKINGS_BY_NAME_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        userBookings: action.payload.data, // Nowe pole w stanie
+        meta: action.payload.meta,
+      };
+
+    case "FETCH_BOOKINGS_BY_NAME_ERROR":
+      return { ...state, isLoading: false, error: action.payload };
 
     /* CLEAR_STATE */
     case "CLEAR_STATE":

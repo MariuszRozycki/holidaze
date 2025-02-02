@@ -38,14 +38,13 @@ const BookVenueButton = () => {
     }
 
     try {
-      const bookingCreated = await createBooking({
+      await createBooking({
         dateFrom: state.selectedDates.startDate.toISOString(),
         dateTo: state.selectedDates.endDate.toISOString(),
         guests: state.chosenTotalGuestsNumber || 0,
         venueId: state.selectedVenue.id,
       });
 
-      console.log("bookingCreated: ", bookingCreated);
       toast.success("Booking completed successfully!");
 
       if (state.selectedVenue) {

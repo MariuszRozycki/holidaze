@@ -47,7 +47,6 @@ const DatePicker = ({ onHide }: DatePickerProps) => {
       },
     });
 
-    console.log("Booking with date range:", selection);
     onHide();
   };
 

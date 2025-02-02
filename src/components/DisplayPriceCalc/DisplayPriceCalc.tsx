@@ -4,7 +4,6 @@ import "./DisplayPriceCalc.scss";
 
 const DisplayPriceCalc = () => {
   const { state } = useAppContext();
-  console.log(state);
 
   const totalNumberOfGuests = state.chosenTotalGuestsNumber;
   const start = state.selectedDates.startDate;
