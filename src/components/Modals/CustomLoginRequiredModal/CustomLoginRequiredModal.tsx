@@ -1,5 +1,4 @@
-import { Button } from "react-bootstrap";
-import Modal from "react-bootstrap/Modal";
+import { Modal } from "react-bootstrap";
 import { LogInButton, SignUpButton } from "../../Buttons";
 import { useNavigateToElement } from "../../../hooks";
 import "./CustomLoginRequiredModal.scss";
@@ -21,18 +20,12 @@ const CustomLoginRequiredModal = ({ show, onHide }: CustomLoginRequiredModalProp
         <Modal.Header closeButton>
           <Modal.Title></Modal.Title>
         </Modal.Header>
-        <Modal.Body className='fs-3 text-center'>
+        <Modal.Body className='fs-3 text-center mb-3'>
           <span className='d-block mb-2 fw-semibold'>You are not logged!</span> Log in as a customer or sign up first to create venue
           reservation.
+          <LogInButton className='mb-2' onClick={handleNavigateToLogin} />
+          <SignUpButton onClick={handleNavigateToSignUp} />
         </Modal.Body>
-        <LogInButton onClick={handleNavigateToLogin} />
-        <SignUpButton onClick={handleNavigateToSignUp} />
-
-        <Modal.Footer className='mt-3'>
-          <Button variant='secondary' onClick={onHide}>
-            Close
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

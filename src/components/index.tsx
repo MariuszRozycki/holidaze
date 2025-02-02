@@ -16,7 +16,16 @@ import StarRating from "./StarRating/StarRating";
 import Separator from "./Separator/Separator";
 import DisplaySelectedDates from "./DisplaySelectedDates/DisplaySelectedDates";
 import GuestsCounter from "./GuestsCounter/GuestsCounter";
-import { CustomImageModal, CustomDatePickerModal, CustomUpdateProfileModal, CustomLoginRequiredModal } from "./Modals";
+import SelectGuestsNumber from "./SelectGuestsNumber/SelectGuestsNumber";
+import DisplayPriceCalc from "./DisplayPriceCalc/DisplayPriceCalc";
+import CustomToastify from "./Toastify/CustomToastify";
+import {
+  CustomImageModal,
+  CustomDatePickerModal,
+  CustomUpdateProfileModal,
+  CustomLoginRequiredModal,
+  CustomGuestCounterModal,
+} from "./Modals";
 
 import {
   RenderSignUpAs,
@@ -41,7 +50,7 @@ import {
   SearchButton,
   DatePickerFunctionalButton,
   LinkButton,
-  BookVenueNotLoggedButton,
+  BookVenueButton,
 } from "./Buttons";
 
 export {
@@ -83,9 +92,13 @@ export {
   RenderLoginAs,
   RenderLogInAsManager,
   RenderLoginAsCustomer,
-  BookVenueNotLoggedButton,
+  BookVenueButton,
   CustomLoginRequiredModal,
   GuestsCounter,
+  CustomGuestCounterModal,
+  SelectGuestsNumber,
+  DisplayPriceCalc,
+  CustomToastify,
   /* Logged User */
   RenderLoggedUserHome,
   RenderLoggedUserProfile,

@@ -7,8 +7,9 @@ import {
   StarRating,
   DatePickerButton,
   DisplaySelectedDates,
-  BookVenueNotLoggedButton,
-  GuestsCounter,
+  SelectGuestsNumber,
+  BookVenueButton,
+  DisplayPriceCalc,
 } from "../../";
 import { useFetchData } from "../../../hooks";
 import {
@@ -20,16 +21,15 @@ import {
   getVenueDescription,
 } from "../../../utils";
 import { useAppContext } from "../../../context/app/useAppContext";
-import { Container, Row, Col, Card, Image, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import "./RenderVenueById.scss";
 
 const VenueDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
-  console.log("state userProfile: ", state.userProfile);
 
   const { isLoading, error, selectedVenue } = state;
-  const { bookBtn, setBookBtn } = useState<boolean>(false);
+  // const { bookBtn, setBookBtn } = useState<boolean>(false);
   const datePickerButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleDisplayClick = () => {
@@ -121,19 +121,21 @@ const VenueDetails = () => {
           </Card.Body>
         </Col>
         <Col col={12} md={5} className='md-text-end'>
-          <Card.Body>
+          <Card.Body className='d-flex flex-column'>
             <h3 className='h5 fw-semibold mt-3'>Availability:</h3>
             <h2 className='fs-5'>
-              <span className='me-2'>euro {selectedVenue.price}/</span>night
+              <span className='me-2'>€ {selectedVenue.price}/</span>night
             </h2>
             <p className='fs-5'>
-              <i className='bi bi-people-fill me-2'></i>
-              <span>{getMaxGuests(selectedVenue)} guests</span>
+              <span>
+                Max <i className='bi bi-people-fill me-2'></i> {getMaxGuests(selectedVenue)}{" "}
+              </span>
             </p>
             <DisplaySelectedDates onClick={handleDisplayClick} />
             <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
-            <GuestsCounter className='mt-3 mt-md-0 mb-5' />
-            <BookVenueNotLoggedButton />
+            <SelectGuestsNumber totalGuestNumber={state.chosenTotalGuestsNumber} />
+            <DisplayPriceCalc />
+            <BookVenueButton />
           </Card.Body>
         </Col>
       </Row>

@@ -1,0 +1,15 @@
+@use "../../scss/abstracts/variables";
+
+.select-guests-wrapper {
+  margin-top: 15px;
+}
+
+.select-guests {
+  background-color: variables.$alfa-color;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border: 2px solid variables.$main-color;
+  border-radius: variables.$border-radius-normal;
+}
