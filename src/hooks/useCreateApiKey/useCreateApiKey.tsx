@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AUTH_ENDPOINTS } from "../../api/authEndpoints";
 import { handleError } from "../../utils";
 

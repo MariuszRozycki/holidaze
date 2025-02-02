@@ -1,4 +1,4 @@
-import { Venue, Meta, Profile } from "../types/api";
+import { Venue, Meta, Profile, BookingResponse } from "../types/api";
 
 export type Action =
   /* VENUES */
@@ -37,6 +37,10 @@ export type Action =
   | { type: "UPDATE_USER_PROFILE_ERROR"; payload: string }
   /* CHOSEN_TOTAL_GUESTS_NUMBER */
   | { type: "CHOSEN_TOTAL_GUESTS_NUMBER"; payload: number }
+  /* CREATE_NEW_BOOKING */
+  | { type: "CREATE_NEW_BOOKING_START" } // CREATE_NEW_BOOKING
+  | { type: "CREATE_NEW_BOOKING_SUCCESS"; payload: BookingResponse }
+  | { type: "CREATE_NEW_BOOKING_ERROR"; payload: string }
   /* CLEAR_STATE */
   | { type: "CLEAR_STATE" };
 
@@ -56,6 +60,7 @@ export interface AppState {
   userData: { name: string; email: string } | null;
   userProfile: Profile | null;
   chosenTotalGuestsNumber?: number;
+  createNewBooking?: BookingResponse | null;
 }
 
 export const initialState: AppState = {
@@ -77,6 +82,7 @@ export const initialState: AppState = {
   userData: null,
   userProfile: null,
   chosenTotalGuestsNumber: 0,
+  createNewBooking: null,
 };
 
 export function appReducer(state: AppState, action: Action): AppState {
@@ -185,6 +191,25 @@ export function appReducer(state: AppState, action: Action): AppState {
         chosenTotalGuestsNumber: action.payload,
       };
 
+    /* CREATE_NEW_BOOKING */
+    case "CREATE_NEW_BOOKING_START":
+      return { ...state, isLoading: true };
+
+    case "CREATE_NEW_BOOKING_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        createNewBooking: action.payload,
+      };
+
+    case "CREATE_NEW_BOOKING_ERROR":
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload,
+      };
+
+    /* CLEAR_STATE */
     case "CLEAR_STATE":
       return { ...initialState };
 

@@ -18,7 +18,7 @@ import DisplaySelectedDates from "./DisplaySelectedDates/DisplaySelectedDates";
 import GuestsCounter from "./GuestsCounter/GuestsCounter";
 import SelectGuestsNumber from "./SelectGuestsNumber/SelectGuestsNumber";
 import DisplayPriceCalc from "./DisplayPriceCalc/DisplayPriceCalc";
-import CustomToastify from "./Toastify/CustomToastify";
+
 import {
   CustomImageModal,
   CustomDatePickerModal,
@@ -98,7 +98,7 @@ export {
   CustomGuestCounterModal,
   SelectGuestsNumber,
   DisplayPriceCalc,
-  CustomToastify,
+
   /* Logged User */
   RenderLoggedUserHome,
   RenderLoggedUserProfile,
