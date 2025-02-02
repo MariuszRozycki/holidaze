@@ -8,6 +8,7 @@ import {
   DatePickerButton,
   DisplaySelectedDates,
   SelectGuestsNumber,
+  BookVenueNotLoggedButton,
 } from "../../";
 import { useFetchData } from "../../../hooks";
 import {
@@ -25,7 +26,7 @@ import "./RenderVenueById.scss";
 const VenueDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
-  console.log("state userProfile: ", state.userProfile);
+  console.log("state from VenueById: ", state);
 
   const { isLoading, error, selectedVenue } = state;
   // const { bookBtn, setBookBtn } = useState<boolean>(false);
@@ -132,7 +133,8 @@ const VenueDetails = () => {
             </p>
             <DisplaySelectedDates onClick={handleDisplayClick} />
             <DatePickerButton ref={datePickerButtonRef} className='data-picker-button d-md-none' />
-            <SelectGuestsNumber />
+            <SelectGuestsNumber totalGuestNumber={state.chosenTotalGuestsNumber} />
+            <BookVenueNotLoggedButton />
           </Card.Body>
         </Col>
       </Row>

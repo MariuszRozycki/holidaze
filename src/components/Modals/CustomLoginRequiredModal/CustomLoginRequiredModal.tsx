@@ -1,5 +1,4 @@
-import { Button } from "react-bootstrap";
-import Modal from "react-bootstrap/Modal";
+import { Modal } from "react-bootstrap";
 import { LogInButton, SignUpButton } from "../../Buttons";
 import { useNavigateToElement } from "../../../hooks";
 import "./CustomLoginRequiredModal.scss";

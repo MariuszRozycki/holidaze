@@ -35,7 +35,8 @@ export type Action =
   | { type: "UPDATE_USER_PROFILE_START" }
   | { type: "UPDATE_USER_PROFILE_SUCCESS"; payload: Profile }
   | { type: "UPDATE_USER_PROFILE_ERROR"; payload: string }
-  | { type: "ADD_GUESTS_NUMBER"; payload: number } // rozpoczety nowy type
+  /* CHOSEN_TOTAL_GUESTS_NUMBER */
+  | { type: "CHOSEN_TOTAL_GUESTS_NUMBER"; payload: number }
   /* CLEAR_STATE */
   | { type: "CLEAR_STATE" };
 
@@ -54,6 +55,7 @@ export interface AppState {
   accessToken: null | string;
   userData: { name: string; email: string } | null;
   userProfile: Profile | null;
+  chosenTotalGuestsNumber?: number;
 }
 
 export const initialState: AppState = {
@@ -74,6 +76,7 @@ export const initialState: AppState = {
   accessToken: null,
   userData: null,
   userProfile: null,
+  chosenTotalGuestsNumber: 0,
 };
 
 export function appReducer(state: AppState, action: Action): AppState {
@@ -174,6 +177,13 @@ export function appReducer(state: AppState, action: Action): AppState {
 
     case "UPDATE_USER_PROFILE_ERROR":
       return { ...state, isLoading: false, error: action.payload };
+
+    /* CHOSEN_TOTAL_GUESTS_NUMBER */
+    case "CHOSEN_TOTAL_GUESTS_NUMBER":
+      return {
+        ...state,
+        chosenTotalGuestsNumber: action.payload,
+      };
 
     case "CLEAR_STATE":
       return { ...initialState };

@@ -1,6 +1,7 @@
 @use "bootstrap" as *;
 @use "../../scss/abstracts/breakpoints";
 @use "../../scss/abstracts/variables";
+@use "../Buttons/CustomButton/CustomButton.scss" as *;
 
 .guests-counter {
   width: 100%;
@@ -8,6 +9,20 @@
   flex-direction: column;
   gap: 8px;
   box-sizing: border-box;
+
+  .guest-counter-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .guest-counter-btn-confirm,
+    .guest-counter-btn-cancel {
+      @include button;
+
+      width: 100%;
+    }
+  }
 
   .guest-type {
     width: 100%;

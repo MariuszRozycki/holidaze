@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { useAppContext } from "../../context/app/useAppContext";
-import { CustomButton, BookVenueNotLoggedButton } from "../../components";
+import { CustomButton } from "../";
 import "./GuestsCounter.scss";
 
 type GuestCounterProps = {
+  onHide?: () => void;
   className?: string;
 };
 
-const GuestsCounter = ({ className }: GuestCounterProps) => {
-  const { state } = useAppContext();
-  const maxGuests = state.selectedVenue?.maxGuests ?? 0;
-
+const GuestsCounter = ({ className, onHide }: GuestCounterProps) => {
+  const { state, dispatch } = useAppContext();
   const [adultsCounter, setAdultsCounter] = useState<number>(0);
   const [kidsCounter, setKidsCounter] = useState<number>(0);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
+  const maxGuests = state.selectedVenue?.maxGuests ?? 0;
   const totalGuests = adultsCounter + kidsCounter;
 
   const decrementAdults = () => {
@@ -45,6 +46,20 @@ const GuestsCounter = ({ className }: GuestCounterProps) => {
         return prevKids;
       }
     });
+  };
+
+  const handleGuestCounterBtnConfirm = () => {
+    if (totalGuests === 0) {
+      setErrorMessage("Number of guests must be chosen to make reservation!");
+      return;
+    }
+
+    dispatch({
+      type: "CHOSEN_TOTAL_GUESTS_NUMBER",
+      payload: totalGuests,
+    });
+
+    onHide?.();
   };
 
   return (
@@ -80,9 +95,13 @@ const GuestsCounter = ({ className }: GuestCounterProps) => {
       <div className='total-guests'>
         <p className='fs-5'>
           Total guests: {totalGuests} / {maxGuests}
+          {errorMessage && <p className='text-danger text-center bg-danger-subtle px-2 py-1 rounded'>{errorMessage}</p>}
         </p>
       </div>
-      <BookVenueNotLoggedButton />
+      <div className='guest-counter-btn-wrapper'>
+        <CustomButton className='guest-counter-btn-confirm' btnText='Confirm' onClick={handleGuestCounterBtnConfirm} />
+        <CustomButton className='guest-counter-btn-cancel' btnText='Cancel' onClick={onHide} />
+      </div>
     </fieldset>
   );
 };

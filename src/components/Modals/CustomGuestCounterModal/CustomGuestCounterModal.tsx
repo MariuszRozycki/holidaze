@@ -1,4 +1,4 @@
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import { GuestsCounter } from "../../";
 
 type CustomGuestsCounterModalProps = {
@@ -13,8 +13,7 @@ const CustomGuestCounterModal = ({ show, onHide }: CustomGuestsCounterModalProps
         <Modal.Title>Choose number of guests</Modal.Title>
       </Modal.Header>
       <Modal.Body className='fs-3 text-center mb-3'>
-        <GuestsCounter />
-        <Button>Close</Button>
+        <GuestsCounter onHide={onHide} />
       </Modal.Body>
     </Modal>
   );
