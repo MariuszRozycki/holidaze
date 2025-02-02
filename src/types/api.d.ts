@@ -1,3 +1,22 @@
+export type CreateBookingRequest = {
+  dateFrom: string;
+  dateTo: string;
+  guests: number;
+  venueId: string;
+};
+
+export type BookingResponse = {
+  data: {
+    id: string;
+    dateFrom: string;
+    dateTo: string;
+    guests: number;
+    created: string;
+    updated: string;
+  };
+  meta?: Record<string, unknown>;
+};
+
 export type Location = {
   address: string;
   city: string;

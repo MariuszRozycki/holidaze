@@ -3,6 +3,7 @@ import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
 import { handleImageError } from "./handleImageError";
 import { handleError } from "./handleError/handleError";
 import { clearLocalStorageOnLogout } from "./clearLocalStorageOnLogout";
+import { fetchVenueDetailsById } from "./fetchVenueDetailsById";
 
 import {
   getImageUrl,
@@ -39,4 +40,5 @@ export {
   getSelectedDates,
   handleError,
   clearLocalStorageOnLogout,
+  fetchVenueDetailsById,
 };

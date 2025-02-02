@@ -12,6 +12,7 @@ import { useLoginUser } from "./useLoginUser/useLoginUser";
 import { useCreateApiKey } from "./useCreateApiKey/useCreateApiKey";
 import { useFetchProfile } from "./useFetchProfile/useFetchProfile";
 import { useUpdateProfile } from "./useUpdateProfile/useUpdateProfile";
+import { useCreateBooking } from "./useCreateBooking/useCreateBooking";
 
 export {
   useNavigateToElement,
@@ -28,4 +29,5 @@ export {
   useCreateApiKey,
   useFetchProfile,
   useUpdateProfile,
+  useCreateBooking,
 };
