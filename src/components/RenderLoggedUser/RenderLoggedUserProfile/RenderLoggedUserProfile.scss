@@ -17,3 +17,23 @@ img.user-avatar {
   height: 200px;
   object-fit: cover;
 }
+
+ul.upcoming-bookings {
+  max-width: 600px;
+  list-style: decimal;
+  background-color: variables.$alfa-color;
+  padding: 10px 15px;
+  border: 2px solid variables.$main-color;
+  border-radius: variables.$border-radius-normal;
+
+  li {
+    max-width: 100%;
+    border-bottom: 2px solid variables.$main-color;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    margin-left: 35px;
+    span {
+      display: block;
+    }
+  }
+}

@@ -23,6 +23,9 @@ export type Action =
   /* ACCESS_TOKEN */
   | { type: "SET_ACCESS_TOKEN"; payload: string }
   | { type: "REMOVE_ACCESS_TOKEN" }
+  /* API_KEY */
+  | { type: "SET_API_KEY"; payload: string }
+  | { type: "REMOVE_API_KEY" }
   /* USER_DATA */
   | { type: "SET_USER_DATA"; payload: { name: string; email: string } }
   | { type: "REMOVE_USER_DATA" }
@@ -62,6 +65,7 @@ export interface AppState {
   searchQuery: string;
   selectedDates: { startDate: Date | null; endDate: Date | null };
   accessToken: null | string;
+  apiKey: string | null;
   userData: { name: string; email: string } | null;
   userProfile: Profile | null;
   chosenTotalGuestsNumber?: number;
@@ -85,6 +89,7 @@ export const initialState: AppState = {
     endDate: null,
   },
   accessToken: null,
+  apiKey: null,
   userData: null,
   userProfile: null,
   chosenTotalGuestsNumber: 0,
@@ -160,6 +165,13 @@ export function appReducer(state: AppState, action: Action): AppState {
 
     case "REMOVE_ACCESS_TOKEN":
       return { ...state, accessToken: null };
+
+    /* API_KEY */
+    case "SET_API_KEY":
+      return { ...state, apiKey: action.payload };
+
+    case "REMOVE_API_KEY":
+      return { ...state, apiKey: null };
 
     /* USER_DATA */
     case "SET_USER_DATA":

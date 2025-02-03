@@ -14,6 +14,7 @@ import { useFetchProfile } from "./useFetchProfile/useFetchProfile";
 import { useUpdateProfile } from "./useUpdateProfile/useUpdateProfile";
 import { useCreateBooking } from "./useCreateBooking/useCreateBooking";
 import { useFetchBookingsByName } from "./useFetchBookingsByName/useFetchBookingsByName";
+import { useRemoveBooking } from "./useRemoveBooking/useRemoveBooking";
 
 export {
   useNavigateToElement,
@@ -32,4 +33,5 @@ export {
   useUpdateProfile,
   useCreateBooking,
   useFetchBookingsByName,
+  useRemoveBooking,
 };

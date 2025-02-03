@@ -5,8 +5,12 @@ import { useAppContext } from "../../context/app/useAppContext";
 
 export const useFetchBookingsByName = (name: string) => {
   const { state, dispatch } = useAppContext();
+  const token = state.accessToken;
+  const apiKey = state.apiKey;
 
   useEffect(() => {
+    if (!name || !token || !apiKey) return;
+
     const fetchBookingsByName = async () => {
       try {
         dispatch({ type: "FETCH_BOOKINGS_BY_NAME_START" });
@@ -16,8 +20,8 @@ export const useFetchBookingsByName = (name: string) => {
         const response = await fetch(url, {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
-            "X-Noroff-API-Key": `${localStorage.getItem("API_KEY")}`,
+            Authorization: `Bearer ${token}`,
+            "X-Noroff-API-Key": `${apiKey}`,
           },
         });
 
@@ -37,14 +41,12 @@ export const useFetchBookingsByName = (name: string) => {
       }
     };
 
-    if (name) {
-      fetchBookingsByName();
-    }
-  }, [name, dispatch]);
+    fetchBookingsByName();
+  }, [name, dispatch, apiKey, token]);
 
   return {
     userBookings: state.userBookings,
-    isLoading: state.isLoading,
-    error: state.error,
+    isBookingsByNameLoading: state.isLoading,
+    bookingsByNameError: state.error,
   };
 };

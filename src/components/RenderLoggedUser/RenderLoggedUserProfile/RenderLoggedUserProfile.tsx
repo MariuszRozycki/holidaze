@@ -1,20 +1,29 @@
+import { format } from "date-fns";
 import { Container, Card } from "react-bootstrap";
 import { HeadingH1 } from "../../Headings";
 import { useAppContext } from "../../../context/app/useAppContext";
-import { useFetchBookingsByName } from "../../../hooks";
+import { useFetchBookingsByName, useRemoveBooking } from "../../../hooks";
 import { CustomUpdateProfileModal } from "../../";
 import "./RenderLoggedUserProfile.scss";
 
 const RenderLoggedUserProfile = () => {
   const { state } = useAppContext();
+  console.log(state);
 
   const { isLoading, error, userProfile } = state;
-  const { userBookings } = useFetchBookingsByName(userProfile?.name || "");
+  const { userBookings, isBookingsByNameLoading, bookingsByNameError } = useFetchBookingsByName(userProfile?.name || "");
+  const removeBooking = useRemoveBooking();
 
-  {
-    userBookings?.map((el) => {
-      console.log(el.id);
-    });
+  if (isBookingsByNameLoading) {
+    return <Container>Bookings by name are loading...</Container>;
+  }
+
+  if (bookingsByNameError) {
+    return <Container>Bookings by name error: {bookingsByNameError}</Container>;
+  }
+
+  if (!userBookings) {
+    return <Container>No bookings by name</Container>;
   }
 
   if (isLoading) {
@@ -29,6 +38,13 @@ const RenderLoggedUserProfile = () => {
     return <Container>No profile found</Container>;
   }
 
+  // userBookings.forEach((booking) => console.log(booking));
+
+  const handleRemoveBooking = (bookingId: string) => {
+    console.log("Usuwany booking o id:", bookingId);
+    removeBooking(bookingId);
+  };
+
   return (
     <Container>
       <HeadingH1>Render logged User Profile</HeadingH1>
@@ -37,20 +53,30 @@ const RenderLoggedUserProfile = () => {
         <Card.Img className='user-avatar' src={userProfile.avatar.url} />
         <Card.Body>
           <h2 className='h4 fw-semibold'>{userProfile.name}</h2>
-          <Card.Text className='fs-4 mb-1'>{userProfile.email}</Card.Text>
+          <Card.Text className='fs-4 mb-3'>{userProfile.email}</Card.Text>
+          <CustomUpdateProfileModal />
           {/* <Card.Text className='fs-4'>{userProfile.bio || "No bio available"}</Card.Text> */}
-          <ul>
-            <li className='h4 fw-semibold'>Upcoming bookings:</li>
-            {userBookings?.map((booking) => (
-              <li key={booking.id}>
-                Booking from {booking.dateFrom} to {booking.dateTo}, guests: {booking.guests}
-              </li>
-            ))}
+          <h4 className='h4 fw-semibold mt-5 mb-3'>Upcoming bookings:</h4>
+          <ul className='upcoming-bookings'>
+            {userBookings?.map((booking) => {
+              const dateFrom = new Date(booking.dateFrom);
+              const dateTo = new Date(booking.dateTo);
+              const formattedDateFrom = format(dateFrom, "dd MMM yyyy");
+              const formattedDateTo = format(dateTo, "dd MMM yyyy");
+              const venueName = booking.venue.name.toUpperCase();
+
+              return (
+                <li className='fs-5' key={booking.id} onClick={handleRemoveBooking}>
+                  <span className='fw-semibold'>Venue: {venueName}</span>
+                  <span>From: {formattedDateFrom}</span>
+                  <span>To: {formattedDateTo}</span>
+                  <span>Guests: {booking.guests}</span>
+                </li>
+              );
+            })}
           </ul>
         </Card.Body>
       </Card>
-
-      <CustomUpdateProfileModal />
     </Container>
   );
 };

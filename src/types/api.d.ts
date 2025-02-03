@@ -12,6 +12,12 @@ export type BookingResponse = {
   guests: number;
   created: string;
   updated: string;
+  venue: {
+    id: string;
+    name: string;
+    description: string;
+  };
+  price: number;
 };
 
 export type Location = {

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { AUTH_ENDPOINTS } from "../../api/authEndpoints";
 import { handleError } from "../../utils";
+import { useAppContext } from "../../context/app/useAppContext";
 
 export const useCreateApiKey = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
+  const { dispatch } = useAppContext();
 
   const createApiKey = async () => {
     setIsLoading(true);
@@ -37,8 +39,8 @@ export const useCreateApiKey = () => {
 
       const result = await response.json();
 
-      localStorage.setItem("API_KEY", result.data.key);
-
+      // localStorage.setItem("API_KEY", result.data.key);
+      dispatch({ type: "SET_API_KEY", payload: result.data.key });
       setIsSuccess(true);
     } catch (error) {
       handleError(error, setError);
