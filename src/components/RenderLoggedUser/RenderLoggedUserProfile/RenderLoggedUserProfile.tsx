@@ -8,7 +8,6 @@ import "./RenderLoggedUserProfile.scss";
 
 const RenderLoggedUserProfile = () => {
   const { state } = useAppContext();
-  console.log(state);
 
   const { isLoading, error, userProfile } = state;
   const { userBookings, isBookingsByNameLoading, bookingsByNameError } = useFetchBookingsByName(userProfile?.name || "");
@@ -66,7 +65,7 @@ const RenderLoggedUserProfile = () => {
               const venueName = booking.venue.name.toUpperCase();
 
               return (
-                <li className='fs-5' key={booking.id} onClick={handleRemoveBooking}>
+                <li className='fs-5' key={booking.id} onClick={() => handleRemoveBooking(booking.id)}>
                   <span className='fw-semibold'>Venue: {venueName}</span>
                   <span>From: {formattedDateFrom}</span>
                   <span>To: {formattedDateTo}</span>

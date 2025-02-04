@@ -48,7 +48,8 @@ export type Action =
   | { type: "FETCH_BOOKINGS_BY_NAME_START" }
   | { type: "FETCH_BOOKINGS_BY_NAME_SUCCESS"; payload: { data: BookingResponse[]; meta: Meta } }
   | { type: "FETCH_BOOKINGS_BY_NAME_ERROR"; payload: string }
-
+  /* REMOVE_BOOKING_BY_ID */
+  | { type: "REMOVE_BOOKING_BY_ID"; payload: { bookingId: string } }
   /* CLEAR_STATE */
   | { type: "CLEAR_STATE" };
 
@@ -215,6 +216,8 @@ export function appReducer(state: AppState, action: Action): AppState {
       return { ...state, isLoading: true };
 
     case "CREATE_NEW_BOOKING_SUCCESS":
+      console.log("CREATE_NEW_BOOKING_SUCCESS payload: ", action.payload);
+
       return {
         ...state,
         isLoading: false,
@@ -236,12 +239,20 @@ export function appReducer(state: AppState, action: Action): AppState {
       return {
         ...state,
         isLoading: false,
-        userBookings: action.payload.data, // Nowe pole w stanie
+        userBookings: action.payload.data,
         meta: action.payload.meta,
       };
 
     case "FETCH_BOOKINGS_BY_NAME_ERROR":
       return { ...state, isLoading: false, error: action.payload };
+
+    /* REMOVE_BOOKING_BY_ID */
+    case "REMOVE_BOOKING_BY_ID":
+      console.log("REMOVE_BOOKING_BY_ID action:", action);
+      return {
+        ...state,
+        userBookings: state.userBookings?.filter((booking) => booking.id !== action.payload.bookingId) || null,
+      };
 
     /* CLEAR_STATE */
     case "CLEAR_STATE":

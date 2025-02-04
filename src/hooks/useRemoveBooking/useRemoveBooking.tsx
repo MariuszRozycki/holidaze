@@ -1,10 +1,12 @@
+import { useState } from "react";
 import { useAppContext } from "../../context/app/useAppContext";
 import { BOOKINGS_ENDPOINTS } from "../../api/bookingEndpoints";
 
 export const useRemoveBooking = () => {
-  const { state } = useAppContext();
+  const { state, dispatch } = useAppContext();
   const token = state.accessToken;
   const apiKey = state.apiKey;
+  const [refreshBookings, setRefreshBookings] = useState(false);
 
   // Funkcja usuwająca rezerwację, przyjmująca bookingId jako argument
   const removeBooking = async (bookingId: string) => {
@@ -28,6 +30,9 @@ export const useRemoveBooking = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
+
+      dispatch({ type: "REMOVE_BOOKING_BY_ID", payload: { bookingId: bookingId } });
+      setRefreshBookings((prev) => !prev);
 
       console.log(`Booking with id ${bookingId} removed successfully.`);
     } catch (error) {

@@ -21,15 +21,39 @@ const BookVenueButton = () => {
     }
 
     if (!state.selectedDates.startDate) {
-      toast.error('Dates "From" must be chosen!');
+      toast.error('Dates "From" must be chosen!', {
+        position: "top-center",
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     if (!state.selectedDates.endDate) {
-      toast.error('Dates "To" must be chosen!');
+      toast.error('Dates "To" must be chosen!', {
+        position: "top-center",
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     if ((state.chosenTotalGuestsNumber || 0) === 0) {
-      toast.error("Number of guests must be chosen!");
+      toast.error("Number of guests must be chosen!", {
+        position: "top-center",
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
     if (!state.selectedVenue?.id) {
@@ -45,7 +69,16 @@ const BookVenueButton = () => {
         venueId: state.selectedVenue.id,
       });
 
-      toast.success("Booking completed successfully!");
+      toast.success("Booking completed successfully!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
 
       if (state.selectedVenue) {
         const updatedVenue = await fetchVenueDetailsById(state.selectedVenue.id);

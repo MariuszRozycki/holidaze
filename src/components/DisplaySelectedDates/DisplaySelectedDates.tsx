@@ -15,8 +15,8 @@ const DisplaySelectedDates = ({ onClick }: DisplaySelectedDatesProps) => {
   const startDate = startDateString ? new Date(startDateString) : null;
   const endDate = endDateString ? new Date(endDateString) : null;
 
-  const formattedStartDate = startDate ? format(startDate, "dd MMM yyyy") : "date not selected";
-  const formattedEndDate = endDate ? format(endDate, "dd MM yyyy") : "date not selected";
+  const formattedStartDate = startDate ? format(startDate, "dd MMM yyyy") : <span className='error'>date not selected</span>;
+  const formattedEndDate = endDate ? format(endDate, "dd MM yyyy") : <span className='error'>date not selected</span>;
 
   return (
     <div onClick={onClick} className='display-selected-dates-wrapper'>
