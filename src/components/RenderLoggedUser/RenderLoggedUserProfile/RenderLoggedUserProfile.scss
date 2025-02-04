@@ -1,3 +1,5 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/breakpoints";
 @use "../../../scss/abstracts/variables";
 
 img.user-banner {
@@ -20,20 +22,43 @@ img.user-avatar {
 
 ul.upcoming-bookings {
   max-width: 600px;
-  list-style: decimal;
-  background-color: variables.$alfa-color;
-  padding: 10px 15px;
-  border: 2px solid variables.$main-color;
-  border-radius: variables.$border-radius-normal;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   li {
+    cursor: pointer;
     max-width: 100%;
-    border-bottom: 2px solid variables.$main-color;
+    background-color: $light;
+    padding: 10px 15px;
+    border: 2px solid variables.$main-color;
+    border-radius: variables.$border-radius-normal;
     margin-bottom: 20px;
-    padding-bottom: 5px;
-    margin-left: 35px;
-    span {
-      display: block;
+    margin-left: 0;
+    transition: variables.$transition-main;
+
+    p {
+      margin-bottom: 2px;
+    }
+  }
+}
+
+@media (min-width: breakpoints.get(md)) {
+  ul.upcoming-bookings {
+    li {
+      &:hover {
+        background-color: variables.$alfa-color;
+      }
+    }
+
+    p {
+      button {
+        transition: variables.$transition-main;
+        &:hover {
+          border-color: $danger;
+          color: $danger;
+        }
+      }
     }
   }
 }
