@@ -23,6 +23,9 @@ export type Action =
   /* ACCESS_TOKEN */
   | { type: "SET_ACCESS_TOKEN"; payload: string }
   | { type: "REMOVE_ACCESS_TOKEN" }
+  /* API_KEY */
+  | { type: "SET_API_KEY"; payload: string }
+  | { type: "REMOVE_API_KEY" }
   /* USER_DATA */
   | { type: "SET_USER_DATA"; payload: { name: string; email: string } }
   | { type: "REMOVE_USER_DATA" }
@@ -41,6 +44,12 @@ export type Action =
   | { type: "CREATE_NEW_BOOKING_START" } // CREATE_NEW_BOOKING
   | { type: "CREATE_NEW_BOOKING_SUCCESS"; payload: BookingResponse }
   | { type: "CREATE_NEW_BOOKING_ERROR"; payload: string }
+  /* FETCH_BOOKINGS_BY_NAME */
+  | { type: "FETCH_BOOKINGS_BY_NAME_START" }
+  | { type: "FETCH_BOOKINGS_BY_NAME_SUCCESS"; payload: { data: BookingResponse[]; meta: Meta } }
+  | { type: "FETCH_BOOKINGS_BY_NAME_ERROR"; payload: string }
+  /* REMOVE_BOOKING_BY_ID */
+  | { type: "REMOVE_BOOKING_BY_ID"; payload: { bookingId: string } }
   /* CLEAR_STATE */
   | { type: "CLEAR_STATE" };
 
@@ -57,10 +66,12 @@ export interface AppState {
   searchQuery: string;
   selectedDates: { startDate: Date | null; endDate: Date | null };
   accessToken: null | string;
+  apiKey: string | null;
   userData: { name: string; email: string } | null;
   userProfile: Profile | null;
   chosenTotalGuestsNumber?: number;
   createNewBooking?: BookingResponse | null;
+  userBookings?: BookingResponse[] | null;
 }
 
 export const initialState: AppState = {
@@ -79,10 +90,12 @@ export const initialState: AppState = {
     endDate: null,
   },
   accessToken: null,
+  apiKey: null,
   userData: null,
   userProfile: null,
   chosenTotalGuestsNumber: 0,
   createNewBooking: null,
+  userBookings: null,
 };
 
 export function appReducer(state: AppState, action: Action): AppState {
@@ -154,6 +167,13 @@ export function appReducer(state: AppState, action: Action): AppState {
     case "REMOVE_ACCESS_TOKEN":
       return { ...state, accessToken: null };
 
+    /* API_KEY */
+    case "SET_API_KEY":
+      return { ...state, apiKey: action.payload };
+
+    case "REMOVE_API_KEY":
+      return { ...state, apiKey: null };
+
     /* USER_DATA */
     case "SET_USER_DATA":
       return { ...state, userData: action.payload };
@@ -196,6 +216,8 @@ export function appReducer(state: AppState, action: Action): AppState {
       return { ...state, isLoading: true };
 
     case "CREATE_NEW_BOOKING_SUCCESS":
+      console.log("CREATE_NEW_BOOKING_SUCCESS payload: ", action.payload);
+
       return {
         ...state,
         isLoading: false,
@@ -207,6 +229,29 @@ export function appReducer(state: AppState, action: Action): AppState {
         ...state,
         isLoading: false,
         error: action.payload,
+      };
+
+    /* FETCH_BOOKINGS_BY_NAME */
+    case "FETCH_BOOKINGS_BY_NAME_START":
+      return { ...state, isLoading: true, error: null };
+
+    case "FETCH_BOOKINGS_BY_NAME_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
+        userBookings: action.payload.data,
+        meta: action.payload.meta,
+      };
+
+    case "FETCH_BOOKINGS_BY_NAME_ERROR":
+      return { ...state, isLoading: false, error: action.payload };
+
+    /* REMOVE_BOOKING_BY_ID */
+    case "REMOVE_BOOKING_BY_ID":
+      console.log("REMOVE_BOOKING_BY_ID action:", action);
+      return {
+        ...state,
+        userBookings: state.userBookings?.filter((booking) => booking.id !== action.payload.bookingId) || null,
       };
 
     /* CLEAR_STATE */

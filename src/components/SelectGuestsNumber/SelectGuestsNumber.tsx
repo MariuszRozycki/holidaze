@@ -29,7 +29,7 @@ const SelectGuestsNumber = ({ totalGuestNumber }: SelectGuestsNumberProps) => {
           ) : (
             <>
               <i className='bi bi-people-fill me-2' />
-              Select guests nr
+              <span className='error'>Select guests nr</span>
             </>
           )}
         </p>

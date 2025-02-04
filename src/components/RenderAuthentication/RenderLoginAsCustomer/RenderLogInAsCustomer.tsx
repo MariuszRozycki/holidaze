@@ -40,7 +40,7 @@ const RenderLoginAsCustomer = () => {
     if (isSuccess) {
       const userName = state.userData?.name ?? "";
       if (userName) {
-        navigate(`/holidaze/user/logged-user-by-name/${userName}`);
+        navigate(`/holidaze/user/logged-user-home-page`);
       }
     }
   }, [isSuccess, state.userData, navigate]);
