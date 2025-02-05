@@ -44,7 +44,6 @@ a.nav-link {
 .navbar-nav a.nav-link.active {
   background-color: variables.$secondary-color;
   color: $dark;
-  // box-shadow: variables.$box-shadow-deeper-inset;
   box-shadow: variables.$box-shadow-null;
   transform: translateY(1px);
 }
@@ -68,10 +67,5 @@ a.nav-link {
     background-color: variables.$secondary-color;
     color: $dark;
     border-color: variables.$primary-color;
-    box-shadow: variables.$box-shadow-null;
-    /* box-shadow-inset */
-    // border-color: variables.$primary-color;
-    // box-shadow: variables.$box-shadow-deeper-inset;
-    // transform: translateY(1px);
   }
 }

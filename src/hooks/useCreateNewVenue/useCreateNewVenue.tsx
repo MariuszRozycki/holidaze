@@ -25,7 +25,6 @@ export const useCreateNewVenue = () => {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      // Oczekujemy odpowiedzi w formacie: { data: Venue, meta: {} }
       const result: { data: Venue } = await response.json();
 
       return result.data;

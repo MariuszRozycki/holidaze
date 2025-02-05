@@ -6,7 +6,5 @@
   &:hover {
     background-color: variables.$secondary-color;
     color: $dark;
-    box-shadow: variables.$box-shadow-deeper-inset;
-    transform: translateY(1px);
   }
 }

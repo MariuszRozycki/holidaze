@@ -19,6 +19,7 @@ import DisplaySelectedDates from "./DisplaySelectedDates/DisplaySelectedDates";
 import GuestsCounter from "./GuestsCounter/GuestsCounter";
 import SelectGuestsNumber from "./SelectGuestsNumber/SelectGuestsNumber";
 import DisplayPriceCalc from "./DisplayPriceCalc/DisplayPriceCalc";
+import { LocationFormSection, MediaFormSection } from "./CreateNewVenueComponents";
 
 import {
   CustomImageModal,
@@ -113,4 +114,6 @@ export {
   /* Manager */
   RenderMyVenues,
   RenderManagerVenueList,
+  LocationFormSection,
+  MediaFormSection,
 };
