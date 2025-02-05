@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAppContext } from "../../context/app/useAppContext";
 import { useDatePickerDirection } from "../../hooks";
 import { useDisabledDates } from "../../hooks";
 import { DateRange, Range, RangeKeyDict } from "react-date-range";
-import { startOfDay, endOfDay } from "date-fns";
+import { startOfDay, endOfDay, addDays } from "date-fns";
 import { DatePickerFunctionalButton } from "../../components";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
@@ -22,7 +22,7 @@ const DatePicker = ({ onHide }: DatePickerProps) => {
   const [range, setRange] = useState<Range[]>([
     {
       startDate: new Date(),
-      endDate: new Date(),
+      endDate: addDays(new Date(), 1),
       key: "selection",
     },
   ]);

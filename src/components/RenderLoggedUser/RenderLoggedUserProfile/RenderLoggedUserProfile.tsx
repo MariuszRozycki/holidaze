@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { format } from "date-fns";
 import { Container, Image } from "react-bootstrap";
-import { HeadingH1 } from "../../Headings";
+import { HeadingH1 } from "../../";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { useFetchBookingsByName, useRemoveBooking } from "../../../hooks";
 import { CustomUpdateProfileModal } from "../../";
@@ -56,8 +56,8 @@ const RenderLoggedUserProfile = () => {
     <Container>
       <HeadingH1>Render logged User Profile</HeadingH1>
       <div>
-        <Image className='user-banner' src={userProfile.banner.url} />
-        <Image className='user-avatar' src={userProfile.avatar.url} />
+        <Image className='user-banner' src={userProfile.banner.url} alt={userProfile.name} />
+        <Image className='user-avatar' src={userProfile.avatar.url} alt={`Banner of ${userProfile.name}`} />
         <section className='user-profile-details'>
           <h2 className='h4 fw-semibold'>{userProfile.name}</h2>
           <p className='fs-4 mb-3'>{userProfile.email}</p>
@@ -78,7 +78,14 @@ const RenderLoggedUserProfile = () => {
                 <li className='fs-5 fs-semibold' key={booking.id}>
                   <p className='pb-2 mb-3 d-flex justify-content-between'>
                     No: {index + 1}
-                    <button className='rounded border-1' onClick={() => handleRemoveBooking(booking.id)} disabled={isDeleting}>
+                    <button
+                      className='rounded border-1'
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleRemoveBooking(booking.id);
+                      }}
+                      disabled={isDeleting}
+                    >
                       <i className='bi bi-trash3-fill'></i>
                     </button>
                   </p>

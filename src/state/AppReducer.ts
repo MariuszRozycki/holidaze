@@ -44,6 +44,10 @@ export type Action =
   | { type: "CREATE_NEW_BOOKING_START" } // CREATE_NEW_BOOKING
   | { type: "CREATE_NEW_BOOKING_SUCCESS"; payload: BookingResponse }
   | { type: "CREATE_NEW_BOOKING_ERROR"; payload: string }
+  /* FETCH_BOOKING_BY_ID */
+  | { type: "FETCH_BOOKING_BY_ID_START" }
+  | { type: "FETCH_BOOKING_BY_ID_SUCCESS"; payload: { data: BookingResponse[] } }
+  | { type: "FETCH_BOOKING_BY_ID_ERROR"; payload: string }
   /* FETCH_BOOKINGS_BY_NAME */
   | { type: "FETCH_BOOKINGS_BY_NAME_START" }
   | { type: "FETCH_BOOKINGS_BY_NAME_SUCCESS"; payload: { data: BookingResponse[]; meta: Meta } }
@@ -72,6 +76,7 @@ export interface AppState {
   chosenTotalGuestsNumber?: number;
   createNewBooking?: BookingResponse | null;
   userBookings?: BookingResponse[] | null;
+  bookingById: BookingResponse[] | null;
 }
 
 export const initialState: AppState = {
@@ -96,6 +101,7 @@ export const initialState: AppState = {
   chosenTotalGuestsNumber: 0,
   createNewBooking: null,
   userBookings: null,
+  bookingById: null,
 };
 
 export function appReducer(state: AppState, action: Action): AppState {
@@ -248,11 +254,21 @@ export function appReducer(state: AppState, action: Action): AppState {
 
     /* REMOVE_BOOKING_BY_ID */
     case "REMOVE_BOOKING_BY_ID":
-      console.log("REMOVE_BOOKING_BY_ID action:", action);
       return {
         ...state,
         userBookings: state.userBookings?.filter((booking) => booking.id !== action.payload.bookingId) || null,
       };
+
+    /* FETCH_BOOKING_BY_ID */
+    case "FETCH_BOOKING_BY_ID_START":
+      return { ...state, isLoading: true, error: null };
+
+    case "FETCH_BOOKING_BY_ID_SUCCESS":
+      console.log("FETCH_BOOKING_BY_ID_SUCCESS", action);
+      return { ...state, isLoading: false, bookingById: action.payload.data };
+
+    case "FETCH_BOOKING_BY_ID_ERROR":
+      return { ...state, isLoading: false, error: action.payload };
 
     /* CLEAR_STATE */
     case "CLEAR_STATE":

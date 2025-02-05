@@ -1,0 +1,5 @@
+@use "../../Buttons/CustomButton/CustomButton.scss" as *;
+
+.update-profile-button {
+  @include button;
+}
