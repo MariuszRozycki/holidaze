@@ -21,7 +21,7 @@ import LoggedUserHomePage from "./LoggedUser/LoggedUserHomePage";
 import VenueManagerAdminPanel from "./VenueManager/VenueManagerAdminPanel";
 import RegisterNewVenue from "./VenueManager/RegisterNewVenue";
 import NewVenueRegistered from "./VenueManager/NewVenueRegistered";
-import MyVenues from "./VenueManager/MyVenues";
+import MyVenuesPage from "./VenueManager/MyVenuesPage";
 import MyVenuesBookings from "./VenueManager/MyVenuesBookings";
 
 export {
@@ -48,6 +48,6 @@ export {
   VenueManagerAdminPanel,
   RegisterNewVenue,
   NewVenueRegistered,
-  MyVenues,
+  MyVenuesPage,
   MyVenuesBookings,
 };

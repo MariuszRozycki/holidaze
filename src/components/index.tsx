@@ -39,6 +39,7 @@ import {
   RenderLoginAsCustomer,
 } from "./RenderAuthentication";
 import { RenderLoggedUserHome, RenderLoggedUserProfile } from "./RenderLoggedUser";
+import { RenderMyVenues } from "./RenderLoggedVenueManager"; // Manager RenderPages
 import { CustomInput } from "./FormComponents";
 import {
   CustomButton,
@@ -107,4 +108,7 @@ export {
   LoggedUserComponent,
   DisplaySelectedDates,
   CustomDetailedBookingModal,
+
+  /* Manager */
+  RenderMyVenues,
 };
