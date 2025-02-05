@@ -9,7 +9,7 @@ export const useLoginUser = () => {
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const loginUser = async (userData: { email: string; password: string }) => {
+  const loginUser = async (userData: { email: string; password: string; venueManager?: boolean }) => {
     setIsLoading(true);
     setError(null);
 
@@ -27,6 +27,7 @@ export const useLoginUser = () => {
       }
 
       const result = await response.json();
+      console.log("result from useLoginUser: ", result);
       const loggedUserData = {
         name: result.data.name,
         email: result.data.email,

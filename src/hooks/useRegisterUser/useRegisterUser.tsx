@@ -6,12 +6,7 @@ export const useRegisterUser = () => {
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const registerUser = async (userData: {
-    name: string;
-    email: string;
-    // textarea: string;
-    password: string;
-  }) => {
+  const registerUser = async (userData: { name: string; email: string; password: string; venueManager?: boolean }) => {
     setIsLoading(true);
     setError(null);
     try {

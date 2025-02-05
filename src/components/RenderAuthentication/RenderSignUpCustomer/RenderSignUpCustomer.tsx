@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useRegisterUser, useNavigateToElement } from "../../../hooks";
-import { Form, FloatingLabel } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { CustomInput, SignUpButton, GoBackButton, HeadingH1 } from "../../index";
 import "./RenderSignUpCustomer.scss";
 
@@ -12,7 +12,6 @@ const RenderSignUpCustomer = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    // textarea: "",
     password: "",
   });
 
@@ -45,16 +44,6 @@ const RenderSignUpCustomer = () => {
         <Form.Group className='mb-3' controlId='formBasicPassword'>
           <CustomInput type='password' name='password' placeholder='Password' value={formData.password} onChange={handleChange} />
         </Form.Group>
-        {/* <FloatingLabel controlId='floatingTextarea2' label='Bio'>
-          <Form.Control
-            as='textarea'
-            placeholder='Write something about you...'
-            name='textarea'
-            style={{ height: "100px" }}
-            value={formData.textarea}
-            onChange={handleChange}
-          />
-        </FloatingLabel> */}
         <SignUpButton className='mt-5' type='submit' />
       </Form>
     </div>

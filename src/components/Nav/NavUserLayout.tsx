@@ -3,6 +3,7 @@ import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import { clearLocalStorageOnLogout } from "../../utils";
 import { useAppContext } from "../../context/app/useAppContext";
+import "./NavLayout.scss";
 
 const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
   const { dispatch } = useAppContext();
