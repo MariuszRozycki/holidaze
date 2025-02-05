@@ -1,34 +1,8 @@
 import { useState } from "react";
+import { CreateNewVenueRequest } from "../../types/api";
 import { Container, Form, FloatingLabel, InputGroup, Alert, Button, Row, Col } from "react-bootstrap";
 import { HeadingH1, CustomButton, ReactToggleButtons } from "../../components";
 import { useNavigateToElement, useReactToggleButtons, useCreateNewVenue } from "../../hooks";
-
-/**
- * Przykładowy interfejs opisujący dane formularza,
- * uwzględniający wymaganą strukturę dla `location`.
- */
-interface VenueFormData {
-  name: string;
-  description: string;
-  media: { url: string; alt: string }[];
-  price: number;
-  maxGuests: number;
-  meta: {
-    wifi: boolean;
-    parking: boolean;
-    breakfast: boolean;
-    pets: boolean;
-  };
-  location: {
-    address: string;
-    city: string;
-    zip: string;
-    country: string;
-    continent: string;
-    lat: number;
-    lng: number;
-  };
-}
 
 const RegisterNewVenue = () => {
   const locationPath = "/holidaze/venue-manager/new-venue-registered";
@@ -37,7 +11,7 @@ const RegisterNewVenue = () => {
   const { formValues, handleToggleChange } = useReactToggleButtons();
 
   // Początkowy stan formularza
-  const [formData, setFormData] = useState<VenueFormData>({
+  const [formData, setFormData] = useState<CreateNewVenueRequest>({
     name: "",
     description: "",
     media: [],
@@ -106,7 +80,10 @@ const RegisterNewVenue = () => {
    * Ręczna aktualizacja zagnieżdżonych pól `location`
    * (np. address, city, zip, lat itp.)
    */
-  const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>, locationField: keyof VenueFormData["location"]) => {
+  const handleLocationChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    locationField: keyof CreateNewVenueRequest["location"]
+  ) => {
     const { value } = e.target;
     // Jeśli chcemy rzutować lat/lng na number:
     if (locationField === "lat" || locationField === "lng") {
@@ -140,7 +117,7 @@ const RegisterNewVenue = () => {
 
     try {
       // Łączymy resztę danych z wpisami dotyczącymi obrazków
-      const updatedFormData: VenueFormData = {
+      const updatedFormData: CreateNewVenueRequest = {
         ...formData,
         media: mediaInputs.filter((m) => m.url.trim() !== ""),
       };
