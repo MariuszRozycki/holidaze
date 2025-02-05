@@ -1,3 +1,51 @@
+// interface LocationFields {
+//   address: string;
+//   city: string;
+//   zip: string;
+//   country: string;
+//   continent: string;
+//   lat: number;
+//   lng: number;
+// }
+
+// interface VenueFormData {
+//   name: string;
+//   description: string;
+//   price: number;
+//   maxGuests: number;
+//   media: { url: string; alt: string }[];
+//   meta: {
+//     wifi: boolean;
+//     parking: boolean;
+//     breakfast: boolean;
+//     pets: boolean;
+//   };
+//   location: LocationFields;
+// }
+
+export type CreateNewVenueRequest = {
+  name: string;
+  description: string;
+  media: Media[];
+  price: number;
+  maxGuests: number;
+  meta: {
+    wifi: boolean; // Optional (default: false)
+    parking: boolean; // Optional (default: false)
+    breakfast: boolean; // Optional (default: false)
+    pets: boolean; // Optional (default: false)
+  };
+  location: {
+    address: string; // Optional (default: null)
+    city: string; // Optional (default: null)
+    zip: string; // Optional (default: null)
+    country: string; // Optional (default: null)
+    continent: string; // Optional (default: null)
+    lat: number; // Optional (default: 0)
+    lng: number; // Optional (default: 0)
+  };
+};
+
 export type CreateBookingRequest = {
   dateFrom: string;
   dateTo: string;
