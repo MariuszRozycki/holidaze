@@ -12,8 +12,7 @@ input.custom-input {
 }
 
 input.custom-input:focus {
-  border: 2px solid $light;
-  box-shadow: variables.$box-shadow-deeper-inset;
+  border: 2px solid variables.$text-muted-custom;
   transform: translateY(1px);
 }
 
@@ -21,12 +20,15 @@ input.custom-input::placeholder {
   color: $light;
 }
 
+input.input-textarea {
+  align-self: baseline;
+  height: 200px;
+}
+
 @media (min-width: breakpoints.get(md)) {
   input.custom-input {
     &:hover {
       background-color: variables.$primary-color;
-      box-shadow: variables.$box-shadow-deeper-inset;
-      transform: translateY(1px);
       color: $dark;
 
       &::placeholder {
