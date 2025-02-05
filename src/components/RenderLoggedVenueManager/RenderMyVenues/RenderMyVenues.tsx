@@ -1,12 +1,7 @@
-import { Container } from "react-bootstrap";
-import { HeadingH1 } from "../../Headings";
+import { RenderManagerVenueList } from "../../";
 
 const RenderMyVenues = () => {
-  return (
-    <Container>
-      <HeadingH1>Render My Venues</HeadingH1>
-    </Container>
-  );
+  return <RenderManagerVenueList title='Manager all venues' />;
 };
 
 export default RenderMyVenues;

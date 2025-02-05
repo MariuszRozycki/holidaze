@@ -7,6 +7,7 @@ import Pagination from "./Pagination/Pagination";
 import SortOptions from "./SortOptions/SortOptions";
 import SearchBar from "./SearchBar/SearchBar";
 import RenderVenueList from "./RenderVenues/RenderVenuesList/RenderVenuesList";
+import RenderManagerVenueList from "./RenderVenues/RenderVenuesList/RenderManagerVenueList";
 import RenderVenueById from "./RenderVenues/RenderVenueById/RenderVenueById";
 import LoggedUserComponent from "./LoggedUserComponent/LoggedUserComponent";
 import { HeadingH1, HeadingH2, HeadingH3 } from "./Headings";
@@ -111,4 +112,5 @@ export {
 
   /* Manager */
   RenderMyVenues,
+  RenderManagerVenueList,
 };

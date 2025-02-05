@@ -27,7 +27,7 @@ export const useLoginUser = () => {
       }
 
       const result = await response.json();
-      console.log("result from useLoginUser: ", result);
+
       const loggedUserData = {
         name: result.data.name,
         email: result.data.email,
