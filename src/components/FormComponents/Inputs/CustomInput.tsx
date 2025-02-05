@@ -7,6 +7,8 @@ type CustomInputProps = {
   placeholder: string;
   value: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: () => void;
+  readOnly?: boolean;
   className?: string;
   required?: boolean;
   as?: string;
@@ -21,6 +23,8 @@ const CustomInput = ({ type, name, placeholder, value, onChange, className, onCl
       value={value}
       onChange={onChange}
       className={`custom-input ${className}`}
+      onClick={onClick}
+      readOnly={readOnly}
     />
   );
 };
