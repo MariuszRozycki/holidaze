@@ -2,7 +2,7 @@ import CustomButton from "../CustomButton/CustomButton";
 import "./SignUpButton.scss";
 
 type SignUpButtonProps = {
-  type?: string;
+  type?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
   className?: string;
 };

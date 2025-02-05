@@ -1,98 +1,112 @@
 import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { CustomButton } from "../../";
-import { useUpdateProfile } from "../../../hooks";
+import { useGetUserBookingById } from "../../../hooks";
 import { useAppContext } from "../../../context/app/useAppContext";
-import "./CustomUpdateProfileModal.scss";
+import "./CustomDetailedBookingModal.scss";
 
-type CustomUpdateProfileModalProps = {
+type CustomDetailedBookingModalProps = {
   fullscreen?: true | "sm-down" | "md-down" | "lg-down" | "xl-down" | "xxl-down";
+  show: boolean;
+  elementBookingId: string | undefined;
+  onHide: () => void;
+  className?: string;
 };
 
-const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ fullscreen }) => {
+const CustomDetailedBookingModal: React.FC<CustomDetailedBookingModalProps> = ({
+  fullscreen,
+  show,
+  onHide,
+  className,
+  elementBookingId,
+}) => {
   const { state } = useAppContext();
   const { userProfile, isLoading, error } = state;
-  const { updateProfile } = useUpdateProfile();
 
-  const [show, setShow] = useState<boolean>(false);
+  const { bookingById } = useGetUserBookingById(elementBookingId);
 
-  const [avatarUrl, setAvatarUrl] = useState<string>(userProfile?.avatar.url || "");
-  const [avatarAlt, setAvatarAlt] = useState<string>(userProfile?.avatar.alt || "");
-  const [bannerUrl, setBannerUrl] = useState<string>(userProfile?.banner.url || "");
-  const [bannerAlt, setBannerAlt] = useState<string>(userProfile?.banner.alt || "");
-  const [bio, setBio] = useState<string>(userProfile?.bio || "");
+  // const [avatarUrl, setAvatarUrl] = useState<string>(userProfile?.avatar.url || "");
+  // const [avatarAlt, setAvatarAlt] = useState<string>(userProfile?.avatar.alt || "");
+  // const [bannerUrl, setBannerUrl] = useState<string>(userProfile?.banner.url || "");
+  // const [bannerAlt, setBannerAlt] = useState<string>(userProfile?.banner.alt || "");
+  // const [bio, setBio] = useState<string>(userProfile?.bio || "");
   // const [venueManager, setVenueManager] = useState<boolean>(userProfile?.venueManager || false);
 
-  const [formError, setFormError] = useState<string | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  // const [formError, setFormError] = useState<string | null>(null);
+  // const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (userProfile) {
-      setAvatarUrl(userProfile.avatar.url);
-      setAvatarAlt(userProfile.avatar.alt);
-      setBannerUrl(userProfile.banner.url);
-      setBannerAlt(userProfile.banner.alt);
-      // setBio(userProfile.bio);
-      // setVenueManager(userProfile.venueManager);
-    }
-  }, [userProfile]);
+  // useEffect(() => {
+  //   if (userProfile) {
+  //     setAvatarUrl(userProfile.avatar.url);
+  //     setAvatarAlt(userProfile.avatar.alt);
+  //     setBannerUrl(userProfile.banner.url);
+  //     setBannerAlt(userProfile.banner.alt);
+  //     // setBio(userProfile.bio);
+  //     // setVenueManager(userProfile.venueManager);
+  //   }
+  // }, [userProfile]);
 
-  const validateForm = (): boolean => {
-    if (!avatarUrl || !bannerUrl) {
-      setFormError("Avatar URL and Banner URL are required.");
-      return false;
-    }
+  // const validateForm = (): boolean => {
+  //   if (!avatarUrl || !bannerUrl) {
+  //     setFormError("Avatar URL and Banner URL are required.");
+  //     return false;
+  //   }
 
-    try {
-      new URL(avatarUrl);
-      new URL(bannerUrl);
-    } catch (error) {
-      console.error(error);
-      setFormError("Please enter valid URLs for Avatar and Banner.");
-      return false;
-    }
+  //   try {
+  //     new URL(avatarUrl);
+  //     new URL(bannerUrl);
+  //   } catch (error) {
+  //     console.error(error);
+  //     setFormError("Please enter valid URLs for Avatar and Banner.");
+  //     return false;
+  //   }
 
-    setFormError(null);
-    return true;
-  };
+  //   setFormError(null);
+  //   return true;
+  // };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
 
-    if (!validateForm()) {
-      return;
-    }
+  //   if (!validateForm()) {
+  //     return;
+  //   }
 
-    setIsSubmitting(true);
+  //   setIsSubmitting(true);
 
-    const updatedData = {
-      avatar: {
-        url: avatarUrl,
-        alt: avatarAlt,
-      },
-      banner: {
-        url: bannerUrl,
-        alt: bannerAlt,
-      },
-      bio,
-      // venueManager,
-    };
+  //   const updatedData = {
+  //     avatar: {
+  //       url: avatarUrl,
+  //       alt: avatarAlt,
+  //     },
+  //     banner: {
+  //       url: bannerUrl,
+  //       alt: bannerAlt,
+  //     },
+  //     bio,
+  //     // venueManager,
+  //   };
 
-    try {
-      await updateProfile(updatedData);
-      setShow(false);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  //   try {
+  //     await updateProfile(updatedData);
+  //     setShow(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   return (
     <>
-      <CustomButton btnText='Update profile' className='update-profile-button' onClick={() => setShow(true)} />
+      <Modal show={show} onHide={onHide} className={`${className}`}>
+        <Modal.Header closeButton>Reservation details</Modal.Header>
 
-      <Modal
+        <Modal.Body>Here goes Modal body</Modal.Body>
+      </Modal>
+      {/* <CustomButton btnText='' className='update-profile-button' onClick={() => setShow(true)} /> */}
+
+      {/* <Modal
         show={show}
         onHide={() => setShow(false)}
         fullscreen={fullscreen}
@@ -118,7 +132,7 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
               />
             </Form.Group>
 
-            {/* <Form.Group className='mb-3' controlId='avatarAlt'>
+            <Form.Group className='mb-3' controlId='avatarAlt'>
               <Form.Label>Avatar Alt Text</Form.Label>
               <Form.Control
                 type='text'
@@ -127,7 +141,7 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
                 onChange={(e) => setAvatarAlt(e.target.value)}
                 isInvalid={!!formError && !avatarAlt}
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <Form.Group className='mb-3' controlId='bannerUrl'>
               <Form.Label>Banner URL</Form.Label>
@@ -141,7 +155,7 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
               />
             </Form.Group>
 
-            {/* <Form.Group className='mb-3' controlId='bannerAlt'>
+            <Form.Group className='mb-3' controlId='bannerAlt'>
               <Form.Label>Banner Alt Text</Form.Label>
               <Form.Control
                 type='text'
@@ -151,7 +165,7 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
                 required
                 isInvalid={!!formError && !bannerAlt}
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <Form.Group className='mb-3' controlId='bio'>
               <Form.Label>Bio</Form.Label>
@@ -164,14 +178,14 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
               />
             </Form.Group>
 
-            {/* <Form.Group className='mb-3' controlId='venueManager'>
+            <Form.Group className='mb-3' controlId='venueManager'>
               <Form.Check
                 type='checkbox'
                 label='Venue Manager'
                 checked={venueManager}
                 onChange={(e) => setVenueManager(e.target.checked)}
               />
-            </Form.Group> */}
+            </Form.Group>
 
             <div className='d-flex justify-content-end'>
               <Button variant='secondary' onClick={() => setShow(false)} disabled={isSubmitting}>
@@ -183,9 +197,9 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
             </div>
           </Form>
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </>
   );
 };
 
-export default CustomUpdateProfileModal;
+export default CustomDetailedBookingModal;

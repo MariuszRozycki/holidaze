@@ -25,6 +25,7 @@ import {
   CustomUpdateProfileModal,
   CustomLoginRequiredModal,
   CustomGuestCounterModal,
+  CustomDetailedBookingModal,
 } from "./Modals";
 
 import {
@@ -105,4 +106,5 @@ export {
   CustomUpdateProfileModal,
   LoggedUserComponent,
   DisplaySelectedDates,
+  CustomDetailedBookingModal,
 };
