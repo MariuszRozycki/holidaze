@@ -1,18 +1,18 @@
-import { Form, FloatingLabel } from "react-bootstrap";
+import { Form } from "react-bootstrap";
+import { CustomInput } from "../../FormComponents";
 import { CreateNewVenueRequest } from "../../../types/api";
 
-interface LocationFormSectionProps {
+type Props = {
   formData: CreateNewVenueRequest;
   setFormData: React.Dispatch<React.SetStateAction<CreateNewVenueRequest>>;
-}
+};
 
-const LocationFormSection = ({ formData, setFormData }: LocationFormSectionProps) => {
+const LocationFormSection = ({ formData, setFormData }: Props) => {
   const handleLocationChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     locationField: keyof CreateNewVenueRequest["location"]
   ) => {
     const value = e.target.value;
-
     setFormData((prev) => ({
       ...prev,
       location: {
@@ -25,47 +25,43 @@ const LocationFormSection = ({ formData, setFormData }: LocationFormSectionProps
   return (
     <>
       <Form.Group className='mb-3' controlId='formAddress'>
-        <FloatingLabel label='Address'>
-          <Form.Control
-            type='text'
-            placeholder='Enter address'
-            value={formData.location.address}
-            onChange={(e) => handleLocationChange(e, "address")}
-          />
-        </FloatingLabel>
+        <CustomInput
+          type='text'
+          name='address'
+          placeholder='Enter address'
+          value={formData.location.address}
+          onChange={(e) => handleLocationChange(e, "address")}
+        />
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formCity'>
-        <FloatingLabel label='City'>
-          <Form.Control
-            type='text'
-            placeholder='Enter city'
-            value={formData.location.city}
-            onChange={(e) => handleLocationChange(e, "city")}
-          />
-        </FloatingLabel>
+        <CustomInput
+          type='text'
+          name='city'
+          placeholder='Enter city'
+          value={formData.location.city}
+          onChange={(e) => handleLocationChange(e, "city")}
+        />
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formLat'>
-        <FloatingLabel label='Latitude'>
-          <Form.Control
-            type='number'
-            placeholder='Enter latitude'
-            value={formData.location.lat}
-            onChange={(e) => handleLocationChange(e, "lat")}
-          />
-        </FloatingLabel>
+        <CustomInput
+          name='lat'
+          type='number'
+          placeholder='Enter latitude'
+          value={formData.location.lat}
+          onChange={(e) => handleLocationChange(e, "lat")}
+        />
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formLng'>
-        <FloatingLabel label='Longitude'>
-          <Form.Control
-            type='number'
-            placeholder='Enter longitude'
-            value={formData.location.lng}
-            onChange={(e) => handleLocationChange(e, "lng")}
-          />
-        </FloatingLabel>
+        <CustomInput
+          type='number'
+          name='lng'
+          placeholder='Enter longitude'
+          value={formData.location.lng}
+          onChange={(e) => handleLocationChange(e, "lng")}
+        />
       </Form.Group>
     </>
   );

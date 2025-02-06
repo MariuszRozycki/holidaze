@@ -17,8 +17,6 @@ export const useFetchVenueByName = (
   const token = state.accessToken;
   const apiKey = state.apiKey;
 
-  console.log("managerName from useFetchVenueByName", managerName);
-
   useEffect(() => {
     if (!managerName || !token || !apiKey) return;
     const fetchVenueByName = async () => {
@@ -34,7 +32,6 @@ export const useFetchVenueByName = (
         } else {
           url = VENUE_ENDPOINTS.venues(limit, currentPage, sort, sortOrder);
         }
-        console.log("url", url);
 
         const response = await fetch(url, {
           headers: {
@@ -47,7 +44,6 @@ export const useFetchVenueByName = (
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        console.log("result from fetchVenueByName", result);
 
         if (venueId) {
           dispatch({

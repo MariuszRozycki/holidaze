@@ -1,106 +1,22 @@
-// // Styl główny dla kontenera
-// .container {
-//   max-width: 600px;
-//   padding: 20px;
-//   background-color: #0288d1; // Kolor niebieski zbliżony do zrzutu
-//   border-radius: 12px;
-//   color: white;
-//   font-family: "Roboto", sans-serif;
-// }
+@use "bootstrap" as *;
+@use "../../scss/abstracts/variables";
 
-// // Nagłówki
-// h1 {
-//   font-size: 24px;
-//   font-weight: bold;
-//   text-align: center;
-//   margin-bottom: 20px;
-// }
+.content-page-wrapper.register-new-venue {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-// // Stylizacja inputów
-// form {
-//   .form-control {
-//     background-color: #ffffff;
-//     border: 2px solid #0288d1;
-//     border-radius: 24px;
-//     color: #0288d1;
-//     font-size: 16px;
-//     font-weight: 500;
-//     padding: 10px 20px;
-//     outline: none;
+  textarea {
+    height: 200px;
+  }
 
-//     &::placeholder {
-//       color: #0288d1;
-//       font-size: 14px;
-//     }
+  .input-group {
+    background-color: variables.$main-color;
 
-//     &:focus {
-//       border-color: #ffffff;
-//       box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
-//     }
-//   }
-
-//   // Stylizacja dla FloatingLabel
-//   .form-floating {
-//     .form-control {
-//       padding: 10px 20px;
-//     }
-
-//     label {
-//       color: #ffffff;
-//       font-size: 14px;
-//     }
-//   }
-
-//   // Stylizacja dla InputGroup
-//   .input-group-text {
-//     background-color: #ffffff;
-//     color: #0288d1;
-//     border: 2px solid #0288d1;
-//     border-radius: 50%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     padding: 10px;
-//   }
-// }
-
-// // Stylizacja toggle buttons (przełączników)
-// .react-toggle-buttons {
-//   display: flex;
-//   justify-content: space-between;
-//   gap: 10px;
-
-//   button {
-//     background-color: #ffffff;
-//     color: #0288d1;
-//     border: none;
-//     border-radius: 50px;
-//     padding: 10px 15px;
-//     font-size: 14px;
-//     font-weight: 600;
-//     transition: background-color 0.3s, color 0.3s;
-
-//     &.active {
-//       background-color: #0288d1;
-//       color: white;
-//     }
-//   }
-// }
-
-// // Przycisk "Register venue"
-// button[type="submit"] {
-//   background-color: #ffffff;
-//   color: #0288d1;
-//   border: none;
-//   border-radius: 50px;
-//   font-size: 18px;
-//   font-weight: bold;
-//   padding: 15px 30px;
-//   margin-top: 20px;
-//   transition: background-color 0.3s, color 0.3s;
-
-//   &:hover {
-//     background-color: #0288d1;
-//     color: white;
-//   }
-// }
+    .input-group-text {
+      background-color: transparent;
+      color: $light;
+      border-radius: variables.$border-radius-main;
+    }
+  }
+}

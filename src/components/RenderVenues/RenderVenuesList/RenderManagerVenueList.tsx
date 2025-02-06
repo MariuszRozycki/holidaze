@@ -11,13 +11,10 @@ interface RenderManagerVenueListProps {
 
 const RenderManagerVenueList = ({ title, searchQuery = "", showGoMainPage = false }: RenderManagerVenueListProps) => {
   const { state, dispatch } = useAppContext();
-  console.log(state);
 
   const { currentPage, isLoading, error, venues, sort, sortOrder, isSearching, userProfile } = state;
 
   const managerName = userProfile?.name;
-
-  console.log(managerName);
 
   useFetchVenueByName(currentPage, searchQuery, 10, sort, sortOrder, dispatch, undefined, managerName);
 

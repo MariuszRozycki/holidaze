@@ -4,6 +4,7 @@ import { handleImageError } from "./handleImageError";
 import { handleError } from "./handleError/handleError";
 import { clearLocalStorageOnLogout } from "./clearLocalStorageOnLogout";
 import { fetchVenueDetailsById } from "./fetchVenueDetailsById";
+import { newVenueFormValidation, hasErrors } from "./newVenueFormValidation/newVenueFormValidation";
 
 import {
   getImageUrl,
@@ -41,4 +42,6 @@ export {
   handleError,
   clearLocalStorageOnLogout,
   fetchVenueDetailsById,
+  newVenueFormValidation,
+  hasErrors,
 };

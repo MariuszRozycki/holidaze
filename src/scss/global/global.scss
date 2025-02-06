@@ -18,7 +18,7 @@ body {
   padding: spacers.spacer(3);
   text-align: center;
   background-color: variables.$main-color;
-  height: 600px;
+  min-height: 600px;
   border-radius: variables.$border-radius-normal;
   display: flex;
   flex-direction: column;
