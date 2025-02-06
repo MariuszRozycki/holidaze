@@ -19,7 +19,14 @@ import DisplaySelectedDates from "./DisplaySelectedDates/DisplaySelectedDates";
 import GuestsCounter from "./GuestsCounter/GuestsCounter";
 import SelectGuestsNumber from "./SelectGuestsNumber/SelectGuestsNumber";
 import DisplayPriceCalc from "./DisplayPriceCalc/DisplayPriceCalc";
-import { LocationFormSection, MediaFormSection } from "./CreateNewVenueComponents";
+import {
+  LocationFormSection,
+  MaximumGuestsField,
+  MediaFormSection,
+  PricePerNightField,
+  VenueDescriptionField,
+  VenueNameField,
+} from "./CreateNewVenueComponents";
 
 import {
   CustomImageModal,
@@ -115,5 +122,9 @@ export {
   RenderMyVenues,
   RenderManagerVenueList,
   LocationFormSection,
+  MaximumGuestsField,
   MediaFormSection,
+  PricePerNightField,
+  VenueDescriptionField,
+  VenueNameField,
 };

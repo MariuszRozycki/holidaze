@@ -2,19 +2,37 @@ import { Form } from "react-bootstrap";
 import "./CustomInput.scss";
 
 type CustomInputProps = {
-  type: string;
   name: string;
   placeholder: string;
-  value: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string | number | undefined;
+  type: string;
   onClick?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   readOnly?: boolean;
   className?: string;
   required?: boolean;
-  as?: string;
+  as?: React.ElementType;
+  min?: string;
+  max?: string;
 };
 
-const CustomInput = ({ type, name, placeholder, value, onChange, className, onClick, readOnly }: CustomInputProps) => {
+const CustomInput = ({
+  type,
+  name,
+  placeholder,
+  value,
+  onChange,
+  className,
+  onClick,
+  onFocus,
+  onBlur,
+  readOnly,
+  as,
+  min,
+  max,
+}: CustomInputProps) => {
   return (
     <Form.Control
       type={type}
@@ -25,6 +43,11 @@ const CustomInput = ({ type, name, placeholder, value, onChange, className, onCl
       className={`custom-input ${className}`}
       onClick={onClick}
       readOnly={readOnly}
+      as={as}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      min={min}
+      max={max}
     />
   );
 };
