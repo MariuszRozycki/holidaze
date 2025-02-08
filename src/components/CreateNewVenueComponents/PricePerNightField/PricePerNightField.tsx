@@ -2,13 +2,13 @@ import { Form, InputGroup } from "react-bootstrap";
 import { CustomInput } from "../../FormComponents";
 import { CreateNewVenueRequest } from "../../../types/api";
 
-type Props = {
+type PricePerNightFieldProps = {
   formData: CreateNewVenueRequest;
   setFormData: React.Dispatch<React.SetStateAction<CreateNewVenueRequest>>;
   errors: { price: string };
 };
 
-const PricePerNightField = ({ formData, setFormData, errors }: Props) => {
+const PricePerNightField = ({ formData, setFormData, errors }: PricePerNightFieldProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = e.target.value === "" ? 0 : parseFloat(e.target.value);
     setFormData((prev) => ({ ...prev, price: value }));
@@ -29,7 +29,7 @@ const PricePerNightField = ({ formData, setFormData, errors }: Props) => {
           required
         />
       </InputGroup>
-      {errors.price && <p className='text-danger'>{errors.price}</p>}
+      {errors.price && <p className='text-danger form-error'>{errors.price}</p>}
     </Form.Group>
   );
 };

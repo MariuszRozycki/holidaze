@@ -2,12 +2,12 @@ import { Form } from "react-bootstrap";
 import { CustomInput } from "../../FormComponents";
 import { CreateNewVenueRequest } from "../../../types/api";
 
-type Props = {
+type LocationFormSectionProps = {
   formData: CreateNewVenueRequest;
   setFormData: React.Dispatch<React.SetStateAction<CreateNewVenueRequest>>;
 };
 
-const LocationFormSection = ({ formData, setFormData }: Props) => {
+const LocationFormSection = ({ formData, setFormData }: LocationFormSectionProps) => {
   const handleLocationChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     locationField: keyof CreateNewVenueRequest["location"]
@@ -41,6 +41,16 @@ const LocationFormSection = ({ formData, setFormData }: Props) => {
           placeholder='Enter city'
           value={formData.location.city}
           onChange={(e) => handleLocationChange(e, "city")}
+        />
+      </Form.Group>
+
+      <Form.Group className='mb-3' controlId='formCountry'>
+        <CustomInput
+          type='text'
+          name='country'
+          placeholder='Enter country'
+          value={formData.location.country}
+          onChange={(e) => handleLocationChange(e, "country")}
         />
       </Form.Group>
 

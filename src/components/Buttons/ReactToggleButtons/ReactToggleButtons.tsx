@@ -1,47 +1,44 @@
 import { Form } from "react-bootstrap";
+import { CreateNewVenueRequest } from "../../../types/api";
 import Toggle from "react-toggle";
 import "react-toggle/style.css";
-
-type ToggleFormValues = {
-  wifi: boolean;
-  pets: boolean;
-  breakfast: boolean;
-  parking: boolean;
-};
+import "./ReactToggleButtons.scss";
 
 type ReactToggleButtonsProps = {
-  formValues: ToggleFormValues;
-  handleToggleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  meta: CreateNewVenueRequest["meta"];
+  setMeta: (meta: CreateNewVenueRequest["meta"]) => void;
 };
 
-const ReactToggleButtons: React.FC<ReactToggleButtonsProps> = ({ formValues, handleToggleChange }) => {
+const ReactToggleButtons: React.FC<ReactToggleButtonsProps> = ({ meta, setMeta }) => {
+  const handleToggleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setMeta({ ...meta, [name]: checked });
+  };
+
   return (
     <>
       <Form.Group className='mb-3'>
         <label>
           <span>Wi-Fi</span>
-          <Toggle name='wifi' checked={formValues.wifi} onChange={handleToggleChange} />
+          <Toggle name='wifi' checked={meta.wifi || false} onChange={handleToggleChange} />
         </label>
       </Form.Group>
-
       <Form.Group className='mb-3'>
         <label>
           <span>Pets</span>
-          <Toggle name='pets' checked={formValues.pets} onChange={handleToggleChange} />
+          <Toggle name='pets' checked={meta.pets || false} onChange={handleToggleChange} />
         </label>
       </Form.Group>
-
       <Form.Group className='mb-3'>
         <label>
           <span>Breakfast</span>
-          <Toggle name='breakfast' checked={formValues.breakfast} onChange={handleToggleChange} />
+          <Toggle name='breakfast' checked={meta.breakfast || false} onChange={handleToggleChange} />
         </label>
       </Form.Group>
-
       <Form.Group className='mb-3'>
         <label>
           <span>Parking</span>
-          <Toggle name='parking' checked={formValues.parking} onChange={handleToggleChange} />
+          <Toggle name='parking' checked={meta.parking || false} onChange={handleToggleChange} />
         </label>
       </Form.Group>
     </>

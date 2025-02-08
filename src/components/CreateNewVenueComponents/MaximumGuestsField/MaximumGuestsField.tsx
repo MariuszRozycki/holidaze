@@ -2,13 +2,13 @@ import { Form } from "react-bootstrap";
 import { CustomInput } from "../../FormComponents";
 import { CreateNewVenueRequest } from "../../../types/api";
 
-type Props = {
+type MaximumGuestsFieldProps = {
   formData: CreateNewVenueRequest;
   setFormData: React.Dispatch<React.SetStateAction<CreateNewVenueRequest>>;
   errors: { maxGuests: string };
 };
 
-const MaximumGuestsField = ({ formData, setFormData, errors }: Props) => {
+const MaximumGuestsField = ({ formData, setFormData, errors }: MaximumGuestsFieldProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const value = e.target.value === "" ? 0 : parseInt(e.target.value, 10);
     setFormData((prev) => ({ ...prev, maxGuests: value }));
@@ -24,7 +24,7 @@ const MaximumGuestsField = ({ formData, setFormData, errors }: Props) => {
         onChange={handleChange}
         required
       />
-      {errors.maxGuests && <p className='text-danger'>{errors.maxGuests}</p>}
+      {errors.maxGuests && <p className='text-danger bg-danger-subtle form-error'>{errors.maxGuests}</p>}
     </Form.Group>
   );
 };

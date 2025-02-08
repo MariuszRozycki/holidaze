@@ -17,7 +17,7 @@ const VenueNameField = ({ formData, setFormData, errors }: VenueNameFieldProps) 
   return (
     <Form.Group className='mb-3' controlId='formBasicName'>
       <CustomInput type='text' placeholder='Enter venue name' name='name' value={formData.name} onChange={handleChange} required />
-      {errors.name && <p className='text-danger'>{errors.name}</p>}
+      {errors.name && <p className='text-danger form-error'>{errors.name}</p>}
     </Form.Group>
   );
 };

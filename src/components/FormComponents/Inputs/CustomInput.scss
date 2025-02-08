@@ -2,27 +2,33 @@
 @use "../../../scss/abstracts/breakpoints";
 @use "../../../scss/abstracts/variables";
 
-input.custom-input {
+input.custom-input,
+textarea.custom-textarea-description {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   text-align: left;
-  max-width: 80%;
+  width: 100%;
   cursor: pointer;
 }
 
 input.custom-input:focus {
   border: 2px solid variables.$text-muted-custom;
-  transform: translateY(1px);
 }
 
-input.custom-input::placeholder {
+input.custom-input::placeholder,
+textarea.custom-textarea-description::placeholder {
   color: $light;
 }
 
-input.input-textarea {
-  align-self: baseline;
-  height: 200px;
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 @media (min-width: breakpoints.get(md)) {
