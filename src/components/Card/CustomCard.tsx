@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Venue } from "../../types/api";
-import { Card, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
+import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { useAppContext } from "../../context/app/useAppContext";
-import { useElementWidth, useRemoveVenue } from "../../hooks";
+import { useElementWidth } from "../../hooks";
 import {
   handleImageError,
   getImageUrl,
@@ -25,29 +25,14 @@ const CustomCard = ({ venue }: CustomCardProps) => {
   const userName = state.userProfile?.name;
   const elementRef = useRef<HTMLDivElement>(null);
   const containerWidth = useElementWidth(elementRef);
-  const [deletingVenue, setDeletingVenue] = useState<string[]>([]);
-  const removeVenue = useRemoveVenue();
 
   const navigate = useNavigate();
-
-  const handleRemoveVenue = async (venueId: string) => {
-    setDeletingVenue((prev) => [...prev, venueId]);
-
-    try {
-      await removeVenue(venueId);
-      navigate("/holidaze/venue-manager/my-venues-page");
-    } catch (error) {
-      console.error("Error removing venue: ", error);
-    } finally {
-      setDeletingVenue((prev) => prev.filter((id) => id !== venueId));
-    }
-  };
 
   const handleClick = () => {
     let path;
 
     if (window.location.pathname.includes(`/holidaze/venue-manager/my-venues-page`)) {
-      path = `/holidaze/venue-manager/update-venue-by-id/${venue.id}`;
+      path = `/holidaze/venue-manager/venue-by-id/${venue.id}`;
     } else if (userName) {
       path = `/holidaze/user/venue-by-id/${venue.id}`;
     } else {
@@ -57,20 +42,8 @@ const CustomCard = ({ venue }: CustomCardProps) => {
     navigate(path);
   };
 
-  const venueManagerPath = window.location.pathname.includes(`/holidaze/venue-manager/my-venues-page`);
-  const removeIcon = (
-    <div className='d-flex justify-content-between'>
-      <Button onClick={handleClick} variant='primary' disabled={deletingVenue.includes(venue.id)}>
-        Update venue
-      </Button>
-      <Button variant='secondary' onClick={() => handleRemoveVenue(venue.id)}>
-        <i className='bi bi-trash3-fill'></i>
-      </Button>
-    </div>
-  );
-
   return (
-    <Card className='w-100 rounded-4 position-relative' onClick={venueManagerPath ? undefined : handleClick}>
+    <Card className='w-100 rounded-4 position-relative' onClick={handleClick}>
       <Card.Img
         className='card-by-offers-type object-fit-cover rounded-4 swiper-lazy p-1'
         variant='top'
@@ -120,7 +93,6 @@ const CustomCard = ({ venue }: CustomCardProps) => {
                   </div>
                 </div>
               </div>
-              {venueManagerPath && removeIcon}
             </div>
           </div>
         </Card.Body>

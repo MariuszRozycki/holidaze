@@ -6,6 +6,7 @@ import {
   MyVenuesBookings,
   PageNotExists,
   UpdateVenueDataPage,
+  VenueByIdPage,
 } from "../pages";
 
 const venueManagerRoutes = [
@@ -20,6 +21,10 @@ const venueManagerRoutes = [
   {
     path: "update-venue-by-id/:id",
     element: <UpdateVenueDataPage />,
+  },
+  {
+    path: "venue-by-id/:id",
+    element: <VenueByIdPage />,
   },
   {
     path: "new-venue-registered",
