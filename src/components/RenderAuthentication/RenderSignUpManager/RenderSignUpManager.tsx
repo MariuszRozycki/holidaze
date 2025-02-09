@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigateToElement, useRegisterUser } from "../../../hooks";
 import { SignUpButton, CustomInput, GoBackButton, HeadingH1 } from "../../index";
+import { ErrorMessageAuth } from "../../../utils";
 import "./RenderSignUpManager.scss";
 
 const RenderSignUpManager = () => {
@@ -69,41 +70,47 @@ const RenderSignUpManager = () => {
         setGeneralError("An unexpected error occurred. Please try again.");
       }
     } catch (error: unknown) {
-      let errorMessage = "An unexpected error occurred. ";
-      if (error instanceof Error) {
+      let errorMessage = "An unexpected error occurred.";
+
+      if (error && typeof error === "object" && "errors" in error) {
+        const errObj = error as { errors: Array<{ message: string }> };
+        if (errObj.errors.length > 0) {
+          errorMessage = errObj.errors[0].message;
+        }
+      } else if (error instanceof Error) {
         errorMessage = error.message;
       }
       setGeneralError(errorMessage);
     }
   };
 
+  useEffect(() => {
+    if (isSuccess) {
+      handleNavigate();
+    }
+  }, [isSuccess, handleNavigate]);
+
   return (
     <div className='page-element-wrapper'>
       <GoBackButton />
       <HeadingH1>Sign Up As a Manager</HeadingH1>
 
-      {generalError && <p className='text-start text-danger mb-3 bg-light bg-opacity-50 px-3 py-1 rounded mt-2'>{generalError}</p>}
+      {generalError && <ErrorMessageAuth message={generalError} />}
 
       <Form className='content-page-wrapper' onSubmit={handleSubmit}>
         <Form.Group className='mb-3' controlId='formBasicName'>
           <CustomInput type='text' name='name' placeholder='Enter manager name' value={formData.name} onChange={handleChange} />
-          {fieldErrors.name && (
-            <p className='text-start text-danger mb-3 bg-light bg-opacity-50 px-3 py-1 rounded mt-2'>{fieldErrors.name}</p>
-          )}
+          {fieldErrors.name && <ErrorMessageAuth message={fieldErrors.name} />}
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='formBasicEmail'>
           <CustomInput type='email' name='email' placeholder='Enter email' value={formData.email} onChange={handleChange} />
-          {fieldErrors.email && (
-            <p className='text-start text-danger mb-3 bg-light bg-opacity-50 px-3 py-1 rounded mt-2'>{fieldErrors.email}</p>
-          )}
+          {fieldErrors.email && <ErrorMessageAuth message={fieldErrors.email} />}
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='formBasicPassword'>
           <CustomInput type='password' name='password' placeholder='Password' value={formData.password} onChange={handleChange} />
-          {fieldErrors.password && (
-            <p className='text-start text-danger mb-3 bg-light bg-opacity-50 px-3 py-1 rounded mt-2'>{fieldErrors.password}</p>
-          )}
+          {fieldErrors.password && <ErrorMessageAuth message={fieldErrors.password} />}
         </Form.Group>
 
         <SignUpButton className='mt-5' type='submit' />
