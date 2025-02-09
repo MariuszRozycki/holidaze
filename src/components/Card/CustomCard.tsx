@@ -70,7 +70,7 @@ const CustomCard = ({ venue }: CustomCardProps) => {
   );
 
   return (
-    <Card className='w-100 rounded-4 position-relative'>
+    <Card className='w-100 rounded-4 position-relative' onClick={venueManagerPath ? undefined : handleClick}>
       <Card.Img
         className='card-by-offers-type object-fit-cover rounded-4 swiper-lazy p-1'
         variant='top'

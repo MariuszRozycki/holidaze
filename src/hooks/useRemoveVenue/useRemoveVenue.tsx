@@ -7,6 +7,7 @@ export const useRemoveVenue = () => {
   const apiKey = state.apiKey;
 
   const removeVenue = async (venueId: string) => {
+    console.log("token:", token, "apiKey:", apiKey, "venueId:", venueId);
     if (!venueId || !token || !apiKey) {
       console.error("VenueID, token, or apiKey are not available.");
       return;
