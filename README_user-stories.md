@@ -9,10 +9,10 @@
 5. A user with a stud.noroff.no email may register as a customer --yes
 6. A registered customer may create a booking at a Venue --yes
 7. A registered customer may view their upcoming bookings --yes
-8. A user with a stud.noroff.no email may register as a Venue manager --no
-9. A registered Venue manager may create a Venue --no
-10. A registered Venue manager may update a Venue they manage --no
-11. A registered Venue manager may delete a Venue they manage --no
+8. A user with a stud.noroff.no email may register as a Venue manager --yes
+9. A registered Venue manager may create a Venue --yes
+10. A registered Venue manager may update a Venue they manage --yes
+11. A registered Venue manager may delete a Venue they manage --yes
 12. A registered Venue manager may view bookings for a Venue they manage --no
 13. A registered user may login --yes
 14. A registered user may update their avatar --yes

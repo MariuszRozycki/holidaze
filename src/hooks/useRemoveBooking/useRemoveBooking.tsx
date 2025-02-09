@@ -8,7 +8,6 @@ export const useRemoveBooking = () => {
   const apiKey = state.apiKey;
   const [refreshBookings, setRefreshBookings] = useState(false);
 
-  // Funkcja usuwająca rezerwację, przyjmująca bookingId jako argument
   const removeBooking = async (bookingId: string) => {
     if (!bookingId || !token || !apiKey) {
       console.error("Booking id, token lub apiKey nie są dostępne.");

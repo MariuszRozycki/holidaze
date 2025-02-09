@@ -3,6 +3,7 @@
 @use "../../components/Buttons/CustomButton/CustomButton.scss" as *;
 
 .register-new-venue-button,
+.update-venue-button,
 .add-image-register-new-venue-button {
   @include button;
 
