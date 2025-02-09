@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Venue } from "../../types/api";
+import { Card, OverlayTrigger, Tooltip, Button } from "react-bootstrap";
 import { useAppContext } from "../../context/app/useAppContext";
 import { useElementWidth, useRemoveVenue } from "../../hooks";
 import {
@@ -12,7 +13,6 @@ import {
   getFullVenueName,
   getPricePerNight,
 } from "../../utils/index";
-import { Venue } from "../../types/api";
 
 import "./CustomCard.scss";
 
@@ -43,13 +43,6 @@ const CustomCard = ({ venue }: CustomCardProps) => {
     }
   };
 
-  const venueManagerPath = window.location.pathname.includes(`/holidaze/venue-manager/my-venues-page`);
-  const removeIcon = (
-    <span onClick={() => handleRemoveVenue(venue.id)}>
-      <i className='bi bi-trash3-fill'></i>
-    </span>
-  );
-
   const handleClick = () => {
     let path;
 
@@ -64,8 +57,20 @@ const CustomCard = ({ venue }: CustomCardProps) => {
     navigate(path);
   };
 
+  const venueManagerPath = window.location.pathname.includes(`/holidaze/venue-manager/my-venues-page`);
+  const removeIcon = (
+    <div className='d-flex justify-content-between'>
+      <Button onClick={handleClick} variant='primary' disabled={deletingVenue.includes(venue.id)}>
+        Update venue
+      </Button>
+      <Button variant='secondary' onClick={() => handleRemoveVenue(venue.id)}>
+        <i className='bi bi-trash3-fill'></i>
+      </Button>
+    </div>
+  );
+
   return (
-    <Card className='w-100 rounded-4 position-relative' onClick={handleClick}>
+    <Card className='w-100 rounded-4 position-relative'>
       <Card.Img
         className='card-by-offers-type object-fit-cover rounded-4 swiper-lazy p-1'
         variant='top'
@@ -108,14 +113,14 @@ const CustomCard = ({ venue }: CustomCardProps) => {
                   <p className='fs-sm-6 mb-1'>
                     {getTrimCountryName(venue)}, {getTrimCityName(venue)},
                   </p>
-                  <div className='fs-sm-6 d-flex justify-content-between'>
+                  <div className='fs-sm-6 '>
                     <p>
                       <span className='me-2 fw-semibold'>{getPricePerNight(venue)}</span>euro/ night
                     </p>
-                    {venueManagerPath && removeIcon}
                   </div>
                 </div>
               </div>
+              {venueManagerPath && removeIcon}
             </div>
           </div>
         </Card.Body>

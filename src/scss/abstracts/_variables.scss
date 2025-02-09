@@ -1,4 +1,4 @@
-// colors
+/* colors */
 $main-color: #1689b9;
 $primary-color: #dcdcdc;
 $secondary-color: #fcfeff;
@@ -8,15 +8,15 @@ $alfa-color: #b1e3f942;
 $error-color: rgb(156, 7, 22);
 $error-color-bg: rgba(255, 255, 255, 0.6);
 
-// transitions
+/* transitions */
 $transition-main: 0.2s;
 
-// border-radius
+/* border-radius */
 $border-radius-main: 30px;
 $border-radius-normal: 15px;
 $border-radius-circle: 50%;
 
-// box-shadow
+/* box-shadow */
 $box-shadow-null: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 0);
 $box-shadow-light: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.2);
 $box-shadow-light-inset: inset 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.2);

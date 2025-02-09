@@ -39,7 +39,6 @@ export const useCreateApiKey = () => {
 
       const result = await response.json();
 
-      // localStorage.setItem("API_KEY", result.data.key);
       dispatch({ type: "SET_API_KEY", payload: result.data.key });
       setIsSuccess(true);
     } catch (error) {

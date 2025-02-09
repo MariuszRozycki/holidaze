@@ -79,17 +79,3 @@
     }
   }
 }
-
-@media (min-width: breakpoints.get(md)) {
-  .guests-counter {
-    .guest-type {
-      label {
-        // width: 60%;
-      }
-
-      .counter {
-        // width: 60%;
-      }
-    }
-  }
-}
