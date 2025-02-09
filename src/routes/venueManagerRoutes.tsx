@@ -1,10 +1,11 @@
 import {
   VenueManagerAdminPanel,
-  RegisterNewVenue,
+  RegisterNewVenuePage,
   NewVenueRegistered,
   MyVenuesPage,
   MyVenuesBookings,
   PageNotExists,
+  UpdateVenueDataPage,
 } from "../pages";
 
 const venueManagerRoutes = [
@@ -14,7 +15,11 @@ const venueManagerRoutes = [
   },
   {
     path: "add-venue-page",
-    element: <RegisterNewVenue />,
+    element: <RegisterNewVenuePage />,
+  },
+  {
+    path: "update-venue-by-id/:id",
+    element: <UpdateVenueDataPage />,
   },
   {
     path: "new-venue-registered",

@@ -28,8 +28,22 @@ const CustomCard = ({ venue }: CustomCardProps) => {
 
   const navigate = useNavigate();
 
+  // const handleClick = () => {
+  //   const path = userName ? `/holidaze/user/venue-by-id/${venue.id}` : `/holidaze/venue-by-id/${venue.id}`;
+  //   navigate(path);
+  // };
+
   const handleClick = () => {
-    const path = userName ? `/holidaze/user/venue-by-id/${venue.id}` : `/holidaze/venue-by-id/${venue.id}`;
+    let path;
+
+    if (window.location.pathname.includes(`/holidaze/venue-manager/my-venues-page`)) {
+      path = `/holidaze/venue-manager/update-venue-by-id/${venue.id}`;
+    } else if (userName) {
+      path = `/holidaze/user/venue-by-id/${venue.id}`;
+    } else {
+      path = `/holidaze/venue-by-id/${venue.id}`;
+    }
+
     navigate(path);
   };
 

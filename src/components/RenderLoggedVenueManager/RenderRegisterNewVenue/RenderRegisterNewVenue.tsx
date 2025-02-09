@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { CreateNewVenueRequest } from "../../types/api";
-import { newVenueFormValidation, hasErrors } from "../../utils/";
+import { CreateNewVenueRequest } from "../../../types/api";
+import { newVenueFormValidation, hasErrors } from "../../../utils/";
 import { Container, Form, Alert } from "react-bootstrap";
 import { toast } from "react-toastify";
 import {
@@ -13,11 +13,11 @@ import {
   VenueDescriptionField,
   PricePerNightField,
   MaximumGuestsField,
-} from "../../components";
-import { useCreateNewVenue } from "../../hooks";
-import "./RegisterNewVenue.scss";
+} from "../../../components";
+import { useCreateNewVenue } from "../../../hooks";
+import "../RenderRegister&UpdateVenue.scss";
 
-const RegisterNewVenue = () => {
+const RenderRegisterNewVenue = () => {
   const { createNewVenue } = useCreateNewVenue();
 
   const [formData, setFormData] = useState<CreateNewVenueRequest>({
@@ -133,4 +133,4 @@ const RegisterNewVenue = () => {
   );
 };
 
-export default RegisterNewVenue;
+export default RenderRegisterNewVenue;

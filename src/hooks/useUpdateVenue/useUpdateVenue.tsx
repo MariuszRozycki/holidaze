@@ -1,18 +1,25 @@
 import { Venue, CreateNewVenueRequest, ApiErrorResponse } from "../../types/api";
 import { useAppContext } from "../../context/app/useAppContext";
 import { VENUE_ENDPOINTS } from "../../api/venueEndpoints";
+import { Container } from "react-bootstrap";
 
-export const useCreateNewVenue = () => {
+export const useUpdateVenue = (venueId: string) => {
   const { state } = useAppContext();
   const token = state.accessToken;
   const apiKey = state.apiKey;
 
-  const createNewVenue = async (venueData: CreateNewVenueRequest): Promise<Venue | ApiErrorResponse> => {
+  const updateVenue = async (venueData: CreateNewVenueRequest): Promise<Venue | ApiErrorResponse> => {
+    if (!venueId) {
+      <Container>
+        <p>VenueId doesn't exists!</p>
+      </Container>;
+    }
+
     try {
-      const url = VENUE_ENDPOINTS.createNewVenue();
+      const url = VENUE_ENDPOINTS.venuesById(venueId);
 
       const response = await fetch(url, {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -38,5 +45,5 @@ export const useCreateNewVenue = () => {
     }
   };
 
-  return { createNewVenue };
+  return { updateVenue };
 };
