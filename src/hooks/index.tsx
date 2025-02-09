@@ -19,6 +19,7 @@ import { useGetUserBookingById } from "./useGetUserBookingById/useGetUserBooking
 import { useFetchManagerVenues } from "./useFetchManagerVenues/useFetchManagerVenues";
 import { useCreateNewVenue } from "./useCreateNewVenue/useCreateNewVenue";
 import { useUpdateVenue } from "./useUpdateVenue/useUpdateVenue";
+import { useRemoveVenue } from "./useRemoveVenue/useRemoveVenue";
 
 export {
   useNavigateToElement,
@@ -42,4 +43,5 @@ export {
   useFetchManagerVenues,
   useCreateNewVenue,
   useUpdateVenue,
+  useRemoveVenue,
 };
