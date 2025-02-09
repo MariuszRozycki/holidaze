@@ -1,5 +1,13 @@
-.card {
+@use "../../scss/abstracts/variables";
+
+div.card {
   cursor: pointer;
+  border: none;
+  background-color: variables.$secondary-color;
+
+  .card-by-offers-type {
+    height: 300px;
+  }
 }
 
 .slider-item {
@@ -14,8 +22,4 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.card-title {
-  height: 39px;
 }

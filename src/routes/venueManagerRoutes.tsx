@@ -1,21 +1,38 @@
-import { VenueManagerAdminPanel, RegisterNewVenue, NewVenueRegistered, MyVenues, MyVenuesBookings, PageNotExists } from "../pages";
+import {
+  VenueManagerAdminPanelPage,
+  RegisterNewVenuePage,
+  NewVenueRegistered,
+  MyVenuesPage,
+  MyVenuesBookings,
+  PageNotExists,
+  UpdateVenueDataPage,
+  VenueByIdPage,
+} from "../pages";
 
 const venueManagerRoutes = [
   {
-    path: "venue-manager-home-page",
-    element: <VenueManagerAdminPanel />,
+    path: "venue-manager-admin-panel",
+    element: <VenueManagerAdminPanelPage />,
   },
   {
-    path: "register-new-venue",
-    element: <RegisterNewVenue />,
+    path: "add-venue-page",
+    element: <RegisterNewVenuePage />,
+  },
+  {
+    path: "update-venue-by-id/:id",
+    element: <UpdateVenueDataPage />,
+  },
+  {
+    path: "venue-by-id/:id",
+    element: <VenueByIdPage />,
   },
   {
     path: "new-venue-registered",
     element: <NewVenueRegistered />,
   },
   {
-    path: "my-venues",
-    element: <MyVenues />,
+    path: "my-venues-page",
+    element: <MyVenuesPage />,
   },
   {
     path: "my-venues-bookings",

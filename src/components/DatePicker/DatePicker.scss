@@ -1,0 +1,63 @@
+@use "../../scss/abstracts/breakpoints";
+@use "../../scss/abstracts/variables" as v;
+
+.rdrCalendarWrapper {
+  width: 100%;
+}
+.rdrDateDisplayWrapper {
+  width: 100%;
+}
+.rdrMonthAndYearWrapper {
+  width: 100%;
+
+  .rdrNextPrevButton {
+    width: 15%;
+  }
+
+  .rdrMonthAndYearPickers {
+    width: 70%;
+  }
+}
+.rdrMonths {
+  width: 100%;
+}
+.rdrMonth {
+  width: 100%;
+}
+
+.buttons-wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  bottom: 0;
+  left: 0;
+  background-color: v.$secondary-color;
+  box-shadow: v.$box-shadow-light;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: breakpoints.get(sm)) {
+  .rdrCalendarWrapper {
+    font-size: 16px;
+  }
+
+  .buttons-wrapper {
+    justify-content: flex-end;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: breakpoints.get(md)) {
+  .rdrCalendarWrapper {
+    font-size: 18px;
+  }
+
+  .rdrMonth {
+    width: 50%;
+  }
+}

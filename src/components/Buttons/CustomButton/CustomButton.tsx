@@ -1,20 +1,21 @@
-import { Button } from "react-bootstrap";
+import React, { forwardRef } from "react";
+import "./CustomButton.scss";
 
 export interface CustomButtonProps {
   btnText: string;
   variant?: string;
-  type?: string;
+  type?: "submit" | "reset" | "button";
   onClick?: (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
+  className?: string;
+  disabled?: boolean;
 }
 
-const CustomButton = ({ btnText, onClick }: CustomButtonProps) => {
+const CustomButton = forwardRef<HTMLButtonElement, CustomButtonProps>(({ btnText, onClick, className, ...rest }, ref) => {
   return (
-    <>
-      <Button className='my-3' onClick={onClick}>
-        {btnText}
-      </Button>
-    </>
+    <button ref={ref} className={`my-custom-button ${className} fs-5 py-2 px-3`} onClick={onClick} {...rest}>
+      {btnText}
+    </button>
   );
-};
+});
 
 export default CustomButton;

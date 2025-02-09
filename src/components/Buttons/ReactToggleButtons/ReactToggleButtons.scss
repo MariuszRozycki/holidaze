@@ -1,0 +1,32 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/variables";
+
+.react-toggle-button-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 250px;
+  height: 50px;
+  border: 2px solid $light;
+  border-radius: variables.$border-radius-main;
+  gap: 5px;
+  font-size: map-get($font-sizes, 5);
+  padding: 0 20px;
+
+  span {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    font-weight: $font-weight-normal;
+  }
+
+  .react-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid $light;
+    border-radius: variables.$border-radius-main;
+  }
+}

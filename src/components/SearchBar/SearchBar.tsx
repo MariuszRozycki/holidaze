@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../context/app/useAppContext";
-import { Form, Button, InputGroup } from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
+import { SearchButton } from "../";
+import "./SearchBar.scss";
 
 const SearchBar: React.FC = () => {
   const { dispatch } = useAppContext();
@@ -31,11 +33,9 @@ const SearchBar: React.FC = () => {
           value={inputValue}
           onChange={handleInputChange}
           placeholder='Search for venues...'
-          className='me-2'
+          className='me-2 search-input input'
         />
-        <Button type='submit' variant='primary'>
-          Search
-        </Button>
+        <SearchButton btnText='Search' type='submit' className='search-button' />
       </InputGroup>
     </Form>
   );

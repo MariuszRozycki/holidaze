@@ -1,0 +1,50 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/breakpoints";
+@use "../../../scss/abstracts/variables" as v;
+
+.image-wrapper {
+  width: 100%;
+  height: 300px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.section-details {
+  background-color: v.$main-color;
+  border-bottom-left-radius: v.$border-radius-main;
+  border-bottom-right-radius: v.$border-radius-main;
+}
+
+.owner-info {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.owner-avatar {
+  border: 2px solid v.$main-color;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.yes {
+  color: $dark;
+}
+
+.no {
+  color: v.$text-muted-custom;
+  text-decoration: line-through;
+}
+
+@media (min-width: breakpoints.get(md)) {
+  .single-venue-description {
+    min-height: 150px;
+  }
+}

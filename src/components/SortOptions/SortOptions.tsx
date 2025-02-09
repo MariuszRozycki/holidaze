@@ -68,7 +68,7 @@ const SortOptions: React.FC = () => {
         </Col>
 
         <Col md={6} className='mt-3 mt-md-0'>
-          <InputGroup>
+          <InputGroup className='custom-select-wrapper'>
             <InputGroup.Text className='order-input-label'>Order</InputGroup.Text>
             <Select
               value={currentOrderOption}

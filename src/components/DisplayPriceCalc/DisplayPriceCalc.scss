@@ -1,0 +1,14 @@
+@use "bootstrap";
+@use "../../scss/abstracts/variables";
+
+.reservation-summary-wrapper {
+  border-radius: variables.$border-radius-normal;
+  border: 2px solid variables.$main-color;
+  padding: 10px 15px;
+  background-color: variables.$alfa-color;
+  p:nth-last-of-type(1) {
+    margin-top: 15px;
+    border-top: 2px solid variables.$main-color;
+    padding-top: 8px;
+  }
+}

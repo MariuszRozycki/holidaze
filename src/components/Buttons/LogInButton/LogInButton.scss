@@ -1,0 +1,6 @@
+@use "../CustomButton/CustomButton.scss" as *;
+
+.log-in-button {
+  @include button;
+  justify-self: center;
+}

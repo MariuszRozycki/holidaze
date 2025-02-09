@@ -1,51 +1,55 @@
 import UnauthenticatedHomePage from "./Unauthenticated/UnauthenticatedHomePage";
-import LoginAs from "./Unauthenticated/LoginAs";
-import LoginAsUser from "./Unauthenticated/LoginAsUser";
-import LoginAsManager from "./Unauthenticated/LoginAsManager";
-import SignUp from "./Unauthenticated/SignUp";
-import SignUpAsCustomer from "./Unauthenticated/SignUpAsCustomer";
-import SignUpCustomerRegConfirm from "./Unauthenticated/SignUpCustomerRegConfirm";
-import SignUpAsManager from "./Unauthenticated/SignUpAsManager";
-import SignUpManagerRegConfirm from "./Unauthenticated/SignUpManagerRegConfirm";
+import LoginAsPage from "./Unauthenticated/LoginAsPage";
+import LoginAsCustomerPage from "./Unauthenticated/LoginAsCustomerPage";
+import LoginAsManagerPage from "./Unauthenticated/LoginAsManagerPage";
+import SignUpPage from "./Unauthenticated/SignUpPage";
+import SignUpAsCustomerPage from "./Unauthenticated/SignUpAsCustomerPage";
+import SignUpCustomerRegConfirmPage from "./Unauthenticated/SignUpCustomerRegConfirmPage";
+import SignUpAsManagerPage from "./Unauthenticated/SignUpAsManagerPage";
+import SignUpManagerRegConfirmPage from "./Unauthenticated/SignUpManagerRegConfirmPage";
 import About from "./Unauthenticated/About";
 import Contact from "./Unauthenticated/Contact";
 import PageNotExists from "./PageNotExists/PageNotExists";
 import UserSearchResults from "./Unauthenticated/UserSearchResults";
 import VenueByIdPage from "./Unauthenticated/VenueByIdPage";
+import LoggedUserProfilePage from "./LoggedUser/LoggedUserProfilePage";
 
 /* Logged User */
 import LoggedUserHomePage from "./LoggedUser/LoggedUserHomePage";
 
 /* Venue manager */
-import VenueManagerAdminPanel from "./VenueManager/VenueManagerAdminPanel";
-import RegisterNewVenue from "./VenueManager/RegisterNewVenue";
+import VenueManagerAdminPanelPage from "./VenueManager/VenueManagerAdminPanelPage";
+import RegisterNewVenuePage from "./VenueManager/RegisterNewVenuePage";
 import NewVenueRegistered from "./VenueManager/NewVenueRegistered";
-import MyVenues from "./VenueManager/MyVenues";
+import MyVenuesPage from "./VenueManager/MyVenuesPage";
 import MyVenuesBookings from "./VenueManager/MyVenuesBookings";
+import UpdateVenueDataPage from "./VenueManager/UpdateVenueDataPage";
 
 export {
   UnauthenticatedHomePage,
-  LoginAs,
-  LoginAsUser,
-  LoginAsManager,
-  SignUp,
+  LoginAsPage,
+  LoginAsCustomerPage,
+  LoginAsManagerPage,
+  SignUpPage,
   About,
   Contact,
-  SignUpAsCustomer,
-  SignUpCustomerRegConfirm,
-  SignUpAsManager,
-  SignUpManagerRegConfirm,
+  SignUpAsCustomerPage,
+  SignUpCustomerRegConfirmPage,
+  SignUpAsManagerPage,
+  SignUpManagerRegConfirmPage,
   PageNotExists,
   UserSearchResults,
   VenueByIdPage,
 
   /* Logged User */
+  LoggedUserProfilePage,
   LoggedUserHomePage,
 
   /* Venue manager */
-  VenueManagerAdminPanel,
-  RegisterNewVenue,
+  VenueManagerAdminPanelPage,
+  RegisterNewVenuePage,
   NewVenueRegistered,
-  MyVenues,
+  MyVenuesPage,
   MyVenuesBookings,
+  UpdateVenueDataPage,
 };

@@ -1,12 +1,7 @@
-import { Container } from "react-bootstrap";
-import { HeadingH1 } from "../../components";
+import { RenderLoggedUserHome } from "../../components";
 
 const LoggedUserHomePage = () => {
-  return (
-    <Container>
-      <HeadingH1>Logged User Home Page</HeadingH1>
-    </Container>
-  );
+  return <RenderLoggedUserHome />;
 };
 
 export default LoggedUserHomePage;

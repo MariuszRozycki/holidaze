@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-interface locationPathProps {
+interface LocationPathProps {
   locationPath: string;
 }
 
-export const useNavigateToElement = ({ locationPath }: locationPathProps) => {
+export const useNavigateToElement = ({ locationPath }: LocationPathProps) => {
   const navigate = useNavigate();
-  const handleNavigate = (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => {
-    e.preventDefault();
+  const handleNavigate = () => {
     navigate(locationPath);
   };
 

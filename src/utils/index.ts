@@ -1,8 +1,15 @@
 import { trimText } from "./trimText";
 import { capitalizeFirstLetter } from "./capitalizeFirstLetter";
 import { handleImageError } from "./handleImageError";
-import { getImageUrl } from "./venueDataViewers/getImgUrl";
+import { handleError } from "./handleError/handleError";
+import { clearLocalStorageOnLogout } from "./clearLocalStorageOnLogout";
+import { fetchVenueDetailsById } from "./fetchVenueDetailsById";
+import { newVenueFormValidation, hasErrors } from "./newVenueFormValidation/newVenueFormValidation";
+// @ts-ignore
+import { ErrorMessageAuth } from "./ErrorMessageAuth";
+
 import {
+  getImageUrl,
   getTrimCountryName,
   getFullCountryName,
   getFullCityName,
@@ -11,6 +18,10 @@ import {
   getFullVenueName,
   getPricePerNight,
   getMaxGuests,
+  getVenueOwnerInfo,
+  getVenueDescription,
+  getDatesInRange,
+  getSelectedDates,
 } from "./venueDataViewers";
 
 export {
@@ -26,4 +37,14 @@ export {
   getFullVenueName,
   getPricePerNight,
   getMaxGuests,
+  getVenueOwnerInfo,
+  getVenueDescription,
+  getDatesInRange,
+  getSelectedDates,
+  handleError,
+  clearLocalStorageOnLogout,
+  fetchVenueDetailsById,
+  newVenueFormValidation,
+  hasErrors,
+  ErrorMessageAuth,
 };

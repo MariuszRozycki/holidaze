@@ -1,0 +1,28 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/variables";
+@use "../../../scss/abstracts/breakpoints";
+@use "../../../scss/abstracts/spacers";
+
+@mixin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $light;
+  background-color: variables.$main-color;
+  min-width: 150px;
+  min-height: 55px;
+  padding: 0;
+  margin: 0;
+  border-radius: variables.$border-radius-main;
+  border: 2px solid $light;
+  transition: variables.$transition-main;
+
+  @media (min-width: breakpoints.get(md)) {
+    &:hover {
+      background-color: $light;
+      border: 2px solid variables.$main-color;
+      box-shadow: variables.$box-shadow-null;
+      color: $dark;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+@use "bootstrap" as *;
+@use "../../scss/abstracts/variables";
+@use "../../scss/abstracts/breakpoints";
+
+.user-component-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  padding: 5px 15px;
+  margin: 15px 0 15px auto;
+  background-color: variables.$main-color;
+  border-radius: variables.$border-radius-normal;
+  box-shadow: variables.$box-shadow-light;
+  transition: variables.$transition-main;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: variables.$box-shadow-null;
+  }
+
+  &:hover .user-component-name {
+    color: transparent;
+  }
+
+  &:hover .user-component-name::after {
+    content: "Go to your profile details";
+    color: $light;
+  }
+}
+
+.user-component-name {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  transition: none;
+  color: $light;
+  width: 100%;
+  text-align: right;
+}
+
+.user-component-name::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: 3s;
+}
+
+.logged-user-avatar {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  object-fit: cover;
+  border: 2px solid $dark;
+  border-radius: variables.$border-radius-circle;
+}
+
+@media (min-width: breakpoints.get(sm)) {
+  .user-component-wrapper {
+    &:hover {
+      box-shadow: variables.$box-shadow-null;
+    }
+
+    &:hover .user-component-name {
+      color: transparent;
+    }
+
+    &:hover .user-component-name::after {
+      content: "Go to your profile details";
+      color: $light;
+    }
+  }
+}
+
+.user-component-wrapper.inactive {
+  cursor: default;
+  box-shadow: variables.$box-shadow-null;
+
+  &:hover .user-component-name,
+  &:hover .user-component-name::after {
+    color: $light;
+    content: none;
+    cursor: default;
+  }
+}

@@ -1,0 +1,15 @@
+@use "../../../scss/abstracts/breakpoints" as bp;
+
+.custom-date-picker-modal-width .modal-content {
+  max-width: 800px;
+  width: 100vw;
+  left: 50%;
+  transform: translate(-50%);
+  padding-bottom: 70px;
+}
+
+@media (min-width: bp.get(sm)) {
+  .custom-date-picker-modal-width .modal-content {
+    width: 95vw;
+  }
+}

@@ -1,0 +1,46 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/breakpoints";
+@use "../../../scss/abstracts/variables";
+
+input.custom-input,
+textarea.custom-textarea-description {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+input.custom-input:focus {
+  border: 2px solid variables.$text-muted-custom;
+}
+
+input.custom-input::placeholder,
+textarea.custom-textarea-description::placeholder {
+  color: $light;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (min-width: breakpoints.get(md)) {
+  input.custom-input,
+  textarea.custom-textarea-description {
+    &:hover {
+      background-color: variables.$primary-color;
+      color: $dark;
+
+      &::placeholder {
+        color: $dark;
+      }
+    }
+  }
+}

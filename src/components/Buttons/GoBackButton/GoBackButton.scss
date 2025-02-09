@@ -1,0 +1,11 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/breakpoints";
+@use "../../../scss/abstracts/variables";
+@use "../../../scss/abstracts/spacers";
+@use "../CustomButton/CustomButton.scss" as *;
+
+button.go-back-button {
+  @include button;
+  margin-bottom: spacers.spacer(4);
+  align-self: flex-start;
+}

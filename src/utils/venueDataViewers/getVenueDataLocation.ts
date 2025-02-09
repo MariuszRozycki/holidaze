@@ -1,22 +1,47 @@
 import { Venue } from "../../types/api";
 import { trimText } from "../trimText";
+import { capitalizeFirstLetter } from "../capitalizeFirstLetter";
 
-export const getTrimCountryName = (venue: Venue, maxLength = 20): string => {
+export const getTrimCountryName = (venue: Venue | null, maxLength = 20): string => {
+  if (!venue || typeof venue.location.country !== "string" || venue.location.country.length === 0) {
+    return "Country N/S";
+  }
+
   const country = venue.location.country;
-  return typeof country === "string" && country.length > 0 ? trimText({ text: country, maxLength }) : "Country N/S";
+  const formattedCountry = capitalizeFirstLetter({ text: country });
+
+  return trimText({ text: formattedCountry, maxLength });
 };
 
-export const getTrimCityName = (venue: Venue, maxLength = 20): string => {
+export const getTrimCityName = (venue: Venue | null, maxLength = 20): string => {
+  if (!venue || typeof venue.location.city !== "string" || venue.location.city.length === 0) {
+    return "City N/S";
+  }
+
   const city = venue.location.city;
-  return typeof city === "string" && city.length > 0 ? trimText({ text: city, maxLength }) : "City N/S";
+  const formattedCity = capitalizeFirstLetter({ text: city });
+
+  return trimText({ text: formattedCity, maxLength });
 };
 
-export const getFullCountryName = (venue: Venue): string => {
+export const getFullCountryName = (venue: Venue | null): string => {
+  if (!venue || typeof venue.location.country !== "string" || venue.location.country.length === 0) {
+    return "Country not specified";
+  }
+
   const country = venue.location.country;
-  return typeof country === "string" && country.length > 0 ? country : "Country name not specified";
+  const formattedCountry = capitalizeFirstLetter({ text: country });
+
+  return formattedCountry;
 };
 
-export const getFullCityName = (venue: Venue): string => {
+export const getFullCityName = (venue: Venue | null): string => {
+  if (!venue || typeof venue.location.city !== "string" || venue.location.city.length === 0) {
+    return "City name not specified";
+  }
+
   const city = venue.location.city;
-  return typeof city === "string" && city.length > 0 ? city : "City name not specified";
+  const formattedCity = capitalizeFirstLetter({ text: city });
+
+  return formattedCity;
 };

@@ -1,0 +1,9 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/breakpoints";
+@use "../../../scss/abstracts/variables";
+@use "../CustomButton/CustomButton.scss" as *;
+
+button.sign-up-button {
+  @include button;
+  margin: auto;
+}

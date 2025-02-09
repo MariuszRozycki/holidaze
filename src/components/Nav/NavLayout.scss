@@ -1,0 +1,71 @@
+@use "bootstrap" as *;
+@use "../../scss/abstracts/variables";
+@use "../../scss/abstracts/breakpoints";
+@use "../../scss/abstracts/spacers" as spacer;
+
+button.navbar-toggler {
+  border: 0;
+}
+
+span.custom-toggler-icon {
+  color: $light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+div.offcanvas {
+  background-color: variables.$main-color;
+  color: $light;
+
+  .offcanvas-header {
+    justify-content: space-between;
+
+    .custom-btn-close {
+      border: 0;
+      color: $light;
+      background-color: transparent;
+      font-size: 25px;
+    }
+  }
+}
+
+a.nav-link {
+  border: 2px solid $light;
+  border-radius: variables.$border-radius-main;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto variables.$border-radius-main;
+  color: $light;
+  box-shadow: variables.$box-shadow-light;
+}
+
+.navbar-nav a.nav-link.active {
+  background-color: variables.$secondary-color;
+  color: $dark;
+  box-shadow: variables.$box-shadow-null;
+  transform: translateY(1px);
+}
+
+@media (min-width: breakpoints.get(md)) {
+  nav .nav-custom-container {
+    flex-direction: column;
+  }
+
+  .custom-offcanvas-body .navbar-nav {
+    width: 100vw;
+    gap: spacer.spacer(3);
+  }
+
+  a.nav-link {
+    margin: spacer.spacer(2) auto;
+    transition: 0.2s;
+  }
+
+  .navbar-nav a.nav-link:hover {
+    background-color: variables.$secondary-color;
+    color: $dark;
+    border-color: variables.$primary-color;
+  }
+}

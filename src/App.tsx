@@ -1,8 +1,9 @@
 import { RouterProvider } from "react-router-dom";
 import { AppProvider } from "./context/app/AppProvider";
 import router from "./routes";
-
-import "./styles/main.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "./scss/main.scss";
 
 function App() {
   return (

@@ -5,5 +5,45 @@ import { useFetchData } from "./useFetchData/useFetchData";
 import { useElementWidth } from "./useElementWidth/useElementWidth";
 import { useSearchVenues } from "./useSearchVenues/useSearchVenues";
 import { useKeyPress } from "./useKeyPress/useKeyPress";
+import { useDatePickerDirection } from "./useDatePickerDirection/useDatePickerDirection";
+import { useDisabledDates } from "./useDisabledDates/useDisabledDates";
+import { useRegisterUser } from "./useRegisterUser/useRegisterUser";
+import { useLoginUser } from "./useLoginUser/useLoginUser";
+import { useCreateApiKey } from "./useCreateApiKey/useCreateApiKey";
+import { useFetchProfile } from "./useFetchProfile/useFetchProfile";
+import { useUpdateProfile } from "./useUpdateProfile/useUpdateProfile";
+import { useCreateBooking } from "./useCreateBooking/useCreateBooking";
+import { useFetchBookingsByName } from "./useFetchBookingsByName/useFetchBookingsByName";
+import { useRemoveBooking } from "./useRemoveBooking/useRemoveBooking";
+import { useGetUserBookingById } from "./useGetUserBookingById/useGetUserBookingById";
+import { useFetchManagerVenues } from "./useFetchManagerVenues/useFetchManagerVenues";
+import { useCreateNewVenue } from "./useCreateNewVenue/useCreateNewVenue";
+import { useUpdateVenue } from "./useUpdateVenue/useUpdateVenue";
+import { useRemoveVenue } from "./useRemoveVenue/useRemoveVenue";
+import { useFetchVenuesBookings } from "./useFetchVenuesBookings/useFetchVenuesBookings";
 
-export { useNavigateToElement, useGoBack, useReactToggleButtons, useFetchData, useElementWidth, useSearchVenues, useKeyPress };
+export {
+  useNavigateToElement,
+  useGoBack,
+  useReactToggleButtons,
+  useFetchData,
+  useElementWidth,
+  useSearchVenues,
+  useKeyPress,
+  useDatePickerDirection,
+  useDisabledDates,
+  useRegisterUser,
+  useLoginUser,
+  useCreateApiKey,
+  useFetchProfile,
+  useUpdateProfile,
+  useCreateBooking,
+  useFetchBookingsByName,
+  useRemoveBooking,
+  useGetUserBookingById,
+  useFetchManagerVenues,
+  useCreateNewVenue,
+  useUpdateVenue,
+  useRemoveVenue,
+  useFetchVenuesBookings,
+};

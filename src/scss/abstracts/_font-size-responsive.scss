@@ -1,0 +1,16 @@
+@use "font-sizes-bootstrap" as fontSizes;
+@use "breakpoints" as bp;
+
+@each $size, $font-size in fontSizes.$font-sizes-bootstrap {
+  .fs-#{$size} {
+    font-size: #{$font-size};
+  }
+
+  @each $breakpoint, $value in bp.$breakpoints {
+    @media (min-width: #{bp.get($breakpoint)}) {
+      .fs-#{$breakpoint}-#{$size} {
+        font-size: #{$font-size};
+      }
+    }
+  }
+}

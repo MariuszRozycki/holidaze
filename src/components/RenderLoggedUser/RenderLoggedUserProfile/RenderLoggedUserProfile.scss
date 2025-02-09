@@ -1,0 +1,64 @@
+@use "bootstrap" as *;
+@use "../../../scss/abstracts/breakpoints";
+@use "../../../scss/abstracts/variables";
+
+img.user-banner {
+  width: 100%;
+  height: 300px;
+  border-radius: variables.$border-radius-normal;
+  object-fit: cover;
+  object-position: 0 90%;
+}
+
+img.user-avatar {
+  margin-top: -150px;
+  margin-left: 20px;
+  border: 2px solid variables.$main-color;
+  border-radius: variables.$border-radius-circle;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+ul.upcoming-bookings {
+  max-width: 600px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    cursor: pointer;
+    max-width: 100%;
+    background-color: $light;
+    padding: 10px 15px;
+    border: 2px solid variables.$main-color;
+    border-radius: variables.$border-radius-normal;
+    margin-bottom: 20px;
+    margin-left: 0;
+    transition: variables.$transition-main;
+
+    p {
+      margin-bottom: 2px;
+    }
+  }
+}
+
+@media (min-width: breakpoints.get(md)) {
+  ul.upcoming-bookings {
+    li {
+      &:hover {
+        background-color: variables.$alfa-color;
+      }
+    }
+
+    p {
+      button {
+        transition: variables.$transition-main;
+        &:hover {
+          border-color: $danger;
+          color: $danger;
+        }
+      }
+    }
+  }
+}
