@@ -48,7 +48,12 @@ import {
   RenderLoginAsCustomer,
 } from "./RenderAuthentication";
 import { RenderLoggedUserHome, RenderLoggedUserProfile } from "./RenderLoggedUser";
-import { RenderMyVenues, RenderRegisterNewVenue, RenderUpdateVenueData } from "./RenderLoggedVenueManager"; // Manager RenderPages
+import {
+  RenderMyVenues,
+  RenderRegisterNewVenue,
+  RenderUpdateVenueData,
+  RenderVenueManagerAdminPanel,
+} from "./RenderLoggedVenueManager"; // Manager RenderPages
 import { CustomInput } from "./FormComponents";
 import {
   CustomButton,
@@ -129,4 +134,5 @@ export {
   VenueNameField,
   RenderRegisterNewVenue,
   RenderUpdateVenueData,
+  RenderVenueManagerAdminPanel,
 };

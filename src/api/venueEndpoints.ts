@@ -14,6 +14,8 @@ export const VENUE_ENDPOINTS = {
   searchVenues: (query: string) => `${API_BASE_URL}/holidaze/venues/search?q=${encodeURIComponent(query)}`,
   venuesById: (id: string) => `${API_BASE_URL}/holidaze/venues/${id}?_owner=true&_bookings=true`,
   createNewVenue: () => `${API_BASE_URL}/holidaze/venues`,
-  allVenuesMadeByProfile: (managerName: string) => `${API_BASE_URL}/holidaze/profiles/${managerName}/venues`,
+  allVenuesMadeByProfile: (managerName: string) =>
+    `${API_BASE_URL}/holidaze/profiles/${managerName}/venues?_owner=true&_bookings=true`,
   removeVenue: (id: string) => `${API_BASE_URL}/holidaze/venues/${id}`,
+  fetchVenuesBookings: (id: string) => `${API_BASE_URL}/holidaze/venues/${id}?_owner=true&_bookings=true`,
 };

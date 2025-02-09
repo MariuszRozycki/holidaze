@@ -63,11 +63,8 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
                 <Nav.Link as={NavLink} to='/holidaze/' end onClick={handleLogout}>
                   Log out
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='/holidaze/user/about' onClick={handleNavLinkClick}>
-                  About
-                </Nav.Link>
-                <Nav.Link as={NavLink} to='/holidaze/user/contact' onClick={handleNavLinkClick}>
-                  Contact
+                <Nav.Link as={NavLink} to='/holidaze/venue-manager/venue-manager-admin-panel' onClick={handleNavLinkClick}>
+                  Admin Panel
                 </Nav.Link>
               </Nav>
             </Offcanvas.Body>

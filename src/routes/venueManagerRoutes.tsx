@@ -1,5 +1,5 @@
 import {
-  VenueManagerAdminPanel,
+  VenueManagerAdminPanelPage,
   RegisterNewVenuePage,
   NewVenueRegistered,
   MyVenuesPage,
@@ -12,7 +12,7 @@ import {
 const venueManagerRoutes = [
   {
     path: "venue-manager-admin-panel",
-    element: <VenueManagerAdminPanel />,
+    element: <VenueManagerAdminPanelPage />,
   },
   {
     path: "add-venue-page",
