@@ -9,7 +9,7 @@ type VenueNameFieldProps = {
 };
 
 const VenueNameField = ({ formData, setFormData, errors }: VenueNameFieldProps) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { value } = e.target;
     setFormData((prev) => ({ ...prev, name: value }));
   };
