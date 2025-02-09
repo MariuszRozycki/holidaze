@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   HeadingH1,
   GoBackButton,
@@ -11,7 +11,7 @@ import {
   BookVenueButton,
   DisplayPriceCalc,
 } from "../../";
-import { useFetchData } from "../../../hooks";
+import { useFetchData, useRemoveVenue } from "../../../hooks";
 import {
   getFullVenueName,
   getFullCityName,
@@ -21,23 +21,35 @@ import {
   getVenueDescription,
 } from "../../../utils";
 import { useAppContext } from "../../../context/app/useAppContext";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "./RenderVenueById.scss";
 
 const VenueDetails = () => {
-  const { id } = useParams<{ id: string }>();
+  const { id: venueId } = useParams<{ id: string }>();
   const { state, dispatch } = useAppContext();
+  const navigate = useNavigate();
 
   const { isLoading, error, selectedVenue } = state;
   const datePickerButtonRef = useRef<HTMLButtonElement>(null);
+
+  const [deletingVenue, setDeletingVenue] = useState<string[]>([]);
+  const removeVenue = useRemoveVenue();
 
   const handleDisplayClick = () => {
     datePickerButtonRef.current?.click();
   };
 
-  useFetchData(undefined, undefined, 10, "", "", dispatch, id);
+  useFetchData(undefined, undefined, 10, "", "", dispatch, venueId);
 
   const { name, avatar } = getVenueOwnerInfo(selectedVenue);
+
+  if (!venueId) {
+    return (
+      <Container>
+        <HeadingH1>No venueId</HeadingH1>
+      </Container>
+    );
+  }
 
   if (isLoading) {
     return (
@@ -63,6 +75,35 @@ const VenueDetails = () => {
     );
   }
 
+  const handleRemoveVenue = async (venueId: string) => {
+    setDeletingVenue((prev) => [...prev, venueId]);
+
+    try {
+      await removeVenue(venueId);
+      navigate("/holidaze/venue-manager/my-venues-page");
+    } catch (error) {
+      console.error("Error removing venue: ", error);
+    } finally {
+      setDeletingVenue((prev) => prev.filter((id) => id !== venueId));
+    }
+  };
+
+  const handleClick = () => {
+    navigate(`/holidaze/venue-manager/update-venue-by-id/${venueId}`);
+  };
+
+  const venueManagerPath = window.location.pathname.includes(`/holidaze/venue-manager/venue-by-id/`);
+  const managerPanel = (
+    <div className='d-flex gap-3 justify-content-end mt-5 mb-4'>
+      <Button type='button' onClick={handleClick} variant='primary'>
+        Update venue
+      </Button>
+      <Button variant='danger' onClick={() => handleRemoveVenue(venueId)} disabled={deletingVenue.includes(venueId)}>
+        Remove venue
+      </Button>
+    </div>
+  );
+
   const iconClass: Record<keyof typeof selectedVenue.meta, string> = {
     wifi: "bi bi-wifi",
     parking: "bi bi-p-circle",
@@ -77,10 +118,10 @@ const VenueDetails = () => {
           <CustomSwiper isLoading={isLoading} isError={error} selectedVenue={selectedVenue} />
         </Col>
       </Row>
-      {/* <section className='section-details mt-2'> */}
       <Row>
         <Col col={12}>
           <Card.Body>
+            {venueManagerPath && managerPanel}
             <h1 className='h5 mb-2 fw-semibold'>{getFullVenueName(selectedVenue)}</h1>
             <h2 className='h5 mb-2'>
               {getFullCountryName(selectedVenue)}, {getFullCityName(selectedVenue)}
@@ -138,7 +179,6 @@ const VenueDetails = () => {
           </Card.Body>
         </Col>
       </Row>
-      {/* </section> */}
     </Card>
   );
 };
