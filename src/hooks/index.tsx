@@ -16,8 +16,9 @@ import { useCreateBooking } from "./useCreateBooking/useCreateBooking";
 import { useFetchBookingsByName } from "./useFetchBookingsByName/useFetchBookingsByName";
 import { useRemoveBooking } from "./useRemoveBooking/useRemoveBooking";
 import { useGetUserBookingById } from "./useGetUserBookingById/useGetUserBookingById";
-import { useFetchVenueByName } from "./useFetchVenueByName/useFetchVenueByName";
+import { useFetchManagerVenues } from "./useFetchManagerVenues/useFetchManagerVenues";
 import { useCreateNewVenue } from "./useCreateNewVenue/useCreateNewVenue";
+import { useUpdateVenue } from "./useUpdateVenue/useUpdateVenue";
 
 export {
   useNavigateToElement,
@@ -38,6 +39,7 @@ export {
   useFetchBookingsByName,
   useRemoveBooking,
   useGetUserBookingById,
-  useFetchVenueByName,
+  useFetchManagerVenues,
   useCreateNewVenue,
+  useUpdateVenue,
 };

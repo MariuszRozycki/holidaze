@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { HeadingH1, CustomCard, Pagination, SortOptions, SearchBar, GoToMainPageButton } from "../..";
-import { useFetchVenueByName } from "../../../hooks";
+import { useFetchManagerVenues } from "../../../hooks";
 import { useAppContext } from "../../../context/app/useAppContext";
 
 interface RenderManagerVenueListProps {
@@ -16,7 +16,7 @@ const RenderManagerVenueList = ({ title, searchQuery = "", showGoMainPage = fals
 
   const managerName = userProfile?.name;
 
-  useFetchVenueByName(currentPage, searchQuery, 10, sort, sortOrder, dispatch, undefined, managerName);
+  useFetchManagerVenues(currentPage, searchQuery, 10, sort, sortOrder, dispatch, undefined, managerName);
 
   if (isLoading || isSearching) {
     return (
@@ -45,6 +45,10 @@ const RenderManagerVenueList = ({ title, searchQuery = "", showGoMainPage = fals
     );
   }
 
+  const handleClick = (venueId: string) => {
+    console.log(venueId);
+  };
+
   return (
     <Container>
       <HeadingH1>{title}</HeadingH1>
@@ -53,7 +57,7 @@ const RenderManagerVenueList = ({ title, searchQuery = "", showGoMainPage = fals
       {!searchQuery && <SortOptions />}
       <Row className='g-4'>
         {venues.map((venue) => (
-          <Col key={venue.id} col={12} sm={6} md={6} lg={4} xl={3}>
+          <Col key={venue.id} col={12} sm={6} md={6} lg={4} xl={3} onClick={() => handleClick(venue.id)}>
             <CustomCard venue={venue} />
           </Col>
         ))}

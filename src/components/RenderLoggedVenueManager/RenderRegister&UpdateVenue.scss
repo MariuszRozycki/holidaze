@@ -16,7 +16,8 @@
   }
 }
 
-.content-page-wrapper.register-new-venue {
+.content-page-wrapper.register-new-venue,
+.content-page-wrapper.update-venue {
   label {
     font-size: map-get($font-sizes, 5);
     font-weight: $font-weight-semibold;

@@ -3,7 +3,7 @@ import { useAppContext } from "../../context/app/useAppContext";
 import { VENUE_ENDPOINTS } from "../../api/venueEndpoints";
 import { Action } from "../../state/AppReducer";
 
-export const useFetchVenueByName = (
+export const useFetchManagerVenues = (
   currentPage: number = 1,
   searchQuery: string = "",
   limit: number = 10,
@@ -19,10 +19,12 @@ export const useFetchVenueByName = (
 
   useEffect(() => {
     if (!managerName || !token || !apiKey) return;
-    const fetchVenueByName = async () => {
+
+    const fetchManagerVenues = async () => {
       dispatch({ type: "FETCH_VENUES_START" });
       try {
         let url = "";
+
         if (venueId) {
           url = VENUE_ENDPOINTS.venuesById(venueId);
         } else if (managerName) {
@@ -44,6 +46,7 @@ export const useFetchVenueByName = (
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
+        console.log("result from useFetchManagerVenues: ", result);
 
         if (venueId) {
           dispatch({
@@ -64,6 +67,6 @@ export const useFetchVenueByName = (
       }
     };
 
-    fetchVenueByName();
+    fetchManagerVenues();
   }, [apiKey, token, currentPage, searchQuery, limit, sort, sortOrder, dispatch, venueId, managerName]);
 };
