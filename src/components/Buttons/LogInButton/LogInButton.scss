@@ -2,4 +2,5 @@
 
 .log-in-button {
   @include button;
+  justify-self: center;
 }

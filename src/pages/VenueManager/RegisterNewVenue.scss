@@ -1,22 +1,56 @@
 @use "bootstrap" as *;
 @use "../../scss/abstracts/variables";
+@use "../../components/Buttons/CustomButton/CustomButton.scss" as *;
+
+.register-new-venue-button,
+.add-image-register-new-venue-button {
+  @include button;
+
+  background-color: $light;
+  color: $dark;
+
+  &:hover {
+    background-color: variables.$alfa-color;
+    color: $light;
+    border: 2px solid $light;
+  }
+}
 
 .content-page-wrapper.register-new-venue {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  label {
+    font-size: map-get($font-sizes, 5);
+    font-weight: $font-weight-semibold;
+  }
 
-  textarea {
+  textarea.custom-input.custom-textarea-description {
+    width: 100%;
     height: 200px;
+    resize: none;
   }
 
   .input-group {
-    background-color: variables.$main-color;
+    width: 100%;
+    flex-direction: row;
+    gap: 5px;
 
-    .input-group-text {
-      background-color: transparent;
+    span {
+      border-top-left-radius: variables.$border-radius-main;
+      border-bottom-left-radius: variables.$border-radius-main;
       color: $light;
-      border-radius: variables.$border-radius-main;
+      border: 2px solid $light;
+      background-color: variables.$main-color;
+      width: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+
+    input.custom-input.custom-input-price-per-night {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
     }
   }
 }

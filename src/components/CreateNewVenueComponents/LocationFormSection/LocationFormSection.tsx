@@ -2,12 +2,12 @@ import { Form } from "react-bootstrap";
 import { CustomInput } from "../../FormComponents";
 import { CreateNewVenueRequest } from "../../../types/api";
 
-type Props = {
+type LocationFormSectionProps = {
   formData: CreateNewVenueRequest;
   setFormData: React.Dispatch<React.SetStateAction<CreateNewVenueRequest>>;
 };
 
-const LocationFormSection = ({ formData, setFormData }: Props) => {
+const LocationFormSection = ({ formData, setFormData }: LocationFormSectionProps) => {
   const handleLocationChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     locationField: keyof CreateNewVenueRequest["location"]
@@ -25,6 +25,7 @@ const LocationFormSection = ({ formData, setFormData }: Props) => {
   return (
     <>
       <Form.Group className='mb-3' controlId='formAddress'>
+        <Form.Label>Venue address</Form.Label>
         <CustomInput
           type='text'
           name='address'
@@ -35,6 +36,7 @@ const LocationFormSection = ({ formData, setFormData }: Props) => {
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formCity'>
+        <Form.Label>Venue city</Form.Label>
         <CustomInput
           type='text'
           name='city'
@@ -44,22 +46,35 @@ const LocationFormSection = ({ formData, setFormData }: Props) => {
         />
       </Form.Group>
 
+      <Form.Group className='mb-3' controlId='formCountry'>
+        <Form.Label>Venue country</Form.Label>
+        <CustomInput
+          type='text'
+          name='country'
+          placeholder='Enter country'
+          value={formData.location.country}
+          onChange={(e) => handleLocationChange(e, "country")}
+        />
+      </Form.Group>
+
       <Form.Group className='mb-3' controlId='formLat'>
+        <Form.Label>Venue latitude</Form.Label>
         <CustomInput
           name='lat'
           type='number'
           placeholder='Enter latitude'
-          value={formData.location.lat}
+          value={formData.location.lat === 0 ? "" : formData.location.lat}
           onChange={(e) => handleLocationChange(e, "lat")}
         />
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formLng'>
+        <Form.Label>Venue longitude</Form.Label>{" "}
         <CustomInput
           type='number'
           name='lng'
           placeholder='Enter longitude'
-          value={formData.location.lng}
+          value={formData.location.lng === 0 ? "" : formData.location.lng}
           onChange={(e) => handleLocationChange(e, "lng")}
         />
       </Form.Group>

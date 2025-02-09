@@ -1,3 +1,15 @@
+export type ApiError = {
+  path: string[];
+  message: string;
+  code?: string;
+};
+
+export type ApiErrorResponse = {
+  errors: ApiError[];
+  status: string;
+  statusCode: number;
+};
+
 export type CreateNewVenueRequest = {
   name: string;
   description: string;

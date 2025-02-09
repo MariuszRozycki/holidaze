@@ -5,9 +5,13 @@ type ValidationErrors = {
   description: string;
   price: string;
   maxGuests: string;
+  [key: string]: string;
 };
 
-export const newVenueFormValidation = (formData: CreateNewVenueRequest): ValidationErrors => {
+export const newVenueFormValidation = (
+  formData: CreateNewVenueRequest,
+  apiErrors: { path: string[]; message: string }[] = []
+): ValidationErrors => {
   const errors: ValidationErrors = {
     name: "",
     description: "",
@@ -19,6 +23,11 @@ export const newVenueFormValidation = (formData: CreateNewVenueRequest): Validat
   if (!formData.description.trim()) errors.description = "Description is required!";
   if (formData.price <= 0) errors.price = "Price must be greater than 0!";
   if (formData.maxGuests <= 0) errors.maxGuests = "Maximum guests must be greater than 0!";
+
+  apiErrors.forEach((err) => {
+    const fieldPath = err.path.join(".");
+    errors[fieldPath] = err.message;
+  });
 
   return errors;
 };
