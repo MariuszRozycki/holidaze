@@ -54,6 +54,10 @@ export type Action =
   | { type: "FETCH_BOOKINGS_BY_NAME_ERROR"; payload: string }
   /* REMOVE_BOOKING_BY_ID */
   | { type: "REMOVE_BOOKING_BY_ID"; payload: { bookingId: string } }
+  /* REMOVE_VENUE_BY_ID */
+  | { type: "SET_REFRESH_VENUES"; payload: boolean }
+  /* REMOVE_VENUE_SUCCESS */
+  | { type: "REMOVE_VENUE_SUCCESS"; payload: string }
   /* CLEAR_STATE */
   | { type: "CLEAR_STATE" };
 
@@ -77,6 +81,7 @@ export interface AppState {
   createNewBooking?: BookingResponse | null;
   userBookings?: BookingResponse[] | null;
   bookingById: BookingResponse[] | null;
+  refreshVenues: boolean;
 }
 
 export const initialState: AppState = {
@@ -102,6 +107,7 @@ export const initialState: AppState = {
   createNewBooking: null,
   userBookings: null,
   bookingById: null,
+  refreshVenues: false,
 };
 
 export function appReducer(state: AppState, action: Action): AppState {
@@ -222,8 +228,6 @@ export function appReducer(state: AppState, action: Action): AppState {
       return { ...state, isLoading: true };
 
     case "CREATE_NEW_BOOKING_SUCCESS":
-      console.log("CREATE_NEW_BOOKING_SUCCESS payload: ", action.payload);
-
       return {
         ...state,
         isLoading: false,
@@ -264,11 +268,21 @@ export function appReducer(state: AppState, action: Action): AppState {
       return { ...state, isLoading: true, error: null };
 
     case "FETCH_BOOKING_BY_ID_SUCCESS":
-      console.log("FETCH_BOOKING_BY_ID_SUCCESS", action);
       return { ...state, isLoading: false, bookingById: action.payload.data };
 
     case "FETCH_BOOKING_BY_ID_ERROR":
       return { ...state, isLoading: false, error: action.payload };
+
+    /* SET_REFRESH_VENUES */
+    case "SET_REFRESH_VENUES":
+      return { ...state, refreshVenues: action.payload };
+
+    /* REMOVE_VENUE_SUCCESS */
+    case "REMOVE_VENUE_SUCCESS":
+      return {
+        ...state,
+        venues: state.venues.filter((venue) => venue.id !== action.payload),
+      };
 
     /* CLEAR_STATE */
     case "CLEAR_STATE":

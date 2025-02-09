@@ -23,10 +23,9 @@ const RenderUpdateVenueData = () => {
   const { id } = useParams<{ id: string }>();
   const venueId = id!;
   const { state, dispatch } = useAppContext();
-  const { userProfile, selectedVenue } = state;
+  const { userProfile } = state;
   const managerName = userProfile?.name;
   useFetchManagerVenues(undefined, undefined, undefined, undefined, undefined, dispatch, venueId, managerName);
-  console.log(selectedVenue);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
@@ -48,7 +47,6 @@ const RenderUpdateVenueData = () => {
   useEffect(() => {
     if (state.selectedVenue && venueId) {
       const venue = state.selectedVenue;
-      console.log(venue);
 
       setFormData({
         name: venue.name || "",

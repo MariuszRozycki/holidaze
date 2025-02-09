@@ -21,7 +21,6 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
   const [bannerUrl, setBannerUrl] = useState<string>(userProfile?.banner.url || "");
   const [bannerAlt, setBannerAlt] = useState<string>(userProfile?.banner.alt || "");
   const [bio, setBio] = useState<string>(userProfile?.bio || "");
-  // const [venueManager, setVenueManager] = useState<boolean>(userProfile?.venueManager || false);
 
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -32,8 +31,6 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
       setAvatarAlt(userProfile.avatar.alt);
       setBannerUrl(userProfile.banner.url);
       setBannerAlt(userProfile.banner.alt);
-      // setBio(userProfile.bio);
-      // setVenueManager(userProfile.venueManager);
     }
   }, [userProfile]);
 
@@ -75,7 +72,6 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
         alt: bannerAlt,
       },
       bio,
-      // venueManager,
     };
 
     try {
@@ -118,17 +114,6 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
               />
             </Form.Group>
 
-            {/* <Form.Group className='mb-3' controlId='avatarAlt'>
-              <Form.Label>Avatar Alt Text</Form.Label>
-              <Form.Control
-                type='text'
-                placeholder='Enter avatar alt text'
-                value={avatarAlt}
-                onChange={(e) => setAvatarAlt(e.target.value)}
-                isInvalid={!!formError && !avatarAlt}
-              />
-            </Form.Group> */}
-
             <Form.Group className='mb-3' controlId='bannerUrl'>
               <Form.Label>Banner URL</Form.Label>
               <Form.Control
@@ -141,18 +126,6 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
               />
             </Form.Group>
 
-            {/* <Form.Group className='mb-3' controlId='bannerAlt'>
-              <Form.Label>Banner Alt Text</Form.Label>
-              <Form.Control
-                type='text'
-                placeholder='Enter banner alt text'
-                value={bannerAlt}
-                onChange={(e) => setBannerAlt(e.target.value)}
-                required
-                isInvalid={!!formError && !bannerAlt}
-              />
-            </Form.Group> */}
-
             <Form.Group className='mb-3' controlId='bio'>
               <Form.Label>Bio</Form.Label>
               <Form.Control
@@ -163,15 +136,6 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
                 onChange={(e) => setBio(e.target.value)}
               />
             </Form.Group>
-
-            {/* <Form.Group className='mb-3' controlId='venueManager'>
-              <Form.Check
-                type='checkbox'
-                label='Venue Manager'
-                checked={venueManager}
-                onChange={(e) => setVenueManager(e.target.checked)}
-              />
-            </Form.Group> */}
 
             <div className='d-flex justify-content-end'>
               <Button variant='secondary' onClick={() => setShow(false)} disabled={isSubmitting}>

@@ -29,7 +29,6 @@ const VenueDetails = () => {
   const { state, dispatch } = useAppContext();
 
   const { isLoading, error, selectedVenue } = state;
-  // const { bookBtn, setBookBtn } = useState<boolean>(false);
   const datePickerButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleDisplayClick = () => {
