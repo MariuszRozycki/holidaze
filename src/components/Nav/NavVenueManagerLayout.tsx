@@ -30,7 +30,7 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
           <Navbar.Brand
             className='d-flex justify-content-start align-items-center'
             as={Link}
-            to='/holidaze/user/logged-user-home-page/'
+            to='/holidaze/venue-manager/my-venues-page'
           >
             <span className='hidden-below-300 fs-3 text-light'>HOLIDAZE</span>
           </Navbar.Brand>
