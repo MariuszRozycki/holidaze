@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { CreateNewVenueRequest, ApiError, ApiErrorResponse } from "../../../types/api";
 import { useFetchManagerVenues, useUpdateVenue } from "../../../hooks";
 import { useAppContext } from "../../../context/app/useAppContext";
@@ -23,6 +23,7 @@ const RenderUpdateVenueData = () => {
   const { id } = useParams<{ id: string }>();
   const venueId = id!;
   const { state, dispatch } = useAppContext();
+  const navigate = useNavigate();
   const { userProfile } = state;
   const managerName = userProfile?.name;
   useFetchManagerVenues(undefined, undefined, undefined, undefined, undefined, dispatch, venueId, managerName);
@@ -120,6 +121,8 @@ const RenderUpdateVenueData = () => {
       });
 
       setErrors({});
+
+      navigate(`/holidaze/venue-manager/venue-by-id/${venueId}`);
     } catch (error) {
       console.error("Error updating venue:", error);
       setError("Something went wrong while updating the venue.");
