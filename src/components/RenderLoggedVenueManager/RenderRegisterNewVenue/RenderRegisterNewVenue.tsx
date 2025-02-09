@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { CreateNewVenueRequest } from "../../../types/api";
 import { newVenueFormValidation, hasErrors } from "../../../utils/";
 import { Container, Form, Alert } from "react-bootstrap";
@@ -19,7 +20,7 @@ import "../RenderRegister&UpdateVenue.scss";
 
 const RenderRegisterNewVenue = () => {
   const { createNewVenue } = useCreateNewVenue();
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<CreateNewVenueRequest>({
     name: "",
     description: "",
@@ -104,6 +105,8 @@ const RenderRegisterNewVenue = () => {
         price: "",
         maxGuests: "",
       });
+
+      navigate("/holidaze/venue-manager/my-venues-page");
     } catch (error) {
       console.error("Error:", error);
       setError("Something went wrong while creating a new venue.");

@@ -27,10 +27,11 @@ body {
   margin: spacers.spacer(3) auto;
 }
 
-form.content-page-wrapper {
+form.content-page-wrapper,
+div.content-page-wrapper {
   margin: spacers.spacer(3) auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   flex-grow: 1;
   border-radius: variables.$border-radius-normal;
 
