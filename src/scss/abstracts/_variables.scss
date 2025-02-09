@@ -5,7 +5,8 @@ $secondary-color: #fcfeff;
 $tertiary-color: #359bc6;
 $text-muted-custom: #6c757d;
 $alfa-color: #b1e3f942;
-$error-color: #9c0716;
+$error-color: rgb(156, 7, 22);
+$error-color-bg: rgba(255, 255, 255, 0.6);
 
 // transitions
 $transition-main: 0.2s;
@@ -24,7 +25,3 @@ $box-shadow-medium-inset: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0,
 $box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.5);
 $box-shadow-hard: 0 4px 8px rgba(0, 0, 0, 0.9), 0 6px 20px rgba(0, 0, 0, 0.9);
 $box-shadow-inner: 0 8px 15px rgba(0, 0, 0, 0.3);
-
-.error {
-  color: $error-color;
-}

@@ -25,6 +25,7 @@ const LocationFormSection = ({ formData, setFormData }: LocationFormSectionProps
   return (
     <>
       <Form.Group className='mb-3' controlId='formAddress'>
+        <Form.Label>Venue address</Form.Label>
         <CustomInput
           type='text'
           name='address'
@@ -35,6 +36,7 @@ const LocationFormSection = ({ formData, setFormData }: LocationFormSectionProps
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formCity'>
+        <Form.Label>Venue city</Form.Label>
         <CustomInput
           type='text'
           name='city'
@@ -45,6 +47,7 @@ const LocationFormSection = ({ formData, setFormData }: LocationFormSectionProps
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formCountry'>
+        <Form.Label>Venue country</Form.Label>
         <CustomInput
           type='text'
           name='country'
@@ -55,21 +58,23 @@ const LocationFormSection = ({ formData, setFormData }: LocationFormSectionProps
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formLat'>
+        <Form.Label>Venue latitude</Form.Label>
         <CustomInput
           name='lat'
           type='number'
           placeholder='Enter latitude'
-          value={formData.location.lat}
+          value={formData.location.lat === 0 ? "" : formData.location.lat}
           onChange={(e) => handleLocationChange(e, "lat")}
         />
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formLng'>
+        <Form.Label>Venue longitude</Form.Label>{" "}
         <CustomInput
           type='number'
           name='lng'
           placeholder='Enter longitude'
-          value={formData.location.lng}
+          value={formData.location.lng === 0 ? "" : formData.location.lng}
           onChange={(e) => handleLocationChange(e, "lng")}
         />
       </Form.Group>

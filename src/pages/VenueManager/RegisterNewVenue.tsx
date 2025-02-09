@@ -59,19 +59,53 @@ const RegisterNewVenue = () => {
         media: formData.media.filter((m) => m.url.trim() !== ""),
       };
 
-      await createNewVenue(updatedFormData);
+      const response = await createNewVenue(updatedFormData);
+
+      if ("errors" in response) {
+        const apiErrors = response.errors.map((error) => ({
+          path: error.path,
+          message: error.message,
+        }));
+
+        const updatedErrors = newVenueFormValidation(formData, apiErrors);
+        setErrors(updatedErrors);
+
+        apiErrors
+          .filter((err) => !(err.path.join(".") in updatedErrors))
+          .forEach((err) =>
+            toast.error(err.message, {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            })
+          );
+
+        setIsSubmitting(false);
+        return;
+      }
+
       toast.success("New venue registered!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
-        closeOnClick: false,
+        closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "light",
+      });
+
+      setErrors({
+        name: "",
+        description: "",
+        price: "",
+        maxGuests: "",
       });
     } catch (error) {
-      console.error(error);
+      console.error("Error:", error);
       setError("Something went wrong while creating a new venue.");
     } finally {
       setIsSubmitting(false);
@@ -90,9 +124,9 @@ const RegisterNewVenue = () => {
           <LocationFormSection formData={formData} setFormData={setFormData} />
           <PricePerNightField formData={formData} setFormData={setFormData} errors={errors} />
           <MaximumGuestsField formData={formData} setFormData={setFormData} errors={errors} />
-          <MediaFormSection formData={formData} setFormData={setFormData} />
+          <MediaFormSection errors={errors} formData={formData} setFormData={setFormData} />
           <ReactToggleButtons meta={formData.meta} setMeta={(meta) => setFormData((prev) => ({ ...prev, meta }))} />
-          <CustomButton btnText='Register venue' variant='primary' type='submit' disabled={isSubmitting} />
+          <CustomButton btnText='Register venue' className='register-new-venue-button' type='submit' disabled={isSubmitting} />
         </Form>
       </div>
     </Container>

@@ -78,9 +78,17 @@ form.content-page-wrapper {
   align-items: center;
 }
 
+.error {
+  color: variables.$error-color;
+}
+
 .form-error {
   width: 100%;
   display: block;
   text-align: left;
   margin-top: 10px;
+  background-color: variables.$error-color-bg;
+  padding: spacers.spacer(2) spacers.spacer(3);
+  border: 1px solid variables.$error-color;
+  border-radius: variables.$border-radius-main;
 }

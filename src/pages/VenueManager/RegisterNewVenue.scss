@@ -1,7 +1,27 @@
 @use "bootstrap" as *;
 @use "../../scss/abstracts/variables";
+@use "../../components/Buttons/CustomButton/CustomButton.scss" as *;
+
+.register-new-venue-button,
+.add-image-register-new-venue-button {
+  @include button;
+
+  background-color: $light;
+  color: $dark;
+
+  &:hover {
+    background-color: variables.$alfa-color;
+    color: $light;
+    border: 2px solid $light;
+  }
+}
 
 .content-page-wrapper.register-new-venue {
+  label {
+    font-size: map-get($font-sizes, 5);
+    font-weight: $font-weight-semibold;
+  }
+
   textarea.custom-input.custom-textarea-description {
     width: 100%;
     height: 200px;
@@ -9,12 +29,28 @@
   }
 
   .input-group {
+    width: 100%;
+    flex-direction: row;
+    gap: 5px;
+
     span {
       border-top-left-radius: variables.$border-radius-main;
       border-bottom-left-radius: variables.$border-radius-main;
       color: $light;
       border: 2px solid $light;
       background-color: variables.$main-color;
+      width: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+
+    input.custom-input.custom-input-price-per-night {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
     }
   }
 }
