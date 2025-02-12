@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigateToElement, useRegisterUser } from "../../../hooks";
-import { SignUpButton, CustomInput, GoBackButton, HeadingH1 } from "../../index";
-import { ErrorMessageAuth } from "../../../utils";
+import { SignUpButton, CustomInput, GoBackButton, HeadingH1, ErrorMessageAuth } from "../../index";
 import "./RenderSignUpManager.scss";
 
 const RenderSignUpManager = () => {

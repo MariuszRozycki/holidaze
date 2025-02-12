@@ -68,6 +68,7 @@ import {
   LinkButton,
   BookVenueButton,
 } from "./Buttons";
+import { ErrorMessageAuth } from "./ErrorMessages";
 
 export {
   HeaderMainLayout,
@@ -135,4 +136,7 @@ export {
   RenderRegisterNewVenue,
   RenderUpdateVenueData,
   RenderVenueManagerAdminPanel,
+
+  /* Errors */
+  ErrorMessageAuth,
 };
