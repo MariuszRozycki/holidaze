@@ -9,12 +9,6 @@
 
   background-color: $light;
   color: $dark;
-
-  &:hover {
-    background-color: variables.$alfa-color;
-    color: $light;
-    border: 2px solid $light;
-  }
 }
 
 .content-page-wrapper.register-new-venue,

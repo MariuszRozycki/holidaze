@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { HeadingH1, LinkButton } from "../../../components";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { useFetchManagerVenues } from "../../../hooks/";
+import "./RenderVenueManagerAdminPanel.scss";
 
 const RenderVenueManagerAdminPanel = () => {
   const { state, dispatch } = useAppContext();
@@ -25,14 +27,16 @@ const RenderVenueManagerAdminPanel = () => {
 
           <section className='mt-5'>
             {isLoading && <p>Loading venues...</p>}
-            {error && <p>Wystąpił błąd: {error}</p>}
+            {error && <p>Error occurred: {error}</p>}
 
             {!isLoading && venues && (
               <>
                 {venues.length === 0 ? (
-                  <p>You don't have any venues.</p>
+                  <Link to='/holidaze/venue-manager/add-venue-page' className='manager-no-venues-message'>
+                    You don't have any venues. Add venue.
+                  </Link>
                 ) : totalBookings === 0 ? (
-                  <p>No reservations have been made yet.</p>
+                  <p className='fw-semibold'>No reservations have been made yet.</p>
                 ) : (
                   <>
                     <h2 className='h4 fw-semibold'>Reservations for all my venues:</h2>

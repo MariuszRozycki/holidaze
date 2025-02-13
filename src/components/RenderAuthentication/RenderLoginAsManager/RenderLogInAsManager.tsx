@@ -83,7 +83,7 @@ const RenderLogInAsManager = () => {
     if (isSuccess) {
       const userName = state.userData?.name ?? "";
       if (userName) {
-        navigate(`/holidaze/venue-manager/my-venues-page`);
+        navigate(`/holidaze/venue-manager/venue-manager-admin-panel`);
       }
     }
   }, [isSuccess, state.userData, navigate]);

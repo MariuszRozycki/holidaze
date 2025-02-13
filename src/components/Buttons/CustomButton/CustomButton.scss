@@ -7,22 +7,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $light;
-  background-color: variables.$main-color;
-  min-width: 150px;
-  min-height: 55px;
-  padding: 0;
+  padding: 8px 12px;
   margin: 0;
-  border-radius: variables.$border-radius-main;
-  border: 2px solid $light;
+  border-radius: variables.$border-radius-normal;
+  border: 1px solid $dark;
+  border-color: $dark;
   transition: variables.$transition-main;
 
   @media (min-width: breakpoints.get(md)) {
     &:hover {
-      background-color: $light;
-      border: 2px solid variables.$main-color;
+      background-color: variables.$action-color-hover;
+      border: 1px solid $dark;
       box-shadow: variables.$box-shadow-null;
-      color: $dark;
     }
   }
 }

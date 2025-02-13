@@ -22,6 +22,7 @@ import {
 } from "../../../utils";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { CustomRemoveVenueModal } from "../../";
 import "./RenderVenueById.scss";
 
 const VenueDetails = () => {
@@ -31,6 +32,8 @@ const VenueDetails = () => {
 
   const { isLoading, error, selectedVenue } = state;
   const datePickerButtonRef = useRef<HTMLButtonElement>(null);
+
+  const [showRemoveVenueModal, setShowRemoveVenueModal] = useState<boolean>(false);
 
   const [deletingVenue, setDeletingVenue] = useState<string[]>([]);
   const removeVenue = useRemoveVenue();
@@ -98,9 +101,18 @@ const VenueDetails = () => {
       <Button type='button' onClick={handleClick} variant='primary'>
         Update venue
       </Button>
-      <Button variant='danger' onClick={() => handleRemoveVenue(venueId)} disabled={deletingVenue.includes(venueId)}>
+      <Button variant='danger' onClick={() => setShowRemoveVenueModal(true)} disabled={deletingVenue.includes(venueId)}>
         Remove venue
       </Button>
+
+      <CustomRemoveVenueModal
+        show={showRemoveVenueModal}
+        onHide={() => setShowRemoveVenueModal(false)}
+        onConfirm={() => {
+          handleRemoveVenue(venueId);
+          setShowRemoveVenueModal(false);
+        }}
+      />
     </div>
   );
 
@@ -115,6 +127,7 @@ const VenueDetails = () => {
     <Card>
       <Row>
         <Col>
+          <GoBackButton />
           <CustomSwiper isLoading={isLoading} isError={error} selectedVenue={selectedVenue} />
         </Col>
       </Row>

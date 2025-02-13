@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { format } from "date-fns";
 import { Container, Image } from "react-bootstrap";
-import { HeadingH1 } from "../../";
+import { HeadingH1, CustomRemoveBookingModal } from "../../";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { useFetchBookingsByName, useRemoveBooking } from "../../../hooks";
 import { CustomUpdateProfileModal } from "../../";
@@ -15,6 +15,8 @@ const RenderLoggedUserProfile = () => {
   const [deletingBookings, setDeletingBookings] = useState<string[]>([]);
 
   const removeBooking = useRemoveBooking();
+  const [showRemoveBookingModal, setShowRemoveBookingModal] = useState<boolean>(false);
+  const [selectedBookingId, setSelectedBookingId] = useState<string | null>(null);
 
   if (isBookingsByNameLoading) {
     return <Container>Bookings by name are loading...</Container>;
@@ -80,9 +82,9 @@ const RenderLoggedUserProfile = () => {
                     No: {index + 1}
                     <button
                       className='rounded border-1'
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleRemoveBooking(booking.id);
+                      onClick={() => {
+                        setSelectedBookingId(booking.id);
+                        setShowRemoveBookingModal(true);
                       }}
                       disabled={isDeleting}
                     >
@@ -99,6 +101,20 @@ const RenderLoggedUserProfile = () => {
               );
             })}
           </ul>
+          <CustomRemoveBookingModal
+            show={showRemoveBookingModal}
+            onHide={() => {
+              setShowRemoveBookingModal(false);
+              setSelectedBookingId(null);
+            }}
+            onConfirm={() => {
+              if (selectedBookingId) {
+                handleRemoveBooking(selectedBookingId);
+              }
+              setShowRemoveBookingModal(false);
+              setSelectedBookingId(null);
+            }}
+          />
         </section>
       </div>
     </Container>

@@ -7,7 +7,7 @@ interface HeadingH1Props {
 }
 
 const HeadingH1 = ({ children, className }: HeadingH1Props) => {
-  return <h1 className={`h2 custom-heading custom-heading-h1 mb-5 ${className}`}>{children}</h1>;
+  return <h1 className={`h3 custom-heading custom-heading-h1 mb-5 ${className}`}>{children}</h1>;
 };
 
 export default HeadingH1;

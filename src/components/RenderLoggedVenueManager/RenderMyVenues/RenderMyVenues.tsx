@@ -1,7 +1,7 @@
 import { RenderManagerVenueList } from "../../";
 
 const RenderMyVenues = () => {
-  return <RenderManagerVenueList title='Manager all venues' />;
+  return <RenderManagerVenueList title='Your all venues' />;
 };
 
 export default RenderMyVenues;

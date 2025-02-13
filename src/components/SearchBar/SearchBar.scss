@@ -1,5 +1,11 @@
 @use "bootstrap" as *;
 @use "../../scss/abstracts/variables";
+@use "../../scss/abstracts/breakpoints";
+
+.search-bar .input-group {
+  gap: 5px;
+  width: 100%;
+}
 
 input.search-input {
   border: 2px solid variables.$main-color;
@@ -11,4 +17,19 @@ button.search-button {
   border-top-right-radius: variables.$border-radius-main;
   border-bottom-right-radius: variables.$border-radius-main;
   background-color: variables.$main-color;
+  color: $light;
+  border: 2px solid variables.$main-color;
+  min-width: 75px;
+  width: 30%;
+}
+
+@media (min-width: breakpoints.get(md)) {
+  .search-bar {
+    margin: auto;
+    max-width: 500px;
+
+    .input-group {
+      justify-self: center;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import { forwardRef, useState } from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { NavLink, Link, useNavigate } from "react-router-dom";
+import { CustomLogOutModal } from "../Modals";
 import { clearLocalStorageOnLogout } from "../../utils";
 import { useAppContext } from "../../context/app/useAppContext";
 import "./NavLayout.scss";
@@ -12,12 +13,14 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
 
   const handleClose = (): void => setShow(false);
   const handleShow = (): void => setShow(true);
+  const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
 
   const handleNavLinkClick = (): void => {
     handleClose();
   };
 
   const handleLogout = () => {
+    setShowLogoutModal(false);
     clearLocalStorageOnLogout();
     dispatch({ type: "CLEAR_STATE" });
     navigate("/holidaze/");
@@ -54,21 +57,30 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
             </Offcanvas.Header>
             <Offcanvas.Body className='custom-offcanvas-body'>
               <Nav className='justify-content-end flex-grow-1 pe-3 fs-5'>
+                <Nav.Link as={NavLink} to='/holidaze/venue-manager/venue-manager-admin-panel' onClick={handleNavLinkClick}>
+                  Admin Panel
+                </Nav.Link>
                 <Nav.Link as={NavLink} to='/holidaze/venue-manager/my-venues-page' end onClick={handleNavLinkClick}>
-                  Home
+                  My venues
                 </Nav.Link>
                 <Nav.Link as={NavLink} to='/holidaze/venue-manager/add-venue-page' end onClick={handleNavLinkClick}>
                   Add venue
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='/holidaze/' end onClick={handleLogout}>
+                <Nav.Link
+                  as={NavLink}
+                  to='/holidaze/'
+                  end
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowLogoutModal(true);
+                  }}
+                >
                   Log out
-                </Nav.Link>
-                <Nav.Link as={NavLink} to='/holidaze/venue-manager/venue-manager-admin-panel' onClick={handleNavLinkClick}>
-                  Admin Panel
                 </Nav.Link>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
+          <CustomLogOutModal show={showLogoutModal} onHide={() => setShowLogoutModal(false)} onConfirm={handleLogout} />
         </Container>
       </Navbar>
     </>

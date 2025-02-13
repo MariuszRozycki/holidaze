@@ -12,7 +12,7 @@ export interface CustomButtonProps {
 
 const CustomButton = forwardRef<HTMLButtonElement, CustomButtonProps>(({ btnText, onClick, className, ...rest }, ref) => {
   return (
-    <button ref={ref} className={`my-custom-button ${className} fs-5 py-2 px-3`} onClick={onClick} {...rest}>
+    <button ref={ref} className={`my-custom-button ${className}`} onClick={onClick} {...rest}>
       {btnText}
     </button>
   );

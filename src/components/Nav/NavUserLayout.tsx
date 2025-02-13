@@ -1,6 +1,7 @@
 import { forwardRef, useState } from "react";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
 import { NavLink, Link, useNavigate } from "react-router-dom";
+import { CustomLogOutModal } from "../Modals";
 import { clearLocalStorageOnLogout } from "../../utils";
 import { useAppContext } from "../../context/app/useAppContext";
 import "./NavLayout.scss";
@@ -8,6 +9,7 @@ import "./NavLayout.scss";
 const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
   const { dispatch } = useAppContext();
   const [show, setShow] = useState<boolean>(false);
+  const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const handleClose = (): void => setShow(false);
@@ -18,6 +20,7 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
   };
 
   const handleLogout = () => {
+    setShowLogoutModal(false);
     clearLocalStorageOnLogout();
     dispatch({ type: "CLEAR_STATE" });
     navigate("/holidaze/");
@@ -57,18 +60,27 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
                 <Nav.Link as={NavLink} to='/holidaze/user/logged-user-home-page' end onClick={handleNavLinkClick}>
                   Home
                 </Nav.Link>
-                <Nav.Link as={NavLink} to='/holidaze/' end onClick={handleLogout}>
-                  Log out
-                </Nav.Link>
                 <Nav.Link as={NavLink} to='/holidaze/user/about' onClick={handleNavLinkClick}>
                   About
                 </Nav.Link>
                 <Nav.Link as={NavLink} to='/holidaze/user/contact' onClick={handleNavLinkClick}>
                   Contact
                 </Nav.Link>
+                <Nav.Link
+                  as={NavLink}
+                  to='/holidaze/'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowLogoutModal(true);
+                  }}
+                  end
+                >
+                  Log out
+                </Nav.Link>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
+          <CustomLogOutModal show={showLogoutModal} onHide={() => setShowLogoutModal(false)} onConfirm={handleLogout} />
         </Container>
       </Navbar>
     </>

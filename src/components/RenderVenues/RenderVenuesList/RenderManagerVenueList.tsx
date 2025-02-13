@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { HeadingH1, CustomCard, Pagination, SortOptions, SearchBar, GoToMainPageButton } from "../..";
+import { HeadingH1, CustomCard } from "../..";
 import { useFetchManagerVenues } from "../../../hooks";
 import { useAppContext } from "../../../context/app/useAppContext";
 
@@ -9,12 +9,13 @@ interface RenderManagerVenueListProps {
   showGoMainPage?: boolean;
 }
 
-const RenderManagerVenueList = ({ title, searchQuery = "", showGoMainPage = false }: RenderManagerVenueListProps) => {
+const RenderManagerVenueList = ({ title, searchQuery = "" }: RenderManagerVenueListProps) => {
   const { state, dispatch } = useAppContext();
 
   const { currentPage, isLoading, error, venues, sort, sortOrder, isSearching, userProfile } = state;
 
   const managerName = userProfile?.name;
+  const formattedManagerName = managerName ? managerName.charAt(0).toUpperCase() + managerName.slice(1) : "";
 
   useFetchManagerVenues(currentPage, searchQuery, 10, sort, sortOrder, dispatch, undefined, managerName);
 
@@ -40,28 +41,26 @@ const RenderManagerVenueList = ({ title, searchQuery = "", showGoMainPage = fals
     return (
       <Container>
         <HeadingH1>{title}</HeadingH1>
-        <p>No venues available</p>
+        <p>No venues available. Add venue.</p>
       </Container>
     );
   }
 
   return (
     <Container>
+      <section className='manager-wrapper mb-2'>
+        <p className='d-block fs-5'>
+          Nice to see you <span className='fw-semibold'>{formattedManagerName}</span>
+        </p>
+      </section>
       <HeadingH1>{title}</HeadingH1>
-      {showGoMainPage && <GoToMainPageButton />}
-      <SearchBar />
-      {!searchQuery && <SortOptions />}
+
       <Row className='g-4'>
         {venues.map((venue) => (
           <Col key={venue.id} col={12} sm={6} md={6} lg={4} xl={3}>
             <CustomCard venue={venue} />
           </Col>
         ))}
-      </Row>
-      <Row>
-        <Col>
-          <Pagination />
-        </Col>
       </Row>
     </Container>
   );

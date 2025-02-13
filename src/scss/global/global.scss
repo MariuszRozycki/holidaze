@@ -78,6 +78,11 @@ div.content-page-wrapper {
   align-items: center;
 }
 
+.error-message-wrapper {
+  width: 400px;
+  margin: auto;
+}
+
 .error {
   color: variables.$error-color;
 }

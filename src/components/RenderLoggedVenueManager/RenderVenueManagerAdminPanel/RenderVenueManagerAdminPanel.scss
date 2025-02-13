@@ -1,0 +1,16 @@
+@use "../../../scss/abstracts/variables";
+
+.manager-no-venues-message {
+  border-radius: variables.$border-radius-normal;
+  background-color: variables.$action-color;
+  color: black;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: variables.$box-shadow-light;
+  transition: variables.$transition-main;
+
+  &:hover {
+    box-shadow: variables.$box-shadow-null;
+  }
+}
