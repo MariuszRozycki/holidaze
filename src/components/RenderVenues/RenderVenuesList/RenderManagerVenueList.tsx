@@ -55,6 +55,8 @@ const RenderManagerVenueList = ({ title, searchQuery = "" }: RenderManagerVenueL
       </section>
       <HeadingH1>{title}</HeadingH1>
 
+      <p>You have: {venues.length} objects</p>
+
       <Row className='g-4'>
         {venues.map((venue) => (
           <Col key={venue.id} col={12} sm={6} md={6} lg={4} xl={3}>

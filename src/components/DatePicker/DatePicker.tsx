@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAppContext } from "../../context/app/useAppContext";
 import { useDatePickerDirection } from "../../hooks";
 import { useDisabledDates } from "../../hooks";
+import { enGB } from "date-fns/locale";
 import { DateRange, Range, RangeKeyDict } from "react-date-range";
 import { startOfDay, endOfDay, addDays } from "date-fns";
 import { DatePickerFunctionalButton } from "../../components";
@@ -53,6 +54,7 @@ const DatePicker = ({ onHide }: DatePickerProps) => {
   return (
     <>
       <DateRange
+        locale={enGB}
         editableDateInputs={true}
         onChange={handleDateChange}
         moveRangeOnFirstSelection={false}

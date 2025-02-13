@@ -56,7 +56,7 @@ import {
   RenderRegisterNewVenue,
   RenderUpdateVenueData,
   RenderVenueManagerAdminPanel,
-} from "./RenderLoggedVenueManager"; // Manager RenderPages
+} from "./RenderLoggedVenueManager";
 import { CustomInput } from "./FormComponents";
 import {
   CustomButton,

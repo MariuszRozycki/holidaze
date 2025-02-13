@@ -13,7 +13,7 @@
 9. A registered Venue manager may create a Venue --yes
 10. A registered Venue manager may update a Venue they manage --yes
 11. A registered Venue manager may delete a Venue they manage --yes
-12. A registered Venue manager may view bookings for a Venue they manage --no
+12. A registered Venue manager may view bookings for a Venue they manage --yes
 13. A registered user may login --yes
 14. A registered user may update their avatar --yes
 15. A registered user may logout -yes

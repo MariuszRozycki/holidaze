@@ -43,6 +43,12 @@
   text-decoration: line-through;
 }
 
+.go-back-button {
+  background-color: v.$main-color;
+  color: $light;
+  border: 1px solid $light;
+}
+
 @media (min-width: breakpoints.get(md)) {
   .single-venue-description {
     min-height: 150px;

@@ -66,7 +66,7 @@ const RenderLoggedUserProfile = () => {
           <CustomUpdateProfileModal />
         </section>
         <section className='upcoming-bookings'>
-          <h4 className='h4 fw-semibold mt-5 mb-3'>Upcoming bookings:</h4>
+          <h4 className='h4 fw-semibold mt-5 mb-3'>You have {userBookings.length} upcoming bookings: </h4>
           <ul className='upcoming-bookings'>
             {userBookings.map((booking, index) => {
               const dateFrom = new Date(booking.dateFrom);

@@ -1,4 +1,15 @@
+@use "bootstrap" as *;
 @use "../../../scss/abstracts/variables";
+
+div.page-element-wrapper {
+  color: $dark;
+
+  .content-page-wrapper a {
+    color: $dark;
+    background-color: variables.$action-color;
+    max-width: 300px;
+  }
+}
 
 .manager-no-venues-message {
   border-radius: variables.$border-radius-normal;

@@ -98,10 +98,10 @@ const VenueDetails = () => {
   const venueManagerPath = window.location.pathname.includes(`/holidaze/venue-manager/venue-by-id/`);
   const managerPanel = (
     <div className='d-flex gap-3 justify-content-end mt-5 mb-4'>
-      <Button type='button' onClick={handleClick} variant='primary'>
+      <Button type='button' onClick={handleClick} variant='secondary'>
         Update venue
       </Button>
-      <Button variant='danger' onClick={() => setShowRemoveVenueModal(true)} disabled={deletingVenue.includes(venueId)}>
+      <Button variant='dark' onClick={() => setShowRemoveVenueModal(true)} disabled={deletingVenue.includes(venueId)}>
         Remove venue
       </Button>
 

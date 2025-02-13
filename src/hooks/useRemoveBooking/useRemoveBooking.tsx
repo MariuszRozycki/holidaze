@@ -10,7 +10,6 @@ export const useRemoveBooking = () => {
 
   const removeBooking = async (bookingId: string) => {
     if (!bookingId || !token || !apiKey) {
-      console.error("Booking id, token lub apiKey nie są dostępne.");
       return;
     }
 
@@ -32,8 +31,6 @@ export const useRemoveBooking = () => {
 
       dispatch({ type: "REMOVE_BOOKING_BY_ID", payload: { bookingId: bookingId } });
       setRefreshBookings((prev) => !prev);
-
-      console.log(`Booking with id ${bookingId} removed successfully.`);
     } catch (error) {
       console.error("Error removing booking:", error);
     }
