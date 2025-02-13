@@ -6,6 +6,8 @@ import "./LoggedUserComponent.scss";
 const LoggedUserComponent = () => {
   const { state } = useAppContext();
   const userName = state.userProfile?.name;
+  const formattedUserName = userName ? userName.charAt(0).toUpperCase() + userName.slice(1) : "";
+
   const userImage = state.userProfile?.avatar.url;
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,9 +25,11 @@ const LoggedUserComponent = () => {
         onClick={isCurrentPath ? undefined : handleNavigate}
       >
         <button className='user-component-name fs-5'>
-          Nice to see you <span className='fw-semibold'>{userName}</span>!
+          View your profile, <span className='fw-semibold'>{formattedUserName}</span>
         </button>
-        <Image className='logged-user-avatar' src={userImage} />
+        <div className='logged-user-avatar-wrapper'>
+          <Image className='logged-user-avatar' src={userImage} />
+        </div>
       </div>
     </Container>
   );

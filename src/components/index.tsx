@@ -35,6 +35,9 @@ import {
   CustomLoginRequiredModal,
   CustomGuestCounterModal,
   CustomDetailedBookingModal,
+  CustomLogOutModal,
+  CustomRemoveVenueModal,
+  CustomRemoveBookingModal,
 } from "./Modals";
 
 import {
@@ -53,7 +56,7 @@ import {
   RenderRegisterNewVenue,
   RenderUpdateVenueData,
   RenderVenueManagerAdminPanel,
-} from "./RenderLoggedVenueManager"; // Manager RenderPages
+} from "./RenderLoggedVenueManager";
 import { CustomInput } from "./FormComponents";
 import {
   CustomButton,
@@ -123,6 +126,8 @@ export {
   LoggedUserComponent,
   DisplaySelectedDates,
   CustomDetailedBookingModal,
+  CustomLogOutModal,
+  CustomRemoveBookingModal,
 
   /* Manager */
   RenderMyVenues,
@@ -136,6 +141,7 @@ export {
   RenderRegisterNewVenue,
   RenderUpdateVenueData,
   RenderVenueManagerAdminPanel,
+  CustomRemoveVenueModal,
 
   /* Errors */
   ErrorMessageAuth,

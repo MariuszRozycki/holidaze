@@ -41,7 +41,7 @@ export type Action =
   /* CHOSEN_TOTAL_GUESTS_NUMBER */
   | { type: "CHOSEN_TOTAL_GUESTS_NUMBER"; payload: number }
   /* CREATE_NEW_BOOKING */
-  | { type: "CREATE_NEW_BOOKING_START" } // CREATE_NEW_BOOKING
+  | { type: "CREATE_NEW_BOOKING_START" }
   | { type: "CREATE_NEW_BOOKING_SUCCESS"; payload: BookingResponse }
   | { type: "CREATE_NEW_BOOKING_ERROR"; payload: string }
   /* FETCH_BOOKING_BY_ID */

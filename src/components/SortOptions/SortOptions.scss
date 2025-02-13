@@ -10,15 +10,17 @@
 
 span.sort-input-label,
 span.order-input-label {
-  width: 20%;
+  width: 27%;
   border: 2px solid variables.$main-color;
   border-radius: variables.$border-radius-main;
+  overflow: hidden;
 }
 
 div.my-react-select__control {
   border: 2px solid variables.$main-color;
   border-top-right-radius: variables.$border-radius-main;
   border-bottom-right-radius: variables.$border-radius-main;
+  flex-grow: 1;
 }
 
 .css-b62m3t-container {
@@ -26,12 +28,8 @@ div.my-react-select__control {
 }
 
 @media (min-width: breakpoints.get(md)) {
-  .input-group-text {
-    width: 25%;
-  }
-
-  .css-b62m3t-container {
-    flex-grow: 0;
-    width: 60%;
+  .sort-options {
+    display: flex;
+    justify-content: center;
   }
 }

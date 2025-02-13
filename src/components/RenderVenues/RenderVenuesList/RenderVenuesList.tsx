@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { HeadingH1, CustomCard, Pagination, SortOptions, SearchBar, GoToMainPageButton } from "../..";
+import { HeadingH1, CustomCard, Pagination, SortOptions, SearchBar, GoBackButton } from "../..";
 import { useFetchData } from "../../../hooks";
 import { useAppContext } from "../../../context/app/useAppContext";
 
@@ -42,7 +42,7 @@ const RenderVenueList = ({ title, searchQuery = "", showGoMainPage = false }: Re
   return (
     <Container>
       <HeadingH1>{title}</HeadingH1>
-      {showGoMainPage && <GoToMainPageButton />}
+      {showGoMainPage && <GoBackButton />}
       <SearchBar />
       {!searchQuery && <SortOptions />}
       <Row className='g-4'>

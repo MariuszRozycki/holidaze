@@ -33,7 +33,7 @@ const SearchBar: React.FC = () => {
           value={inputValue}
           onChange={handleInputChange}
           placeholder='Search for venues...'
-          className='me-2 search-input input'
+          className='search-input input'
         />
         <SearchButton btnText='Search' type='submit' className='search-button' />
       </InputGroup>

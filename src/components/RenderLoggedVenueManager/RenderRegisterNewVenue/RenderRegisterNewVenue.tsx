@@ -14,6 +14,7 @@ import {
   VenueDescriptionField,
   PricePerNightField,
   MaximumGuestsField,
+  GoBackButton,
 } from "../../../components";
 import { useCreateNewVenue } from "../../../hooks";
 import "../RenderRegister&UpdateVenue.scss";
@@ -118,6 +119,7 @@ const RenderRegisterNewVenue = () => {
   return (
     <Container>
       <div className='page-element-wrapper'>
+        <GoBackButton />
         <HeadingH1>Register New Venue</HeadingH1>
         {error && <Alert variant='danger'>{error}</Alert>}
 

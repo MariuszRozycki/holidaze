@@ -60,6 +60,17 @@ const BookVenueButton = () => {
       toast.error("Venue is not chosen!");
       return;
     }
+    if (state.selectedVenue?.bookings) {
+      for (const b of state.selectedVenue.bookings) {
+        const bStart = new Date(b.dateFrom);
+        const bEnd = new Date(b.dateTo);
+
+        if (state.selectedDates.startDate <= bEnd && state.selectedDates.endDate >= bStart) {
+          toast.error("This date range is already booked!");
+          return;
+        }
+      }
+    }
 
     try {
       await createBooking({
@@ -90,7 +101,12 @@ const BookVenueButton = () => {
       }
     } catch (error) {
       console.error("Booking error:", error);
-      toast.error("An error occurred while making the booking. Please try again.");
+
+      if (error instanceof Error && error.message.includes("409")) {
+        toast.error("This date range is already booked.");
+      } else {
+        toast.error("An error occurred while making the booking. Please try again.");
+      }
     }
   };
 

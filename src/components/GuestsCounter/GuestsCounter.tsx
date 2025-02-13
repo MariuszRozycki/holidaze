@@ -99,8 +99,8 @@ const GuestsCounter = ({ className, onHide }: GuestCounterProps) => {
         </p>
       </div>
       <div className='guest-counter-btn-wrapper'>
-        <CustomButton className='guest-counter-btn-confirm' btnText='Confirm' onClick={handleGuestCounterBtnConfirm} />
-        <CustomButton className='guest-counter-btn-cancel' btnText='Cancel' onClick={onHide} />
+        <CustomButton className='guest-counter-btn-confirm fs-5' btnText='Confirm' onClick={handleGuestCounterBtnConfirm} />
+        <CustomButton className='guest-counter-btn-cancel fs-5' btnText='Cancel' onClick={onHide} />
       </div>
     </fieldset>
   );

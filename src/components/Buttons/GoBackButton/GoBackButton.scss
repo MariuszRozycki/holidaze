@@ -8,4 +8,5 @@ button.go-back-button {
   @include button;
   margin-bottom: spacers.spacer(4);
   align-self: flex-start;
+  padding: 2px 12px;
 }

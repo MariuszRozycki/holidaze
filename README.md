@@ -39,7 +39,7 @@ This project integrates with the Holidaze API for backend functionality, focusin
 
 ### Completed Technologies:
 
-- **Frontend**: React, React-Router-Dom, TypeScript, HTML, SCSS, CSS, SASS, Bootstrap and React-Bootstrap.
+- **Frontend**: React, React-Router-Dom, TypeScript, HTML, SCSS, CSS, SASS, Bootstrap 5.3 and React-Bootstrap.
 - **Backend API**: Integration with Holidaze API (Noroff).
 - **Hosting**: GitHub Pages.
 - **Testing**: Jest (for unit testing).
@@ -48,9 +48,6 @@ This project integrates with the Holidaze API for backend functionality, focusin
 
 ### To Be Completed:
 
-- Finalizing admin features (updating and deleting venues).
-- Enhancing calendar functionality for booking.
-- Improving responsiveness for mobile devices.
 - Adding additional unit tests with Jest.
 
 ## User Stories
@@ -100,7 +97,7 @@ This project integrates with the Holidaze API for backend functionality, focusin
    ```bash
    npm run build
    ```
-5. Deploy to GitHub Pages (if required):
+5. Deploy to GitHub Pages:
    ```bash
    npm run deploy
    ```
@@ -116,4 +113,4 @@ This project integrates with the Holidaze API for backend functionality, focusin
 
 ---
 
-Thank you for exploring the Holidaze project! Contributions and feedback are welcome.
+Thank you for exploring the Holidaze project!

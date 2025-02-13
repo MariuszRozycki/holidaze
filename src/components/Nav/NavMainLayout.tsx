@@ -40,7 +40,7 @@ const NavMainLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
               </button>
             </Offcanvas.Header>
             <Offcanvas.Body className='custom-offcanvas-body'>
-              <Nav className='justify-content-end flex-grow-1 pe-3 fs-5'>
+              <Nav className='justify-content-end flex-grow-1 fs-5'>
                 <Nav.Link as={NavLink} to='/holidaze/' end onClick={handleNavLinkClick}>
                   Home
                 </Nav.Link>

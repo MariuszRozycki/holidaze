@@ -15,12 +15,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 8px;
 
     .guest-counter-btn-confirm,
     .guest-counter-btn-cancel {
       @include button;
 
-      width: 100%;
+      width: 80%;
     }
   }
 
