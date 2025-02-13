@@ -7,7 +7,6 @@ export const useRemoveVenue = () => {
   const apiKey = state.apiKey;
 
   const removeVenue = async (venueId: string) => {
-    console.log("token:", token, "apiKey:", apiKey, "venueId:", venueId);
     if (!venueId || !token || !apiKey) {
       console.error("VenueID, token, or apiKey are not available.");
       return;
@@ -28,8 +27,6 @@ export const useRemoveVenue = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
-      console.log(`Venue with id ${venueId} removed successfully.`);
 
       dispatch({ type: "REMOVE_VENUE_SUCCESS", payload: venueId });
     } catch (error) {

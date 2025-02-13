@@ -126,17 +126,6 @@ const CustomUpdateProfileModal: React.FC<CustomUpdateProfileModalProps> = ({ ful
               />
             </Form.Group>
 
-            <Form.Group className='mb-3' controlId='bio'>
-              <Form.Label>Bio</Form.Label>
-              <Form.Control
-                as='textarea'
-                rows={3}
-                placeholder='Enter your bio'
-                value={bio}
-                onChange={(e) => setBio(e.target.value)}
-              />
-            </Form.Group>
-
             <div className='d-flex justify-content-end'>
               <Button variant='secondary' onClick={() => setShow(false)} disabled={isSubmitting}>
                 Close

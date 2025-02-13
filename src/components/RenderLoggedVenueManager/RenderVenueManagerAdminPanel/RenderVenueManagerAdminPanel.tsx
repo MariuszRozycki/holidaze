@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import { format } from "date-fns";
 import { HeadingH1, LinkButton } from "../../../components";
 import { useAppContext } from "../../../context/app/useAppContext";
+import { capitalizeFirstLetter } from "../../../utils";
 import { useFetchManagerVenues } from "../../../hooks/";
+import "./RenderVenueManagerAdminPanel.scss";
 
 const RenderVenueManagerAdminPanel = () => {
   const { state, dispatch } = useAppContext();
-  console.log(state);
 
   const { isLoading, error, venues, userProfile } = state;
   const managerName = userProfile?.name;
@@ -16,7 +19,7 @@ const RenderVenueManagerAdminPanel = () => {
 
   return (
     <Container>
-      <div className='page-element-wrapper'>
+      <div className='page-element-wrapper bg-secondary-subtle'>
         <HeadingH1>Venue Manager Admin Panel</HeadingH1>
         <div className='content-page-wrapper'>
           <LinkButton btnText='Register new venue' to='/holidaze/venue-manager/add-venue-page' />
@@ -25,41 +28,53 @@ const RenderVenueManagerAdminPanel = () => {
 
           <section className='mt-5'>
             {isLoading && <p>Loading venues...</p>}
-            {error && <p>Wystąpił błąd: {error}</p>}
+            {error && <p>Error occurred: {error}</p>}
 
             {!isLoading && venues && (
               <>
                 {venues.length === 0 ? (
-                  <p>You don't have any venues.</p>
+                  <Link to='/holidaze/venue-manager/add-venue-page' className='manager-no-venues-message'>
+                    You don't have any venues. Add venue.
+                  </Link>
                 ) : totalBookings === 0 ? (
-                  <p>No reservations have been made yet.</p>
+                  <p className='fw-semibold'>No reservations have been made yet.</p>
                 ) : (
                   <>
-                    <h2 className='h4 fw-semibold'>Reservations for all my venues:</h2>
+                    <h2 className='h4 fw-semibold mb-2'>Reservations for my venues</h2>
+                    <p className='fs-5 mb-4'>Number of objects: {venues.length}</p>
                     {venues.map((venue) => {
                       if (!venue.bookings || venue.bookings.length === 0) {
                         return null;
                       }
 
                       return (
-                        <div key={venue.id} style={{ marginBottom: "1rem" }}>
-                          <h3 className='h4'>{venue.name || "Venue has no name"}</h3>
-                          {venue.bookings.map((booking) => (
-                            <div key={booking.id} className='border rounded-2 mb-3 p-2'>
-                              <p>
-                                <strong>Booking from:</strong> {booking.dateFrom}
-                              </p>
-                              <p>
-                                <strong>Booking to:</strong> {booking.dateTo}
-                              </p>
-                              <p>
-                                <strong>Number of guests:</strong> {booking.guests}
-                              </p>
-                              <p>
-                                <strong>Client name:</strong> {booking.customer?.name} ({booking.customer?.email})
-                              </p>
-                            </div>
-                          ))}
+                        <div key={venue.id} className='mb-3'>
+                          <h3 className='h4'>
+                            Venue name: {venue.name ? capitalizeFirstLetter({ text: venue.name }) : "Venue has no name"}
+                          </h3>
+                          <p>Object has: {venue.bookings.length} reservation(s)</p>
+
+                          {venue.bookings.map((booking) => {
+                            const fromDate = format(new Date(booking.dateFrom), "dd MMMM yyyy");
+                            const toDate = format(new Date(booking.dateTo), "dd MMMM yyyy");
+
+                            return (
+                              <div key={booking.id} className='mb-3 p-2 w-100'>
+                                <p>
+                                  <strong>Booking from:</strong> {fromDate}
+                                </p>
+                                <p>
+                                  <strong>Booking to:</strong> {toDate}
+                                </p>
+                                <p>
+                                  <strong>Number of guests:</strong> {booking.guests}
+                                </p>
+                                <p>
+                                  <strong>Client name:</strong> {booking.customer?.name} ({booking.customer?.email})
+                                </p>
+                              </div>
+                            );
+                          })}
                         </div>
                       );
                     })}

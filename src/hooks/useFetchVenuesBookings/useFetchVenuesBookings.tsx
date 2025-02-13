@@ -9,7 +9,6 @@ export const useFetchVenuesBookings = (venueId: string) => {
   const apiKey = state.apiKey;
 
   useEffect(() => {
-    console.log("useFetchVenuesBookings:", { venueId, token, apiKey });
     if (!venueId || !token || !apiKey) return;
 
     const fetchBookings = async () => {
@@ -27,8 +26,7 @@ export const useFetchVenuesBookings = (venueId: string) => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const result = await response.json();
-        console.log("Bookings for venue", venueId, result);
+        await response.json();
       } catch (error) {
         console.error("Error fetching bookings for venue", venueId, error);
       }

@@ -3,8 +3,7 @@ import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { useLoginUser, useCreateApiKey } from "../../../hooks";
-import { GoBackButton, HeadingH1, CustomInput, LogInButton } from "../../index";
-import { ErrorMessageAuth } from "../../../utils";
+import { GoBackButton, HeadingH1, CustomInput, LogInButton, ErrorMessageAuth } from "../../index";
 
 const RenderLogInAsManager = () => {
   const { loginUser: loginUserAsVenueManager, isSuccess } = useLoginUser();
@@ -84,7 +83,7 @@ const RenderLogInAsManager = () => {
     if (isSuccess) {
       const userName = state.userData?.name ?? "";
       if (userName) {
-        navigate(`/holidaze/venue-manager/my-venues-page`);
+        navigate(`/holidaze/venue-manager/venue-manager-admin-panel`);
       }
     }
   }, [isSuccess, state.userData, navigate]);

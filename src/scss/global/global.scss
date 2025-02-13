@@ -78,6 +78,11 @@ div.content-page-wrapper {
   align-items: center;
 }
 
+.error-message-wrapper {
+  width: 400px;
+  margin: auto;
+}
+
 .error {
   color: variables.$error-color;
 }
@@ -90,5 +95,5 @@ div.content-page-wrapper {
   background-color: variables.$error-color-bg;
   padding: spacers.spacer(2) spacers.spacer(3);
   border: 1px solid variables.$error-color;
-  border-radius: variables.$border-radius-main;
+  border-radius: variables.$border-radius-normal;
 }

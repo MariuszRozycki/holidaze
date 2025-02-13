@@ -46,7 +46,6 @@ export const useFetchManagerVenues = (
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        console.log("result from useFetchManagerVenues: ", result);
 
         if (venueId) {
           dispatch({

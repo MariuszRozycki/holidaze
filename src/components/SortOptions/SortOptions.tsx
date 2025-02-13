@@ -60,14 +60,14 @@ const SortOptions: React.FC = () => {
   return (
     <div className='sort-options my-4'>
       <Row className='align-items-center'>
-        <Col md={6}>
+        <Col sm={12}>
           <InputGroup className='custom-select-wrapper'>
-            <InputGroup.Text className='sort-input-label'>Sort by</InputGroup.Text>
+            <InputGroup.Text className='sort-input-label'>Sort</InputGroup.Text>
             <Select value={currentSortOption} onChange={handleSortChange} options={sortOptions} classNamePrefix='my-react-select' />
           </InputGroup>
         </Col>
 
-        <Col md={6} className='mt-3 mt-md-0'>
+        <Col sm={12} className='mt-3'>
           <InputGroup className='custom-select-wrapper'>
             <InputGroup.Text className='order-input-label'>Order</InputGroup.Text>
             <Select
