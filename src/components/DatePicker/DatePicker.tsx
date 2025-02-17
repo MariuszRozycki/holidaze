@@ -5,7 +5,7 @@ import { useDisabledDates } from "../../hooks";
 import { enGB } from "date-fns/locale";
 import { DateRange, Range, RangeKeyDict } from "react-date-range";
 import { startOfDay, endOfDay, addDays } from "date-fns";
-import { DatePickerFunctionalButton } from "../../components";
+import { DatePickerFunctionalButton, CustomMinOneNightModal } from "../../components";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import "./DatePicker.scss";
@@ -19,7 +19,7 @@ const DatePicker = ({ onHide }: DatePickerProps) => {
   const { selectedVenue } = state;
   const direction = useDatePickerDirection();
   const disabledDates = useDisabledDates(selectedVenue);
-
+  const [showModal, setShowModal] = useState<boolean>(false);
   const [range, setRange] = useState<Range[]>([
     {
       startDate: new Date(),
@@ -37,8 +37,26 @@ const DatePicker = ({ onHide }: DatePickerProps) => {
     onHide();
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   const handleChooseClick = () => {
     const selection = range[0];
+
+    if (!selection.startDate || !selection.endDate) {
+      return;
+    }
+
+    const start = startOfDay(selection.startDate);
+    const end = endOfDay(selection.endDate);
+
+    const nights = (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24);
+
+    if (nights < 1) {
+      setShowModal(true);
+      return;
+    }
 
     dispatch({
       type: "SET_SELECTED_DATES",
@@ -69,6 +87,8 @@ const DatePicker = ({ onHide }: DatePickerProps) => {
         <DatePickerFunctionalButton btnText='Cancel' onClick={handleCancelClick} />
         <DatePickerFunctionalButton btnText='Choose' onClick={handleChooseClick} />
       </div>
+
+      {showModal && <CustomMinOneNightModal show={showModal} onHide={handleCloseModal} />}
     </>
   );
 };

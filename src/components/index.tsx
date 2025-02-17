@@ -38,6 +38,7 @@ import {
   CustomLogOutModal,
   CustomRemoveVenueModal,
   CustomRemoveBookingModal,
+  CustomMinOneNightModal,
 } from "./Modals";
 
 import {
@@ -118,6 +119,7 @@ export {
   CustomGuestCounterModal,
   SelectGuestsNumber,
   DisplayPriceCalc,
+  CustomMinOneNightModal,
 
   /* Logged User */
   RenderLoggedUserHome,
