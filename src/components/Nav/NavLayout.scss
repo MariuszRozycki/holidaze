@@ -50,17 +50,17 @@ a.nav-link {
 
 @media (min-width: breakpoints.get(md)) {
   nav .nav-custom-container {
-    flex-direction: column;
+    // flex-direction: column;
   }
 
   .custom-offcanvas-body .navbar-nav {
-    width: 100vw;
-    gap: spacer.spacer(3);
+    // width: 100vw;
+    // gap: spacer.spacer(3);
   }
 
   a.nav-link {
-    margin: spacer.spacer(2) auto;
-    transition: 0.2s;
+    // margin: spacer.spacer(2) auto;
+    // transition: 0.2s;
   }
 
   .navbar-nav a.nav-link:hover {
