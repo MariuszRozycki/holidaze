@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { format } from "date-fns";
 import { Container, Image } from "react-bootstrap";
-import { HeadingH1, CustomRemoveBookingModal } from "../../";
+import { HeadingH1, CustomUpdateProfileModal, CustomRemoveBookingModal } from "../../";
 import { useAppContext } from "../../../context/app/useAppContext";
 import { useFetchBookingsByName, useRemoveBooking } from "../../../hooks";
-import { CustomUpdateProfileModal } from "../../";
 import "./RenderLoggedUserProfile.scss";
 
 const RenderLoggedUserProfile = () => {
@@ -65,6 +64,7 @@ const RenderLoggedUserProfile = () => {
           <p className='fs-4 mb-3'>{userProfile.email}</p>
           <CustomUpdateProfileModal />
         </section>
+
         <section className='upcoming-bookings'>
           <h4 className='h4 fw-semibold mt-5 mb-3'>You have {userBookings.length} upcoming bookings: </h4>
           <ul className='upcoming-bookings'>

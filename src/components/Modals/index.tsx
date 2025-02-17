@@ -7,6 +7,7 @@ import CustomDetailedBookingModal from "./CustomDetailedBookingModal/CustomDetai
 import CustomLogOutModal from "./CustomLogOutModal/CustomLogOutModal";
 import CustomRemoveVenueModal from "./CustomRemoveVenueModal/CustomRemoveVenueModal";
 import CustomRemoveBookingModal from "./CustomRemoveBookingModal/CustomRemoveBookingModal";
+import CustomMinOneNightModal from "./CustomMinOneNightModal/CustomMinOneNightModal";
 
 export {
   CustomDatePickerModal,
@@ -18,4 +19,5 @@ export {
   CustomLogOutModal,
   CustomRemoveVenueModal,
   CustomRemoveBookingModal,
+  CustomMinOneNightModal,
 };

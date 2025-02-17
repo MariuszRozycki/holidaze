@@ -28,7 +28,7 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
 
   return (
     <>
-      <Navbar expand='md' ref={headerRef}>
+      <Navbar expand={false} ref={headerRef}>
         <Container className='nav-custom-container'>
           <Navbar.Brand
             className='d-flex justify-content-start align-items-center'
@@ -45,6 +45,7 @@ const NavUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
           <Navbar.Offcanvas
             show={show}
             onHide={handleClose}
+            scroll
             id='offcanvasNavbar-expand-md'
             aria-labelledby='offcanvasNavbarLabel-expand-md'
             placement='end'

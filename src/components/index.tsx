@@ -38,6 +38,7 @@ import {
   CustomLogOutModal,
   CustomRemoveVenueModal,
   CustomRemoveBookingModal,
+  CustomMinOneNightModal,
 } from "./Modals";
 
 import {
@@ -71,6 +72,7 @@ import {
   LinkButton,
   BookVenueButton,
 } from "./Buttons";
+import CustomerUpcomingBookings from "./CustomerUpcomingBookings/CustomerUpcomingBookings";
 import { ErrorMessageAuth } from "./ErrorMessages";
 
 export {
@@ -118,6 +120,7 @@ export {
   CustomGuestCounterModal,
   SelectGuestsNumber,
   DisplayPriceCalc,
+  CustomMinOneNightModal,
 
   /* Logged User */
   RenderLoggedUserHome,
@@ -128,6 +131,7 @@ export {
   CustomDetailedBookingModal,
   CustomLogOutModal,
   CustomRemoveBookingModal,
+  CustomerUpcomingBookings,
 
   /* Manager */
   RenderMyVenues,

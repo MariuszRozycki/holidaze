@@ -1,0 +1,19 @@
+@use "../../../scss/abstracts/variables";
+
+.min-one-night-modal {
+  .modal-content {
+    background-color: #f5f5f5;
+    border: 2px solid variables.$main-color;
+  }
+
+  .modal-header,
+  .modal-footer {
+    background-color: #eee;
+  }
+
+  .modal-body {
+    color: #333;
+    border-bottom: 1px solid variables.$main-color;
+    border-top: 1px solid variables.$main-color;
+  }
+}
