@@ -3,7 +3,7 @@ import NavUserLayout from "../Nav/NavUserLayout";
 
 const HeaderUserLayout = forwardRef<HTMLDivElement>((_, headerRef) => {
   return (
-    <header className='header position-sticky mb-3 top-0 z-3'>
+    <header className='header position-sticky mb-3 top-0'>
       <NavUserLayout ref={headerRef} />
     </header>
   );
