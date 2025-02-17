@@ -72,6 +72,7 @@ import {
   LinkButton,
   BookVenueButton,
 } from "./Buttons";
+import CustomerUpcomingBookings from "./CustomerUpcomingBookings/CustomerUpcomingBookings";
 import { ErrorMessageAuth } from "./ErrorMessages";
 
 export {
@@ -130,6 +131,7 @@ export {
   CustomDetailedBookingModal,
   CustomLogOutModal,
   CustomRemoveBookingModal,
+  CustomerUpcomingBookings,
 
   /* Manager */
   RenderMyVenues,

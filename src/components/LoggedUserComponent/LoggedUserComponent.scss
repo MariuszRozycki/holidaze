@@ -1,9 +1,10 @@
 @use "../../scss/abstracts/variables";
 
-.dropdown {
+.logged-user-component {
   display: flex;
-  justify-content: end;
   align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
 }
 
 .logged-user-avatar {
@@ -14,85 +15,32 @@
   cursor: pointer;
 }
 
-.dropdown-toggle {
-}
-
 .dropdown-toggle::after {
   margin-left: 0 !important;
   transform: translateX(-55px);
 }
 
-.dropdown-menu.show {
-  border: 1px solid variables.$main-color;
+.dropdown-menu {
+  display: block !important;
+  visibility: hidden;
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: variables.$transition-main;
 
-  .dropdown-divider {
-    height: 1px;
-    background-color: variables.$main-color;
+  &.show {
+    margin-top: 10px;
+    visibility: visible;
+    border: 1px solid variables.$main-color;
+    transform: translateY(10px);
+    opacity: 1;
+
+    .dropdown-divider {
+      height: 0.5px;
+      background-color: variables.$main-color;
+    }
   }
 }
 
 .inactive {
   display: none;
 }
-
-// @use "bootstrap" as *;
-// @use "../../scss/abstracts/variables";
-// @use "../../scss/abstracts/breakpoints";
-
-// .user-component-wrapper {
-//   display: flex;
-//   justify-content: flex-end;
-//   align-items: center;
-//   gap: 8px;
-//   box-sizing: border-box;
-//   padding: 5px 5px;
-//   margin: 15px 0 15px auto;
-//   background-color: variables.$main-color;
-//   border-radius: variables.$border-radius-normal;
-//   box-shadow: variables.$box-shadow-light;
-//   transition: variables.$transition-main;
-//   max-width: 400px;
-//   cursor: pointer;
-
-//   &:hover {
-//     box-shadow: variables.$box-shadow-null;
-//   }
-// }
-
-// .user-component-name {
-//   position: relative;
-//   border: none;
-//   background-color: transparent;
-//   margin: 0;
-//   transition: none;
-//   color: $light;
-//   width: auto;
-//   text-align: right;
-// }
-
-// .logged-user-avatar-wrapper {
-//   width: 50px;
-//   height: 50px;
-//   margin: 10px;
-// }
-
-// .logged-user-avatar {
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   border: 2px solid $dark;
-//   border-radius: variables.$border-radius-circle;
-// }
-
-// @media (min-width: breakpoints.get(sm)) {
-//   .user-component-wrapper {
-//     &:hover {
-//       box-shadow: variables.$box-shadow-null;
-//     }
-//   }
-// }
-
-// .user-component-wrapper.inactive {
-//   cursor: default;
-//   box-shadow: variables.$box-shadow-null;
-// }
