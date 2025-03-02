@@ -1,5 +1,8 @@
 # Holidaze - Accommodation Booking Application
 
+![image](https://github.com/user-attachments/assets/f4b5b924-ff30-492a-a4a3-d63572f81587)
+
+
 ## Overview
 
 Holidaze is a modern front-end application for an accommodation booking platform. The project is being developed using **HTML**, **SCSS**, **CSS**, **JavaScript**, **React**, and **TypeScript**. It leverages **GitHub Pages** for hosting and integrates a **Kanban board on GitHub Projects** for task management. The design prototype was created in **Adobe XD**.
@@ -110,6 +113,13 @@ This project integrates with the Holidaze API for backend functionality, focusin
 - **Testing**: Jest.
 - **Design Tool**: Adobe XD.
 - **Planning Tool**: GitHub Projects.
+
+### Contact
+Mariusz Rozycki:  
+Portfolio: [https://mariuszrozycki.github.io/portfolio2/](https://mariuszrozycki.github.io/portfolio2/)  
+Portfolio-contact: [https://mariuszrozycki.github.io/portfolio2/contact](https://mariuszrozycki.github.io/portfolio2/contact)  
+LinkedIn: [https://www.linkedin.com/in/mariusz-rozycki](https://www.linkedin.com/in/mariusz-rozycki)  
+E-mail: <mariusz.frontdev@gmail.com>
 
 ---
 
