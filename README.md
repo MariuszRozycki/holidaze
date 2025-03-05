@@ -10,29 +10,41 @@
 
 Holidaze is a modern front-end application for an accommodation booking platform. The project is being developed using **HTML**, **SCSS**, **CSS**, **JavaScript**, **React**, and **TypeScript**. It leverages **GitHub Pages** for hosting and integrates a **Kanban board on GitHub Projects** for task management. The design prototype was created in **Adobe XD**.
 
-The application consists of two main sections:
+The application consists of three main sections:
 
-1. **Customer-facing website**: Users can browse, search, and book venues for their holidays.
+1. **Not logged customer-facing website**: Users can browse, search, and book venues for their holidays.
 2. **Admin-facing dashboard**: Venue managers can register, manage venues, and oversee bookings.
+3. **Logged customer-facing website**: Venue managers can register, manage venues, and oversee bookings.
 
 This project integrates with the Holidaze API for backend functionality, focusing solely on the development of the front end.
 
 ## Features
 
-### Customer-Facing Features
+### Not logged customer-facing features
 
-- View a list of venues.
-- Search for venues by keyword.
-- View detailed information about a venue, including available dates via a calendar.
-- Register as a customer (requires `stud.noroff.no` email).
-- Create a booking at a venue (for registered customers).
-- View upcoming bookings.
+- A user may view a list of Venues.
+- A user may search for a specific Venue.
+- A user may view a specific Venue page by id.
+- A user may view a calendar with available dates for a Venue.
+- A user with a stud.noroff.no email may register as a customer.
+- A user with a stud.noroff.no email may register as a Venue manager.
+- A registered user may login.
 
-### Admin-Facing Features
+### Logged customer-facing features
 
-- Register as a venue manager (requires `stud.noroff.no` email).
-- Create, update, and delete venues as a venue manager.
-- View bookings for a managed venue.
+- A registered customer may create a booking at a Venue.
+- A registered customer may view their upcoming bookings.
+- A user with a stud.noroff.no email may register as a Venue manager.
+- A user may view a calendar with available dates for a Venue.
+- A registered user may update their avatar.
+- A registered user may logout.
+
+### Venue manager-facing features
+
+- A registered Venue manager may create a Venue.
+- A registered Venue manager may update a Venue they manage.
+- A registered Venue manager may delete a Venue they manage.
+- A registered Venue manager may delete a Venue they manage.
 
 ### Global Features
 
