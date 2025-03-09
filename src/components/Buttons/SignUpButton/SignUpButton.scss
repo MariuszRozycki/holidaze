@@ -1,9 +1,16 @@
-@use "bootstrap" as *;
-@use "../../../scss/abstracts/breakpoints";
-@use "../../../scss/abstracts/variables";
 @use "../CustomButton/CustomButton.scss" as *;
+@use "../../../scss/abstracts/variables" as variables;
 
 button.sign-up-button {
   @include button;
-  margin: auto;
+  justify-self: center;
+  color: variables.$max-light-color;
+  background-color: transparent;
+  border: 2px solid variables.$max-light-color;
+  border-radius: variables.$border-radius-main;
+
+  &:hover {
+    background-color: variables.$max-light-color;
+    color: variables.$max-dark-color;
+  }
 }

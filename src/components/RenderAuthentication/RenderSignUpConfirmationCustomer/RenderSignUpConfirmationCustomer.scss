@@ -1,14 +1,13 @@
-@use "../CustomButton/CustomButton.scss" as *;
+@use "../../Buttons/CustomButton/CustomButton.scss" as *;
 @use "../../../scss/abstracts/variables" as variables;
 
-button.my-custom-button.log-in-button {
+button.log-in-button {
   @include button;
-  justify-self: center;
-  color: variables.$max-light-color;
-  background-color: transparent;
+
+  max-width: 200px;
+  margin: auto;
   border: 2px solid variables.$max-light-color;
   border-radius: variables.$border-radius-main;
-  margin: auto;
 
   &:hover {
     background-color: variables.$max-light-color;

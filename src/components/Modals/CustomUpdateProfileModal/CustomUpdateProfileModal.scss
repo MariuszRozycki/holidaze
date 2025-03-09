@@ -1,5 +1,13 @@
 @use "../../Buttons/CustomButton/CustomButton.scss" as *;
+@use "../../../scss/abstracts/variables";
 
 .update-profile-button {
   @include button;
+
+  color: variables.$max-dark-color;
+
+  &:hover {
+    background-color: variables.$text-muted-custom;
+    color: variables.$max-light-color;
+  }
 }

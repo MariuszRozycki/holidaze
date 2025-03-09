@@ -15,7 +15,11 @@ export const useRegisterUser = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify({
+          ...userData,
+          name: userData.name.toLowerCase(),
+          email: userData.email.toLowerCase(),
+        }),
       });
 
       if (!response.ok) {

@@ -43,10 +43,15 @@
   text-decoration: line-through;
 }
 
-.go-back-button {
+button.my-custom-button.go-back-button {
   background-color: v.$main-color;
   color: $light;
   border: 1px solid $light;
+  &:hover {
+    background-color: v.$another-color;
+    color: $light;
+    border: 1px solid $light;
+  }
 }
 
 @media (min-width: breakpoints.get(md)) {

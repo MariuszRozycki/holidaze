@@ -14,7 +14,7 @@ body {
 }
 
 .page-element-wrapper {
-  color: $light;
+  color: variables.$max-light-color;
   max-width: 600px;
   padding: spacers.spacer(3);
   text-align: center;
@@ -25,6 +25,12 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: spacers.spacer(3) auto;
+
+  h1,
+  h2,
+  p {
+    color: variables.$max-light-color;
+  }
 }
 
 form.content-page-wrapper,
@@ -58,15 +64,15 @@ div.content-page-wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: map-get($font-sizes, 5);
+  font-size: map-get($font-sizes, 6);
   border: 2px solid $light;
   border-radius: variables.$border-radius-main;
   text-align: center;
   width: 100%;
   color: $light;
   background-color: variables.$main-color;
-  height: 50px;
-  padding: spacers.spacer(3) spacers.spacer(3);
+  height: 40px;
+  padding: spacers.spacer(1) spacers.spacer(3);
   margin: 0 auto;
   text-decoration: none;
   transition: variables.$transition-main;

@@ -60,7 +60,7 @@ const RenderLoggedUserProfile = () => {
         <Image className='user-banner' src={userProfile.banner.url} alt={userProfile.name} />
         <Image className='user-avatar' src={userProfile.avatar.url} alt={`Banner of ${userProfile.name}`} />
         <section className='user-profile-details'>
-          <h2 className='h4 fw-semibold'>{userProfile.name}</h2>
+          <h2 className='h4 fw-semibold'>{userProfile.name.charAt(0).toUpperCase() + userProfile.name.slice(1).toLowerCase()}</h2>
           <p className='fs-4 mb-3'>{userProfile.email}</p>
           <CustomUpdateProfileModal />
         </section>
