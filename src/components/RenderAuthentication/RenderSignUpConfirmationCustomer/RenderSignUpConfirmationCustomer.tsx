@@ -1,6 +1,7 @@
 import { LogInButton } from "../../index";
 import { useNavigateToElement } from "../../../hooks";
 import { HeadingH1 } from "../..";
+import "./RenderSignUpConfirmationCustomer.scss";
 
 const RenderSignUpConfirmationCustomer = () => {
   const locationPath = "/holidaze/login-as-page/login-as-customer-page";

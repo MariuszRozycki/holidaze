@@ -60,7 +60,7 @@ const RenderSignUpCustomer = () => {
     }
 
     try {
-      await registerUser(formData);
+      await registerUser({ ...formData, name: formData.name.toLowerCase(), email: formData.email.toLowerCase() });
 
       if (isSuccess) {
         handleNavigate();

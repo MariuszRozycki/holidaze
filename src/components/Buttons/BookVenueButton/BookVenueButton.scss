@@ -1,10 +1,19 @@
 @use "../CustomButton/CustomButton.scss" as *;
 @use "../../../scss/abstracts/breakpoints";
+@use "../../../scss/abstracts/variables";
 
 .book-venue-not-logged-button {
   @include button;
 
+  background-color: variables.$main-color;
+  border: none;
+  color: variables.$max-light-color;
+
   @media (min-width: breakpoints.get(sm)) {
     align-self: flex-end;
+
+    &:hover {
+      background-color: variables.$another-color;
+    }
   }
 }

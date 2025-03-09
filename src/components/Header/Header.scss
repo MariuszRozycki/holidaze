@@ -1,3 +1,6 @@
+@use "../../scss/abstracts/variables" as variables;
+
 .header {
   z-index: 1001;
+  box-shadow: variables.$box-shadow-light;
 }

@@ -7,17 +7,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 12px;
+  padding: 8px 25px;
   margin: 0;
   border-radius: variables.$border-radius-normal;
-  border: 1px solid $dark;
+  border: 2px solid transparent;
   border-color: $dark;
   transition: variables.$transition-main;
+  color: variables.$max-dark-color;
 
   @media (min-width: breakpoints.get(md)) {
     &:hover {
-      background-color: variables.$action-color-hover;
-      border: 1px solid $dark;
       box-shadow: variables.$box-shadow-null;
     }
   }

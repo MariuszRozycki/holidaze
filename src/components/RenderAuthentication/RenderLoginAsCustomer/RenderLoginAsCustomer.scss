@@ -1,0 +1,12 @@
+@use "../../Buttons/CustomButton/CustomButton.scss" as *;
+@use "../../../scss/abstracts/variables" as variables;
+
+button.go-back-button {
+  @include button;
+  border: none;
+  &:hover {
+    background-color: transparent;
+    border: none;
+    color: variables.$max-dark-color;
+  }
+}

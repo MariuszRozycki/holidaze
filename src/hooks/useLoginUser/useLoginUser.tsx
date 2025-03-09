@@ -19,7 +19,10 @@ export const useLoginUser = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(userData),
+        body: JSON.stringify({
+          ...userData,
+          email: userData.email.toLowerCase(),
+        }),
       });
 
       if (!response.ok) {

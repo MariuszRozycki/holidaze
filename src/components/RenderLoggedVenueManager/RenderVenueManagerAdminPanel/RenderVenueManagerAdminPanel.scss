@@ -2,16 +2,31 @@
 @use "../../../scss/abstracts/variables";
 
 div.page-element-wrapper {
-  color: $dark;
+  div,
+  p,
+  ul,
+  li,
+  h1,
+  h2 {
+    color: variables.$max-light-color;
+  }
 
   .content-page-wrapper a {
     color: $dark;
     background-color: variables.$action-color;
     max-width: 300px;
+    border: 2px solid variables.$max-dark-color;
+    box-shadow: variables.$box-shadow-light;
+
+    &:hover {
+      box-shadow: variables.$box-shadow-null;
+    }
   }
 }
 
 .manager-no-venues-message {
+  display: flex;
+  margin: auto;
   border-radius: variables.$border-radius-normal;
   background-color: variables.$action-color;
   color: black;

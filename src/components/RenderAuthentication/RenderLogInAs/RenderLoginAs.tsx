@@ -1,5 +1,4 @@
 import { HeadingH1, HeadingH2, LinkButton } from "../../";
-import "./RenderLoginAs.scss";
 
 const RenderLoginAs = () => {
   return (

@@ -19,7 +19,7 @@ const RenderVenueManagerAdminPanel = () => {
 
   return (
     <Container>
-      <div className='page-element-wrapper bg-secondary-subtle'>
+      <div className='page-element-wrapper'>
         <HeadingH1>Venue Manager Admin Panel</HeadingH1>
         <div className='content-page-wrapper'>
           <LinkButton btnText='Register new venue' to='/holidaze/venue-manager/add-venue-page' />
